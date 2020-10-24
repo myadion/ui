@@ -154,4 +154,9 @@ button[wng-class="btn btn-gray"] {
   font-size: 1.125rem;
 }
 
+body {
+  padding: 25%;
+  background-color: #333333;
+}
+
 /*# sourceMappingURL=main.css.map */
