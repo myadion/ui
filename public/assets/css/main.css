@@ -106,7 +106,7 @@ table {
   font-family: "source-sans-pro";
   src: url(../fonts/source-sans-pro.ttf) format("opentype");
 }
-.btn, button[wng-class="btn btn-white"], button[wng-class="btn btn-gray"], button[wng-class="btn btn-dark"], button[wng-class="btn btn-purple"], button[wng-class="btn btn-orange"], button[wng-class="btn btn-green"], button[wng-class="btn btn-red"], button[wng-class="btn btn-blue"] {
+.btn, button.btn-white, button.btn-gray, button.btn-dark, button.btn-purple, button.btn-orange, button.btn-green, button.btn-red, button.btn-blue {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "source-sans-pro";
@@ -133,142 +133,154 @@ table {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button[wng-class="btn btn-blue"] {
+button.btn-blue {
   color: white;
   border: 0.125rem solid #3c3cff;
   background-color: #3c3cff;
 }
-button[wng-class="btn btn-blue"]:hover, button[wng-class="btn btn-blue"]:focus {
+button.btn-blue:hover, button.btn-blue:focus {
   background-color: #1818ff;
 }
-button[wng-class="btn btn-blue"]:active {
+button.btn-blue:active {
   color: #3c3cff;
   background-color: white;
 }
 
-button[wng-class="btn btn-red"] {
+button.btn-red {
   color: white;
   border: 0.125rem solid #e02222;
   background-color: #e02222;
 }
-button[wng-class="btn btn-red"]:hover, button[wng-class="btn btn-red"]:focus {
+button.btn-red:hover, button.btn-red:focus {
   background-color: #c31b1b;
 }
-button[wng-class="btn btn-red"]:active {
+button.btn-red:active {
   color: #e02222;
   background-color: white;
 }
 
-button[wng-class="btn btn-green"] {
+button.btn-green {
   color: white;
   border: 0.125rem solid #4ee58b;
   background-color: #4ee58b;
 }
-button[wng-class="btn btn-green"]:hover, button[wng-class="btn btn-green"]:focus {
+button.btn-green:hover, button.btn-green:focus {
   background-color: #2fe077;
 }
-button[wng-class="btn btn-green"]:active {
+button.btn-green:active {
   color: #4ee58b;
   background-color: white;
 }
 
-button[wng-class="btn btn-orange"] {
+button.btn-orange {
   color: white;
   border: 0.125rem solid #ff8017;
   background-color: #ff8017;
 }
-button[wng-class="btn btn-orange"]:hover, button[wng-class="btn btn-orange"]:focus {
+button.btn-orange:hover, button.btn-orange:focus {
   background-color: #f26e00;
 }
-button[wng-class="btn btn-orange"]:active {
+button.btn-orange:active {
   color: #ff8017;
   background-color: white;
 }
 
-button[wng-class="btn btn-purple"] {
+button.btn-purple {
   color: white;
   border: 0.125rem solid #af6ef4;
   background-color: #af6ef4;
 }
-button[wng-class="btn btn-purple"]:hover, button[wng-class="btn btn-purple"]:focus {
+button.btn-purple:hover, button.btn-purple:focus {
   background-color: #9d4df1;
 }
-button[wng-class="btn btn-purple"]:active {
+button.btn-purple:active {
   color: #af6ef4;
   background-color: white;
 }
 
-button[wng-class="btn btn-dark"] {
+button.btn-dark {
   color: white;
   border: 0.125rem solid #333333;
   background-color: #333333;
 }
-button[wng-class="btn btn-dark"]:hover, button[wng-class="btn btn-dark"]:focus {
+button.btn-dark:hover, button.btn-dark:focus {
   background-color: #212121;
 }
-button[wng-class="btn btn-dark"]:active {
+button.btn-dark:active {
   color: #333333;
   background-color: white;
 }
 
-button[wng-class="btn btn-gray"] {
+button.btn-gray {
   color: white;
   border: 0.125rem solid #3c3c3c;
   background-color: #3c3c3c;
 }
-button[wng-class="btn btn-gray"]:hover, button[wng-class="btn btn-gray"]:focus {
+button.btn-gray:hover, button.btn-gray:focus {
   background-color: #2a2a2a;
 }
-button[wng-class="btn btn-gray"]:active {
+button.btn-gray:active {
   color: #3c3c3c;
   background-color: white;
 }
 
-button[wng-class="btn btn-white"] {
+button.btn-white {
   color: #3c3c3c;
   border: 0.125rem solid #626262;
   background-color: white;
 }
-button[wng-class="btn btn-white"]:hover, button[wng-class="btn btn-white"]:focus {
+button.btn-white:hover, button.btn-white:focus {
   background-color: #ededed;
 }
-button[wng-class="btn btn-white"]:active {
+button.btn-white:active {
   color: #3c3c3c;
   background-color: white;
 }
 
-.title, h1, h2, h3, h4, h5, h6[wng-class="title title-promotion"] {
+.title, h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6[wng-class="title title-promotion"] {
+h1, h2, h3, h4, h5, h6 {
   color: #3c3cff;
 }
 
-span[wng-class=title-promotion] {
+span.title-promotion {
   font-family: "quality-bold";
 }
 
-.card {
+div .card {
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
   break-inside: avoid;
   padding: 1.5rem;
   width: 50rem;
   border-radius: 0.6rem;
-  border: 1px solid #BEF1FF;
+  border: 1px solid #bcbcff;
 }
 
-div .card, .card-highlight {
+div.card-highlight {
   background-color: #efefff;
   border-bottom: 0.6rem solid #3c3cff;
   -webkit-box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
   box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
 }
 
-img[wng-class=card-illustration-left] {
+img.card-illustration-left {
   max-width: 40%;
   max-height: 40%;
+}
+
+div.video {
+  float: left;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 19px 19px #aaaaaa;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  background: #3c3cff;
+  border: 1px solid #bcbcff;
+  border-bottom: 0.4rem solid #3c3cff;
 }
 
 body {

@@ -27,7 +27,7 @@
 
 // Manage color of classical base button
 @each $key, $value in $colors
-  button[wng-class="btn btn-#{$key}"]
+  button.btn-#{$key}
     @if $key == "white"
       color: map-get($colors, "gray")
       border: 0.125rem solid lighten(map-get($colors, "gray"), 15%)
