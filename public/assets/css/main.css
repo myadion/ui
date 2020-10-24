@@ -113,13 +113,13 @@ table {
   font-weight: 200;
   font-style: normal;
   display: inline-block;
-  padding: 0.75rem 0.9375rem;
+  padding: 0.75rem 1.9375rem;
   position: relative;
   vertical-align: middle;
   text-align: center;
   outline: none;
   line-height: 1.25em;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   -webkit-box-shadow: none;
   box-shadow: none;
   cursor: pointer;
@@ -268,6 +268,17 @@ div.card-highlight {
   border-bottom: 0.6rem solid #3c3cff;
   -webkit-box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
   box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
+}
+
+div.card-highlight-reverse {
+  background-color: #3c3cff;
+  color: white;
+  height: 13rem;
+  width: 33rem;
+}
+
+img.card-highlight-reverse.card-illustration-left {
+  max-height: 22rem;
 }
 
 img.card-illustration-left {
