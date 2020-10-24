@@ -241,6 +241,10 @@ button.btn-white:active {
   font-size: 2rem;
 }
 
+h4 {
+  font-size: 1.3rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #3c3cff;
 }
@@ -255,12 +259,12 @@ div .card {
   break-inside: avoid;
   padding: 1.5rem;
   width: 50rem;
-  border-radius: 0.6rem;
-  border: 1px solid #bcbcff;
 }
 
 div.card-highlight {
   background-color: #efefff;
+  border-radius: 0.6rem;
+  border: 1px solid #bcbcff;
   border-bottom: 0.6rem solid #3c3cff;
   -webkit-box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
   box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
@@ -269,6 +273,24 @@ div.card-highlight {
 img.card-illustration-left {
   max-width: 40%;
   max-height: 40%;
+}
+
+div.card-feature {
+  height: 20rem;
+  width: 17rem;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 20px 35px -20px rgba(0, 0, 0, 0.2);
+}
+
+div.card-feature-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5rem;
+}
+
+img.card-feature-icon {
+  height: auto;
 }
 
 div.video {
