@@ -260,10 +260,15 @@ span[wng-class=title-promotion] {
 }
 
 div .card, .card-highlight {
-  background-color: #F5FEFF;
+  background-color: #efefff;
   border-bottom: 0.6rem solid #3c3cff;
   -webkit-box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
   box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
+}
+
+img[wng-class=card-illustration-left] {
+  max-width: 40%;
+  max-height: 40%;
 }
 
 body {
