@@ -1,19 +1,157 @@
-/* Error: Undefined variable.
- *    ,
- * 26 | @each $key, $value in $colors
- *    |                       ^^^^^^^
- *    '
- *   assets\sass\components\button.sass 26:23  @import
- *   assets\sass\components\_import.sass 1:9   @import
- *   assets\sass\main.sass 3:9                 root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 26 \2502  @each $key, $value in $colors\d\a    \2502                        ^^^^^^^\a    \2575 \a   assets\\sass\\components\\button.sass 26:23  @import\a   assets\\sass\\components\\_import.sass 1:9   @import\a   assets\\sass\\main.sass 3:9                 root stylesheet";
+/**
+ * BSD 3-Clause License
+ *
+ * Copyright (c) 2020, WHYNOGROUP
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *   list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *   this list of conditions and the following disclaimer in the documentation
+ *   and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * WHYNOGROUP - WNG - WNL - WNA - WNH - WNR - WNC
+ * 2020-10-24 - https://.whyno.group
+ * **/ 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.btn, button[wng-class="btn btn-gray"], button[wng-class="btn btn-dark"], button[wng-class="btn btn-purple"], button[wng-class="btn btn-orange"], button[wng-class="btn btn-green"], button[wng-class="btn btn-red"], button[wng-class="btn btn-blue"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.75rem 0.9375rem;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.25em;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.24s;
+  -o-transition-duration: 0.24s;
+  transition-duration: 0.24s;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button[wng-class="btn btn-blue"] {
+  color: white;
+  background-color: #3c3cff;
+  border: 0.125rem solid #3c3cff;
+  font-size: 1.125rem;
+}
+
+button[wng-class="btn btn-red"] {
+  color: white;
+  background-color: #e02222;
+  border: 0.125rem solid #e02222;
+  font-size: 1.125rem;
+}
+
+button[wng-class="btn btn-green"] {
+  color: white;
+  background-color: #4ee58b;
+  border: 0.125rem solid #4ee58b;
+  font-size: 1.125rem;
+}
+
+button[wng-class="btn btn-orange"] {
+  color: white;
+  background-color: #ff8017;
+  border: 0.125rem solid #ff8017;
+  font-size: 1.125rem;
+}
+
+button[wng-class="btn btn-purple"] {
+  color: white;
+  background-color: #af6ef4;
+  border: 0.125rem solid #af6ef4;
+  font-size: 1.125rem;
+}
+
+button[wng-class="btn btn-dark"] {
+  color: white;
+  background-color: #333333;
+  border: 0.125rem solid #333333;
+  font-size: 1.125rem;
+}
+
+button[wng-class="btn btn-gray"] {
+  color: white;
+  background-color: #3c3c3c;
+  border: 0.125rem solid #3c3c3c;
+  font-size: 1.125rem;
+}
+
+/*# sourceMappingURL=main.css.map */
