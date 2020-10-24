@@ -103,13 +103,13 @@ table {
   src: url(../fonts/sounds-good.ttf) format("opentype");
 }
 @font-face {
-  font-family: "source sans pro";
+  font-family: "source-sans-pro";
   src: url(../fonts/source-sans-pro.ttf) format("opentype");
 }
-.btn, button[wng-class="btn btn-gray"], button[wng-class="btn btn-dark"], button[wng-class="btn btn-purple"], button[wng-class="btn btn-orange"], button[wng-class="btn btn-green"], button[wng-class="btn btn-red"], button[wng-class="btn btn-blue"] {
+.btn, button[wng-class="btn btn-white"], button[wng-class="btn btn-gray"], button[wng-class="btn btn-dark"], button[wng-class="btn btn-purple"], button[wng-class="btn btn-orange"], button[wng-class="btn btn-green"], button[wng-class="btn btn-red"], button[wng-class="btn btn-blue"] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Source Sans Pro";
+  font-family: "source-sans-pro";
   font-weight: 200;
   font-style: normal;
   display: inline-block;
@@ -135,65 +135,118 @@ table {
 
 button[wng-class="btn btn-blue"] {
   color: white;
-  background-color: #3c3cff;
   border: 0.125rem solid #3c3cff;
+  background-color: #3c3cff;
 }
 button[wng-class="btn btn-blue"]:hover, button[wng-class="btn btn-blue"]:focus {
-  background-color: #2323ff;
+  background-color: #1818ff;
+}
+button[wng-class="btn btn-blue"]:active {
+  color: #3c3cff;
+  background-color: white;
 }
 
 button[wng-class="btn btn-red"] {
   color: white;
-  background-color: #e02222;
   border: 0.125rem solid #e02222;
+  background-color: #e02222;
 }
 button[wng-class="btn btn-red"]:hover, button[wng-class="btn btn-red"]:focus {
-  background-color: #cc1d1d;
+  background-color: #c31b1b;
+}
+button[wng-class="btn btn-red"]:active {
+  color: #e02222;
+  background-color: white;
 }
 
 button[wng-class="btn btn-green"] {
   color: white;
-  background-color: #4ee58b;
   border: 0.125rem solid #4ee58b;
+  background-color: #4ee58b;
 }
 button[wng-class="btn btn-green"]:hover, button[wng-class="btn btn-green"]:focus {
-  background-color: #38e27c;
+  background-color: #2fe077;
+}
+button[wng-class="btn btn-green"]:active {
+  color: #4ee58b;
+  background-color: white;
 }
 
 button[wng-class="btn btn-orange"] {
   color: white;
-  background-color: #ff8017;
   border: 0.125rem solid #ff8017;
+  background-color: #ff8017;
 }
 button[wng-class="btn btn-orange"]:hover, button[wng-class="btn btn-orange"]:focus {
-  background-color: #fd7200;
+  background-color: #f26e00;
+}
+button[wng-class="btn btn-orange"]:active {
+  color: #ff8017;
+  background-color: white;
 }
 
 button[wng-class="btn btn-purple"] {
   color: white;
-  background-color: #af6ef4;
   border: 0.125rem solid #af6ef4;
+  background-color: #af6ef4;
 }
 button[wng-class="btn btn-purple"]:hover, button[wng-class="btn btn-purple"]:focus {
-  background-color: #a256f2;
+  background-color: #9d4df1;
+}
+button[wng-class="btn btn-purple"]:active {
+  color: #af6ef4;
+  background-color: white;
 }
 
 button[wng-class="btn btn-dark"] {
   color: white;
-  background-color: #333333;
   border: 0.125rem solid #333333;
+  background-color: #333333;
 }
 button[wng-class="btn btn-dark"]:hover, button[wng-class="btn btn-dark"]:focus {
-  background-color: #262626;
+  background-color: #212121;
+}
+button[wng-class="btn btn-dark"]:active {
+  color: #333333;
+  background-color: white;
 }
 
 button[wng-class="btn btn-gray"] {
   color: white;
-  background-color: #3c3c3c;
   border: 0.125rem solid #3c3c3c;
+  background-color: #3c3c3c;
 }
 button[wng-class="btn btn-gray"]:hover, button[wng-class="btn btn-gray"]:focus {
-  background-color: #2f2f2f;
+  background-color: #2a2a2a;
+}
+button[wng-class="btn btn-gray"]:active {
+  color: #3c3c3c;
+  background-color: white;
+}
+
+button[wng-class="btn btn-white"] {
+  color: #3c3c3c;
+  border: 0.125rem solid #626262;
+  background-color: white;
+}
+button[wng-class="btn btn-white"]:hover, button[wng-class="btn btn-white"]:focus {
+  background-color: #ededed;
+}
+button[wng-class="btn btn-white"]:active {
+  color: #3c3c3c;
+  background-color: white;
+}
+
+.title, h1, h2, h3, h4, h5, h6[wng-class="title title-promotion"] {
+  font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6[wng-class="title title-promotion"] {
+  color: #3c3cff;
+}
+
+span[wng-class=title-promotion] {
+  font-family: "quality-bold";
 }
 
 .card {
@@ -201,18 +254,21 @@ button[wng-class="btn btn-gray"]:hover, button[wng-class="btn btn-gray"]:focus {
   -moz-column-break-inside: avoid;
   break-inside: avoid;
   padding: 1.5rem;
-  border-radius: 0.5rem;
+  width: 50rem;
+  border-radius: 0.6rem;
+  border: 1px solid #BEF1FF;
 }
 
 div .card, .card-highlight {
   background-color: #F5FEFF;
-  border: 1px solid #BEF1FF;
+  border-bottom: 0.6rem solid #3c3cff;
   -webkit-box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
   box-shadow: 0.4rem 0.4rem 1rem 0 rgba(0, 24, 94, 0.3);
 }
 
 body {
-  background-color: #333333;
+  background-color: white;
+  font-family: "Source Sans Pro";
 }
 
 .container {

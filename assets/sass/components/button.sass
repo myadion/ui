@@ -2,7 +2,7 @@
 .btn
   -webkit-box-sizing: border-box
   box-sizing: border-box
-  font-family: "Source Sans Pro"
+  font-family: "source-sans-pro"
   font-weight: 200
   font-style: normal
   display: inline-block
@@ -28,11 +28,23 @@
 // Manage color of classical base button
 @each $key, $value in $colors
   button[wng-class="btn btn-#{$key}"]
-    color: white
+    @if $key == "white"
+      color: map-get($colors, "gray")
+      border: 0.125rem solid lighten(map-get($colors, "gray"), 15%)
+    @else
+      color: map-get($colors, "white")
+      border: 0.125rem solid $value
+
     background-color: $value
-    border: 0.125rem solid $value
 
     &:hover, &:focus
-      background-color: darken($value, 5%)
+      background-color: darken($value, 7%)
+
+    &:active
+      @if $key == "white"
+        color: map-get($colors, "gray")
+      @else
+        color: $value
+      background-color: lighten(map-get($colors, "white"), 15%)
 
     @extend .btn
