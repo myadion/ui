@@ -6,15 +6,21 @@
 
 @import variables/color_var
 @import variables/screen_size
+@import variables/core_size
 
 @import components/button
 
 
 body
-  padding: 25%
   background-color: map-get($colors, "dark")
 
 
+.container
+    box-sizing: border-box
+    width: 100%
+
+    padding-left: 50% - $container-width / 2
+    padding-right: 50% - $container-width / 2
 // .container
 //   @include lg
 //
