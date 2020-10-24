@@ -9,3 +9,4 @@ package-lock.json
 package.json
 webpack.mix.js
 .gitignore
+.ftpignore
