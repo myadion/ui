@@ -1,8 +1,19 @@
-/**
- * *
- * */
-h1 {
-  color: #3c3cff;
-}
+/* Error: Undefined variable.
+ *    ,
+ * 26 | @each $key, $value in $colors
+ *    |                       ^^^^^^^
+ *    '
+ *   assets\sass\components\button.sass 26:23  @import
+ *   assets\sass\components\_import.sass 1:9   @import
+ *   assets\sass\main.sass 3:9                 root stylesheet */
 
-/*# sourceMappingURL=main.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 26 \2502  @each $key, $value in $colors\d\a    \2502                        ^^^^^^^\a    \2575 \a   assets\\sass\\components\\button.sass 26:23  @import\a   assets\\sass\\components\\_import.sass 1:9   @import\a   assets\\sass\\main.sass 3:9                 root stylesheet";
+}
