@@ -15,15 +15,101 @@
 
 @font-face {
     font-family: 'roboto';
-    src: url(../fonts/roboto.ttf) format('opentype');
+    src: url(../fonts/roboto.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'sounds-good';
-    src: url(../fonts/sounds-good.ttf) format('opentype');
+    src: url(../fonts/sounds-good.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'source-sans-pro';
-    src: url(../fonts/source-sans-pro.ttf) format('opentype');
+    src: url(../fonts/source-sans-pro.ttf) format('truetype');
+}
+
+
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-italic-thin.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-italic-semi-thin.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-light.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-semi-light.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-italic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-semi-bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-italic-semi-bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-italic-bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-black.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "segoe-ui";
+    src: url("../fonts/segoe-ui-italic-black.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
 }
