@@ -47,11 +47,34 @@ button{
         align-items: center;
     }
 
-    &.btn-switch{
+    &.btn-switch, &.btn-special{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+
+    &.btn-special{
+
+        i {
+            font-size: 15px;
+            width: 10%;
+        }
+        div{
+            align-items: center;
+            width: 90%;
+            display: flex;
+        }
+        .title{
+            width: 30%;
+            text-align: center;
+            font-weight: 700;
+        }
+        .description{
+            width: 70%;
+            font-size: 10px;
+            text-align: left;
+        }
     }
 }
 

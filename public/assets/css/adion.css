@@ -252,11 +252,30 @@ button.btn-rounded, label.btn-rounded.btn, a.btn-rounded.btn {
   border-radius: 5px;
   align-items: center;
 }
-button.btn-switch, label.btn-switch.btn, a.btn-switch.btn {
+button.btn-switch, label.btn-switch.btn, a.btn-switch.btn, button.btn-special, label.btn-special.btn, a.btn-special.btn {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+button.btn-special i, label.btn-special.btn i, a.btn-special.btn i {
+  font-size: 15px;
+  width: 10%;
+}
+button.btn-special div, label.btn-special.btn div, a.btn-special.btn div {
+  align-items: center;
+  width: 90%;
+  display: flex;
+}
+button.btn-special .title, label.btn-special.btn .title, a.btn-special.btn .title {
+  width: 30%;
+  text-align: center;
+  font-weight: 700;
+}
+button.btn-special .description, label.btn-special.btn .description, a.btn-special.btn .description {
+  width: 70%;
+  font-size: 10px;
+  text-align: left;
 }
 
 a.btn {
