@@ -1,35 +1,4 @@
-@font-face {
-    font-family: 'century-gothic';
-    src: url(../fonts/century-gothic.woff) format('opentype');
-}
-
-@font-face {
-    font-family: 'cocogoose';
-    src: url(../fonts/cocogoose.ttf) format('opentype');
-}
-
-@font-face {
-    font-family: 'quality-bold';
-    src: url(../fonts/quality-bold.ttf) format('opentype');
-}
-
-@font-face {
-    font-family: 'roboto';
-    src: url(../fonts/roboto.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'sounds-good';
-    src: url(../fonts/sounds-good.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'source-sans-pro';
-    src: url(../fonts/source-sans-pro.ttf) format('truetype');
-}
-
-
-
+// Primary Fonts
 @font-face {
     font-family: "segoe-ui";
     src: url("../fonts/segoe-ui-italic-thin.ttf") format("truetype");
@@ -112,4 +81,35 @@
     src: url("../fonts/segoe-ui-italic-black.ttf") format("truetype");
     font-weight: bold;
     font-style: italic;
+}
+
+// Optionnal Fonts
+@font-face {
+    font-family: 'century-gothic';
+    src: url(../fonts/century-gothic.woff) format('opentype');
+}
+
+@font-face {
+    font-family: 'cocogoose';
+    src: url(../fonts/cocogoose.ttf) format('opentype');
+}
+
+@font-face {
+    font-family: 'quality-bold';
+    src: url(../fonts/quality-bold.ttf) format('opentype');
+}
+
+@font-face {
+    font-family: 'roboto';
+    src: url(../fonts/roboto.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'sounds-good';
+    src: url(../fonts/sounds-good.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'source-sans-pro';
+    src: url(../fonts/source-sans-pro.ttf) format('truetype');
 }
