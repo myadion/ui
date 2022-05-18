@@ -46,7 +46,7 @@ ul {
   list-style: none;
 }
 
-button, input, select {
+button, label.btn, a.btn, input, select {
   margin: 0;
 }
 
@@ -185,7 +185,8 @@ select option {
   display: flex;
   align-items: center;
   text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
-  transition-duration: 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 select option:active, select option:focus, select option:checked {
   background-color: #585858;
@@ -205,6 +206,115 @@ select:focus-visible {
 select.auto option {
   width: unset;
   padding: 10px 15px;
+}
+
+button, label.btn, a.btn {
+  background-color: #343537;
+  width: 300px;
+  height: 35px;
+  font-size: 10px;
+  color: #eeeeee;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+button:hover, label.btn:hover, a.btn:hover {
+  cursor: pointer;
+  background-color: #404244;
+}
+button.auto, label.auto.btn, a.auto.btn {
+  width: 100%;
+}
+button.btn-big, label.btn-big.btn, a.btn-big.btn {
+  height: 50px;
+  font-size: 12px;
+}
+button.btn-light, label.btn-light.btn, a.btn-light.btn {
+  color: #343537;
+  background-color: #eeeeee;
+}
+button.btn-light:hover, label.btn-light.btn:hover, a.btn-light.btn:hover {
+  background-color: gainsboro;
+}
+button.b, label.b.btn, a.b.btn {
+  font-weight: 800;
+}
+button.btn-rounded, label.btn-rounded.btn, a.btn-rounded.btn {
+  height: auto;
+  width: 200px;
+  border-radius: 5px;
+  align-items: center;
+}
+button.btn-switch, label.btn-switch.btn, a.btn-switch.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+label.btn {
+  text-decoration: none;
+}
+
+.switch {
+  position: relative;
+  width: 50px;
+  height: 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch input:checked + .switch-slider {
+  background-color: #5ABA95;
+}
+.switch input:checked + .switch-slider:before {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
+  content: "\f058";
+}
+.switch input:focus + .switch-slider {
+  box-shadow: 0 0 1px #5ABA95;
+}
+.switch .switch-slider {
+  position: absolute;
+  height: 20px;
+  width: 50px;
+  border-radius: 34px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
+  background-color: #585858;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.switch .switch-slider:before {
+  position: absolute;
+  top: 0;
+  left: 1px;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 800;
+  font-size: 18px;
+  color: #eeeeee;
+  content: "\f057";
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 html {

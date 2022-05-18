@@ -11,7 +11,7 @@ select {
         display: flex;
         align-items: center;
         text-shadow: $text_shadow;
-        transition-duration: .3s;
+        @include transition(.3s);
 
         &:active, &:focus, &:checked{
             background-color: $gray;    

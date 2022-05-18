@@ -1,0 +1,66 @@
+button{
+    background-color: $dark;
+    width: 300px;
+    height: 35px;
+    font-size: 10px;
+    color: $white;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-around;
+    @include transition(.3s);
+
+    &:hover {
+        cursor: pointer;
+        background-color: lighten($color: $dark, $amount: 5);
+    }
+
+    &.auto{
+        width: 100%;
+    }
+
+    &.btn-big{
+        height: 50px;
+        font-size: 12px;
+    }
+
+    &.btn-light{
+        color: $dark;
+        background-color: $white;
+        &:hover{
+            background-color: darken($color: $white, $amount: 7);
+        }
+    }
+
+    &.b{
+        font-weight: 800;
+    }
+    
+    &.btn-rounded{
+        height: auto;
+        width: 200px;
+        border-radius: 5px;
+        align-items: center;
+    }
+
+    &.btn-switch{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+a.btn{
+    @extend button;
+    text-decoration:none;
+}
+
+label.btn{
+    @extend button;
+    text-decoration:none;
+}

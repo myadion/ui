@@ -1,0 +1,55 @@
+// Todo: Vérifier si le responsive fonctionne bien lors du changement de la largeur
+$switch-width: 50px;
+$switch-height: 20px;
+
+.switch {
+    position: relative;
+    width: $switch-width;
+    height: 20px;
+
+    input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .switch-slider{
+            background-color: $green;
+
+            &:before{
+                @include transform(translateX($switch-width - 20px));
+                content: "\f058";
+            }
+        }
+        
+        &:focus + .switch-slider{
+            box-shadow: 0 0 1px $green;
+        }
+    }
+  
+    .switch-slider {
+        position: absolute;
+        height: $switch-height;
+        width: $switch-width;
+        border-radius: 34px;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1px;
+        background-color: $gray;
+        @include transition(.4s);
+
+        &:before{
+            position: absolute;
+            top: 0;
+            left: 1px;
+            font-family: "Font Awesome 5 Pro"; 
+            font-weight: 800;
+            font-size: $switch-height - 2px;
+            color: $white;
+            content: "\f057";
+            @include transition(.4s);
+        }
+    }
+}  
