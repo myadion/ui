@@ -5,8 +5,13 @@
 @import "adion/reset";
 @import "adion/fonts";
 
+// Components
+@import "adion/select";
 
-body, html{
+html {
+    padding: 1vh 1vw;
     font-family: $default_font;
     font-weight: $default_font_weight;
+    background-color: $default_background_color;
+    color: $default_text_color;
 }
