@@ -1,0 +1,10 @@
+@mixin transform($transform){
+    -webkit-transform: $transform;
+    -ms-transform: $transform;
+    transform: $transform;
+}
+
+@mixin transition($time){
+    -webkit-transition: $time;
+    transition: $time;
+}
