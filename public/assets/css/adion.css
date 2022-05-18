@@ -79,73 +79,73 @@ td, th {
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-italic-thin.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 100;
   font-style: italic;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-italic-semi-thin.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 200;
   font-style: italic;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-light.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-semi-light.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-italic.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 500;
   font-style: italic;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-semi-bold.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-italic-semi-bold.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 600;
   font-style: italic;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-bold.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-italic-bold.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-black.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "segoe-ui";
   src: url("../fonts/segoe-ui-italic-black.ttf") format("truetype");
-  font-weight: bold;
+  font-weight: 800;
   font-style: italic;
 }
 @font-face {
@@ -171,6 +171,10 @@ td, th {
 @font-face {
   font-family: "source-sans-pro";
   src: url(../fonts/source-sans-pro.ttf) format("truetype");
+}
+body, html {
+  font-family: segoe-ui;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=adion.css.map */
