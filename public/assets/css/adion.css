@@ -178,10 +178,9 @@ select {
   border: none;
 }
 select option {
-  padding: 5px 10px;
   width: 400px;
   height: 60px;
-  color: white;
+  color: #eeeeee;
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -203,13 +202,17 @@ select.text-center > option {
 select:focus-visible {
   outline: none;
 }
+select.auto option {
+  width: unset;
+  padding: 10px 15px;
+}
 
 html {
   padding: 1vh 1vw;
   font-family: segoe-ui;
   font-weight: 500;
   background-color: #292929;
-  color: #fff;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=adion.css.map */
