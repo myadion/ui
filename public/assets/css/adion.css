@@ -236,6 +236,10 @@ button.btn-big, label.btn-big.btn, a.btn-big.btn {
   height: 50px;
   font-size: 12px;
 }
+button.btn-large, label.btn-large.btn, a.btn-large.btn {
+  width: 325px;
+  font-size: 12px;
+}
 button.btn-white, label.btn-white.btn, a.btn-white.btn {
   color: #343537;
   background-color: #eeeeee;
@@ -307,7 +311,7 @@ button.btn-o-white, label.btn-o-white.btn, a.btn-o-white.btn {
   border: 1px solid #eeeeee;
 }
 button.b, label.b.btn, a.b.btn {
-  font-weight: 800;
+  font-weight: 700;
 }
 button.btn-rounded, label.btn-rounded.btn, a.btn-rounded.btn {
   height: auto;

@@ -28,6 +28,11 @@ button{
         font-size: 12px;
     }
 
+    &.btn-large{
+        width: 325px;
+        font-size: 12px;
+    }
+
     &.btn-white{
         color: $dark;
         background-color: $white;
@@ -74,7 +79,7 @@ button{
     }
 
     &.b{
-        font-weight: 800;
+        font-weight: 700;
     }
     
     &.btn-rounded{
