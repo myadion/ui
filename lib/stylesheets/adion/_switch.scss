@@ -1,11 +1,11 @@
 // Todo: Vérifier si le responsive fonctionne bien lors du changement de la largeur
-$switch-width: 50px;
-$switch-height: 20px;
+$switch-width: rem(50);
+$switch-height: rem(20);
 
 .switch {
     position: relative;
     width: $switch-width;
-    height: 20px;
+    height: rem(20);
 
     input { 
         opacity: 0;
@@ -16,13 +16,13 @@ $switch-height: 20px;
             background-color: $green;
 
             &:before{
-                @include transform(translateX($switch-width - 20px));
+                @include transform(translateX($switch-width - rem(20)));
                 content: "\f058";
             }
         }
         
         &:focus + .switch-slider{
-            box-shadow: 0 0 1px $green;
+            box-shadow: 0 0 rem(1) $green;
         }
     }
   
@@ -30,23 +30,23 @@ $switch-height: 20px;
         position: absolute;
         height: $switch-height;
         width: $switch-width;
-        border-radius: 34px;
+        border-radius: rem(34);
         cursor: pointer;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        padding: 1px;
+        padding: rem(1);
         background-color: $gray;
         @include transition(.4s);
 
         &:before{
             position: absolute;
             top: 0;
-            left: 1px;
+            left: rem(1);
             font-family: "Font Awesome 5 Pro"; 
             font-weight: 800;
-            font-size: $switch-height - 2px;
+            font-size: $switch-height - rem(2);
             color: $white;
             content: "\f057";
             @include transition(.4s);

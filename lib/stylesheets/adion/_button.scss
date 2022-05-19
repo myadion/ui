@@ -1,13 +1,13 @@
 button{
     background-color: $dark;
-    width: 325px;
-    height: 35px;
-    font-size: 10px;
+    width: rem(325);
+    height: rem(35);
+    font-size: rem(10);
     color: $white;
-    margin: 5px;
-    padding: 10px;
+    margin: rem(5);
+    padding: rem(10);
     border: none;
-    border-radius: 3px;
+    border-radius: rem(3);
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -25,12 +25,12 @@ button{
     }
 
     &.btn-big{
-        height: 50px;
-        font-size: 12px;
+        height: rem(50);
+        font-size: rem(12);
     }
 
     &.btn-small{
-        width: 200px;
+        width: rem(200);
     }
     
     @each $color_name, $color in $colors{
@@ -53,26 +53,26 @@ button{
 
     &.circle{
         height: auto;
-        border-radius: 5px;
+        border-radius: rem(5);
 
         &.icon{
-            height: 32px;
-            width: 32px;
-            font-size: 15px;
+            height: rem(32);
+            width: rem(32);
+            font-size: rem(15);
             align-items: center;
             border-radius: 100%;
             color: $gray;
 
             &.btn-small{
-                height: 25px;
-                font-size: 10px;
-                width: 25px;
+                height: rem(25);
+                font-size: rem(10);
+                width: rem(25);
             }
 
             &.btn-big{
-                font-size: 22px;
-                height: 40px;
-                width: 40px;
+                font-size: rem(22);
+                height: rem(40);
+                width: rem(40);
             }
         }
     }
@@ -87,7 +87,7 @@ button{
     &.btn-special{
 
         i {
-            font-size: 15px;
+            font-size: rem(15);
         }
         div{
             align-items: center;
@@ -101,7 +101,7 @@ button{
         }
         .description{
             width: 70%;
-            font-size: 10px;
+            font-size: rem(10);
             text-align: left;
         }
     }
