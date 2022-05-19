@@ -264,35 +264,47 @@ button.btn-red, label.btn-red.btn, a.btn-red.btn {
 button.btn-red:hover, label.btn-red.btn:hover, a.btn-red.btn:hover {
   background-color: #c54545;
 }
-button.btn-green, label.btn-green.btn, a.btn-green.btn {
-  border: 1px solid green;
+button.btn-c-green, label.btn-c-green.btn, a.btn-c-green.btn {
+  color: #5ABA95;
 }
-button.btn-blue, label.btn-blue.btn, a.btn-blue.btn {
-  border: 1px solid blue;
+button.btn-c-gray, label.btn-c-gray.btn, a.btn-c-gray.btn {
+  color: #585858;
 }
-button.btn-red, label.btn-red.btn, a.btn-red.btn {
-  border: 1px solid red;
+button.btn-c-blue, label.btn-c-blue.btn, a.btn-c-blue.btn {
+  color: #5278FF;
 }
-button.btn-dark, label.btn-dark.btn, a.btn-dark.btn {
-  border: 1px solid dark;
+button.btn-c-red, label.btn-c-red.btn, a.btn-c-red.btn {
+  color: #B73939;
 }
-button.btn-white, label.btn-white.btn, a.btn-white.btn {
-  border: 1px solid white;
+button.btn-c-red-alt, label.btn-c-red-alt.btn, a.btn-c-red-alt.btn {
+  color: #FF5252;
+}
+button.btn-c-dark, label.btn-c-dark.btn, a.btn-c-dark.btn {
+  color: #343537;
+}
+button.btn-c-white, label.btn-c-white.btn, a.btn-c-white.btn {
+  color: #eeeeee;
 }
 button.btn-o-green, label.btn-o-green.btn, a.btn-o-green.btn {
-  border: 1px solid green;
+  border: 1px solid #5ABA95;
+}
+button.btn-o-gray, label.btn-o-gray.btn, a.btn-o-gray.btn {
+  border: 1px solid #585858;
 }
 button.btn-o-blue, label.btn-o-blue.btn, a.btn-o-blue.btn {
-  border: 1px solid blue;
+  border: 1px solid #5278FF;
 }
 button.btn-o-red, label.btn-o-red.btn, a.btn-o-red.btn {
-  border: 1px solid red;
+  border: 1px solid #B73939;
+}
+button.btn-o-red-alt, label.btn-o-red-alt.btn, a.btn-o-red-alt.btn {
+  border: 1px solid #FF5252;
 }
 button.btn-o-dark, label.btn-o-dark.btn, a.btn-o-dark.btn {
-  border: 1px solid dark;
+  border: 1px solid #343537;
 }
 button.btn-o-white, label.btn-o-white.btn, a.btn-o-white.btn {
-  border: 1px solid white;
+  border: 1px solid #eeeeee;
 }
 button.b, label.b.btn, a.b.btn {
   font-weight: 800;
@@ -392,7 +404,7 @@ html {
   font-family: segoe-ui;
   font-weight: 500;
   background-color: #292929;
-  color: #ffffff;
+  color: #eeeeee;
 }
 
 /*# sourceMappingURL=adion.css.map */

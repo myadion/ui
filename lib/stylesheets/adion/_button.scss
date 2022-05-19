@@ -60,17 +60,16 @@ button{
         }
     }
 
-    $colors: green, blue, red, dark, white;
-
-    @each $color in $colors{
-        &.btn-#{$color} {
-            border: 1px solid $color;
+    @each $color_name, $color in $colors{
+        &.btn-c-#{$color_name} {
+            color: $color;
         }
-    }
-
-    @each $color in $colors{
-        &.btn-o-#{$color} {
+    } 
+    
+    @each $color_name, $color in $colors{
+        &.btn-o-#{$color_name} {
             border: 1px solid $color;
+            @debug $color_name + ":" + $color;
         }
     }
 
