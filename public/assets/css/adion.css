@@ -210,7 +210,7 @@ select.auto option {
 
 button, label.btn, a.btn {
   background-color: #343537;
-  width: 300px;
+  width: 325px;
   height: 35px;
   font-size: 10px;
   color: #eeeeee;
@@ -220,6 +220,7 @@ button, label.btn, a.btn {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
+  text-align: left;
   justify-content: center;
   align-content: space-around;
   -webkit-transition: 0.3s;
@@ -236,23 +237,8 @@ button.btn-big, label.btn-big.btn, a.btn-big.btn {
   height: 50px;
   font-size: 12px;
 }
-button.btn-large, label.btn-large.btn, a.btn-large.btn {
-  width: 325px;
-  font-size: 12px;
-}
-button.btn-white, label.btn-white.btn, a.btn-white.btn {
-  color: #343537;
-  background-color: #eeeeee;
-}
-button.btn-white:hover, label.btn-white.btn:hover, a.btn-white.btn:hover {
-  background-color: gainsboro;
-}
-button.btn-blue, label.btn-blue.btn, a.btn-blue.btn {
-  color: #eeeeee;
-  background-color: #5278FF;
-}
-button.btn-blue:hover, label.btn-blue.btn:hover, a.btn-blue.btn:hover {
-  background-color: #6c8cff;
+button.btn-small, label.btn-small.btn, a.btn-small.btn {
+  width: 200px;
 }
 button.btn-green, label.btn-green.btn, a.btn-green.btn {
   color: #eeeeee;
@@ -261,12 +247,47 @@ button.btn-green, label.btn-green.btn, a.btn-green.btn {
 button.btn-green:hover, label.btn-green.btn:hover, a.btn-green.btn:hover {
   background-color: #6cc2a1;
 }
+button.btn-gray, label.btn-gray.btn, a.btn-gray.btn {
+  color: #eeeeee;
+  background-color: #585858;
+}
+button.btn-gray:hover, label.btn-gray.btn:hover, a.btn-gray.btn:hover {
+  background-color: #656565;
+}
+button.btn-blue, label.btn-blue.btn, a.btn-blue.btn {
+  color: #eeeeee;
+  background-color: #5278FF;
+}
+button.btn-blue:hover, label.btn-blue.btn:hover, a.btn-blue.btn:hover {
+  background-color: #6c8cff;
+}
 button.btn-red, label.btn-red.btn, a.btn-red.btn {
   color: #eeeeee;
   background-color: #B73939;
 }
 button.btn-red:hover, label.btn-red.btn:hover, a.btn-red.btn:hover {
   background-color: #c54545;
+}
+button.btn-red-alt, label.btn-red-alt.btn, a.btn-red-alt.btn {
+  color: #eeeeee;
+  background-color: #FF5252;
+}
+button.btn-red-alt:hover, label.btn-red-alt.btn:hover, a.btn-red-alt.btn:hover {
+  background-color: #ff6c6c;
+}
+button.btn-dark, label.btn-dark.btn, a.btn-dark.btn {
+  color: #eeeeee;
+  background-color: #343537;
+}
+button.btn-dark:hover, label.btn-dark.btn:hover, a.btn-dark.btn:hover {
+  background-color: #404244;
+}
+button.btn-white, label.btn-white.btn, a.btn-white.btn {
+  color: #343537;
+  background-color: #eeeeee;
+}
+button.btn-white:hover, label.btn-white.btn:hover, a.btn-white.btn:hover {
+  background-color: #bbbbbb;
 }
 button.btn-c-green, label.btn-c-green.btn, a.btn-c-green.btn {
   color: #5ABA95;
@@ -313,11 +334,29 @@ button.btn-o-white, label.btn-o-white.btn, a.btn-o-white.btn {
 button.b, label.b.btn, a.b.btn {
   font-weight: 700;
 }
-button.btn-rounded, label.btn-rounded.btn, a.btn-rounded.btn {
-  height: auto;
-  width: 200px;
-  border-radius: 5px;
+button.c, label.c.btn, a.c.btn {
   align-items: center;
+}
+button.r, label.r.btn, a.r.btn {
+  height: auto;
+  border-radius: 5px;
+}
+button.r.icon, label.r.icon.btn, a.r.icon.btn {
+  height: 32px;
+  width: 32px;
+  font-size: 15px;
+  align-items: center;
+  border-radius: 100%;
+}
+button.r.icon.btn-small, label.r.icon.btn-small.btn, a.r.icon.btn-small.btn {
+  height: 25px;
+  font-size: 10px;
+  width: 25px;
+}
+button.r.icon.btn-big, label.r.icon.btn-big.btn, a.r.icon.btn-big.btn {
+  font-size: 22px;
+  height: 40px;
+  width: 40px;
 }
 button.btn-switch, label.btn-switch.btn, a.btn-switch.btn, button.btn-special, label.btn-special.btn, a.btn-special.btn {
   display: flex;
@@ -327,11 +366,10 @@ button.btn-switch, label.btn-switch.btn, a.btn-switch.btn, button.btn-special, l
 }
 button.btn-special i, label.btn-special.btn i, a.btn-special.btn i {
   font-size: 15px;
-  width: 10%;
 }
 button.btn-special div, label.btn-special.btn div, a.btn-special.btn div {
   align-items: center;
-  width: 90%;
+  width: 100%;
   display: flex;
 }
 button.btn-special .title, label.btn-special.btn .title, a.btn-special.btn .title {
