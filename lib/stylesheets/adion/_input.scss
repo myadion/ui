@@ -1,0 +1,72 @@
+input{
+    width: rem(325);
+    height: rem(40);
+    color: $white;
+    background-color: $dark;
+    border-radius: rem(5);
+    border: none;
+    box-sizing: border-box;
+    margin: rem(5);
+    padding-left:60px;
+    padding: rem(0) rem(10);
+    outline : none;
+    position: relative; 
+    
+    &:focus-visible{
+        outline: 1px solid $green;
+    }
+
+    &.auto{
+        width: auto;
+    }
+}
+
+div.form-group {
+    display: flex;
+    flex-direction: column;
+    padding: rem(10) rem(20);
+}
+
+div.input-group {
+    display: flex;
+    position:relative;
+    align-items: center;
+    
+    i {
+        @include transition(.4s);
+        position:absolute;
+        margin-left: rem(300);
+    }
+
+    input{
+        font-weight: 700;
+        padding-right: rem(40);
+    }
+
+    $input_state:(
+        'error': ('color': $red, 'icon': '\f057'),
+        'warning': ('color': $orange, 'icon': '\f06a'),
+        'ok': ('color': $green, 'icon': '\f058'),
+    );
+
+    @each $class_name, $data in $input_state {
+        [#{$class_name}] {                
+            outline: 1px solid map-get($map: $data, $key: "color" );
+            color: map-get($map: $data, $key: "color" );
+
+            &:focus-visible{
+                outline: 1px solid map-get($map: $data, $key: "color" );
+            }
+
+            &::placeholder{
+                color: map-get($map: $data, $key: "color" );
+            }
+
+            &+i:before{
+                content: map-get($map: $data, $key: "icon" );
+                color: map-get($map: $data, $key: "color" );
+            }        
+        }
+    }
+
+}
