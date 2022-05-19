@@ -1,0 +1,45 @@
+div.weather{
+    width: 350px;
+    height: 100px;
+    border: 1px dashed $gray;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .weather-icon{
+        font-size: 50px;
+        font-weight: 700;
+    }
+
+    @each $weather_type, $weather_data in $weathers{
+        
+        &.state-#{$weather_type} {
+            .weather-icon{
+                &:before{
+                    content: map-get($map: $weather_data, $key: "icon" );
+                    font-family: "Font Awesome 5 Pro";
+                    color: map-get($map: $weather_data, $key: "color" );
+                }
+            }
+        }
+    }
+    
+    .weather-info{
+        width: 100%;
+        padding: 0px 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        .title{
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .description{
+            font-size: 10px;
+        }
+    }
+}

@@ -37,3 +37,39 @@ $colors: (
     "orange": $orange,
     "white":$white
 );
+
+
+$weathers:(
+    'ok': (
+        'icon': '\f6c4',
+        'color': $dark,
+    ),
+    'temp': (
+        'icon': '\e040',
+        'color': $orange,
+    ),
+    'upgrade-planified': (
+        'icon': '\f777',
+        'color': $dark,
+    ),
+    'upgrade-pending': (
+        'icon': '\f72e',
+        'color': $blue,
+    ),
+    'upgrade-incident': (
+        'icon': '\f776',
+        'color': $red,
+    ),
+    'degraded': (
+        'icon': '\f76e',
+        'color': $green,
+    ),
+    'alert': (
+        'icon': '\f74b',
+        'color': $red_alt,
+    ),
+    'down': (
+        'icon': '\f76f',
+        'color': $red_alt,
+    ),
+);

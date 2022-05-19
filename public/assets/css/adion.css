@@ -524,6 +524,75 @@ div.collapse a.btn, div.collapse button, div.collapse label.btn {
   margin: 0;
 }
 
+div.weather {
+  width: 350px;
+  height: 100px;
+  border: 1px dashed #585858;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+div.weather .weather-icon {
+  font-size: 50px;
+  font-weight: 700;
+}
+div.weather.state-ok .weather-icon:before {
+  content: "\f6c4";
+  font-family: "Font Awesome 5 Pro";
+  color: #343537;
+}
+div.weather.state-temp .weather-icon:before {
+  content: "\e040";
+  font-family: "Font Awesome 5 Pro";
+  color: #FF9052;
+}
+div.weather.state-upgrade-planified .weather-icon:before {
+  content: "\f777";
+  font-family: "Font Awesome 5 Pro";
+  color: #343537;
+}
+div.weather.state-upgrade-pending .weather-icon:before {
+  content: "\f72e";
+  font-family: "Font Awesome 5 Pro";
+  color: #5278FF;
+}
+div.weather.state-upgrade-incident .weather-icon:before {
+  content: "\f776";
+  font-family: "Font Awesome 5 Pro";
+  color: #B73939;
+}
+div.weather.state-degraded .weather-icon:before {
+  content: "\f76e";
+  font-family: "Font Awesome 5 Pro";
+  color: #5ABA95;
+}
+div.weather.state-alert .weather-icon:before {
+  content: "\f74b";
+  font-family: "Font Awesome 5 Pro";
+  color: #FF5252;
+}
+div.weather.state-down .weather-icon:before {
+  content: "\f76f";
+  font-family: "Font Awesome 5 Pro";
+  color: #FF5252;
+}
+div.weather .weather-info {
+  width: 100%;
+  padding: 0px 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+div.weather .weather-info .title {
+  font-size: 13px;
+  font-weight: 900;
+}
+div.weather .weather-info .description {
+  font-size: 10px;
+}
+
 html {
   padding: 1vh 1vw;
   font-family: segoe-ui;
