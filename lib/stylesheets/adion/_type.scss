@@ -1,0 +1,24 @@
+.c{
+    text-align: center;
+}
+.l{
+    text-align: left;
+}
+.r{
+    text-align: right;
+}
+.b{
+    font-weight: 800;
+}
+
+@each $color_name, $color in $colors{
+    .c-#{$color_name} {
+        color: $color;
+    }
+} 
+
+@each $color_name, $color in $colors{
+    .o-#{$color_name} {
+        border: 1px solid $color;
+    }
+}

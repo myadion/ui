@@ -31,7 +31,7 @@
     <button class="btn-gray">Hello</button>
     <button>Hello</button>
     <button class="btn-white">Hello</button>
-    <button class="btn-o-red btn-c-red-alt b">Réinitaliser ma zone DNS</button>
+    <button class="o-red c-red-alt b">Réinitaliser ma zone DNS</button>
    
     <h1>Gros bouton:</h1>
    
@@ -40,15 +40,15 @@
     <button class="btn-big btn-white b i">Hello</button>
 
       <h1>Bouton rond:</h1>
-      <button class="r icon"><i class="fas fa-fingerprint"></i></button>
-      <button class="r icon btn-small"><i class="fas fa-fingerprint"></i></button>
-      <button class="r icon btn-big btn-c-blue btn-o-blue"><i class="fas fa-fingerprint"></i></button>
+      <button class="circle icon"><i class="fas fa-fingerprint"></i></button>
+      <button class="circle icon btn-small"><i class="fas fa-fingerprint"></i></button>
+      <button class="circle icon btn-big c-blue o-blue"><i class="fas fa-fingerprint"></i></button>
 
    
     <button class="btn-big r c">Hello</button>
     <button class="btn-big r">Hello</button>
-    <button class="btn-big btn-small btn-white r b i c">Hello with a beaucoup de texte</button>
-    <button class="btn-big btn-small btn-white r b i">Hello with a beaucoup de texte et encore beaucoup beaucoup de texte et encore plus de texte</button>
+    <button class="btn-big btn-small btn-white circle b c">Hello with a beaucoup de texte</button>
+    <button class="btn-big btn-small btn-white circle b">Hello with a beaucoup de texte et encore beaucoup beaucoup de texte et encore plus de texte</button>
   
 
     <h1>Switch</h1>
@@ -81,13 +81,15 @@
     </button>
 
     <h1>Big Bouton + Icons + Title</h1>
-    <button class="btn btn-big btn-special btn-o-green">
+    <button class="btn btn-big btn-special o-green">
       <i class="fas fa-fingerprint"></i>
       <div>
         <span class="title">Sécurité</span>
         <span class="description">Mettez à jours la sécurité de votre compte</span>
       </div>
-    </button>    <button class="btn btn-special btn-o-green">
+    </button>   
+    
+    <button class="btn btn-special o-green">
       <i class="fas fa-fingerprint"></i>
       <div>
         <span class="title">Sécurité</span>
@@ -95,6 +97,38 @@
       </div>
     </button>
 
+
+    <div class="collapse visible">
+      <a class="btn btn-special btn-orange auto" onclick="$('#collapseExample').toggle('slow')">
+        <i class="fas fa-fingerprint"></i>
+        <div>
+          <span class="title">Sécurité</span>
+          <span class="description">Mettez à jours la sécurité de votre compte</span>
+        </div>
+      </a>
+      <div class="card" id="collapseExample">
+        <div class="body">
+          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+    </div>
+
+    <div class="collapse">
+      <a class="btn btn-special auto" onclick="$('#collapseExampleUL').toggle('slow')">
+        <div>
+          <span class="title">Sécurité</span>
+          <span class="description">Mettez à jours la sécurité de votre compte</span>
+        </div>
+      </a>
+      <div class="card list visible" id="collapseExampleUL">
+        <ul class="col2 c">
+          <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
+          <li><span class="r b">Nom d'hote</span><span>mail.myadion.com</span></li>
+          <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
+          <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
+        </ul>
+      </div>
+    </div>
 
   </body>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

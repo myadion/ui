@@ -51,28 +51,7 @@ button{
         }
     } 
 
-    @each $color_name, $color in $colors{
-        &.btn-c-#{$color_name} {
-            color: $color;
-        }
-    } 
-    
-    @each $color_name, $color in $colors{
-        &.btn-o-#{$color_name} {
-            border: 1px solid $color;
-            @debug $color_name + ":" + $color;
-        }
-    }
-
-    &.b{
-        font-weight: 700;
-    }
-
-    &.c{
-        align-items: center;
-    }
-    
-    &.r{
+    &.circle{
         height: auto;
         border-radius: 5px;
 
@@ -82,6 +61,7 @@ button{
             font-size: 15px;
             align-items: center;
             border-radius: 100%;
+            color: $gray;
 
             &.btn-small{
                 height: 25px;
@@ -96,8 +76,6 @@ button{
             }
         }
     }
-
-
 
     &.btn-switch, &.btn-special{
         display: flex;
