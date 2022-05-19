@@ -28,11 +28,49 @@ button{
         font-size: 12px;
     }
 
-    &.btn-light{
+    &.btn-white{
         color: $dark;
         background-color: $white;
         &:hover{
             background-color: darken($color: $white, $amount: 7);
+        }
+    }
+
+    &.btn-blue{
+        color: $white;
+        background-color: $blue;
+        &:hover{
+            background-color: lighten($color: $blue, $amount: 5);
+        }
+    }
+
+    &.btn-green{
+        color: $white;
+        background-color: $green;
+        &:hover{
+            background-color: lighten($color: $green, $amount: 5);
+        }
+    }
+
+    &.btn-red{
+        color: $white;
+        background-color: $red;
+        &:hover{
+            background-color: lighten($color: $red, $amount: 5);
+        }
+    }
+
+    $colors: green, blue, red, dark, white;
+
+    @each $color in $colors{
+        &.btn-#{$color} {
+            border: 1px solid $color;
+        }
+    }
+
+    @each $color in $colors{
+        &.btn-o-#{$color} {
+            border: 1px solid $color;
         }
     }
 

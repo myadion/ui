@@ -236,12 +236,63 @@ button.btn-big, label.btn-big.btn, a.btn-big.btn {
   height: 50px;
   font-size: 12px;
 }
-button.btn-light, label.btn-light.btn, a.btn-light.btn {
+button.btn-white, label.btn-white.btn, a.btn-white.btn {
   color: #343537;
   background-color: #eeeeee;
 }
-button.btn-light:hover, label.btn-light.btn:hover, a.btn-light.btn:hover {
+button.btn-white:hover, label.btn-white.btn:hover, a.btn-white.btn:hover {
   background-color: gainsboro;
+}
+button.btn-blue, label.btn-blue.btn, a.btn-blue.btn {
+  color: #eeeeee;
+  background-color: #5278FF;
+}
+button.btn-blue:hover, label.btn-blue.btn:hover, a.btn-blue.btn:hover {
+  background-color: #6c8cff;
+}
+button.btn-green, label.btn-green.btn, a.btn-green.btn {
+  color: #eeeeee;
+  background-color: #5ABA95;
+}
+button.btn-green:hover, label.btn-green.btn:hover, a.btn-green.btn:hover {
+  background-color: #6cc2a1;
+}
+button.btn-red, label.btn-red.btn, a.btn-red.btn {
+  color: #eeeeee;
+  background-color: #B73939;
+}
+button.btn-red:hover, label.btn-red.btn:hover, a.btn-red.btn:hover {
+  background-color: #c54545;
+}
+button.btn-green, label.btn-green.btn, a.btn-green.btn {
+  border: 1px solid green;
+}
+button.btn-blue, label.btn-blue.btn, a.btn-blue.btn {
+  border: 1px solid blue;
+}
+button.btn-red, label.btn-red.btn, a.btn-red.btn {
+  border: 1px solid red;
+}
+button.btn-dark, label.btn-dark.btn, a.btn-dark.btn {
+  border: 1px solid dark;
+}
+button.btn-white, label.btn-white.btn, a.btn-white.btn {
+  border: 1px solid white;
+}
+button.btn-o-green, label.btn-o-green.btn, a.btn-o-green.btn {
+  border: 1px solid green;
+}
+button.btn-o-blue, label.btn-o-blue.btn, a.btn-o-blue.btn {
+  border: 1px solid blue;
+}
+button.btn-o-red, label.btn-o-red.btn, a.btn-o-red.btn {
+  border: 1px solid red;
+}
+button.btn-o-dark, label.btn-o-dark.btn, a.btn-o-dark.btn {
+  border: 1px solid dark;
+}
+button.btn-o-white, label.btn-o-white.btn, a.btn-o-white.btn {
+  border: 1px solid white;
 }
 button.b, label.b.btn, a.b.btn {
   font-weight: 800;
