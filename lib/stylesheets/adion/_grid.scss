@@ -57,10 +57,37 @@ $map-grid-props: (
 .container {
   max-width: $grid__bp-md * 1px;
   margin: 0 auto;
+  padding: rem(20);
   &.fluid {
     margin: 0;
     max-width: 100%;
-    padding: rem(20);
+  }
+  &.center{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    display: flex;
+  }
+  &.bottom-center{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+  }
+  &.top-center{
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
   }
   .row {
     display: flex;

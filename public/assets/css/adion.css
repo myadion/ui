@@ -387,11 +387,38 @@ a i {
 .container {
   max-width: 768px;
   margin: 0 auto;
+  padding: 1.25rem;
 }
 .container.fluid {
   margin: 0;
   max-width: 100%;
-  padding: 1.25rem;
+}
+.container.center {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  display: flex;
+}
+.container.bottom-center {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  left: 0;
+  right: 0;
+}
+.container.top-center {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  left: 0;
+  right: 0;
 }
 .container .row {
   display: flex;
