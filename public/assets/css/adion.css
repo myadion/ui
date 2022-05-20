@@ -219,36 +219,42 @@ td, th {
 
 h1 {
   font-size: 2.8125rem;
+  padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h2 {
   font-size: 2.5rem;
+  padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h3 {
   font-size: 2.1875rem;
+  padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h4 {
   font-size: 1.875rem;
+  padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h5 {
   font-size: 1.5625rem;
+  padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h6 {
   font-size: 1.25rem;
+  padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
@@ -317,26 +323,491 @@ h6 {
   border: 0.0625rem solid #eeeeee;
 }
 
+a:hover i {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #eeeeee;
+}
+a i {
+  font-size: 1.375rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #a5a5a5;
+}
+
+@media screen and (max-width: -1px) {
+  .hidden-xs-down {
+    display: none !important;
+  }
+}
+.hidden-xs-up {
+  display: none !important;
+}
+
+@media screen and (max-width: 575px) {
+  .hidden-sm-down {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 576px) {
+  .hidden-sm-up {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hidden-md-down {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hidden-md-up {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .hidden-lg-down {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hidden-lg-up {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .hidden-xl-down {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .hidden-xl-up {
+    display: none !important;
+  }
+}
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.container.fluid {
+  margin: 0;
+  max-width: 100%;
+  padding: 1.25rem;
+}
+.container .row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.container .col-o-0 {
+  margin-left: 0;
+}
+.container .col-1 {
+  flex-basis: 8.3333333333%;
+}
+.container .col-o-1 {
+  margin-left: 8.3333333333%;
+}
+.container .col-2 {
+  flex-basis: 16.6666666667%;
+}
+.container .col-o-2 {
+  margin-left: 16.6666666667%;
+}
+.container .col-3 {
+  flex-basis: 25%;
+}
+.container .col-o-3 {
+  margin-left: 25%;
+}
+.container .col-4 {
+  flex-basis: 33.3333333333%;
+}
+.container .col-o-4 {
+  margin-left: 33.3333333333%;
+}
+.container .col-5 {
+  flex-basis: 41.6666666667%;
+}
+.container .col-o-5 {
+  margin-left: 41.6666666667%;
+}
+.container .col-6 {
+  flex-basis: 50%;
+}
+.container .col-o-6 {
+  margin-left: 50%;
+}
+.container .col-7 {
+  flex-basis: 58.3333333333%;
+}
+.container .col-o-7 {
+  margin-left: 58.3333333333%;
+}
+.container .col-8 {
+  flex-basis: 66.6666666667%;
+}
+.container .col-o-8 {
+  margin-left: 66.6666666667%;
+}
+.container .col-9 {
+  flex-basis: 75%;
+}
+.container .col-o-9 {
+  margin-left: 75%;
+}
+.container .col-10 {
+  flex-basis: 83.3333333333%;
+}
+.container .col-o-10 {
+  margin-left: 83.3333333333%;
+}
+.container .col-11 {
+  flex-basis: 91.6666666667%;
+}
+.container .col-o-11 {
+  margin-left: 91.6666666667%;
+}
+.container .col-12 {
+  flex-basis: 100%;
+}
+.container .col-o-12 {
+  margin-left: 100%;
+}
+@media screen and (min-width: 576px) {
+  .container .col-sm-o-0 {
+    margin-left: 0;
+  }
+  .container .col-sm-1 {
+    flex-basis: 8.3333333333%;
+  }
+  .container .col-sm-o-1 {
+    margin-left: 8.3333333333%;
+  }
+  .container .col-sm-2 {
+    flex-basis: 16.6666666667%;
+  }
+  .container .col-sm-o-2 {
+    margin-left: 16.6666666667%;
+  }
+  .container .col-sm-3 {
+    flex-basis: 25%;
+  }
+  .container .col-sm-o-3 {
+    margin-left: 25%;
+  }
+  .container .col-sm-4 {
+    flex-basis: 33.3333333333%;
+  }
+  .container .col-sm-o-4 {
+    margin-left: 33.3333333333%;
+  }
+  .container .col-sm-5 {
+    flex-basis: 41.6666666667%;
+  }
+  .container .col-sm-o-5 {
+    margin-left: 41.6666666667%;
+  }
+  .container .col-sm-6 {
+    flex-basis: 50%;
+  }
+  .container .col-sm-o-6 {
+    margin-left: 50%;
+  }
+  .container .col-sm-7 {
+    flex-basis: 58.3333333333%;
+  }
+  .container .col-sm-o-7 {
+    margin-left: 58.3333333333%;
+  }
+  .container .col-sm-8 {
+    flex-basis: 66.6666666667%;
+  }
+  .container .col-sm-o-8 {
+    margin-left: 66.6666666667%;
+  }
+  .container .col-sm-9 {
+    flex-basis: 75%;
+  }
+  .container .col-sm-o-9 {
+    margin-left: 75%;
+  }
+  .container .col-sm-10 {
+    flex-basis: 83.3333333333%;
+  }
+  .container .col-sm-o-10 {
+    margin-left: 83.3333333333%;
+  }
+  .container .col-sm-11 {
+    flex-basis: 91.6666666667%;
+  }
+  .container .col-sm-o-11 {
+    margin-left: 91.6666666667%;
+  }
+  .container .col-sm-12 {
+    flex-basis: 100%;
+  }
+  .container .col-sm-o-12 {
+    margin-left: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container .col-md-o-0 {
+    margin-left: 0;
+  }
+  .container .col-md-1 {
+    flex-basis: 8.3333333333%;
+  }
+  .container .col-md-o-1 {
+    margin-left: 8.3333333333%;
+  }
+  .container .col-md-2 {
+    flex-basis: 16.6666666667%;
+  }
+  .container .col-md-o-2 {
+    margin-left: 16.6666666667%;
+  }
+  .container .col-md-3 {
+    flex-basis: 25%;
+  }
+  .container .col-md-o-3 {
+    margin-left: 25%;
+  }
+  .container .col-md-4 {
+    flex-basis: 33.3333333333%;
+  }
+  .container .col-md-o-4 {
+    margin-left: 33.3333333333%;
+  }
+  .container .col-md-5 {
+    flex-basis: 41.6666666667%;
+  }
+  .container .col-md-o-5 {
+    margin-left: 41.6666666667%;
+  }
+  .container .col-md-6 {
+    flex-basis: 50%;
+  }
+  .container .col-md-o-6 {
+    margin-left: 50%;
+  }
+  .container .col-md-7 {
+    flex-basis: 58.3333333333%;
+  }
+  .container .col-md-o-7 {
+    margin-left: 58.3333333333%;
+  }
+  .container .col-md-8 {
+    flex-basis: 66.6666666667%;
+  }
+  .container .col-md-o-8 {
+    margin-left: 66.6666666667%;
+  }
+  .container .col-md-9 {
+    flex-basis: 75%;
+  }
+  .container .col-md-o-9 {
+    margin-left: 75%;
+  }
+  .container .col-md-10 {
+    flex-basis: 83.3333333333%;
+  }
+  .container .col-md-o-10 {
+    margin-left: 83.3333333333%;
+  }
+  .container .col-md-11 {
+    flex-basis: 91.6666666667%;
+  }
+  .container .col-md-o-11 {
+    margin-left: 91.6666666667%;
+  }
+  .container .col-md-12 {
+    flex-basis: 100%;
+  }
+  .container .col-md-o-12 {
+    margin-left: 100%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container .col-lg-o-0 {
+    margin-left: 0;
+  }
+  .container .col-lg-1 {
+    flex-basis: 8.3333333333%;
+  }
+  .container .col-lg-o-1 {
+    margin-left: 8.3333333333%;
+  }
+  .container .col-lg-2 {
+    flex-basis: 16.6666666667%;
+  }
+  .container .col-lg-o-2 {
+    margin-left: 16.6666666667%;
+  }
+  .container .col-lg-3 {
+    flex-basis: 25%;
+  }
+  .container .col-lg-o-3 {
+    margin-left: 25%;
+  }
+  .container .col-lg-4 {
+    flex-basis: 33.3333333333%;
+  }
+  .container .col-lg-o-4 {
+    margin-left: 33.3333333333%;
+  }
+  .container .col-lg-5 {
+    flex-basis: 41.6666666667%;
+  }
+  .container .col-lg-o-5 {
+    margin-left: 41.6666666667%;
+  }
+  .container .col-lg-6 {
+    flex-basis: 50%;
+  }
+  .container .col-lg-o-6 {
+    margin-left: 50%;
+  }
+  .container .col-lg-7 {
+    flex-basis: 58.3333333333%;
+  }
+  .container .col-lg-o-7 {
+    margin-left: 58.3333333333%;
+  }
+  .container .col-lg-8 {
+    flex-basis: 66.6666666667%;
+  }
+  .container .col-lg-o-8 {
+    margin-left: 66.6666666667%;
+  }
+  .container .col-lg-9 {
+    flex-basis: 75%;
+  }
+  .container .col-lg-o-9 {
+    margin-left: 75%;
+  }
+  .container .col-lg-10 {
+    flex-basis: 83.3333333333%;
+  }
+  .container .col-lg-o-10 {
+    margin-left: 83.3333333333%;
+  }
+  .container .col-lg-11 {
+    flex-basis: 91.6666666667%;
+  }
+  .container .col-lg-o-11 {
+    margin-left: 91.6666666667%;
+  }
+  .container .col-lg-12 {
+    flex-basis: 100%;
+  }
+  .container .col-lg-o-12 {
+    margin-left: 100%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container .col-xl-o-0 {
+    margin-left: 0;
+  }
+  .container .col-xl-1 {
+    flex-basis: 8.3333333333%;
+  }
+  .container .col-xl-o-1 {
+    margin-left: 8.3333333333%;
+  }
+  .container .col-xl-2 {
+    flex-basis: 16.6666666667%;
+  }
+  .container .col-xl-o-2 {
+    margin-left: 16.6666666667%;
+  }
+  .container .col-xl-3 {
+    flex-basis: 25%;
+  }
+  .container .col-xl-o-3 {
+    margin-left: 25%;
+  }
+  .container .col-xl-4 {
+    flex-basis: 33.3333333333%;
+  }
+  .container .col-xl-o-4 {
+    margin-left: 33.3333333333%;
+  }
+  .container .col-xl-5 {
+    flex-basis: 41.6666666667%;
+  }
+  .container .col-xl-o-5 {
+    margin-left: 41.6666666667%;
+  }
+  .container .col-xl-6 {
+    flex-basis: 50%;
+  }
+  .container .col-xl-o-6 {
+    margin-left: 50%;
+  }
+  .container .col-xl-7 {
+    flex-basis: 58.3333333333%;
+  }
+  .container .col-xl-o-7 {
+    margin-left: 58.3333333333%;
+  }
+  .container .col-xl-8 {
+    flex-basis: 66.6666666667%;
+  }
+  .container .col-xl-o-8 {
+    margin-left: 66.6666666667%;
+  }
+  .container .col-xl-9 {
+    flex-basis: 75%;
+  }
+  .container .col-xl-o-9 {
+    margin-left: 75%;
+  }
+  .container .col-xl-10 {
+    flex-basis: 83.3333333333%;
+  }
+  .container .col-xl-o-10 {
+    margin-left: 83.3333333333%;
+  }
+  .container .col-xl-11 {
+    flex-basis: 91.6666666667%;
+  }
+  .container .col-xl-o-11 {
+    margin-left: 91.6666666667%;
+  }
+  .container .col-xl-12 {
+    flex-basis: 100%;
+  }
+  .container .col-xl-o-12 {
+    margin-left: 100%;
+  }
+}
+
 select {
   background-color: transparent;
   overflow: hidden;
   border: none;
+  width: 100%;
 }
 select option {
-  width: 25rem;
-  height: 3.75rem;
+  height: 2.8125rem;
   color: #eeeeee;
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   display: flex;
   align-items: center;
+  border-radius: 0.1875rem;
   text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 select option:active, select option:focus, select option:checked {
   background-color: #585858;
+  font-weight: 600;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 select option:active:hover, select option:focus:hover, select option:checked:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   background-color: #585858;
 }
 select option:hover {
@@ -745,7 +1216,6 @@ div.weather .weather-info .description {
 }
 
 html {
-  padding: 1vh 1vw;
   font-family: segoe-ui;
   font-weight: 500;
   background-color: #292929;

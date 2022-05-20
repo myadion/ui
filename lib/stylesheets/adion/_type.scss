@@ -21,7 +21,7 @@ $i: 500; $class_name : 'b'; @while $i < 900 {
 
 // Set H1-H6 font-size
 $i: 1; $fs: rem(45); @while $i < 7 {
-    h#{$i}{ font-size: $fs; font-weight: 100; font-family: 'Segoe UI'; }  $i: $i + 1; $fs : $fs - rem(5);
+    h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: 'Segoe UI'; }  $i: $i + 1; $fs : $fs - rem(5);
 }
 
 // Set text color
@@ -32,4 +32,17 @@ $i: 1; $fs: rem(45); @while $i < 7 {
 // Set border color
 @each $color_name, $color in $colors{
     .o-#{$color_name} { border: rem(1) solid $color; }
+}
+
+a{
+    &:hover i{
+        @include transition(.4s);
+        color: $white;
+    }
+    
+    i{
+        font-size: rem(22);
+        @include transition(.4s);
+        color: lighten($color: $gray, $amount: 30);
+    }
 }

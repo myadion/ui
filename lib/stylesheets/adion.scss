@@ -9,6 +9,7 @@
 
 // Components
 @import "adion/type";
+@import "adion/grid";
 @import "adion/select";
 @import "adion/button";
 @import "adion/switch";
@@ -21,7 +22,7 @@
 }
 
 html {
-    padding: 1vh 1vw;
+    // padding: 1vh 1vw;
     font-family: $default_font;
     font-weight: $default_font_weight;
     background-color: $default_background_color;
