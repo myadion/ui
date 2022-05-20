@@ -15,10 +15,6 @@ input{
     &:focus-visible{
         outline: 1px solid $green;
     }
-
-    &.auto{
-        width: auto;
-    }
 }
 
 div.form-group {

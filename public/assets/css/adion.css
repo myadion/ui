@@ -606,9 +606,6 @@ input {
 input:focus-visible {
   outline: 1px solid #5ABA95;
 }
-input.auto {
-  width: auto;
-}
 
 div.form-group {
   display: flex;
@@ -741,6 +738,10 @@ div.weather .weather-info .title {
 }
 div.weather .weather-info .description {
   font-size: 0.625rem;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
