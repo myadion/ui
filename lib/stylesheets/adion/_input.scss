@@ -1,5 +1,5 @@
 input{
-    width: rem(325);
+    width: 100%;
     height: rem(40);
     color: $white;
     background-color: $dark;
@@ -31,7 +31,8 @@ div.input-group {
     i {
         @include transition(.4s);
         position:absolute;
-        margin-left: rem(300);
+        margin-left: 88%;
+        font-weight: 200;
     }
 
     input{

@@ -175,14 +175,20 @@ td, th {
 .c {
   text-align: center;
   align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .l {
   text-align: left;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .r {
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .t {
@@ -323,6 +329,153 @@ h6 {
   border: 0.0625rem solid #eeeeee;
 }
 
+.o-b-green {
+  border-bottom: 0.3125rem solid #5ABA95;
+}
+
+.o-b-gray {
+  border-bottom: 0.3125rem solid #585858;
+}
+
+.o-b-blue {
+  border-bottom: 0.3125rem solid #5278FF;
+}
+
+.o-b-red {
+  border-bottom: 0.3125rem solid #B73939;
+}
+
+.o-b-red-alt {
+  border-bottom: 0.3125rem solid #FF5252;
+}
+
+.o-b-dark {
+  border-bottom: 0.3125rem solid #343537;
+}
+
+.o-b-orange {
+  border-bottom: 0.3125rem solid #FF9052;
+}
+
+.o-b-white {
+  border-bottom: 0.3125rem solid #eeeeee;
+}
+
+.o-r-green {
+  border-right: 0.3125rem solid #5ABA95;
+}
+
+.o-r-gray {
+  border-right: 0.3125rem solid #585858;
+}
+
+.o-r-blue {
+  border-right: 0.3125rem solid #5278FF;
+}
+
+.o-r-red {
+  border-right: 0.3125rem solid #B73939;
+}
+
+.o-r-red-alt {
+  border-right: 0.3125rem solid #FF5252;
+}
+
+.o-r-dark {
+  border-right: 0.3125rem solid #343537;
+}
+
+.o-r-orange {
+  border-right: 0.3125rem solid #FF9052;
+}
+
+.o-r-white {
+  border-right: 0.3125rem solid #eeeeee;
+}
+
+.o-l-green {
+  border-left: 0.3125rem solid #5ABA95;
+}
+
+.o-l-gray {
+  border-left: 0.3125rem solid #585858;
+}
+
+.o-l-blue {
+  border-left: 0.3125rem solid #5278FF;
+}
+
+.o-l-red {
+  border-left: 0.3125rem solid #B73939;
+}
+
+.o-l-red-alt {
+  border-left: 0.3125rem solid #FF5252;
+}
+
+.o-l-dark {
+  border-left: 0.3125rem solid #343537;
+}
+
+.o-l-orange {
+  border-left: 0.3125rem solid #FF9052;
+}
+
+.o-l-white {
+  border-left: 0.3125rem solid #eeeeee;
+}
+
+.o-t-green {
+  border-top: 0.3125rem solid #5ABA95;
+}
+
+.o-t-gray {
+  border-top: 0.3125rem solid #585858;
+}
+
+.o-t-blue {
+  border-top: 0.3125rem solid #5278FF;
+}
+
+.o-t-red {
+  border-top: 0.3125rem solid #B73939;
+}
+
+.o-t-red-alt {
+  border-top: 0.3125rem solid #FF5252;
+}
+
+.o-t-dark {
+  border-top: 0.3125rem solid #343537;
+}
+
+.o-t-orange {
+  border-top: 0.3125rem solid #FF9052;
+}
+
+.o-t-white {
+  border-top: 0.3125rem solid #eeeeee;
+}
+
+.o-rad {
+  border-radius: 0.3125rem;
+}
+
+a {
+  text-decoration: none;
+  color: #eeeeee;
+  font-weight: 600;
+  margin: 0.625rem;
+  color: #a5a5a5;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+a:hover {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+  color: #eeeeee;
+}
 a:hover i {
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -332,9 +485,31 @@ a i {
   font-size: 1.375rem;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  color: #a5a5a5;
 }
 
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #585858;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #585858;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #5ABA95;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 @media screen and (max-width: -1px) {
   .hidden-xs-down {
     display: none !important;
@@ -387,7 +562,7 @@ a i {
 .container {
   max-width: 768px;
   margin: 0 auto;
-  padding: 1.25rem;
+  padding: 0.9375rem;
 }
 .container.fluid {
   margin: 0;
@@ -427,385 +602,510 @@ a i {
 }
 .container .col-o-0 {
   margin-left: 0;
+  padding: 0.9375rem 0rem;
 }
 .container .col-1 {
   flex-basis: 8.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-1 {
   margin-left: 8.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-2 {
   flex-basis: 16.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-2 {
   margin-left: 16.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-3 {
   flex-basis: 25%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-3 {
   margin-left: 25%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-4 {
   flex-basis: 33.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-4 {
   margin-left: 33.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-5 {
   flex-basis: 41.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-5 {
   margin-left: 41.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-6 {
   flex-basis: 50%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-6 {
   margin-left: 50%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-7 {
   flex-basis: 58.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-7 {
   margin-left: 58.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-8 {
   flex-basis: 66.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-8 {
   margin-left: 66.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-9 {
   flex-basis: 75%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-9 {
   margin-left: 75%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-10 {
   flex-basis: 83.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-10 {
   margin-left: 83.3333333333%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-11 {
   flex-basis: 91.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-11 {
   margin-left: 91.6666666667%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-12 {
   flex-basis: 100%;
+  padding: 0.9375rem 0rem;
 }
 .container .col-o-12 {
   margin-left: 100%;
+  padding: 0.9375rem 0rem;
 }
 @media screen and (min-width: 576px) {
   .container .col-sm-o-0 {
     margin-left: 0;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-1 {
     flex-basis: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-1 {
     margin-left: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-2 {
     flex-basis: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-2 {
     margin-left: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-3 {
     flex-basis: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-3 {
     margin-left: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-4 {
     flex-basis: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-4 {
     margin-left: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-5 {
     flex-basis: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-5 {
     margin-left: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-6 {
     flex-basis: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-6 {
     margin-left: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-7 {
     flex-basis: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-7 {
     margin-left: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-8 {
     flex-basis: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-8 {
     margin-left: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-9 {
     flex-basis: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-9 {
     margin-left: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-10 {
     flex-basis: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-10 {
     margin-left: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-11 {
     flex-basis: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-11 {
     margin-left: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-12 {
     flex-basis: 100%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-sm-o-12 {
     margin-left: 100%;
+    padding: 0.9375rem 0rem;
   }
 }
 @media screen and (min-width: 768px) {
   .container .col-md-o-0 {
     margin-left: 0;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-1 {
     flex-basis: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-1 {
     margin-left: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-2 {
     flex-basis: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-2 {
     margin-left: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-3 {
     flex-basis: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-3 {
     margin-left: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-4 {
     flex-basis: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-4 {
     margin-left: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-5 {
     flex-basis: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-5 {
     margin-left: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-6 {
     flex-basis: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-6 {
     margin-left: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-7 {
     flex-basis: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-7 {
     margin-left: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-8 {
     flex-basis: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-8 {
     margin-left: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-9 {
     flex-basis: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-9 {
     margin-left: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-10 {
     flex-basis: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-10 {
     margin-left: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-11 {
     flex-basis: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-11 {
     margin-left: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-12 {
     flex-basis: 100%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-md-o-12 {
     margin-left: 100%;
+    padding: 0.9375rem 0rem;
   }
 }
 @media screen and (min-width: 992px) {
   .container .col-lg-o-0 {
     margin-left: 0;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-1 {
     flex-basis: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-1 {
     margin-left: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-2 {
     flex-basis: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-2 {
     margin-left: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-3 {
     flex-basis: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-3 {
     margin-left: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-4 {
     flex-basis: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-4 {
     margin-left: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-5 {
     flex-basis: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-5 {
     margin-left: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-6 {
     flex-basis: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-6 {
     margin-left: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-7 {
     flex-basis: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-7 {
     margin-left: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-8 {
     flex-basis: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-8 {
     margin-left: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-9 {
     flex-basis: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-9 {
     margin-left: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-10 {
     flex-basis: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-10 {
     margin-left: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-11 {
     flex-basis: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-11 {
     margin-left: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-12 {
     flex-basis: 100%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-lg-o-12 {
     margin-left: 100%;
+    padding: 0.9375rem 0rem;
   }
 }
 @media screen and (min-width: 1200px) {
   .container .col-xl-o-0 {
     margin-left: 0;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-1 {
     flex-basis: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-1 {
     margin-left: 8.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-2 {
     flex-basis: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-2 {
     margin-left: 16.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-3 {
     flex-basis: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-3 {
     margin-left: 25%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-4 {
     flex-basis: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-4 {
     margin-left: 33.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-5 {
     flex-basis: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-5 {
     margin-left: 41.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-6 {
     flex-basis: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-6 {
     margin-left: 50%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-7 {
     flex-basis: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-7 {
     margin-left: 58.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-8 {
     flex-basis: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-8 {
     margin-left: 66.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-9 {
     flex-basis: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-9 {
     margin-left: 75%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-10 {
     flex-basis: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-10 {
     margin-left: 83.3333333333%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-11 {
     flex-basis: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-11 {
     margin-left: 91.6666666667%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-12 {
     flex-basis: 100%;
+    padding: 0.9375rem 0rem;
   }
   .container .col-xl-o-12 {
     margin-left: 100%;
+    padding: 0.9375rem 0rem;
   }
 }
 
@@ -839,6 +1139,7 @@ select option:active:hover, select option:focus:hover, select option:checked:hov
 }
 select option:hover {
   background-color: #323232;
+  cursor: pointer;
 }
 select.text-center > option {
   justify-content: center;
@@ -853,7 +1154,7 @@ select.auto option {
 
 button, label.btn, a.btn {
   background-color: #343537;
-  width: 20.3125rem;
+  width: 100%;
   height: 2.1875rem;
   font-size: 0.625rem;
   color: #eeeeee;
@@ -878,7 +1179,7 @@ button.auto, label.auto.btn, a.auto.btn {
 }
 button.btn-big, label.btn-big.btn, a.btn-big.btn {
   height: 3.125rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 button.btn-small, label.btn-small.btn, a.btn-small.btn {
   width: 12.5rem;
@@ -1088,7 +1389,7 @@ div.collapse a.btn, div.collapse button, div.collapse label.btn {
 }
 
 input {
-  width: 20.3125rem;
+  width: 100%;
   height: 2.5rem;
   color: #eeeeee;
   background-color: #343537;
@@ -1120,7 +1421,8 @@ div.input-group i {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   position: absolute;
-  margin-left: 18.75rem;
+  margin-left: 88%;
+  font-weight: 200;
 }
 div.input-group input {
   font-weight: 700;
@@ -1248,6 +1550,16 @@ html {
   background-color: #292929;
   color: #eeeeee;
   font-size: 16px;
+}
+
+body {
+  background: linear-gradient(-45deg, #292929, #1d1d1d, #292929, #1d1d1d);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=adion.css.map */

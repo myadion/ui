@@ -26,13 +26,16 @@ $map-grid-props: (
   @include create-mq($breakpoint, 'min') {
     .col#{$modifier}-o-0 {
       margin-left: 0;
+      padding: rem(15) rem(0);
     }
     @for $i from 1 through $grid-cols {
       .col#{$modifier}-#{$i} {
         flex-basis: calc(100 / ($grid-cols / $i) ) * 1%;
+        padding: rem(15) rem(0);
       }
       .col#{$modifier}-o-#{$i} {
         margin-left: calc(100 / ($grid-cols / $i) ) * 1%;
+        padding: rem(15) rem(0);
       }
     }
   }
@@ -57,7 +60,7 @@ $map-grid-props: (
 .container {
   max-width: $grid__bp-md * 1px;
   margin: 0 auto;
-  padding: rem(20);
+  padding: rem(15);
   &.fluid {
     margin: 0;
     max-width: 100%;

@@ -1,6 +1,7 @@
 button{
     background-color: $dark;
-    width: rem(325);
+    // width: rem(325);
+    width: 100%;
     height: rem(35);
     font-size: rem(10);
     color: $white;
@@ -26,7 +27,7 @@ button{
 
     &.btn-big{
         height: rem(50);
-        font-size: rem(12);
+        font-size: rem(16);
     }
 
     &.btn-small{

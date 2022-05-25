@@ -27,6 +27,7 @@ select {
 
         &:hover{
             background-color: darken($color: $gray, $amount: 15);
+            cursor: pointer;
         }
     }
     
