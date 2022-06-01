@@ -15,7 +15,6 @@ $sides: (top, bottom, left, right); // Leave this variable alone
   }
 }
 
-
 /* Calculate rem from px or % */
 @function rem($value){
   @return calc($value / strip-unit($base_size) * 1rem);
