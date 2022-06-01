@@ -2,13 +2,12 @@ button{
     background-color: $dark;
     // width: rem(325);
     width: 100%;
-    height: rem(35);
-    font-size: rem(10);
+    height: rem(40);
+    font-size: rem(15);
     color: $white;
-    margin: rem(5);
     padding: rem(10);
     border: none;
-    border-radius: rem(3);
+    border-radius: rem(5);
     display: flex;
     flex-direction: column;
     text-align: left;

@@ -1,0 +1,27 @@
+// plugins
+@import "adion/plugins/license";
+@import "adion/plugins/reset";
+@import "adion/plugins/include-media";
+
+@import "adion/variables";
+@import "adion/utilities";
+@import "adion/mixins";
+@import "adion/components";
+
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: $default_font;
+    font-weight: $default_font_weight;
+    background-color: $default_background_color;
+    color: $default_text_color;
+    font-size: $base_size;
+    line-height: 1.5;
+}
