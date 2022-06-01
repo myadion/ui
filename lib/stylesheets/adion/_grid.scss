@@ -16,7 +16,7 @@ $map-grid-props: (
   @if($breakpoint == 0) {
     @content;
   } @else {
-    @media screen and (#{$min-or-max}-width: $breakpoint * 1px) {
+    @media screen and (#{$min-or-max}-width: $breakpoint * rem(1)) {
       @content;
     }
   }
@@ -58,7 +58,7 @@ $map-grid-props: (
 }
 
 .container {
-  max-width: $grid__bp-md * 1px;
+  max-width: $grid__bp-md * rem(1);
   margin: 0 auto;
   padding: rem(15);
   &.fluid {

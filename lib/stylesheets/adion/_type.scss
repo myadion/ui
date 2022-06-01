@@ -1,18 +1,16 @@
 .c{
     text-align: center;
     align-items: center;
-    display: flex;
-    justify-content: center;
 }
 .l{
     text-align: left;
-    display: flex;
-    justify-content: flex-start;
 }
 .r{
     text-align: right;
+    align-items: flex-end;
+}
+.f{
     display: flex;
-    justify-content: flex-end;
 }
 
 // Set thin to 100
