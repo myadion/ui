@@ -16,96 +16,130 @@
         <script type="text/javascript" src="assets/js/adion-ui-kit/fullpage/fullpage.min.js"></script>
     </head>
     <body>
-        <div id="nav" class="side-nav">
+        <div class="nav d-none">
+            <h1>test</h1>
+        </div>
+        <div id="nav" class="side-nav d-none">
             <ul>
                 <li class="category"><span>General</span></li>
-                <li><a data-menuanchor="section2" class href="#">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="category"><span>General</span></li>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a data-menuanchor="home" class href="#home">Accueil</a></li>
+                <li class="category"><span>Section</span></li>
+                <li><a data-menuanchor="section2" class href="#section2">Section 2</a></li>
+                <li><a data-menuanchor="section3" class href="#section3">Section 3</a></li>
+                <li><a data-menuanchor="section4" class href="#section4">Section 4</a></li>
+                <li><a data-menuanchor="section5" class href="#section5">Section 5</a></li>
+                <li><a data-menuanchor="section6" class href="#section6">Section 6</a></li>
+                <li><a data-menuanchor="section7" class href="#section7">Section 7</a></li>
             </ul>
         </div>
         <div id="welcome">
-            <div class="section container fluid bg-gr-1">
-                <div class="home-header c">
-                    <img src="assets/img/logo_adion.png" width="150px" alt="Adion Logo">
-                </div>
-                <div class="home-title c">
-                    <img src="assets/svg/human_on_desktop.svg" alt="Human on desktop">
-                    <h1><span class="b">Bienvenue</span><br> dans le monde du <span class="b">digital</span></h1>
-                </div>
-                <div class="home-action row">
-                    <div class="col-8 col-o-2">
-                        <a href="#" class="btn btn-white bbbb c mb-15">Découvrir nos services</a>
-                        <a href="#" class="btn btn-green bbbb c">Nous contacter</a>
+            <div class="section bg-gr-1">
+                <div class="container fluid">
+                    <div class="home-header c">
+                        <img src="assets/img/logo_adion.png" width="150px" alt="Adion Logo">
+                    </div>
+                    <div class="home-title c">
+                        <img src="assets/svg/human_on_desktop.svg" alt="Human on desktop">
+                        <h1><span class="b">Bienvenue</span><br> dans le monde du <span class="b">digital</span></h1>
+                    </div>
+                    <div class="home-action row">
+                        <div class="col-8 col-o-2">
+                            <a href="#" class="btn btn-white bbbb c mb-15">Découvrir nos services</a>
+                            <a href="#" class="btn btn-green bbbb c">Nous contacter</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="section bg-gr-1">
-                <div class="container fluid">
-                    <div class="col-10 col-o-2">
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class="col-10">
                         <h1>Section 2</h1>
                     </div>
                 </div>
             </div>
-            <div class="section bg-gr-1">
-                <div class="container fluid">
-                    <div class="col-10 col-o-2">
+            <div class="section bg-gr-2">
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class="col-10">
                         <h1>Section 3</h1>
                     </div>
                 </div>
             </div>
             <div class="section bg-gr-3">
-                <div class="container fluid">
-                    <div class="col-10 col-o-2">
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class="col-10">
                         <h1>Section 4</h1>
                     </div>
                 </div>
             </div>
             <div class="section bg-gr-4">
-                <div class="container fluid">
-                    <div class="col-10 col-o-2">
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class="col-10">
                         <h1>Section 5</h1>
                     </div>
                 </div>
             </div>
             <div class="section bg-gr-5">
-                <div class="container fluid">
-                    <div class="col-10 col-o-2">
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class="col-10">
                         <h1>Section 6</h1>
                     </div>
                 </div>
             </div>
             <div class="section bg-gr-6">
-                <div class="container fluid">
-                    <div class="col-10 col-o-2">
-                        <h1>Section 7</h1>
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class=" row fh">
+                        <div class="col-6 bg-red">
+                            <h1>Section 7</h1>
+                        </div>
+                        <div class="col-6 bg-blue">
+                            <h1>Section 7</h1>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    
+        <footer class="d-none container fluid bt-5-green">
+            <div class="content">
+                ss
+            </div>
+            <div class="credit">
+                <p>&copy; Copyright 2016-2022 Adion.<br><br> Conformément à la Directive 2006/112/CE modifiée, à partir du 01/01/2015, les prix TTC sont susceptibles de varier selon le pays de résidence du client<br>(par défaut les prix TTC affichés incluent la TVA française en vigueur).</p>
+            </div>
+        </footer>
         <script>
+
+            $('a[data-menuanchor="home"]').click(function(){
+                $('.side-nav').hide();
+                $('.nav').hide();
+            });
 
             var test = new $('#welcome').fullpage({
                 anchors: ['home', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
                 scrollBar: false,
                 menu: "#nav",
-                slidesNavPosition: 'bottom',
-                verticalCentered: true,
-                scrollingSpeed: 500,
-                css3: true,
-                afterLoad: function(anchorLink, index){
-                    if (index > 1){
-                        $('#nav').fadeTo(.1, 1);
+                afterLoad: function(anchorLink, index, direction){
+                    console.log(index.index);
+                    if (index.index > 0){
+                        $('.side-nav').fadeTo("fast", 1);
+                        $('.side-nav').addClass("with-navbar");
+                        $('.nav').fadeTo("fast", 1);
+                    }
+                    if (index.index  == 6){
+                        $('footer').fadeTo("fast", 1);
+                        $('.side-nav').addClass("with-footer");
                     }
                 },
                 onLeave: function(index, nextIndex, direction){
-                    if (index == 2 && direction == 'up') {
-                        $('#nav').fadeTo(.1, 0);
+                    console.log(index.index);
+                    if (index.index == 1 && direction == 'up') {
+                        $('.side-nav').hide();
+                        $('.side-nav').removeClass("with-navbar");
+                        $('.nav').hide();
+                    }
+                    if( index.index == 6 && direction == 'up'){
+                        $('footer').fadeTo("fast", 0);
+                        $('.side-nav').removeClass("with-footer");
                     }
                 }
             });

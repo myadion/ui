@@ -59,6 +59,15 @@ $map-grid-props: (
     margin: 0;
     padding: 0;
     max-width: 100%;
+    &.with-sidebar{
+      margin-left: rem($sidebar-width);
+    }
+    &.with-footer{
+      margin-bottom: rem($footer-height);
+    }
+    &.with-navbar{
+      margin-top: rem($navbar-height);
+    }
   }
   &.center{
     position: absolute;

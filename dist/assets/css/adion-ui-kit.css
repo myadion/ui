@@ -564,45 +564,50 @@ td, th {
   flex-shrink: 0 !important;
 }
 
+/* Full height */
+.fh {
+  height: 100%;
+}
+
 /* Display Options */
 .d-none {
-  display: none !important;
+  display: none;
 }
 
 .d-inline {
-  display: inline !important;
+  display: inline;
 }
 
 .d-inline-block {
-  display: inline-block !important;
+  display: inline-block;
 }
 
 .d-block {
-  display: block !important;
+  display: block;
 }
 
 .d-grid {
-  display: grid !important;
+  display: grid;
 }
 
 .d-table {
-  display: table !important;
+  display: table;
 }
 
 .d-table-cell {
-  display: table-cell !important;
+  display: table-cell;
 }
 
 .d-table-row {
-  display: table-row !important;
+  display: table-row;
 }
 
 .d-flex {
-  display: flex !important;
+  display: flex;
 }
 
 .d-inline-flex {
-  display: inline-flex !important;
+  display: inline-flex;
 }
 
 /* border option */
@@ -645,16 +650,32 @@ td, th {
   border-top: 0.0625rem solid #5ABA95;
 }
 
+.bt-5-green {
+  border-top: 0.3125rem solid #5ABA95;
+}
+
 .bb-green {
   border-bottom: 0.0625rem solid #5ABA95;
+}
+
+.bb-5-green {
+  border-bottom: 0.3125rem solid #5ABA95;
 }
 
 .bl-green {
   border-left: 0.0625rem solid #5ABA95;
 }
 
+.bl-5-green {
+  border-left: 0.3125rem solid #5ABA95;
+}
+
 .br-green {
   border-right: 0.0625rem solid #5ABA95;
+}
+
+.br-5-green {
+  border-right: 0.3125rem solid #5ABA95;
 }
 
 .bg-gray {
@@ -673,16 +694,76 @@ td, th {
   border-top: 0.0625rem solid #585858;
 }
 
+.bt-5-gray {
+  border-top: 0.3125rem solid #585858;
+}
+
 .bb-gray {
   border-bottom: 0.0625rem solid #585858;
+}
+
+.bb-5-gray {
+  border-bottom: 0.3125rem solid #585858;
 }
 
 .bl-gray {
   border-left: 0.0625rem solid #585858;
 }
 
+.bl-5-gray {
+  border-left: 0.3125rem solid #585858;
+}
+
 .br-gray {
   border-right: 0.0625rem solid #585858;
+}
+
+.br-5-gray {
+  border-right: 0.3125rem solid #585858;
+}
+
+.bg-gray-alt {
+  background-color: #D9D9D9;
+}
+
+.b-gray-alt {
+  border: 0.0625rem solid #D9D9D9;
+}
+
+.c-gray-alt {
+  color: #D9D9D9;
+}
+
+.bt-gray-alt {
+  border-top: 0.0625rem solid #D9D9D9;
+}
+
+.bt-5-gray-alt {
+  border-top: 0.3125rem solid #D9D9D9;
+}
+
+.bb-gray-alt {
+  border-bottom: 0.0625rem solid #D9D9D9;
+}
+
+.bb-5-gray-alt {
+  border-bottom: 0.3125rem solid #D9D9D9;
+}
+
+.bl-gray-alt {
+  border-left: 0.0625rem solid #D9D9D9;
+}
+
+.bl-5-gray-alt {
+  border-left: 0.3125rem solid #D9D9D9;
+}
+
+.br-gray-alt {
+  border-right: 0.0625rem solid #D9D9D9;
+}
+
+.br-5-gray-alt {
+  border-right: 0.3125rem solid #D9D9D9;
 }
 
 .bg-blue {
@@ -701,16 +782,32 @@ td, th {
   border-top: 0.0625rem solid #5278FF;
 }
 
+.bt-5-blue {
+  border-top: 0.3125rem solid #5278FF;
+}
+
 .bb-blue {
   border-bottom: 0.0625rem solid #5278FF;
+}
+
+.bb-5-blue {
+  border-bottom: 0.3125rem solid #5278FF;
 }
 
 .bl-blue {
   border-left: 0.0625rem solid #5278FF;
 }
 
+.bl-5-blue {
+  border-left: 0.3125rem solid #5278FF;
+}
+
 .br-blue {
   border-right: 0.0625rem solid #5278FF;
+}
+
+.br-5-blue {
+  border-right: 0.3125rem solid #5278FF;
 }
 
 .bg-red {
@@ -729,16 +826,32 @@ td, th {
   border-top: 0.0625rem solid #B73939;
 }
 
+.bt-5-red {
+  border-top: 0.3125rem solid #B73939;
+}
+
 .bb-red {
   border-bottom: 0.0625rem solid #B73939;
+}
+
+.bb-5-red {
+  border-bottom: 0.3125rem solid #B73939;
 }
 
 .bl-red {
   border-left: 0.0625rem solid #B73939;
 }
 
+.bl-5-red {
+  border-left: 0.3125rem solid #B73939;
+}
+
 .br-red {
   border-right: 0.0625rem solid #B73939;
+}
+
+.br-5-red {
+  border-right: 0.3125rem solid #B73939;
 }
 
 .bg-red-alt {
@@ -757,16 +870,32 @@ td, th {
   border-top: 0.0625rem solid #FF5252;
 }
 
+.bt-5-red-alt {
+  border-top: 0.3125rem solid #FF5252;
+}
+
 .bb-red-alt {
   border-bottom: 0.0625rem solid #FF5252;
+}
+
+.bb-5-red-alt {
+  border-bottom: 0.3125rem solid #FF5252;
 }
 
 .bl-red-alt {
   border-left: 0.0625rem solid #FF5252;
 }
 
+.bl-5-red-alt {
+  border-left: 0.3125rem solid #FF5252;
+}
+
 .br-red-alt {
   border-right: 0.0625rem solid #FF5252;
+}
+
+.br-5-red-alt {
+  border-right: 0.3125rem solid #FF5252;
 }
 
 .bg-dark {
@@ -785,16 +914,32 @@ td, th {
   border-top: 0.0625rem solid #343537;
 }
 
+.bt-5-dark {
+  border-top: 0.3125rem solid #343537;
+}
+
 .bb-dark {
   border-bottom: 0.0625rem solid #343537;
+}
+
+.bb-5-dark {
+  border-bottom: 0.3125rem solid #343537;
 }
 
 .bl-dark {
   border-left: 0.0625rem solid #343537;
 }
 
+.bl-5-dark {
+  border-left: 0.3125rem solid #343537;
+}
+
 .br-dark {
   border-right: 0.0625rem solid #343537;
+}
+
+.br-5-dark {
+  border-right: 0.3125rem solid #343537;
 }
 
 .bg-orange {
@@ -813,16 +958,32 @@ td, th {
   border-top: 0.0625rem solid #FF9052;
 }
 
+.bt-5-orange {
+  border-top: 0.3125rem solid #FF9052;
+}
+
 .bb-orange {
   border-bottom: 0.0625rem solid #FF9052;
+}
+
+.bb-5-orange {
+  border-bottom: 0.3125rem solid #FF9052;
 }
 
 .bl-orange {
   border-left: 0.0625rem solid #FF9052;
 }
 
+.bl-5-orange {
+  border-left: 0.3125rem solid #FF9052;
+}
+
 .br-orange {
   border-right: 0.0625rem solid #FF9052;
+}
+
+.br-5-orange {
+  border-right: 0.3125rem solid #FF9052;
 }
 
 .bg-white {
@@ -841,16 +1002,32 @@ td, th {
   border-top: 0.0625rem solid #eeeeee;
 }
 
+.bt-5-white {
+  border-top: 0.3125rem solid #eeeeee;
+}
+
 .bb-white {
   border-bottom: 0.0625rem solid #eeeeee;
+}
+
+.bb-5-white {
+  border-bottom: 0.3125rem solid #eeeeee;
 }
 
 .bl-white {
   border-left: 0.0625rem solid #eeeeee;
 }
 
+.bl-5-white {
+  border-left: 0.3125rem solid #eeeeee;
+}
+
 .br-white {
   border-right: 0.0625rem solid #eeeeee;
+}
+
+.br-5-white {
+  border-right: 0.3125rem solid #eeeeee;
 }
 
 @media screen and (max-width: -0.0625rem) {
@@ -911,6 +1088,15 @@ td, th {
   margin: 0;
   padding: 0;
   max-width: 100%;
+}
+.container.fluid.with-sidebar {
+  margin-left: 13.1875rem;
+}
+.container.fluid.with-footer {
+  margin-bottom: 17.8125rem;
+}
+.container.fluid.with-navbar {
+  margin-top: 3.125rem;
 }
 .container.center {
   position: absolute;
@@ -1679,18 +1865,33 @@ a i {
   transition: 0.4s;
 }
 
-#nav {
-  background: red;
-  z-index: 100;
-  left: 0;
-  position: absolute;
+.nav {
   top: 0;
-  width: 250px;
-  display: none;
+  width: 100%;
+  height: 3.125rem;
+  z-index: 10;
+  position: absolute;
+  background-color: #292929;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .side-nav {
-  width: 11.25rem;
+  width: 13.1875rem;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #343537;
+  overflow: auto;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.side-nav.with-footer {
+  bottom: 17.8125rem;
+}
+.side-nav.with-navbar {
+  top: 3.125rem;
 }
 .side-nav li {
   height: 1.875rem;
@@ -1735,16 +1936,53 @@ a i {
   transition: 0.4s;
 }
 
-body::-webkit-scrollbar-track {
+footer {
+  bottom: 0;
+  width: 100%;
+  height: 17.8125rem;
+  z-index: 10;
+  position: absolute;
+}
+footer .content {
+  height: 70%;
+  background-color: #D9D9D9;
+  color: #343537;
+}
+footer .credit {
+  height: 30%;
+  font-weight: 600;
+  background-color: #5ABA95;
+  font-size: 0.625rem;
+  line-height: 1;
+  color: #eeeeee;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+div::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #585858;
 }
-body::-webkit-scrollbar {
-  width: 10px;
+div::-webkit-scrollbar {
+  width: 5px;
   background-color: #585858;
 }
-body::-webkit-scrollbar-thumb {
-  background-color: #5ABA95;
+div::-webkit-scrollbar-thumb {
+  background-color: #D9D9D9;
+}
+
+html::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #585858;
+}
+html::-webkit-scrollbar {
+  width: 6px;
+  background-color: #585858;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #D9D9D9;
 }
 
 div.collapse .card {
@@ -1914,6 +2152,13 @@ button.btn-gray, label.btn-gray.btn, a.btn-gray.btn {
 }
 button.btn-gray:hover, label.btn-gray.btn:hover, a.btn-gray.btn:hover {
   background-color: #656565;
+}
+button.btn-gray-alt, label.btn-gray-alt.btn, a.btn-gray-alt.btn {
+  color: #343537;
+  background-color: #D9D9D9;
+}
+button.btn-gray-alt:hover, label.btn-gray-alt.btn:hover, a.btn-gray-alt.btn:hover {
+  background-color: #a6a6a6;
 }
 button.btn-blue, label.btn-blue.btn, a.btn-blue.btn {
   color: #eeeeee;

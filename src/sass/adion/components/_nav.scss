@@ -1,18 +1,30 @@
-
-#nav{
-    
-    background: red;
-    z-index: 100;
-    left: 0;
-    position: absolute;
+.nav{
     top: 0;
-    width: 250px;
-    display: none;
+    width: 100%;
+    height: rem($navbar-height);
+    z-index: 10;
+    position: absolute;
+    background-color: $default_background_color;
+    @include transition(.4s);
 }
 
 .side-nav{
-    width: rem(180);
-    
+    width: rem($sidebar-width);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: $dark;
+    overflow: auto;
+    @include transition(.4s);
+
+    &.with-footer{
+        bottom: rem($footer-height);
+    }
+    &.with-navbar{
+        top: rem($navbar-height);
+    }
+
     li{
         height: rem(30);
         display: flex;

@@ -1,0 +1,27 @@
+footer{
+    bottom: 0;
+    width: 100%;
+    height: rem($footer-height);
+    z-index: 10;
+    position: absolute;
+
+    .content{
+        height: 70%;
+        background-color: $gray-alt;
+        color: $dark;
+    }
+    
+    .credit{
+        height: 30%;
+        font-weight: 600;
+        background-color: $green;
+        font-size: rem(10);
+        line-height: 1;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+}

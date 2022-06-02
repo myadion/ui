@@ -29,11 +29,16 @@
   flex-shrink: 0 !important;
 }
 
+/* Full height */
+.fh{
+  height: 100%;
+}
+
 /* Display Options */
 $display_type: ("none","inline","inline-block","block","grid","table","table-cell","table-row","flex","inline-flex");
 @each $display in $display_type{
   .d-#{$display} {
-      display: #{$display} !important;
+      display: #{$display};
   }
 } 
 
@@ -59,5 +64,6 @@ $display_type: ("none","inline","inline-block","block","grid","table","table-cel
   
   @each $name, $side in $sides {
     .b#{$name}-#{$color_name} { border-#{$side}: rem(1) solid $color; }
+    .b#{$name}-5-#{$color_name} { border-#{$side}: rem(5) solid $color; }
   }
 }
