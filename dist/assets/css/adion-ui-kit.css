@@ -1770,6 +1770,7 @@ a i {
   z-index: 1;
   position: absolute;
   top: 0;
+  padding-top: 0.625rem;
   bottom: 0;
   background-color: #343537;
   overflow: auto;
