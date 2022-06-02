@@ -77,6 +77,7 @@ td, th {
 }
 
 /* Calculate rem from px or % */
+/* Convert any unit on int */
 /* Margin and padding */
 .m-5 {
   margin: 0.3125rem !important;
@@ -559,8 +560,8 @@ td, th {
 }
 
 /* Flex options */
-.d-flex {
-  display: flex !important;
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
 }
 
 /* Display Options */
@@ -604,11 +605,11 @@ td, th {
   display: inline-flex !important;
 }
 
-.flex-shrink-0 {
-  flex-shrink: 0 !important;
+/* border option */
+.rounded {
+  border-radius: 5;
 }
 
-/* Colors and background*/
 .bg-gr-1 {
   background: linear-gradient(180deg, #292929 0%, #0F0F0F 100%);
 }
@@ -632,64 +633,224 @@ td, th {
   background-color: #5ABA95;
 }
 
+.b-green {
+  border: 0.0625rem solid #5ABA95;
+}
+
 .c-green {
   color: #5ABA95;
+}
+
+.bt-green {
+  border-top: 0.0625rem solid #5ABA95;
+}
+
+.bb-green {
+  border-bottom: 0.0625rem solid #5ABA95;
+}
+
+.bl-green {
+  border-left: 0.0625rem solid #5ABA95;
+}
+
+.br-green {
+  border-right: 0.0625rem solid #5ABA95;
 }
 
 .bg-gray {
   background-color: #585858;
 }
 
+.b-gray {
+  border: 0.0625rem solid #585858;
+}
+
 .c-gray {
   color: #585858;
+}
+
+.bt-gray {
+  border-top: 0.0625rem solid #585858;
+}
+
+.bb-gray {
+  border-bottom: 0.0625rem solid #585858;
+}
+
+.bl-gray {
+  border-left: 0.0625rem solid #585858;
+}
+
+.br-gray {
+  border-right: 0.0625rem solid #585858;
 }
 
 .bg-blue {
   background-color: #5278FF;
 }
 
+.b-blue {
+  border: 0.0625rem solid #5278FF;
+}
+
 .c-blue {
   color: #5278FF;
+}
+
+.bt-blue {
+  border-top: 0.0625rem solid #5278FF;
+}
+
+.bb-blue {
+  border-bottom: 0.0625rem solid #5278FF;
+}
+
+.bl-blue {
+  border-left: 0.0625rem solid #5278FF;
+}
+
+.br-blue {
+  border-right: 0.0625rem solid #5278FF;
 }
 
 .bg-red {
   background-color: #B73939;
 }
 
+.b-red {
+  border: 0.0625rem solid #B73939;
+}
+
 .c-red {
   color: #B73939;
+}
+
+.bt-red {
+  border-top: 0.0625rem solid #B73939;
+}
+
+.bb-red {
+  border-bottom: 0.0625rem solid #B73939;
+}
+
+.bl-red {
+  border-left: 0.0625rem solid #B73939;
+}
+
+.br-red {
+  border-right: 0.0625rem solid #B73939;
 }
 
 .bg-red-alt {
   background-color: #FF5252;
 }
 
+.b-red-alt {
+  border: 0.0625rem solid #FF5252;
+}
+
 .c-red-alt {
   color: #FF5252;
+}
+
+.bt-red-alt {
+  border-top: 0.0625rem solid #FF5252;
+}
+
+.bb-red-alt {
+  border-bottom: 0.0625rem solid #FF5252;
+}
+
+.bl-red-alt {
+  border-left: 0.0625rem solid #FF5252;
+}
+
+.br-red-alt {
+  border-right: 0.0625rem solid #FF5252;
 }
 
 .bg-dark {
   background-color: #343537;
 }
 
+.b-dark {
+  border: 0.0625rem solid #343537;
+}
+
 .c-dark {
   color: #343537;
+}
+
+.bt-dark {
+  border-top: 0.0625rem solid #343537;
+}
+
+.bb-dark {
+  border-bottom: 0.0625rem solid #343537;
+}
+
+.bl-dark {
+  border-left: 0.0625rem solid #343537;
+}
+
+.br-dark {
+  border-right: 0.0625rem solid #343537;
 }
 
 .bg-orange {
   background-color: #FF9052;
 }
 
+.b-orange {
+  border: 0.0625rem solid #FF9052;
+}
+
 .c-orange {
   color: #FF9052;
+}
+
+.bt-orange {
+  border-top: 0.0625rem solid #FF9052;
+}
+
+.bb-orange {
+  border-bottom: 0.0625rem solid #FF9052;
+}
+
+.bl-orange {
+  border-left: 0.0625rem solid #FF9052;
+}
+
+.br-orange {
+  border-right: 0.0625rem solid #FF9052;
 }
 
 .bg-white {
   background-color: #eeeeee;
 }
 
+.b-white {
+  border: 0.0625rem solid #eeeeee;
+}
+
 .c-white {
   color: #eeeeee;
+}
+
+.bt-white {
+  border-top: 0.0625rem solid #eeeeee;
+}
+
+.bb-white {
+  border-bottom: 0.0625rem solid #eeeeee;
+}
+
+.bl-white {
+  border-left: 0.0625rem solid #eeeeee;
+}
+
+.br-white {
+  border-right: 0.0625rem solid #eeeeee;
 }
 
 @media screen and (max-width: -0.0625rem) {
@@ -1493,202 +1654,6 @@ h6 {
   padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
-}
-
-.c-green {
-  color: #5ABA95;
-}
-
-.c-gray {
-  color: #585858;
-}
-
-.c-blue {
-  color: #5278FF;
-}
-
-.c-red {
-  color: #B73939;
-}
-
-.c-red-alt {
-  color: #FF5252;
-}
-
-.c-dark {
-  color: #343537;
-}
-
-.c-orange {
-  color: #FF9052;
-}
-
-.c-white {
-  color: #eeeeee;
-}
-
-.o-green {
-  border: 0.0625rem solid #5ABA95;
-}
-
-.o-gray {
-  border: 0.0625rem solid #585858;
-}
-
-.o-blue {
-  border: 0.0625rem solid #5278FF;
-}
-
-.o-red {
-  border: 0.0625rem solid #B73939;
-}
-
-.o-red-alt {
-  border: 0.0625rem solid #FF5252;
-}
-
-.o-dark {
-  border: 0.0625rem solid #343537;
-}
-
-.o-orange {
-  border: 0.0625rem solid #FF9052;
-}
-
-.o-white {
-  border: 0.0625rem solid #eeeeee;
-}
-
-.o-b-green {
-  border-bottom: 0.3125rem solid #5ABA95;
-}
-
-.o-b-gray {
-  border-bottom: 0.3125rem solid #585858;
-}
-
-.o-b-blue {
-  border-bottom: 0.3125rem solid #5278FF;
-}
-
-.o-b-red {
-  border-bottom: 0.3125rem solid #B73939;
-}
-
-.o-b-red-alt {
-  border-bottom: 0.3125rem solid #FF5252;
-}
-
-.o-b-dark {
-  border-bottom: 0.3125rem solid #343537;
-}
-
-.o-b-orange {
-  border-bottom: 0.3125rem solid #FF9052;
-}
-
-.o-b-white {
-  border-bottom: 0.3125rem solid #eeeeee;
-}
-
-.o-r-green {
-  border-right: 0.3125rem solid #5ABA95;
-}
-
-.o-r-gray {
-  border-right: 0.3125rem solid #585858;
-}
-
-.o-r-blue {
-  border-right: 0.3125rem solid #5278FF;
-}
-
-.o-r-red {
-  border-right: 0.3125rem solid #B73939;
-}
-
-.o-r-red-alt {
-  border-right: 0.3125rem solid #FF5252;
-}
-
-.o-r-dark {
-  border-right: 0.3125rem solid #343537;
-}
-
-.o-r-orange {
-  border-right: 0.3125rem solid #FF9052;
-}
-
-.o-r-white {
-  border-right: 0.3125rem solid #eeeeee;
-}
-
-.o-l-green {
-  border-left: 0.3125rem solid #5ABA95;
-}
-
-.o-l-gray {
-  border-left: 0.3125rem solid #585858;
-}
-
-.o-l-blue {
-  border-left: 0.3125rem solid #5278FF;
-}
-
-.o-l-red {
-  border-left: 0.3125rem solid #B73939;
-}
-
-.o-l-red-alt {
-  border-left: 0.3125rem solid #FF5252;
-}
-
-.o-l-dark {
-  border-left: 0.3125rem solid #343537;
-}
-
-.o-l-orange {
-  border-left: 0.3125rem solid #FF9052;
-}
-
-.o-l-white {
-  border-left: 0.3125rem solid #eeeeee;
-}
-
-.o-t-green {
-  border-top: 0.3125rem solid #5ABA95;
-}
-
-.o-t-gray {
-  border-top: 0.3125rem solid #585858;
-}
-
-.o-t-blue {
-  border-top: 0.3125rem solid #5278FF;
-}
-
-.o-t-red {
-  border-top: 0.3125rem solid #B73939;
-}
-
-.o-t-red-alt {
-  border-top: 0.3125rem solid #FF5252;
-}
-
-.o-t-dark {
-  border-top: 0.3125rem solid #343537;
-}
-
-.o-t-orange {
-  border-top: 0.3125rem solid #FF9052;
-}
-
-.o-t-white {
-  border-top: 0.3125rem solid #eeeeee;
-}
-
-.o-rad {
-  border-radius: 0.3125rem;
 }
 
 a {

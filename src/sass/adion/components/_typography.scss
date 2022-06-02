@@ -28,39 +28,6 @@ $i: 1; $fs: rem(30); @while $i < 7 {
     h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: 'Segoe UI'; }  $i: $i + 1; $fs : $fs - rem(5);
 }
 
-// Set text color
-@each $color_name, $color in $colors{
-    .c-#{$color_name} { color: $color; }
-} 
-
-// Set border color
-@each $color_name, $color in $colors{
-    .o-#{$color_name} { border: rem(1) solid $color; }
-}
-
-// Set border bottom
-@each $color_name, $color in $colors{
-    .o-b-#{$color_name} { border-bottom: rem(5) solid $color; }
-}
-
-// Set border bottom
-@each $color_name, $color in $colors{
-    .o-r-#{$color_name} { border-right: rem(5) solid $color; }
-}
-
-// Set border bottom
-@each $color_name, $color in $colors{
-    .o-l-#{$color_name} { border-left: rem(5) solid $color; }
-}
-
-// Set border bottom
-@each $color_name, $color in $colors{
-    .o-t-#{$color_name} { border-top: rem(5) solid $color; }
-}
-
-.o-rad {
-    border-radius: rem(5);
-}
 
 a{
     text-decoration: none;

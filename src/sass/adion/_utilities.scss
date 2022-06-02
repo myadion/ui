@@ -3,6 +3,7 @@
   @return calc($value / strip-unit($base_size) * 1rem);
 }
 
+/* Convert any unit on int */
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     $number_b : $number * 0 + 1;
@@ -12,33 +13,20 @@
   @return $number;
 }
 
-
 /* Margin and padding */
-$side:('t': ('top'),'b': ('bottom'),'l': ('left'),'r': ('right'));
-
 @each $space in $space_amounts {
-  .m-#{$space} {
-    margin: rem($space) !important;
-  }
-  
-  .p-#{$space} {
-    padding: rem($space) !important;
-  }
+  .m-#{$space} { margin: rem($space) !important; }
+  .p-#{$space} { padding: rem($space) !important; }
 
-  @each $name, $side in $side {
-    .m#{$name}-#{$space} {
-      margin-#{$side}: rem(#{$space}) !important;
-    }
-    .p#{$name}-#{$space} {
-      padding-#{$side}: rem(#{$space}) !important;
-    }
-
+  @each $name, $side in $sides {
+    .m#{$name}-#{$space} { margin-#{$side}: rem(#{$space}) !important; }
+    .p#{$name}-#{$space} { padding-#{$side}: rem(#{$space}) !important; }
   }
 }
 
 /* Flex options */
-.d-flex {
-  display: flex !important;
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
 }
 
 /* Display Options */
@@ -49,11 +37,12 @@ $display_type: ("none","inline","inline-block","block","grid","table","table-cel
   }
 } 
 
-.flex-shrink-0 {
-  flex-shrink: 0 !important;
+/* border option */
+.rounded{
+  border-radius: (5);
 }
 
-/* Colors and background*/
+// Set colors for border, background, background gradient and text
 .bg-gr {
   &-1 { background: linear-gradient(180deg, #292929 0%, #0F0F0F 100%); }
   &-2 { background: linear-gradient(122.73deg, #38B7B5 30.44%, #54BA9B 88.71%); }
@@ -64,10 +53,11 @@ $display_type: ("none","inline","inline-block","block","grid","table","table-cel
 }
 
 @each $color_name, $color in $colors{
-  .bg-#{$color_name} {
-      background-color: $color;
+  .bg-#{$color_name} { background-color: $color; }
+  .b-#{$color_name} { border: rem(1) solid $color; }
+  .c-#{$color_name} { color: $color; }
+  
+  @each $name, $side in $sides {
+    .b#{$name}-#{$color_name} { border-#{$side}: rem(1) solid $color; }
   }
-  .c-#{$color_name} {
-    color: $color;
-  }
-} 
+}
