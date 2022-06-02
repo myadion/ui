@@ -14,8 +14,7 @@
 
 
 /* Margin and padding */
-$space_amounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
-$sides: (top, bottom, left, right); // Leave this variable alone
+$side:('t': ('top'),'b': ('bottom'),'l': ('left'),'r': ('right'));
 
 @each $space in $space_amounts {
   .m-#{$space} {
@@ -26,14 +25,14 @@ $sides: (top, bottom, left, right); // Leave this variable alone
     padding: rem($space) !important;
   }
 
-  @each $side in $sides {
-    .m-#{str-slice($side, 0, 1)}-#{$space} {
+  @each $name, $side in $side {
+    .m#{$name}-#{$space} {
       margin-#{$side}: rem(#{$space}) !important;
     }
-  
-    .p-#{str-slice($side, 0, 1)}-#{$space} {
+    .p#{$name}-#{$space} {
       padding-#{$side}: rem(#{$space}) !important;
     }
+
   }
 }
 
