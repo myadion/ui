@@ -8,17 +8,21 @@
  *
  * Copyright (C) 2021 http://alvarotrigo.com/fullPage - A project by Alvaro Trigo
  */
-.fp-enabled body, html.fp-enabled {
+html.fp-enabled,
+.fp-enabled body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  /*Avoid flicker on slides transitions for mobile phones #336 */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .fp-section {
   position: relative;
   -webkit-box-sizing: border-box;
+  /* Safari<=5 Android<=3 */
   -moz-box-sizing: border-box;
+  /* <=28 */
   box-sizing: border-box;
   height: 100%;
   display: block;
@@ -39,6 +43,7 @@
   overflow: hidden;
   position: relative;
   -webkit-transition: all 0.3s ease-out;
+  /* Safari<=6 Android<=4.3 */
   transition: all 0.3s ease-out;
 }
 
@@ -49,6 +54,11 @@
   width: 100%;
 }
 
+/* .fp-table::before , 
+.fp-table::after {
+      content:'';
+      flex:1;
+} */
 .fp-slidesContainer {
   float: left;
   position: relative;
@@ -56,9 +66,13 @@
 
 .fp-controlArrow {
   -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
   -moz-user-select: none;
+  /* mozilla browsers */
   -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
   -ms-user-select: none;
+  /* IE10+ */
   position: absolute;
   z-index: 4;
   top: 50%;
@@ -93,6 +107,16 @@
   border-color: transparent transparent transparent #fff;
 }
 
+/* .fp-scrollable {
+    overflow: hidden;
+    position: relative;
+} */
+/* .fp-scroller{
+    overflow: hidden;
+} */
+/* .iScrollIndicator{
+    border: 0 !important;
+} */
 .fp-notransition {
   -webkit-transition: none !important;
   transition: none !important;
@@ -136,12 +160,14 @@
   top: 17px;
 }
 
-#fp-nav ul, .fp-slidesNav ul {
+#fp-nav ul,
+.fp-slidesNav ul {
   margin: 0;
   padding: 0;
 }
 
-#fp-nav ul li, .fp-slidesNav ul li {
+#fp-nav ul li,
+.fp-slidesNav ul li {
   display: block;
   width: 14px;
   height: 13px;
@@ -153,7 +179,8 @@
   display: inline-block;
 }
 
-#fp-nav ul li a, .fp-slidesNav ul li a {
+#fp-nav ul li a,
+.fp-slidesNav ul li a {
   display: block;
   position: relative;
   z-index: 1;
@@ -163,14 +190,18 @@
   text-decoration: none;
 }
 
-#fp-nav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li a.active span, .fp-slidesNav ul li:hover a.active span {
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li:hover a.active span {
   height: 12px;
   width: 12px;
   margin: -6px 0 0 -6px;
   border-radius: 100%;
 }
 
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
   border-radius: 50%;
   position: absolute;
   z-index: 1;
@@ -187,10 +218,11 @@
   transition: all 0.1s ease-in-out;
 }
 
-#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span {
+#fp-nav ul li:hover a span,
+.fp-slidesNav ul li:hover a span {
   width: 10px;
   height: 10px;
-  margin: -5px 0 0 -5px;
+  margin: -5px 0px 0px -5px;
 }
 
 #fp-nav ul li .fp-tooltip {
@@ -208,7 +240,8 @@
   cursor: pointer;
 }
 
-#fp-nav ul li:hover .fp-tooltip, #fp-nav.fp-show-active a.active + .fp-tooltip {
+#fp-nav ul li:hover .fp-tooltip,
+#fp-nav.fp-show-active a.active + .fp-tooltip {
   -webkit-transition: opacity 0.2s ease-in;
   transition: opacity 0.2s ease-in;
   width: auto;
@@ -223,15 +256,20 @@
   left: 20px;
 }
 
-.fp-auto-height .fp-slide, .fp-auto-height.fp-section {
+.fp-auto-height.fp-section,
+.fp-auto-height .fp-slide {
   height: auto !important;
 }
 
-.fp-scrollable .fp-section, .fp-scrollable .fp-slide {
+/* Used with autoScrolling: false */
+.fp-scrollable .fp-section,
+.fp-scrollable .fp-slide {
+  /* Fallback for browsers that do not support Custom Properties */
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
 
+/* Disabling vertical centering on scrollable elements */
 .fp-overflow {
   justify-content: flex-start;
 }
@@ -239,17 +277,19 @@
 .fp-overflow {
   overflow-y: scroll;
   height: 100%;
-  outline: 0;
+  outline: none;
 }
 
 .fp-overflow.fp-table {
   display: block;
 }
 
-.fp-responsive .fp-auto-height-responsive .fp-slide, .fp-responsive .fp-auto-height-responsive.fp-section {
+.fp-responsive .fp-auto-height-responsive.fp-section,
+.fp-responsive .fp-auto-height-responsive .fp-slide {
   height: auto !important;
 }
 
+/*Only display content to screen readers*/
 .fp-sr-only {
   position: absolute;
   width: 1px;
@@ -282,11 +322,14 @@
   height: auto !important;
 }
 
+/* Used for DragAndMove*/
 .fp-disable-snap body {
   scroll-behavior: unset !important;
   scroll-snap-type: none !important;
 }
 
+/* Customize website's scrollbar like Mac OS
+Not supports in Firefox and IE */
 .fp-scroll-mac .fp-overflow::-webkit-scrollbar {
   background-color: transparent;
   width: 9px;
@@ -302,20 +345,22 @@
   border: 4px solid transparent;
 }
 
-.fp-warning, .fp-watermark {
+.fp-warning,
+.fp-watermark {
   z-index: 9999999;
   position: absolute;
   bottom: 0;
 }
 
-.fp-warning, .fp-watermark a {
+.fp-warning,
+.fp-watermark a {
   text-decoration: none;
   color: #000;
   background: rgba(255, 255, 255, 0.6);
   padding: 5px 8px;
   font-size: 14px;
   font-family: arial;
-  color: #000;
+  color: black;
   display: inline-block;
   border-radius: 3px;
   margin: 12px;

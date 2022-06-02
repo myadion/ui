@@ -909,6 +909,7 @@ td, th {
 }
 .container.fluid {
   margin: 0;
+  padding: 0;
   max-width: 100%;
 }
 .container.center {
@@ -1578,10 +1579,6 @@ pre:hover {
   align-items: flex-end;
 }
 
-.f {
-  display: flex;
-}
-
 .t {
   font-weight: 400;
 }
@@ -1660,7 +1657,7 @@ a {
   text-decoration: none;
   color: #eeeeee;
   font-weight: 600;
-  margin: 0.625rem;
+  padding: 0.625rem;
   color: #a5a5a5;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -1678,6 +1675,62 @@ a:hover i {
 }
 a i {
   font-size: 1.375rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#nav {
+  background: red;
+  z-index: 100;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 250px;
+  display: none;
+}
+
+.side-nav {
+  width: 11.25rem;
+}
+.side-nav li {
+  height: 1.875rem;
+  display: flex;
+  align-items: center;
+  padding-top: 1.5625rem;
+  padding-bottom: 1.5625rem;
+}
+.side-nav li.category {
+  justify-content: center;
+}
+.side-nav li.category span {
+  width: 90%;
+  font-weight: 800;
+  font-size: 0.6875rem;
+  text-align: center;
+  padding: 0.1875rem;
+  border-radius: 15px;
+  background: rgba(253, 253, 253, 0.3411764706);
+}
+.side-nav a {
+  color: #fff;
+  font-weight: 400;
+  height: 100%;
+  width: 100%;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1.25rem;
+}
+.side-nav a.active {
+  font-weight: 600;
+}
+.side-nav a.active:before {
+  border-left: white solid 5px;
+  position: absolute;
+  left: 0;
+  height: 2.1875rem;
+  color: #eeeeee;
+  content: "";
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }

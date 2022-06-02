@@ -57,6 +57,7 @@ $map-grid-props: (
   padding: rem(15);
   &.fluid {
     margin: 0;
+    padding: 0;
     max-width: 100%;
   }
   &.center{

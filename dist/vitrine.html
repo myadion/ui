@@ -13,13 +13,23 @@
         <title>Adion - Cloud Web Télécom and more</title>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="assets/js/adion-ui-kit/fullpage/fullpage.js"></script>
-        <script type="text/javascript" src="assets/js/adion-ui-kit/fullpage/extensions.min.js"></script>
+        <script type="text/javascript" src="assets/js/adion-ui-kit/fullpage/fullpage.min.js"></script>
     </head>
     <body>
-        
-        <div id="fullpage">
-            <div class="section bg-gr-1 container-fluid">
+        <div id="nav" class="side-nav">
+            <ul>
+                <li class="category"><span>General</span></li>
+                <li><a data-menuanchor="section2" class href="#">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="category"><span>General</span></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div id="welcome">
+            <div class="section container fluid bg-gr-1">
                 <div class="home-header c">
                     <img src="assets/img/logo_adion.png" width="150px" alt="Adion Logo">
                 </div>
@@ -34,92 +44,72 @@
                     </div>
                 </div>
             </div>
-            <div class="section bg-gr-2">
-                <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                      <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-                      <span class="fs-5 fw-semibold">Collapsible</span>
-                    </a>
-                    <ul class="list-unstyled ps-0">
-                      <li class="mb-1">
-                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                          Home
-                        </button>
-                        <div class="collapse show" id="home-collapse">
-                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Updates</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Reports</a></li>
-                          </ul>
-                        
-                        </div>
-                      </li>
-                      <li class="mb-1">
-                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                          Dashboard
-                        </button>
-                        <div class="collapse" id="dashboard-collapse">
-                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Overview</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Weekly</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Monthly</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Annually</a></li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li class="mb-1">
-                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                          Orders
-                        </button>
-                        <div class="collapse" id="orders-collapse">
-                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Processed</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Shipped</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Returned</a></li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li class="border-top my-3"></li>
-                      <li class="mb-1">
-                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                          Account
-                        </button>
-                        <div class="collapse" id="account-collapse">
-                          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
-                          </ul>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+            <div class="section bg-gr-1">
+                <div class="container fluid">
+                    <div class="col-10 col-o-2">
+                        <h1>Section 2</h1>
+                    </div>
+                </div>
             </div>
             <div class="section bg-gr-1">
-                <h1>Section 3</h1>
+                <div class="container fluid">
+                    <div class="col-10 col-o-2">
+                        <h1>Section 3</h1>
+                    </div>
+                </div>
             </div>
             <div class="section bg-gr-3">
-                <h1>Section 4</h1>
+                <div class="container fluid">
+                    <div class="col-10 col-o-2">
+                        <h1>Section 4</h1>
+                    </div>
+                </div>
             </div>
             <div class="section bg-gr-4">
-                <h1>Section 5</h1>
+                <div class="container fluid">
+                    <div class="col-10 col-o-2">
+                        <h1>Section 5</h1>
+                    </div>
+                </div>
             </div>
             <div class="section bg-gr-5">
-                <h1>Section 6</h1>
+                <div class="container fluid">
+                    <div class="col-10 col-o-2">
+                        <h1>Section 6</h1>
+                    </div>
+                </div>
             </div>
             <div class="section bg-gr-6">
-                <h1>Section 7</h1>
+                <div class="container fluid">
+                    <div class="col-10 col-o-2">
+                        <h1>Section 7</h1>
+                    </div>
+                </div>
             </div>
         </div>
 
         <script>
 
-            $('#fullpage').fullpage({
-                anchors: ['welcome', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
-                scrollBar: true
+            var test = new $('#welcome').fullpage({
+                anchors: ['home', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+                scrollBar: false,
+                menu: "#nav",
+                slidesNavPosition: 'bottom',
+                verticalCentered: true,
+                scrollingSpeed: 500,
+                css3: true,
+                afterLoad: function(anchorLink, index){
+                    if (index > 1){
+                        $('#nav').fadeTo(.1, 1);
+                    }
+                },
+                onLeave: function(index, nextIndex, direction){
+                    if (index == 2 && direction == 'up') {
+                        $('#nav').fadeTo(.1, 0);
+                    }
+                }
             });
+        
         </script>
     </body>
 </html>

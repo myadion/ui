@@ -9,9 +9,6 @@
     text-align: right;
     align-items: flex-end;
 }
-.f{
-    display: flex;
-}
 
 // Set thin to 100
 $i: 500; $class_name : 't'; @while $i > 100 {
@@ -33,7 +30,7 @@ a{
     text-decoration: none;
     color: $white;
     font-weight: 600;
-    margin: rem(10);
+    padding: rem(10);
     color: lighten($color: $gray, $amount: 30);
     @include transition(.4s);
 
