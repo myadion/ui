@@ -26,14 +26,15 @@
     }
 
     li{
-        height: rem(30);
+        height: rem(25);
         display: flex;
         align-items: center;
-        padding-top: rem(25);
-        padding-bottom: rem(25);
+        padding-top: rem(15);
+        padding-bottom: rem(15);
 
         &.category{
             justify-content: center;
+            letter-spacing: 1px;
 
             & span{
                 width: 90%;
@@ -52,7 +53,7 @@
         font-weight: 400;
         height: 100%;
         width: 100%;
-        font-size: rem(18);
+        font-size: rem(13);
         display: flex;
         align-items: center;
         padding-left: rem(20);
@@ -64,7 +65,7 @@
                 border-left: white solid 5px;
                 position: absolute;
                 left: 0;
-                height: rem(35);
+                height: rem(25);
                 color: #eeeeee;
                 content: "";
                 @include transition(.4s);

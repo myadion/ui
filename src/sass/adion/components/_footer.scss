@@ -6,15 +6,81 @@ footer{
     position: absolute;
 
     .content{
-        height: 70%;
+        height: 85%;
         background-color: $gray-alt;
         color: $dark;
+
+        .logo{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            h3{
+                font-weight: 800;
+                padding: 0;
+            }
+        }
+
+        .links{
+            ul{
+                line-height: .8;
+            }
+
+            hr{
+                margin: rem(5) 0;
+                border: none;
+                width: 20%;
+                border-top: 1px solid $dark;
+            }
+
+            h3{
+                font-size: 16px;
+                font-weight: 700;
+                padding: 0;
+            }
+
+            a{
+                padding: 0;
+                color: $dark;
+                font-size: 9px;
+
+                &:hover{
+                    font-weight: 700;
+
+                    i{
+                        color: $green;
+                    }
+                }
+
+                i{
+                    padding: 5px;
+                }
+            }
+
+        }
+
+        .contact{
+            
+
+            h4{
+                font-size: 12px;
+                font-weight: 700;
+                padding: 0;
+            }
+
+            p{
+                font-size: 12px;
+                padding-top: rem(18);
+            }
+        }
     }
     
     .credit{
-        height: 30%;
+        height: 15%;
         font-weight: 600;
-        background-color: $green;
+        background-color: darken($gray-alt, 20);
         font-size: rem(10);
         line-height: 1;
         color: $white;

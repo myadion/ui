@@ -32,7 +32,6 @@ a{
     font-weight: 600;
     padding: rem(10);
     color: lighten($color: $gray, $amount: 30);
-    @include transition(.4s);
 
     &:hover{
         @include transition(.4s);
