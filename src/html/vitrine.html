@@ -220,6 +220,10 @@
                         $('footer').fadeTo("fast", 1);
                         $('.side-nav').addClass("with-footer");
                     }
+                    if (index.index  == 0){
+                        $('.side-nav').hide();
+                        $('.nav').hide();
+                    }
                 },
                 onLeave: function(index, nextIndex, direction){
                     console.log(index.index);
