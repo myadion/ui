@@ -30,7 +30,12 @@ button{
     }
 
     &.btn-small{
-        width: rem(200);
+        height: rem(30);
+        font-size: rem(11);
+    }
+
+    &.btn-noradius{
+        border-radius: 0;
     }
     
     @each $color_name, $color in $colors{
