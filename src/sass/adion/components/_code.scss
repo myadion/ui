@@ -1,16 +1,7 @@
 
-pre{
-    border: none;
+.code-toolbar pre{
+    font-size: rem(11);
     border-radius: 5px;
-    box-shadow: none;
-    background-color: $dark;
-    padding: rem(20) rem(10);
-    margin: 1rem 0;
     border: $gray solid 1px;
     @include transition(.4s);
-
-    &:hover{
-        background-color: $white;
-        color: $dark;
-    }
 }

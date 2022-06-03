@@ -1,357 +1,317 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+
+        <link rel="stylesheet" href="assets/css/font-awesome/font-awesome-5-14.css">  
+        <link rel="stylesheet" href="assets/css/fullpage/fullpage.css">  
+        <link rel="stylesheet" href="assets/css/prism/prism.css">  
+        <link rel="stylesheet" href="assets/css/adion-ui-kit.css">  
+        <link rel="shortcut icon" href="assets/img/logo_adion.png">
+        <title>Adion - UI Kit</title>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="assets/js/adion-ui-kit/fullpage/fullpage.min.js"></script>
+        <script type="text/javascript" src="assets/js/adion-ui-kit/prism/prism.js"></script>
+    </head>
+    <body>
+        <div class="nav d-none row">
+            <div class="col-1">
+                <button class="btn-small btn-green c btn-noradius">Choisir un autre domaine</button>
+            </div>
+            <div class="col-1 fh">
+                <img src="assets/img/logo_adion.png" width="50px" alt="logo adion">
+            </div>
+            <div class="col-1">
+                <h1>CLOUD</h1>
+            </div>
+        </div>
+        
+        <div class="side-nav-control">
+            <a href="#" class="btn radius icon btn-white" onclick="$('#nav').toggle()"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div>
+        <div id="nav" class="side-nav d-none">
+            <div class="header">
+                <img src="assets/img/logo_adion.png" width="50px" alt="logo adion">
+                <a href="#" onclick="$('#nav').toggle()"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+            <ul onclick="$('#nav').toggle()">
+
+                <li class="category"><span>Getting Started</span></li>
+                <li><a data-menuanchor="about" class href="#about">About</a></li>
+                <li><a data-menuanchor="download" class href="#download">Download</a></li>
+                <li><a data-menuanchor="" class href="#">Setup</a></li>
+                <li><a data-menuanchor="" class href="#">Templates</a></li>
+                <li><a data-menuanchor="" class href="#">Sass</a></li>
+
+                <li class="category"><span>Layout</span></li>
+                <li><a data-menuanchor="" class href="#">Breakpoints</a></li>
+                <li><a data-menuanchor="" class href="#">Container</a></li>
+                <li><a data-menuanchor="" class href="#">Grid</a></li>
+                <li><a data-menuanchor="" class href="#">Utilities</a></li>
+                <li><a data-menuanchor="" class href="#">Z-index</a></li>
+
+                <li class="category"><span>Content</span></li>
+                <li><a data-menuanchor="" class href="#">Typography</a></li>
+                <li><a data-menuanchor="" class href="#">Table</a></li>
+                <li><a data-menuanchor="" class href="#">Images</a></li>
+
+                <li class="category"><span>Forms</span></li>
+                <li><a data-menuanchor="" class href="#">Form control</a></li>
+                <li><a data-menuanchor="" class href="#">Select</a></li>
+                <li><a data-menuanchor="" class href="#">Autocomplete</a></li>
+                <li><a data-menuanchor="" class href="#">Input group</a></li>
+                <li><a data-menuanchor="" class href="#">Checkboxes & Radio</a></li>
+                <li><a data-menuanchor="" class href="#">Chips</a></li>
+                <li><a data-menuanchor="" class href="#">Pickers</a></li>
+                <li><a data-menuanchor="" class href="#">Range</a></li>
+                <li><a data-menuanchor="" class href="#">Switches</a></li>
+                <li><a data-menuanchor="" class href="#">Label</a></li>
+                <li><a data-menuanchor="" class href="#">Layout</a></li>
+                <li><a data-menuanchor="" class href="#">Validation</a></li>
+
+                <li class="category"><span>Components</span></li>
+                <li><a data-menuanchor="" class href="#">Accordion</a></li>
+                <li><a data-menuanchor="" class href="#">Alerts</a></li>
+                <li><a data-menuanchor="" class href="#">Badge</a></li>
+                <li><a data-menuanchor="" class href="#">Breadcrumb</a></li>
+                <li><a data-menuanchor="" class href="#">Buttons</a></li>
+                <li><a data-menuanchor="" class href="#">Buttons group</a></li>
+                <li><a data-menuanchor="" class href="#">Buttons Floating Action</a></li>
+                <li><a data-menuanchor="" class href="#">Card</a></li>
+                <li><a data-menuanchor="" class href="#">Collapse</a></li>
+                <li><a data-menuanchor="" class href="#">Dropdowns</a></li>
+                <li><a data-menuanchor="" class href="#">List group</a></li>
+                <li><a data-menuanchor="" class href="#">Modal</a></li>
+                <li><a data-menuanchor="" class href="#">Navbar</a></li>
+                <li><a data-menuanchor="" class href="#">Navs & tabs</a></li>
+                <li><a data-menuanchor="" class href="#">Pagination</a></li>
+                <li><a data-menuanchor="" class href="#">Placeholders</a></li>
+                <li><a data-menuanchor="" class href="#">Popovers</a></li>
+                <li><a data-menuanchor="" class href="#">Preloader</a></li>
+                <li><a data-menuanchor="" class href="#">Progress</a></li>
+                <li><a data-menuanchor="" class href="#">Scrollspy</a></li>
+                <li><a data-menuanchor="" class href="#">Toasts</a></li>
+                <li><a data-menuanchor="" class href="#">Tooltips</a></li>
+                <li><a data-menuanchor="" class href="#">Footer</a></li>
+
+
+                <li class="category"><span>Helpers</span></li>
+                <li><a data-menuanchor="" class href="#">Color & background</a></li>
+                <li><a data-menuanchor="" class href="#">Colored links</a></li>
+                <li><a data-menuanchor="" class href="#">Ratio</a></li>
+                <li><a data-menuanchor="" class href="#">Media</a></li>
+                <li><a data-menuanchor="" class href="#">Position</a></li>
+                
+
+                <li class="category"><span>Extend</span></li>
+                <li><a data-menuanchor="" class href="#">Pulse</a></li>
+                <li><a data-menuanchor="" class href="#">Shadow</a></li>
+                <li><a data-menuanchor="" class href="#">Transitions</a></li>
+                <li><a data-menuanchor="" class href="#">Icons</a></li>
+                <li><a data-menuanchor="" class href="#">SVG</a></li>
+            </ul>
+        </div>
+        <div id="welcome">
+            <div class="section bg-gr-1">
+                <div class="container fluid">
+                    <div class="home-header c">
+                        <img src="assets/img/logo_adion.png" width="150px" alt="Adion Logo">
+                    </div>
+                    <div class="home-title c">
+                        <h1 class="b">Adion UI Kit</h1><h3>Documentation v1.2</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="section bg-gr-2">
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class="row p-10">
+                        <div class="container row">
+                            <div class="col-12"><h1>About</h1></div>
+                            <div class="col-6">
+                                <p>Created and designed by Adion, Adion UI Kit Design is a design language that combines the classic principles of successful design along with innovation and technology. Adion's goal is to develop a system of design that allows for a unified user experience across all their products on any platform.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section bg-gr-2">
+                <div class="container fluid with-sidebar with-navbar with-footer fh">
+                    <div class="row p-10">
+                        <div class="container row">
+                            <div class="col-12 mb-40"><h1>Download</h1><p>Adion UI Kit comes in two different forms. You can select which version you want depending on your preference and expertise. To start using Adion UI Kit, all you have to do is download one of the options below.
+                            </p></div>
+                            <div class="container row">
+                                <div class="col-5">
+                                    <h2>Adion UI Kit</h2>
+                                    <p>This is the standard version that comes with both the minified and unminified CSS and JavaScript files. This option requires little to no setup. Use this if you are unfamiliar with Sass.</p>
+                                    <br>
+                                    <a href="#" class="btn btn-small">Adion UI Kit</a>
+                                </div>
+                                <div class="col-5 col-o-2">
+                                    <h2>Sass</h2>
+                                    <p>This version contains the source SCSS files. By choosing this version you have more control over which components to include. You will need a Sass compiler if you choose this option.</p>
+                                    <br>
+                                    <a href="#" class="btn btn-small">Source</a>
+                                </div>
+                                <div class="col-5">
+                                    <h2>CDN</h2>
+                                    <p>You can get css and js file from our.</p>
+                                    <br>
+<pre><code class="language-html"><xmp><link href="https://cdn-a.myadion.com/ui-kit/css/adion-ui-kit.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn-a.myadion.com/ui-kit/js/adion-ui-kit.min.js" crossorigin="anonymous"></script></xmp></code></pre>
+                                </div>
+                                <div class="col-5 col-o-2">
+                                    <h2>Sass</h2>
+                                    <p>This version contains the source SCSS files. By choosing this version you have more control over which components to include. You will need a Sass compiler if you choose this option.</p>
+                                    <br>
+                                    <a href="#" class="btn btn-small">Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     
-    <link rel="stylesheet" href="assets/css/font-awesome/font-awesome-5-14.css">  
-    <link rel="stylesheet" href="assets/css/adion-ui-kit.css">  
-    <title>Adion UI Kit</title>
-  </head>
-  <body>
-    
-    <div class="container fluid c o-b-green">
-      <div class="col-12">
-        <h1><span class="bb">Adion</span> UI Kit</h1>
-      </div>
-      <div class="col-12">
-        <img width="50px" src="assets/img/logo_adion.png" alt="Logo Adion">
-      </div>
-    </div>
+        <footer class="d-none container fluid bt-5-green">
+            <div class="content">
+                <div class="row fh">
+                    <div class="col-2">
+                        <div class="logo">
+                            <img src="assets/img/logo_adion.png" width="70px" alt="Adion Logo">
+                            <h3 class="pl-30">Adion</h3>
+                        </div>
+                    </div>
+                    <div class="col-5 pl-40">
+                        <div class="row fh links pt-20">
+                            <div class="col-3">
+                                <h3>Lien pratique</h3>
+                                <hr>
+                                <ul>
+                                    <li><a href="#">Espace client</a></li>
+                                    <li><a href="#">Webmail</a></li>
+                                    <li><a href="#">API et documentation</a></li>
+                                    <li><a href="#">Procédure</a></li>
+                                    <li><a href="#">Status des services</a></li>
+                                    <li><a href="#">Whois</a></li>
+                                    <li><a href="#">Signaler un abus</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-3">
+                                <h3>Services</h3>
+                                <hr>
+                                <ul>
+                                    <li><a href="#">Parcourir le centre d'aide</a></li>
+                                    <li><a href="#">Contacter le service client</a></li>
+                                    <li><a href="#">Discuter avec la communauté</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-3">
+                                <h3>Divers</h3>
+                                <hr>
+                                <ul>
+                                    <li><a href="#">Mention légales</a></li>
+                                    <li><a href="#">Contrats et conditions</a></li>
+                                    <li><a href="#">Protection des données</a></li>
+                                    <li><a href="#">Documentation ICANN</a></li>
+                                    <li><a href="#">A propos</a></li>
+                                    <li><a href="#">Adion recrute</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-3">
+                                <h3>Suivez-nous</h3>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <ul>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-github"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-2">
+                                        <ul>
+                                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                        </ul>
 
-    <div class="container">
-
-      <div class="col-12">
-        <h3>Formulaire:</h3>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-6">
-          <h6>Liste de séléction:</h6>
-        </div>
-        <div class="col-6">
-          <select class="text-center" name="langs" id="lang-select" size="5">
-            <option value="french" selected>Français</option>
-            <option value="english">English</option>
-            <option value="japanese">Japanese</option>
-            <option value="chinese">Chinese</option>
-            <option value="spanish">Spanish</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Bouton:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un encadrement:</p><pre>class="o-{color}"</pre>
-          <p>Pour définir une couleur du texte:</p><pre>class="c-{color}"</pre>
-          <p>Pour définir une couleur du fond:</p><pre>class="btn-{color}"</pre>
-        </div>
-        <div class="col-6">
-          <a href="#" class="btn auto">Hello</a>
-          <button class="btn-red">Hello</button>
-          <button class="btn-blue">Hello</button>
-          <button class="btn-green">Hello</button>
-          <button class="btn-dark">Hello</button>
-          <button class="btn-white">Hello</button>
-          <button class="btn-gray">Hello</button>
-          <button class="o-red c-red-alt b">Réinitaliser ma zone DNS</button>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Bouton XL:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un bouton xl:</p><pre>class="btn-big"</pre>
-        </div>
-        <div class="col-6">
-          <button class="btn-big auto">Hello</button>
-          <button class="btn-big">Hello</button>
-          <button class="btn-big btn-white b i">Hello</button>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Bouton Circle:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un bouton xl:</p><pre>class="btn-big"</pre>
-          <p>Pour définir un bouton sm:</p><pre>class="btn-small"</pre>
-        </div>
-        <div class="col-6">
-          <div class="row">
-            <div class="col-2 col-o-1"><button class="circle icon btn-small"><i class="fas fa-fingerprint"></i></button></div>
-            <div class="col-2"><button class="circle icon"><i class="fas fa-fingerprint"></i></button></div>
-            <div class="col-2"><button class="circle icon btn-big c-blue o-blue"><i class="fas fa-fingerprint"></i></button></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Bouton spécial:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un bouton spécial:</p><pre>class="btn-special"</pre>
-        </div>
-        <div class="col-6">
-          <button class="btn btn-special btn-blue">
-            <i class="fas fa-fingerprint"></i>
-            <div>
-              <span class="title">Sécurité</span>
-              <span class="description">Mettez à jours la sécurité de votre compte</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 pl-40">
+                        <div class="row fh contact pt-20">
+                            <div class="col-3">
+                                <h4>Service commercial</h4>
+                                <p>Lundi au vendredi<br>de 9h à 18h</p>
+                                <p>+33 1 88 33 13 03<br>hello@myadion.com</p>
+                            </div>
+                            <div class="col-3">
+                                <h4>Service client</h4>
+                                <p>Lundi au samedi<br>de 9h à 18h</p>
+                                <p>+33 820 690 311<br>help@myadion.com</p>
+                            </div>
+                            <div class="col-4">
+                                <h4>Siège</h4>
+                                <p><span class="bb">Adion Cloud - Service relation client</span><br>97 rue Réguelongue,<br>BAT B, BAL n°92,<br>31100 Toulouse, France</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </button>
-          <button class="btn btn-big btn-special o-green">
-            <i class="fas fa-fingerprint"></i>
-            <div>
-              <span class="title">Sécurité</span>
-              <span class="description">Mettez à jours la sécurité de votre compte</span>
+            <div class="credit">
+                <p>&copy; Copyright 2016-2022 Adion. Conformément à la Directive 2006/112/CE modifiée, à partir du 01/01/2015, les prix TTC sont susceptibles de varier selon le pays de résidence du client (par défaut les prix TTC affichés incluent la TVA française en vigueur).</p>
             </div>
-          </button>   
-          
-          <button class="btn btn-special o-green">
-            <i class="fas fa-fingerprint"></i>
-            <div>
-              <span class="title">Sécurité</span>
-              <span class="description">Mettez à jours la sécurité de votre compte</span>
-            </div>
-          </button>
-        </div>
-      </div>
+        </footer>
+        <script>
+            
+            $('a[data-menuanchor="home"]').click(function(){
+                $('.side-nav').hide();
+                $('.nav').hide();
+            });
 
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Bouton option:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un bouton en gras:</p><pre>class="b", class="bb", class="bbb"</pre>
-          <p>Pour définir un bouton au centre:</p><pre>class="c"</pre>
-          <p>Pour définir un bouton  à droite:</p><pre>class="r"</pre>
-        </div>
-        <div class="col-6">
-          <button class="b">Bold</button>
-          <button class="bb">Bold+</button>
-          <button class="bbb">Bold++</button>
-          <button class="c">Center</button>
-          <button class="r">Right</button>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Checkbox:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un bouton en active:</p><pre>checked type="checkbox"</pre>
-        </div>
-        <div class="col-6 row">
-          <div class="col-2 col-o-1">
-            <label class="switch">
-              <input type="checkbox">
-              <span class="switch-slider"></span>
-            </label>
-          </div>
-          <div class="col-2">
-            <label class="switch">
-              <input checked type="checkbox">
-              <span class="switch-slider"></span>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Checkbox sur un bouton:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un bouton avec un switch:</p><pre>class="btn-switch"</pre>
-        </div>
-        <div class="col-6">
-          <label for="check" class="btn btn-big btn-switch">
-            <span>Activer le service</span>
-            <label class="switch">
-              <input id="check" type="checkbox">
-              <span class="switch-slider"></span>
-            </label>
-          </label>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Forulaire de recherche:</h6>
-        </div>
-        <div class="col-6 col-o-3">
-          <div class="form-group">
-            <div class="input-group">
-              <input type="text" placeholder="Faire une recherche...">
-              <i class="fa fa-search"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Formulaire de saisie:</h6>
-        </div>
-        <div class="col-6 col-o-3">
-
-          <div class="form-group">
-            <label>Email address</label>
-            <div class="input-group">
-              <input ok type="email" placeholder="Enter email">
-              <i class="fa fa-times"></i>
-            </div>
-            <label>Email address</label>
-            <div class="input-group">
-              <input warning type="email" placeholder="Enter email">
-              <i class="fa fa-times"></i>
-            </div>
-            <label>Email address</label>
-            <div class="input-group">
-              <input type="email" placeholder="Enter email">
-              <i class="fas fa-at"></i>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label >Password</label>
-            <div class="input-group">
-              <input error type="password" placeholder="Password">
-              <i class="fa fa-times"></i>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn-big c b">Submit</button>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-12">
-        <h3>Collapse:</h3>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-6">
-          <h6>Collapse par défaut:</h6>
-        </div>
-        <div class="col-6">
-          <div class="collapse">
-            <a class="btn btn-special btn-orange auto" onclick="$('#collapseExample').toggle('slow')">
-              <i class="fas fa-fingerprint"></i>
-              <div>
-                <span class="title">Sécurité</span>
-                <span class="description">Mettez à jours la sécurité de votre compte</span>
-              </div>
-            </a>
-            <div class="card" id="collapseExample">
-              <div class="body">
-                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Collapse visible:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un collapse visible:</p><pre>class="card visible"</pre>
-        </div>
-        <div class="col-6">
-          <div class="collapse">
-            <a class="btn btn-special auto" onclick="$('#collapseExampleUL').toggle('slow')">
-              <div>
-                <span class="title">Sécurité</span>
-                <span class="description">Mettez à jours la sécurité de votre compte</span>
-              </div>
-            </a>
-            <div class="card list visible" id="collapseExampleUL">
-              <ul class="col2 c">
-                <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
-                <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
-                <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
-                <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Collapse options:</h6>
-        </div>
-        <div class="col-6">
-          <p>Pour définir un collapse avec différent typage:</p><pre>class: b, bb, bbb, c, l, r</pre>
-        </div>
-        <div class="col-6">
-          <div class="collapse">
-            <a class="btn c bbb" onclick="$('#collapseExampleOption').toggle('slow')">Sécurité</a>
-            <div class="card list visible" id="collapseExampleOption">
-              <ul class="col2 c">
-                <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
-                <li><span class="r b">Nom d'hote</span><span>mail.myadion.com</span></li>
-                <li><span class="l bbb">Nom d'hote</span><span>mail.myadion.com</span></li>
-                <li><span>Nom d'hote</span><span>mail.myadion.com</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <h3>Box:</h3>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-12">
-          <h6>Box Weather:</h6>
-        </div>
-        <div class="col-6 col-o-3">
-          <div class="weather state-degraded">
-            <span class="weather-icon"></span>
-            <div class="weather-info">
-              <span class="title">Service partiellement dégradé </span>
-              <span class="description">Plus d'information sur status.myadion.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <h3>Typage:</h3>
-      </div>
-
-      <div class="row o-b-dark">
-        <div class="col-8 col-o-2">
-          <h1>Je suis un titre de type H1</h1>
-          <h2>Je suis un titre de type H2</h2>
-          <h3>Je suis un titre de type H3</h3>
-          <h4>Je suis un titre de type H4</h4>
-          <h5>Je suis un titre de type H5</h5>
-          <h6>Je suis un titre de type H6</h6>          
-        </div>
-      </div>
-
-    </div>
-
-
-
-
-  </body>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            var test = new $('#welcome').fullpage({
+                anchors: ['home', 'about', 'download'],
+                scrollBar: false,
+                menu: "#nav",
+                afterLoad: function(anchorLink, index, direction){
+                    if($(window).width() > 768) {
+                        if (index.index > 0){
+                            $('.side-nav').fadeTo("fast", 1);
+                            $('.side-nav').addClass("with-navbar");
+                            $('.nav').fadeTo("fast", 1);
+                        }
+                        if (index.index  == 6){
+                            $('footer').fadeTo("fast", 1);
+                            $('.side-nav').addClass("with-footer");
+                        }
+                        if (index.index  == 0){
+                            $('.side-nav').hide();
+                            $('.nav').hide();
+                        }
+                    }
+                },
+                onLeave: function(index, nextIndex, direction){
+                    if($(window).width() > 768) {
+                        if (index.index == 1 && direction == 'up') {
+                            $('.side-nav').hide();
+                            $('.side-nav').removeClass("with-navbar");
+                            $('.nav').hide();
+                        }
+                        if( index.index == 6 && direction == 'up'){
+                            $('footer').fadeTo("fast", 0);
+                            $('.side-nav').removeClass("with-footer");
+                        }
+                    }
+                }
+            });
+        
+        </script>
+    </body>
 </html>
