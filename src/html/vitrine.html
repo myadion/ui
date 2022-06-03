@@ -27,8 +27,16 @@
                 <h1>CLOUD</h1>
             </div>
         </div>
+        
+        <div class="side-nav-control">
+            <a href="#" class="btn radius icon btn-white" onclick="$('#nav').toggle()"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div>
         <div id="nav" class="side-nav d-none">
-            <ul>
+            <div class="header">
+                <img src="assets/img/logo_adion.png" width="50px" alt="logo adion">
+                <a href="#" onclick="$('#nav').toggle()"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </div>
+            <ul onclick="$('#nav').toggle()">
                 <li class="category"><span>General</span></li>
                 <li><a data-menuanchor="home" class href="#home">Accueil</a></li>
                 <li class="category"><span>Section</span></li>
@@ -210,31 +218,33 @@
                 scrollBar: false,
                 menu: "#nav",
                 afterLoad: function(anchorLink, index, direction){
-                    console.log(index.index);
-                    if (index.index > 0){
-                        $('.side-nav').fadeTo("fast", 1);
-                        $('.side-nav').addClass("with-navbar");
-                        $('.nav').fadeTo("fast", 1);
-                    }
-                    if (index.index  == 6){
-                        $('footer').fadeTo("fast", 1);
-                        $('.side-nav').addClass("with-footer");
-                    }
-                    if (index.index  == 0){
-                        $('.side-nav').hide();
-                        $('.nav').hide();
+                    if($(window).width() > 768) {
+                        if (index.index > 0){
+                            $('.side-nav').fadeTo("fast", 1);
+                            $('.side-nav').addClass("with-navbar");
+                            $('.nav').fadeTo("fast", 1);
+                        }
+                        if (index.index  == 6){
+                            $('footer').fadeTo("fast", 1);
+                            $('.side-nav').addClass("with-footer");
+                        }
+                        if (index.index  == 0){
+                            $('.side-nav').hide();
+                            $('.nav').hide();
+                        }
                     }
                 },
                 onLeave: function(index, nextIndex, direction){
-                    console.log(index.index);
-                    if (index.index == 1 && direction == 'up') {
-                        $('.side-nav').hide();
-                        $('.side-nav').removeClass("with-navbar");
-                        $('.nav').hide();
-                    }
-                    if( index.index == 6 && direction == 'up'){
-                        $('footer').fadeTo("fast", 0);
-                        $('.side-nav').removeClass("with-footer");
+                    if($(window).width() > 768) {
+                        if (index.index == 1 && direction == 'up') {
+                            $('.side-nav').hide();
+                            $('.side-nav').removeClass("with-navbar");
+                            $('.nav').hide();
+                        }
+                        if( index.index == 6 && direction == 'up'){
+                            $('footer').fadeTo("fast", 0);
+                            $('.side-nav').removeClass("with-footer");
+                        }
                     }
                 }
             });

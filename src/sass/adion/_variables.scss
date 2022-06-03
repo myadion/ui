@@ -10,6 +10,9 @@ $screen-lg-min: 992px;
 // Large tablets and desktops
 $screen-xl-min: 1200px;
 
+// Big desktop
+$screen-xxl-min: 1400px;
+
 
 $grid__bp-sm: 576;
 $grid__bp-md: 768;
@@ -18,6 +21,14 @@ $grid__bp-xl: 1200;
 $grid__bp-xxl: 1400;
 $grid__cols: 12;
 
+
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1200px
+) !default;
 
 // Fonts
 $default_font: segoe-ui;

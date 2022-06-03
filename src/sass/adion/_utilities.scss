@@ -67,3 +67,6 @@ $display_type: ("none","inline","inline-block","block","grid","table","table-cel
     .b#{$name}-5-#{$color_name} { border-#{$side}: rem(5) solid $color; }
   }
 }
+
+/* Line height */
+i{line-height: 1.5 !important;}

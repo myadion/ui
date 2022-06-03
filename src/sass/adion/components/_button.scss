@@ -56,13 +56,13 @@ button{
         }
     } 
 
-    &.circle{
+    &.radius{
         height: auto;
         border-radius: rem(5);
 
         &.icon{
-            height: rem(32);
-            width: rem(32);
+            height: rem(50);
+            width: rem(50);
             font-size: rem(15);
             align-items: center;
             border-radius: 100%;
