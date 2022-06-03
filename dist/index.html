@@ -130,8 +130,8 @@
                 <div class="container fluid with-sidebar with-navbar with-footer fh">
                     <div class="row p-10">
                         <div class="container row">
-                            <div class="col-12"><h1>About</h1></div>
-                            <div class="col-6">
+                            <div class="col-12"><h1 class="bbb">About</h1></div>
+                            <div class="col-12 col-md-10 col-xl-8 col-xxl-6">
                                 <p>Created and designed by Adion, Adion UI Kit Design is a design language that combines the classic principles of successful design along with innovation and technology. Adion's goal is to develop a system of design that allows for a unified user experience across all their products on any platform.
                                 </p>
                             </div>
@@ -143,33 +143,39 @@
                 <div class="container fluid with-sidebar with-navbar with-footer fh">
                     <div class="row p-10">
                         <div class="container row">
-                            <div class="col-12 mb-40"><h1>Download</h1><p>Adion UI Kit comes in two different forms. You can select which version you want depending on your preference and expertise. To start using Adion UI Kit, all you have to do is download one of the options below.
+                            <div class="mb-20 col-12"><h1 class="bbb">Download</h1><p>Adion UI Kit comes in two different forms. You can select which version you want depending on your preference and expertise. To start using Adion UI Kit, all you have to do is download one of the options below.
                             </p></div>
                             <div class="container row">
-                                <div class="col-5">
-                                    <h2>Adion UI Kit</h2>
+                                <div class="col-12  col-xl-5">
+                                    <h2 class="b">Adion UI Kit</h2>
                                     <p>This is the standard version that comes with both the minified and unminified CSS and JavaScript files. This option requires little to no setup. Use this if you are unfamiliar with Sass.</p>
                                     <br>
                                     <a href="#" class="btn btn-small">Adion UI Kit</a>
                                 </div>
-                                <div class="col-5 col-o-2">
-                                    <h2>Sass</h2>
+                                <div class="col-12  col-xl-5 col-xl-o-2">
+                                    <h2 class="b">Sass</h2>
                                     <p>This version contains the source SCSS files. By choosing this version you have more control over which components to include. You will need a Sass compiler if you choose this option.</p>
                                     <br>
                                     <a href="#" class="btn btn-small">Source</a>
                                 </div>
-                                <div class="col-5">
-                                    <h2>CDN</h2>
-                                    <p>You can get css and js file from our.</p>
+                                <div class="col-12  col-xl-5">
+                                    <h2 class="b">CDN</h2>
+                                    <p>You can get css and js file from our CDN.</p>
                                     <br>
-<pre><code class="language-html"><xmp><link href="https://cdn-a.myadion.com/ui-kit/css/adion-ui-kit.min.css" rel="stylesheet" crossorigin="anonymous">
+<pre><code class="language-html"><xmp><!-- Compiled and minified CSS -->
+<link href="https://cdn-a.myadion.com/ui-kit/css/adion-ui-kit.min.css" rel="stylesheet" crossorigin="anonymous">
+
+<!-- Compiled and minified dependency -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!-- Compiled and minified JavaScript -->
 <script src="https://cdn-a.myadion.com/ui-kit/js/adion-ui-kit.min.js" crossorigin="anonymous"></script></xmp></code></pre>
                                 </div>
-                                <div class="col-5 col-o-2">
-                                    <h2>Sass</h2>
-                                    <p>This version contains the source SCSS files. By choosing this version you have more control over which components to include. You will need a Sass compiler if you choose this option.</p>
+                                <div class="col-12  col-xl-5 col-xl-o-2">
+                                    <h2 class="b">NPM</h2>
+                                    <p>You can also get the latest release using NPM. This release contains source files as well as the compiled CSS and JavaScript files.</p>
                                     <br>
-                                    <a href="#" class="btn btn-small">Source</a>
+<pre><code class="language-bash"><xmp>npm install ui-kit@adion</xmp></code></pre>
                                 </div>
                             </div>
                         </div>
