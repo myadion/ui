@@ -2053,42 +2053,42 @@ i {
 }
 
 h1 {
-  font-size: 1.875rem;
+  font-size: 2.8125rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h2 {
-  font-size: 1.5625rem;
+  font-size: 2.5rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 2.1875rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h4 {
-  font-size: 0.9375rem;
+  font-size: 1.875rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h5 {
-  font-size: 0.625rem;
+  font-size: 1.5625rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
 }
 
 h6 {
-  font-size: 0.3125rem;
+  font-size: 1.25rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
   font-family: "Segoe UI";
@@ -2713,10 +2713,11 @@ select {
   color: #eeeeee;
   border-radius: 0.3125rem;
   border: none;
+  outline-width: 2px;
+  outline-color: #343537;
+  outline-style: solid;
   height: 2.8125rem;
   font-weight: 600;
-  outline: none;
-  padding: 0 0.625rem;
 }
 select option {
   color: #eeeeee;
@@ -2725,13 +2726,13 @@ select option {
   padding: 0 0.625rem;
   display: flex;
   align-items: center;
-  border-radius: 0.3125rem;
-  text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 select option:active, select option:focus, select option:checked {
   background: linear-gradient(to right, #343537, #343537);
+  outline: solid 2px #343537;
   font-weight: 600;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -2746,6 +2747,36 @@ select option:focus-visible {
 select[size] {
   overflow: hidden;
   background-color: transparent;
+  height: unset;
+}
+select[size] option:hover {
+  color: #eeeeee;
+}
+select.sm {
+  height: 1.5625rem;
+}
+select.sm option {
+  height: 1.5625rem;
+}
+select.sm[size] {
+  height: unset;
+}
+select.md {
+  height: 3.125rem;
+}
+select.md option {
+  height: 3.125rem;
+}
+select.md[size] {
+  height: unset;
+}
+select.xl {
+  height: 3.75rem;
+}
+select.xl option {
+  height: 3.75rem;
+}
+select.xl[size] {
   height: unset;
 }
 

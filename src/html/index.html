@@ -20,13 +20,13 @@
     <body>
         <div class="nav d-none row">
             <div class="col-1">
-                <button class="btn-small btn-green c btn-noradius">Choisir un autre domaine</button>
+                <button class="btn-small c btn-noradius">Voir les templates</button>
             </div>
             <div class="col-1 fh">
                 <img src="assets/img/logo_adion.png" width="50px" alt="logo adion">
             </div>
             <div class="col-1">
-                <h1>CLOUD</h1>
+                <h1>UI KIT</h1>
             </div>
         </div>
         
@@ -38,7 +38,7 @@
                 <img src="assets/img/logo_adion.png" width="50px" alt="logo adion">
                 <a href="#" onclick="$('#nav').toggle()"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
-            <ul onclick="$('#nav').toggle()">
+            <ul>
 
                 <li class="category"><span>Getting Started</span></li>
                 <li><a data-menuanchor="about" class href="#about">About</a></li>
@@ -286,6 +286,14 @@
                             <div class="mb-20 col-12">
                                 <h1 class="bbb">Typography</h1>
                             </div>
+                            <div class="mb-20 col-12">
+                                <h1>h1. Ui Kit heading </h1>
+                                <h2>h2. Ui Kit heading </h2>
+                                <h3>h3. Ui Kit heading </h3>
+                                <h4>h4. Ui Kit heading </h4>
+                                <h5>h5. Ui Kit heading </h5>
+                                <h6>h6. Ui Kit heading </h6>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -315,7 +323,7 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
+            <div class="section bg-dark">
                 <div class="container fluid with-sidebar with-navbar with-footer fh">
                     <div class="row p-10">
                         <div class="container row">
@@ -327,42 +335,134 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
+            <div class="section bg-gray">
                 <div class="container fluid with-sidebar with-navbar with-footer fh">
                     <div class="row p-10">
                         <div class="container row">
                             <div class="mb-20 col-12">
                                 <h1 class="bbb">Select</h1>
+                                <p>Customize the native  <code class="language-markup"><!--<select>--></code> with custom CSS that changes the element’s initial appearance.</p>
                             </div>
                             
                             <div class="container row">
                                 <div class="col-12  col-xl-5">
                                     <h2>Default</h2>
-                                    <p></p>
+                                    <p class="mb-10">Custom menus don't need a custom class to trigger custom styles. Custom styles are limited to the initial browser appearance and cannot change <code class="language-markup"><!--<option></option>--></code> due to browser limitations.</p>
                                     
-                                    <select class="" name="langs" id="lang-select" >
+                                    <select name="langs">
                                         <option value="french" selected="">Français</option>
                                         <option value="english">English</option>
                                         <option value="japanese">Japanese</option>
                                         <option value="chinese">Chinese</option>
                                         <option value="spanish">Spanish</option>
                                     </select>
+
+                                    <pre><code class="language-markup"><xmp>
+                                    <select name="langs">
+                                        <option value="french" selected="">Français</option>
+                                        <option value="english">English</option>
+                                        <option value="japanese">Japanese</option>
+                                        <option value="chinese">Chinese</option>
+                                        <option value="spanish">Spanish</option>
+                                    </select>
+                                    </xmp></code></pre>
+                                    
+
+                                    <h2>Disabled</h2>
+                                    
+                                    <p class="mb-10">Add the disabled boolean attribute on a select to give it a grayed out appearance and remove pointer events.</p>
+
+                                    <select disabled name="langs">
+                                        <option value="1" selected="">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+
+                                    <pre><code class="language-markup"><xmp>
+                                        <select disabled name="langs">
+                                            <option value="1" selected="">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </xmp></code></pre>
                                 </div>
-
-
-                            <div class="col-12  col-xl-5">
-                                <h2>With "size"</h2>
                                 
-                                    <select class="" name="langs" id="lang-select" size="5">
-                                        <option value="french" selected="">Français</option>
+
+                                <div class="col-12  col-xl-5 col-xl-o-2">
+                                    <h2>Sizing</h2>
+                                    
+                                    <p class="mb-10">You may also choose from small and large custom selects to match our similarly sized text inputs.</p>
+                                    <p class="mb-10">As is the class: sm, md, xl.</p>
+
+                                    <select class="sm mb-10" name="langs">
+                                        <option value="1" selected="">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+
+                                    <select class="mb-10" name="langs">
+                                        <option value="1" selected="">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+
+                                    <select class="md mb-10" name="langs">
+                                        <option value="1" selected="">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+
+                                    <select class="xl mb-10" name="langs">
+                                        <option value="1" selected="">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>                   
+                                        
+                                    <pre><code class="language-markup"><xmp>
+                                        <select class="sm mb-10" name="langs">
+                                            <option value="1" selected="">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+
+                                        <select class="mb-10" name="langs">
+                                            <option value="1" selected="">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+
+                                        <select class="md mb-10" name="langs">
+                                            <option value="1" selected="">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+
+                                        <select class="xl mb-10" name="langs">
+                                            <option value="1" selected="">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </xmp></code></pre>
+
+                                    <p class="mb-10">As is the attribute: size.</p>
+
+                                    <select class="mb-10" size="3">
+                                        <option value="french" selected>Français</option>
                                         <option value="english">English</option>
                                         <option value="japanese">Japanese</option>
-                                        <option value="chinese">Chinese</option>
-                                        <option value="spanish">Spanish</option>
                                     </select>
-                                </div>
-                            </div>
 
+                                    <select class="xl" size="3">
+                                        <option value="french" selected>Français</option>
+                                        <option value="english">English</option>
+                                        <option value="japanese">Japanese</option>
+                                    </select>
+                                    
+                                    <pre><code class="language-markup"><xmp>
+                                        <select size="3">
+                                            <option value="french" selected>Français</option>
+                                            <option value="english">English</option>
+                                            <option value="japanese">Japanese</option>
+                                        </select>
+
+                                        <select class="xl" size="3">
+                                            <option value="french" selected>Français</option>
+                                            <option value="english">English</option>
+                                            <option value="japanese">Japanese</option>
+                                        </select>
+                                    </xmp></code></pre>
+                                </div>                                
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -980,6 +1080,12 @@
         </footer>
         <script>
             
+            if($(window).width() < 768) {
+                $('.side-nav li').click(function(){
+                    $('.side-nav').toggle();
+                });
+            }
+
             $('a[data-menuanchor="home"]').click(function(){
                 $('.side-nav').hide();
                 $('.nav').hide();
@@ -1050,12 +1156,13 @@
                 menu: "#nav",
                 afterLoad: function(anchorLink, index, direction){
                     if($(window).width() > 768) {
+                        console.log(index.index);
                         if (index.index > 0){
                             $('.side-nav').fadeTo("fast", 1);
                             $('.side-nav').addClass("with-navbar");
                             $('.nav').fadeTo("fast", 1);
                         }
-                        if (index.index  == 6){
+                        if (index.index  == 58){
                             $('footer').fadeTo("fast", 1);
                             $('.side-nav').addClass("with-footer");
                         }
@@ -1072,7 +1179,7 @@
                             $('.side-nav').removeClass("with-navbar");
                             $('.nav').hide();
                         }
-                        if( index.index == 6 && direction == 'up'){
+                        if( index.index == 58 && direction == 'up'){
                             $('footer').fadeTo("fast", 0);
                             $('.side-nav').removeClass("with-footer");
                         }

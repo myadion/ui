@@ -4,10 +4,11 @@ select {
     color: $white;
     border-radius: rem(5);
     border: none;
-    height: rem(45);
+    outline-width: 2px;
+    outline-color: $dark;
+    outline-style: solid;
+    height: rem($form-size-default);
     font-weight: 600;
-    outline: none;
-    padding: 0 rem(10);
 
     option{
         color: $white;
@@ -16,12 +17,12 @@ select {
         padding: 0 rem(10);
         display: flex;
         align-items: center;
-        border-radius: rem(5);
-        text-shadow: $text_shadow;
+        width: 100%;
         @include transition(.3s);
 
         &:active, &:focus, &:checked{
             background: linear-gradient(to right, $dark, $dark); 
+            outline: solid 2px $dark;
             font-weight: 600;
             @include transition(.3s);
         }
@@ -39,5 +40,48 @@ select {
         overflow: hidden;
         background-color: transparent;
         height: unset;
+        
+        option{
+            &:hover{
+                color: $white;
+            }
+        }
     }
+
+    &.sm{
+        height: rem($form-size-sm);
+    
+        option{
+            height: rem($form-size-sm);
+        }
+
+        &[size]{
+            height: unset;
+        }
+    }
+
+    &.md{
+        height: rem($form-size-md);
+    
+        option{
+            height: rem($form-size-md);
+        }
+
+        &[size]{
+            height: unset;
+        }
+    }
+
+    &.xl{
+        height: rem($form-size-xl);
+    
+        option{
+            height: rem($form-size-xl);
+        }
+
+        &[size]{
+            height: unset;
+        }
+    }
+
 }
