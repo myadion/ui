@@ -2708,46 +2708,45 @@ div.weather .weather-info .description {
 }
 
 select {
-  background-color: transparent;
-  overflow: hidden;
-  border: none;
+  background-color: #343537;
   width: 100%;
+  color: #eeeeee;
+  border-radius: 0.3125rem;
+  border: none;
+  height: 2.8125rem;
+  font-weight: 600;
+  outline: none;
+  padding: 0 0.625rem;
 }
 select option {
-  height: 2.8125rem;
   color: #eeeeee;
   font-size: 0.875rem;
+  height: 2.8125rem;
+  padding: 0 0.625rem;
   display: flex;
   align-items: center;
-  border-radius: 0.1875rem;
+  border-radius: 0.3125rem;
   text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 select option:active, select option:focus, select option:checked {
-  background-color: #585858;
+  background: linear-gradient(to right, #343537, #343537);
   font-weight: 600;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-select option:active:hover, select option:focus:hover, select option:checked:hover {
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+select option:hover {
+  cursor: pointer;
   background-color: #585858;
 }
-select option:hover {
-  background-color: #323232;
-  cursor: pointer;
-}
-select.text-center > option {
-  justify-content: center;
-}
-select:focus-visible {
+select option:focus-visible {
   outline: none;
 }
-select.auto option {
-  width: unset;
-  padding: 0.625rem 0.9375rem;
+select[size] {
+  overflow: hidden;
+  background-color: transparent;
+  height: unset;
 }
 
 .switch {

@@ -1,46 +1,43 @@
 select {
-    background-color: transparent;
-    overflow: hidden;
-    border: none;
+    background-color: $dark;
     width: 100%;
+    color: $white;
+    border-radius: rem(5);
+    border: none;
+    height: rem(45);
+    font-weight: 600;
+    outline: none;
+    padding: 0 rem(10);
 
     option{
-        height: rem(45);
         color: $white;
         font-size: rem(14);
+        height: rem(45);
+        padding: 0 rem(10);
         display: flex;
         align-items: center;
-        border-radius: rem(3);
+        border-radius: rem(5);
         text-shadow: $text_shadow;
         @include transition(.3s);
 
         &:active, &:focus, &:checked{
-            background-color: $gray;    
+            background: linear-gradient(to right, $dark, $dark); 
             font-weight: 600;
             @include transition(.3s);
-
-            &:hover{
-                @include transition(.3s);
-                background-color: $gray;    
-            }        
         }
-
         &:hover{
-            background-color: darken($color: $gray, $amount: 15);
             cursor: pointer;
+            background-color: $gray;
+        }
+        
+        &:focus-visible{
+            outline: none;
         }
     }
-    
-    &.text-center > option{
-       justify-content: center;
-    }
 
-    &:focus-visible{
-        outline: none;
-    }
-    
-    &.auto option{
-        width: unset;
-        padding: rem(10) rem(15);
+    &[size]{
+        overflow: hidden;
+        background-color: transparent;
+        height: unset;
     }
 }
