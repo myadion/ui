@@ -2157,7 +2157,7 @@ a i {
   top: 0;
   padding-top: 0.625rem;
   bottom: 0;
-  background-color: #343537;
+  background-color: #3e3e3e;
   overflow: auto;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -2708,13 +2708,13 @@ div.weather .weather-info .description {
 }
 
 select {
-  background-color: #343537;
+  background-color: #585858;
   width: 100%;
   color: #eeeeee;
   border-radius: 0.3125rem;
   border: none;
   outline-width: 2px;
-  outline-color: #343537;
+  outline-color: #585858;
   outline-style: solid;
   height: 2.8125rem;
   font-weight: 600;
@@ -2731,15 +2731,15 @@ select option {
   transition: 0.3s;
 }
 select option:active, select option:focus, select option:checked {
-  background: linear-gradient(to right, #343537, #343537);
-  outline: solid 2px #343537;
+  background: linear-gradient(to right, #585858, #585858);
+  outline: solid 2px #585858;
   font-weight: 600;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 select option:hover {
   cursor: pointer;
-  background-color: #585858;
+  background-color: #3e3e3e;
 }
 select option:focus-visible {
   outline: none;
@@ -2782,8 +2782,8 @@ select.xl[size] {
 
 .switch {
   position: relative;
-  width: 3.125rem;
-  height: 1.25rem;
+  width: 50px;
+  height: 20px;
 }
 .switch input {
   opacity: 0;
@@ -2794,19 +2794,23 @@ select.xl[size] {
   background-color: #5ABA95;
 }
 .switch input:checked + .switch-slider:before {
-  -webkit-transform: translateX(1.875rem);
-  -ms-transform: translateX(1.875rem);
-  transform: translateX(1.875rem);
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
   content: "\f058";
 }
 .switch input:focus + .switch-slider {
   box-shadow: 0 0 0.0625rem #5ABA95;
 }
+.switch input[disabled] + .switch-slider {
+  cursor: not-allowed;
+  background-color: #585858;
+}
 .switch .switch-slider {
   position: absolute;
-  height: 1.25rem;
-  width: 3.125rem;
-  border-radius: 2.125rem;
+  height: 20px;
+  width: 50px;
+  border-radius: 35px;
   cursor: pointer;
   top: 0;
   left: 0;
@@ -2819,11 +2823,11 @@ select.xl[size] {
 }
 .switch .switch-slider:before {
   position: absolute;
-  top: 0;
-  left: 0.0625rem;
+  top: -2px;
+  left: 1px;
   font-family: "Font Awesome 5 Pro";
   font-weight: 800;
-  font-size: 1.125rem;
+  font-size: 18px;
   color: #eeeeee;
   content: "\f057";
   -webkit-transition: 0.4s;

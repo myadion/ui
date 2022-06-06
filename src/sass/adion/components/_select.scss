@@ -1,11 +1,11 @@
 select {
-    background-color: $dark;
+    background-color: $gray;
     width: 100%;
     color: $white;
     border-radius: rem(5);
     border: none;
     outline-width: 2px;
-    outline-color: $dark;
+    outline-color: $gray;
     outline-style: solid;
     height: rem($form-size-default);
     font-weight: 600;
@@ -21,14 +21,14 @@ select {
         @include transition(.3s);
 
         &:active, &:focus, &:checked{
-            background: linear-gradient(to right, $dark, $dark); 
-            outline: solid 2px $dark;
+            background: linear-gradient(to right, $gray, $gray); 
+            outline: solid 2px $gray;
             font-weight: 600;
             @include transition(.3s);
         }
         &:hover{
             cursor: pointer;
-            background-color: $gray;
+            background-color: $dark-alt;
         }
         
         &:focus-visible{
