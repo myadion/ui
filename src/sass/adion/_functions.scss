@@ -1,0 +1,20 @@
+// Calculate rem from px or %
+@function rem($value) {
+    @return calc($value / strip-unit($base_size) * 1rem);
+}
+
+// Convert any unit on int 
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+      $number_b : $number * 0 + 1;
+      @return calc($number / $number_b);
+  }
+
+  @return $number;
+}
+
+// Convert px to vw
+@function get-vw($target) {
+  $vw-context: (1300 * 0.01) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}

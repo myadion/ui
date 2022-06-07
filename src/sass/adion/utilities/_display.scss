@@ -1,0 +1,12 @@
+/* Display Options */
+$display_type: ("none","inline","inline-block","block","grid","table","table-cell","table-row","flex","inline-flex");
+@each $display in $display_type{
+    .d-#{$display} {
+        display: #{$display};
+    }
+} 
+
+/* Full height */
+.fh{
+    height: 100%;
+}

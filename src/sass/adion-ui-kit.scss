@@ -1,14 +1,5 @@
-@import "adion/variables";
-
-// plugins
-@import "adion/plugins/license";
-@import "adion/plugins/reset";
-@import "adion/plugins/include-media";
-
-@import "adion/utilities";
-@import "adion/mixins";
-@import "adion/components";
-
+@import "adion/variables"; 
+@import "adion/functions"; 
 
 *{
     -webkit-box-sizing: border-box;
@@ -26,3 +17,9 @@ html {
     font-size: $base_size;
     line-height: 1.5;
 }
+
+@import "adion/plugins";
+@import "adion/mixins";
+@import "adion/utilities";
+@import "adion/components";
+

@@ -1,0 +1,10 @@
+  /* Margin and padding */
+  @each $space in $space-amounts {
+    .m-#{$space} { margin: rem($space) !important; }
+    .p-#{$space} { padding: rem($space) !important; }
+  
+    @each $name, $side in $sides {
+      .m#{$name}-#{$space} { margin-#{$side}: rem(#{$space}) !important; }
+      .p#{$name}-#{$space} { padding-#{$side}: rem(#{$space}) !important; }
+    }
+  }

@@ -149,7 +149,7 @@
                                 <br>
                                 <a href="#" class="btn btn-small">Adion UI Kit</a>
                             </div>
-                            <div class="col-12  col-xl-5 col-xl-o-2">
+                            <div class="col-12  col-xl-5 o-xl-2">
                                 <h2>Sass</h2>
                                 <p>This version contains the source SCSS files. By choosing this version you have more control over which components to include. You will need a Sass compiler if you choose this option.</p>
                                 <br>
@@ -168,7 +168,7 @@
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdn-a.myadion.com/ui-kit/js/adion-ui-kit.min.js" crossorigin="anonymous"></script></xmp></code></pre>
                             </div>
-                            <div class="col-12  col-xl-5 col-xl-o-2">
+                            <div class="col-12  col-xl-5 o-xl-2">
                                 <h2>NPM</h2>
                                 <p>You can also get the latest release using NPM. This release contains source files as well as the compiled CSS and JavaScript files.</p>
                                 <br>
@@ -236,17 +236,32 @@
                                 <p>Containers contain, compress, and align your content within a given device or viewport.</p>
                             </div>
                             <div class="row">
-                                <div class="col-12  col-xl-5">
+                                <div class="col-12  col-xl-10">
                                     <h2>How they work</h2>
                                     <p>Containers are required when using our grid system. Containers are used to hold, buffer, and (sometimes) center the content they contain. Although containers can be nested, most layouts do not require a nested container.</p>
                                     <p>Adion UI Kit comes with two different containers:</p>
-                                    <ul>
-                                        <li>
-                                            <p>The <code>.container</code> class is the default container. It is used for most pages. Tt sets one at each reactive breakpoint</p>
-                                        </li>
-                                        <li>
-                                            <p>The <code>.container .fluid</code> class is used for full-width pages.</p>
-                                        </li>
+                                    <p> - The <code class="language-markup"><!--.container--></code> class is the default container. It is used for most pages. Tt sets one at each reactive breakpoint
+                                    <br> - The <code class="language-markup"><!--.container-fluid--></code> class is used for full-width pages.</p>
+                                </div>
+                                <div class="col-12  col-xl-5">
+                                    <h2>Default container</h2>
+                                    <p>Our default class is a responsive, fixed-width container, meaning its changes at each breakpoint.</p>
+                                    
+                                    <pre><code class="language-markup"><xmp>
+                                        <div class="container">
+                                            <!-- Content here -->
+                                        </div>
+                                    </xmp></code></pre>
+                                </div>
+                                <div class="col-12  col-xl-5 o-xl-2">
+                                    <h2>Fluid containers</h2>
+                                    <p>Use <code class="language-markup"><!--.container-fluid--></code> for a full width container, spanning the entire width of the viewport.</p>
+                                    
+                                    <pre><code class="language-markup"><xmp>
+                                        <div class="container-fluid">
+                                            <!-- Content here -->
+                                        </div>
+                                    </xmp></code></pre>
                                 </div>
 
                             </div>
@@ -258,10 +273,48 @@
             <div class="section bg-gr-2">
                 <div class="container-fluid with-sidebar with-navbar with-footer fh">
                     <div class="container row p-10">
-                        <div class="row">
-                            <div class="mb-20 col-12">
-                                <h1 class="bbb">Grid</h1>
+                        <div class="mb-20 col-12">
+                            <h1 class="bbb">Grid</h1>
+                            <p>Use the mobile flexbox grid to create layouts of all shapes and sizes with a default responsive twelve-column, six-tier system.</p>
+                        </div>
+                        <div class="col-12  col-xl-10">
+                            <h2>Exemple</h2>
+                            <p>The grid system uses a series of containers, rows, and columns to lay out and align content. It is built with flexbox and is fully responsive. Below is an example and detailed explanation of how the grid system fits together.</p>
+                        </div>
+
+                        <div class="col-12  col-xl-10">
+                            <p>This example creates three equal-width columns across all devices and viewports using our predefined grid classes. Those columns are centered in the page with the parent <code class="language-markup"><!--.container--></code>.</p>
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-4 bg-gray">
+                                        Column - .col-4
+                                    </div>
+                                    <div class="col-4 bg-dark">
+                                        Column - .col-4
+                                    </div>
+                                    <div class="col-4 bg-gray">
+                                        Column - .col-4
+                                    </div>
+                                </div>
                             </div>
+                                    
+                            <pre><code class="language-markup"><xmp>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-4 bg-gray">
+                                            Column - .col-4
+                                        </div>
+                                        <div class="col-4 bg-dark">
+                                            Column - .col-4
+                                        </div>
+                                        <div class="col-4 bg-gray">
+                                            Column - .col-4
+                                        </div>
+                                    </div>
+                                </div>
+                            </xmp></code></pre>
+                           
                         </div>
                     </div>
                 </div>
@@ -396,7 +449,7 @@
                         </div>
                         
 
-                        <div class="col-12  col-xl-5 col-xl-o-2">
+                        <div class="col-12  col-xl-5 o-xl-2">
                             <h2>Sizing</h2>
                             
                             <p class="mb-10">You may also choose from small and large custom selects to match our similarly sized text inputs.</p>
@@ -576,7 +629,7 @@
                             </xmp></code></pre>
                         </div>
 
-                        <div class="col-12  col-xl-5 col-xl-o-2">
+                        <div class="col-12  col-xl-5 o-xl-2">
                             <h2>Checked</h2>
                             <div class="switch mb-10">
                                 <label>
@@ -620,7 +673,7 @@
                                 </button>
                             </xmp></code></pre>
                         </div>
-                        <div class="col-12  col-xl-5 col-xl-o-2">
+                        <div class="col-12  col-xl-5 o-xl-2">
                             <h2>Disabled</h2>
 
                             <div class="switch mb-10">

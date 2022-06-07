@@ -1,72 +1,7 @@
-/* Calculate rem from px or % */
-@function rem($value){
-  @return calc($value / strip-unit($base_size) * 1rem);
-}
+// Utilities
+// --------------------------------------------------
 
-/* Convert any unit on int */
-@function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-    $number_b : $number * 0 + 1;
-    @return calc($number / $number_b);
-  }
-
-  @return $number;
-}
-
-/* Margin and padding */
-@each $space in $space_amounts {
-  .m-#{$space} { margin: rem($space) !important; }
-  .p-#{$space} { padding: rem($space) !important; }
-
-  @each $name, $side in $sides {
-    .m#{$name}-#{$space} { margin-#{$side}: rem(#{$space}) !important; }
-    .p#{$name}-#{$space} { padding-#{$side}: rem(#{$space}) !important; }
-  }
-}
-
-/* Flex options */
-.flex-shrink-0 {
-  flex-shrink: 0 !important;
-}
-
-/* Full height */
-.fh{
-  height: 100%;
-}
-
-/* Display Options */
-$display_type: ("none","inline","inline-block","block","grid","table","table-cell","table-row","flex","inline-flex");
-@each $display in $display_type{
-  .d-#{$display} {
-      display: #{$display};
-  }
-} 
-
-/* border option */
-.rounded{
-  border-radius: (5);
-}
-
-// Set colors for border, background, background gradient and text
-.bg-gr {
-  &-1 { background: linear-gradient(180deg, #292929 0%, #0F0F0F 100%); }
-  &-2 { background: linear-gradient(122.73deg, #38B7B5 30.44%, #54BA9B 88.71%); }
-  &-3 { background: linear-gradient(107.9deg, #8154BA 5.52%, #3DB6AF 98.12%); }
-  &-4 { background: linear-gradient(252.07deg, #393939 1.76%, #171717 97.05%); }
-  &-5 { background: linear-gradient(75.45deg, #54A8BA -0.52%, #387AB7 98.78%); }
-  &-6 { background: linear-gradient(75.45deg, #242424 -0.52%, #2E2E2E -0.51%); }
-}
-
-@each $color_name, $color in $colors{
-  .bg-#{$color_name} { background-color: $color; }
-  .b-#{$color_name} { border: rem(1) solid $color; }
-  .c-#{$color_name} { color: $color; }
-  
-  @each $name, $side in $sides {
-    .b#{$name}-#{$color_name} { border-#{$side}: rem(1) solid $color; }
-    .b#{$name}-5-#{$color_name} { border-#{$side}: rem(5) solid $color; }
-  }
-}
-
-/* Line height */
-i{line-height: 1.5 !important;}
+@import "utilities/spaces";
+@import "utilities/display";
+@import "utilities/colors";
+@import "utilities/flex";

@@ -10,6 +10,9 @@
     align-items: flex-end;
 }
 
+/* Line height */
+i{line-height: 1.5 !important;}
+
 // Set thin to 100
 $i: 500; $class_name : 't'; @while $i > 100 {
     $i: $i - 100; .#{$class_name}{ font-weight: $i; } $class_name : $class_name + 't';
@@ -25,6 +28,9 @@ $i: 1; $fs: rem(45); @while $i < 7 {
     h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: 'Segoe UI'; }  $i: $i + 1; $fs : $fs - rem(5);
 }
 
+p{
+    margin-bottom: 1rem;
+}
 
 a{
     text-decoration: none;

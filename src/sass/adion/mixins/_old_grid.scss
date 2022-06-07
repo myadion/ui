@@ -1,0 +1,150 @@
+$map-grid-props: (
+        '': 0,
+        '-sm': $grid__bp-sm,
+        '-md': $grid__bp-md,
+        '-lg': $grid__bp-lg,
+        '-xl': $grid__bp-xl,
+        '-xxl': $grid__bp-xxl
+);
+
+@mixin create-mq($breakpoint, $min-or-max) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (#{$min-or-max}-width: $breakpoint * rem(1)) {
+      @content;
+    }
+  }
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mq($breakpoint, 'min') {
+    .col#{$modifier}-o-0 {
+      margin-left: 0;
+      padding: rem(5) rem(0);
+    }
+    @for $i from 1 through $grid-cols {
+      .col#{$modifier}-#{$i} {
+        flex-basis: calc(100 / ($grid-cols / $i) ) * 1%;
+        padding: rem(5);
+        overflow: auto;
+      }
+      .col#{$modifier}-o-#{$i} {
+        margin-left: calc(100 / ($grid-cols / $i) ) * 1%;
+        padding: rem(5);
+        overflow: auto;
+      }
+    }
+  }
+}
+
+@each $modifier , $breakpoint in $map-grid-props {
+  @if($modifier == '') {
+    $modifier: '-xs';
+  }
+  @include create-mq($breakpoint - 1, 'max') {
+    .hidden#{$modifier}-down {
+      display: none !important;
+    }
+  }
+  @include create-mq($breakpoint, 'min') {
+    .hidden#{$modifier}-up {
+      display: none !important;
+    }
+  }
+}
+
+.container {
+  max-width: $grid__bp-xxl * rem(1);
+  margin: 0 auto;
+  padding: rem(15);
+  &-fluid {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    @include media('>=md'){
+      &.with-sidebar{
+        margin-left: rem($sidebar-width);
+      }
+      &.with-footer{
+        margin-bottom: rem($footer-height);
+      }
+      &.with-navbar{
+        margin-top: rem($navbar-height);
+      }
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    
+    @each $modifier , $breakpoint in $map-grid-props {
+      @include create-col-classes($modifier, $grid__cols, $breakpoint);
+    }
+  }
+  @include media('>=md'){
+    &.with-sidebar{
+      margin-left: rem($sidebar-width);
+    }
+    &.with-footer{
+      margin-bottom: rem($footer-height);
+    }
+    &.with-navbar{
+      margin-top: rem($navbar-height);
+    }
+  }
+  &.center{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    display: flex;
+  }
+  &.bottom-center{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+  }
+  &.top-center{
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  @each $modifier , $breakpoint in $map-grid-props {
+    @include create-col-classes($modifier, $grid__cols, $breakpoint);
+  }
+}
+
+
+.row{
+  .align-items-center{
+    align-items: center!important;
+  }
+  .align-items-start{
+    align-items: flex-start!important;
+  }
+  .align-items-end{
+    align-items: flex-end!important;
+  }
+  .col-auto{
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
