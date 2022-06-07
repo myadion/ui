@@ -1099,19 +1099,789 @@ i {
   margin: 0 auto;
   padding: 0.9375rem;
 }
-.container.fluid {
+.container-fluid {
   margin: 0;
   padding: 0;
   max-width: 100%;
 }
 @media (min-width: 768px) {
-  .container.fluid.with-sidebar {
+  .container-fluid.with-sidebar {
     margin-left: 11.25rem;
   }
-  .container.fluid.with-footer {
+  .container-fluid.with-footer {
     margin-bottom: 12.5rem;
   }
-  .container.fluid.with-navbar {
+  .container-fluid.with-navbar {
+    margin-top: 3.125rem;
+  }
+}
+.container-fluid .row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.container-fluid .col-o-0 {
+  margin-left: 0;
+  padding: 0.3125rem 0rem;
+}
+.container-fluid .col-1 {
+  flex-basis: 8.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-1 {
+  margin-left: 8.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-2 {
+  flex-basis: 16.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-2 {
+  margin-left: 16.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-3 {
+  flex-basis: 25%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-3 {
+  margin-left: 25%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-4 {
+  flex-basis: 33.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-4 {
+  margin-left: 33.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-5 {
+  flex-basis: 41.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-5 {
+  margin-left: 41.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-6 {
+  flex-basis: 50%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-6 {
+  margin-left: 50%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-7 {
+  flex-basis: 58.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-7 {
+  margin-left: 58.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-8 {
+  flex-basis: 66.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-8 {
+  margin-left: 66.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-9 {
+  flex-basis: 75%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-9 {
+  margin-left: 75%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-10 {
+  flex-basis: 83.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-10 {
+  margin-left: 83.3333333333%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-11 {
+  flex-basis: 91.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-11 {
+  margin-left: 91.6666666667%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-12 {
+  flex-basis: 100%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+.container-fluid .col-o-12 {
+  margin-left: 100%;
+  padding: 0.3125rem;
+  overflow: auto;
+}
+@media screen and (min-width: 36rem) {
+  .container-fluid .col-sm-o-0 {
+    margin-left: 0;
+    padding: 0.3125rem 0rem;
+  }
+  .container-fluid .col-sm-1 {
+    flex-basis: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-1 {
+    margin-left: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-2 {
+    flex-basis: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-2 {
+    margin-left: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-3 {
+    flex-basis: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-3 {
+    margin-left: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-4 {
+    flex-basis: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-4 {
+    margin-left: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-5 {
+    flex-basis: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-5 {
+    margin-left: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-6 {
+    flex-basis: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-6 {
+    margin-left: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-7 {
+    flex-basis: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-7 {
+    margin-left: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-8 {
+    flex-basis: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-8 {
+    margin-left: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-9 {
+    flex-basis: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-9 {
+    margin-left: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-10 {
+    flex-basis: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-10 {
+    margin-left: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-11 {
+    flex-basis: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-11 {
+    margin-left: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-12 {
+    flex-basis: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-sm-o-12 {
+    margin-left: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .container-fluid .col-md-o-0 {
+    margin-left: 0;
+    padding: 0.3125rem 0rem;
+  }
+  .container-fluid .col-md-1 {
+    flex-basis: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-1 {
+    margin-left: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-2 {
+    flex-basis: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-2 {
+    margin-left: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-3 {
+    flex-basis: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-3 {
+    margin-left: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-4 {
+    flex-basis: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-4 {
+    margin-left: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-5 {
+    flex-basis: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-5 {
+    margin-left: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-6 {
+    flex-basis: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-6 {
+    margin-left: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-7 {
+    flex-basis: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-7 {
+    margin-left: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-8 {
+    flex-basis: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-8 {
+    margin-left: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-9 {
+    flex-basis: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-9 {
+    margin-left: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-10 {
+    flex-basis: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-10 {
+    margin-left: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-11 {
+    flex-basis: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-11 {
+    margin-left: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-12 {
+    flex-basis: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-md-o-12 {
+    margin-left: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+}
+@media screen and (min-width: 62rem) {
+  .container-fluid .col-lg-o-0 {
+    margin-left: 0;
+    padding: 0.3125rem 0rem;
+  }
+  .container-fluid .col-lg-1 {
+    flex-basis: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-1 {
+    margin-left: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-2 {
+    flex-basis: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-2 {
+    margin-left: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-3 {
+    flex-basis: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-3 {
+    margin-left: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-4 {
+    flex-basis: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-4 {
+    margin-left: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-5 {
+    flex-basis: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-5 {
+    margin-left: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-6 {
+    flex-basis: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-6 {
+    margin-left: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-7 {
+    flex-basis: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-7 {
+    margin-left: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-8 {
+    flex-basis: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-8 {
+    margin-left: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-9 {
+    flex-basis: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-9 {
+    margin-left: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-10 {
+    flex-basis: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-10 {
+    margin-left: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-11 {
+    flex-basis: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-11 {
+    margin-left: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-12 {
+    flex-basis: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-lg-o-12 {
+    margin-left: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .container-fluid .col-xl-o-0 {
+    margin-left: 0;
+    padding: 0.3125rem 0rem;
+  }
+  .container-fluid .col-xl-1 {
+    flex-basis: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-1 {
+    margin-left: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-2 {
+    flex-basis: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-2 {
+    margin-left: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-3 {
+    flex-basis: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-3 {
+    margin-left: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-4 {
+    flex-basis: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-4 {
+    margin-left: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-5 {
+    flex-basis: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-5 {
+    margin-left: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-6 {
+    flex-basis: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-6 {
+    margin-left: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-7 {
+    flex-basis: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-7 {
+    margin-left: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-8 {
+    flex-basis: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-8 {
+    margin-left: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-9 {
+    flex-basis: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-9 {
+    margin-left: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-10 {
+    flex-basis: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-10 {
+    margin-left: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-11 {
+    flex-basis: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-11 {
+    margin-left: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-12 {
+    flex-basis: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xl-o-12 {
+    margin-left: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+}
+@media screen and (min-width: 87.5rem) {
+  .container-fluid .col-xxl-o-0 {
+    margin-left: 0;
+    padding: 0.3125rem 0rem;
+  }
+  .container-fluid .col-xxl-1 {
+    flex-basis: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-1 {
+    margin-left: 8.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-2 {
+    flex-basis: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-2 {
+    margin-left: 16.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-3 {
+    flex-basis: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-3 {
+    margin-left: 25%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-4 {
+    flex-basis: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-4 {
+    margin-left: 33.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-5 {
+    flex-basis: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-5 {
+    margin-left: 41.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-6 {
+    flex-basis: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-6 {
+    margin-left: 50%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-7 {
+    flex-basis: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-7 {
+    margin-left: 58.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-8 {
+    flex-basis: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-8 {
+    margin-left: 66.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-9 {
+    flex-basis: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-9 {
+    margin-left: 75%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-10 {
+    flex-basis: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-10 {
+    margin-left: 83.3333333333%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-11 {
+    flex-basis: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-11 {
+    margin-left: 91.6666666667%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-12 {
+    flex-basis: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+  .container-fluid .col-xxl-o-12 {
+    margin-left: 100%;
+    padding: 0.3125rem;
+    overflow: auto;
+  }
+}
+@media (min-width: 768px) {
+  .container.with-sidebar {
+    margin-left: 11.25rem;
+  }
+  .container.with-footer {
+    margin-bottom: 12.5rem;
+  }
+  .container.with-navbar {
     margin-top: 3.125rem;
   }
 }

@@ -58,7 +58,7 @@ $map-grid-props: (
   max-width: $grid__bp-xxl * rem(1);
   margin: 0 auto;
   padding: rem(15);
-  &.fluid {
+  &-fluid {
     margin: 0;
     padding: 0;
     max-width: 100%;
@@ -72,6 +72,26 @@ $map-grid-props: (
       &.with-navbar{
         margin-top: rem($navbar-height);
       }
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    
+    @each $modifier , $breakpoint in $map-grid-props {
+      @include create-col-classes($modifier, $grid__cols, $breakpoint);
+    }
+  }
+  @include media('>=md'){
+    &.with-sidebar{
+      margin-left: rem($sidebar-width);
+    }
+    &.with-footer{
+      margin-bottom: rem($footer-height);
+    }
+    &.with-navbar{
+      margin-top: rem($navbar-height);
     }
   }
   &.center{
@@ -106,6 +126,7 @@ $map-grid-props: (
     flex-wrap: wrap;
     width: 100%;
   }
+
   @each $modifier , $breakpoint in $map-grid-props {
     @include create-col-classes($modifier, $grid__cols, $breakpoint);
   }
