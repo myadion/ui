@@ -126,8 +126,8 @@
                     </div>
                 </div>
             </div>
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="col-12"><h1 class="bbb">About</h1></div>
                         <div class="col-12 col-md-10 col-xl-8 col-xxl-6">
@@ -137,8 +137,8 @@
                     </div>
                 </div>
             </div>
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="mb-20 col-12"><h1 class="bbb">Download</h1><p>Adion UI Kit comes in two different forms. You can select which version you want depending on your preference and expertise. To start using Adion UI Kit, all you have to do is download one of the options below.
                         </p></div>
@@ -179,8 +179,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -191,8 +191,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -203,8 +203,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -215,8 +215,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -227,8 +227,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -270,31 +270,31 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar with-footer fh">
                     <div class="container row p-10">
                         <div class="mb-20 col-12">
                             <h1 class="bbb">Grid</h1>
                             <p>Use the mobile flexbox grid to create layouts of all shapes and sizes with a default responsive twelve-column, six-tier system.</p>
                         </div>
-                        <div class="col-12  col-xl-10">
+                        <div class="col-12">
                             <h2>Exemple</h2>
                             <p>The grid system uses a series of containers, rows, and columns to lay out and align content. It is built with flexbox and is fully responsive. Below is an example and detailed explanation of how the grid system fits together.</p>
                         </div>
 
-                        <div class="col-12  col-xl-10">
+                        <div class="col-12 ">
                             <p>This example creates three equal-width columns across all devices and viewports using our predefined grid classes. Those columns are centered in the page with the parent <code class="language-markup"><!--.container--></code>.</p>
 
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-4 bg-gray">
-                                        Column - .col-4
+                                    <div class="col bg-gray">
+                                        Column - .col
                                     </div>
-                                    <div class="col-4 bg-dark">
-                                        Column - .col-4
+                                    <div class="col bg-dark-alt">
+                                        Column - .col
                                     </div>
-                                    <div class="col-4 bg-gray">
-                                        Column - .col-4
+                                    <div class="col bg-gray">
+                                        Column - .col
                                     </div>
                                 </div>
                             </div>
@@ -302,26 +302,235 @@
                             <pre><code class="language-markup"><xmp>
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-4 bg-gray">
-                                            Column - .col-4
+                                        <div class="col bg-gray">
+                                            Column - .col
                                         </div>
-                                        <div class="col-4 bg-dark">
-                                            Column - .col-4
+                                        <div class="col bg-dark-alt">
+                                            Column - .col
                                         </div>
-                                        <div class="col-4 bg-gray">
-                                            Column - .col-4
+                                        <div class="col bg-gray">
+                                            Column - .col
                                         </div>
                                     </div>
                                 </div>
                             </xmp></code></pre>
-                           
                         </div>
+                        <div class="col-12">
+                            <h2>How it works</h2>
+                            <p>Breaking it down, here’s how the grid system comes together:</p>
+                            <ul class="list-style">
+                                <li><b>Our grid supports six responsive breakpoints.</b> Breakpoints are based on <code class="language-css">min-width</code> media queries, meaning they affect that breakpoint and all those above it (e.g., <code class="language-markup">.col-sm-4</code> applies to <code class="language-markup">sm, md, lg, xl</code>, and <code class="language-markup">xxl</code>). This means you can control container and column sizing and behavior by each breakpoint.</li>
+
+                                <li><b>Containers center and horizontally pad your content.</b> Use <code class="language-markup">.container</code> for a responsive pixel width, <code class="language-markup">.container-fluid</code> for <code class="language-css">width: 100%</code> across all viewports and devices, or a responsive container (e.g., <code class="language-markup">.container-md</code>) for a combination of fluid and pixel widths.</li>
+
+                                <li><b>Rows are wrappers for columns.</b> Each column has horizontal <code class="language-markup">padding</code> (called a gutter) for controlling the space between them. This <code class="language-markup">padding</code> is then counteracted on the rows with negative margins to ensure the content in your columns is visually aligned down the left side. Rows also support modifier classes to uniformly apply column sizing and gutter classes to change the spacing of your content.</li>
+
+                                <li><b>Columns are incredibly flexible.</b> There are 12 template columns available per row, allowing you to create different combinations of elements that span any number of columns. Column classes indicate the number of template columns to span (e.g., <code class="language-markup">col-4</code> spans four). <code class="language-markup">width</code>s are set in percentages so you always have the same relative sizing.</li>
+
+                                <li><b>Gutters are also responsive and customizable.</b> Gutter classes are available across all breakpoints, with all the same sizes as our margin and padding spacing. Change horizontal gutters with <code class="language-markup">.gx-*</code> classes, vertical gutters with <code class="language-markup">.gy-*</code>, or all gutters with <code class="language-markup">.g-*</code> classes. <code class="language-markup">.g-0</code> is also available to remove gutters.</li>
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                            <h2>Grid options</h2>
+                            <p>The grid system can adapt across all six default breakpoints, and any breakpoints you customize. The six default grid tiers are as follow:</p>
+                            <ul class="list-style">
+                                <li>Extra small (xs)</li>
+                                <li>Small (sm)</li>
+                                <li>Medium (md)</li>
+                                <li>Large (lg)</li>
+                                <li>Extra large (xl)</li>
+                                <li>Extra extra large (xxl)</li>
+                            </ul>
+                            <p>As noted above, each of these breakpoints have their own container, unique class prefix, and modifiers. Here’s how the grid changes across these breakpoints:</p>
+                            <table class="table mb-4">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                      xs<br>
+                                      <span class="fw-normal">&lt;576px</span>
+                                    </th>
+                                    <th scope="col">
+                                      sm<br>
+                                      <span class="fw-normal">≥576px</span>
+                                    </th>
+                                    <th scope="col">
+                                      md<br>
+                                      <span class="fw-normal">≥768px</span>
+                                    </th>
+                                    <th scope="col">
+                                      lg<br>
+                                      <span class="fw-normal">≥992px</span>
+                                    </th>
+                                    <th scope="col">
+                                      xl<br>
+                                      <span class="fw-normal">≥1200px</span>
+                                    </th>
+                                    <th scope="col">
+                                      xxl<br>
+                                      <span class="fw-normal">≥1400px</span>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th class="text-nowrap" scope="row">Container <code class="fw-normal">max-width</code></th>
+                                    <td>None (auto)</td>
+                                    <td>540px</td>
+                                    <td>720px</td>
+                                    <td>960px</td>
+                                    <td>1140px</td>
+                                    <td>1320px</td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-nowrap" scope="row">Class prefix</th>
+                                    <td><code>.col-</code></td>
+                                    <td><code>.col-sm-</code></td>
+                                    <td><code>.col-md-</code></td>
+                                    <td><code>.col-lg-</code></td>
+                                    <td><code>.col-xl-</code></td>
+                                    <td><code>.col-xxl-</code></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-nowrap" scope="row"># of columns</th>
+                                    <td colspan="6">12</td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-nowrap" scope="row">Gutter width</th>
+                                    <td colspan="6">1.5rem (.75rem on left and right)</td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-nowrap" scope="row">Custom gutters</th>
+                                    <td colspan="6"><a href="/docs/5.2/layout/gutters/">Yes</a></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-nowrap" scope="row">Nestable</th>
+                                    <td colspan="6"><a href="#nesting">Yes</a></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-nowrap" scope="row">Column ordering</th>
+                                    <td colspan="6"><a href="/docs/5.2/layout/columns/#reordering">Yes</a></td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12">
+                            <h2>Auto-layout columns</h2>
+                            <p>Utilize breakpoint-specific column classes for easy column sizing without an explicit numbered class like <code class="language-markup">.col-sm-6</code>.</p>
+                        </div>
+                        <div class="col-12">
+                            <h2>Equal-width</h2>
+                            <p>For example, here are two grid layouts that apply to every device and viewport, from <code class="language-markup">xs</code> to <code class="language-markup">xxl</code>. Add any number of unit-less classes for each breakpoint you need and every column will be the same width.</p>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 2
+                                    </div>
+                                    <div class="col bg-dark-alt">
+                                        2 of 2
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 3
+                                    </div>
+                                    <div class="col bg-dark-alt">
+                                        2 of 3
+                                    </div>
+                                    <div class="col bg-gray">
+                                        3 of 3
+                                    </div>
+                                </div>
+                            </div>
+
+                            <pre><code class="language-markup"><xmp>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 2
+                                    </div>
+                                    <div class="col bg-dark-alt">
+                                        2 of 2
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 3
+                                    </div>
+                                    <div class="col bg-dark-alt">
+                                        2 of 3
+                                    </div>
+                                    <div class="col bg-gray">
+                                        3 of 3
+                                    </div>
+                                </div>
+                            </div>
+                            </xmp></code></pre>
+                        </div>
+                        <div class="col-12">
+                            <h2>Setting one column width</h2>
+                            <p>Auto-layout for flexbox grid columns also means you can set the width of one column and have the sibling columns automatically resize around it. You may use predefined grid classes (as shown below), grid mixins, or inline widths. Note that the other columns will resize no matter the width of the center column.</p>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 3
+                                    </div>
+                                    <div class="col-6 bg-dark-alt">
+                                        2 of 3 (wider)
+                                    </div>
+                                    <div class="col bg-gray">
+                                        3 of 3
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 3
+                                    </div>
+                                    <div class="col-5 bg-dark-alt">
+                                        2 of 3 (wider)
+                                    </div>
+                                    <div class="col bg-gray">
+                                        3 of 3
+                                    </div>
+                                </div>
+                            </div>
+
+                            <pre><code class="language-markup"><xmp>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 3
+                                    </div>
+                                    <div class="col-6 bg-dark-alt">
+                                        2 of 3 (wider)
+                                    </div>
+                                    <div class="col bg-gray">
+                                        3 of 3
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col bg-gray">
+                                        1 of 3
+                                    </div>
+                                    <div class="col-5 bg-dark-alt">
+                                        2 of 3 (wider)
+                                    </div>
+                                    <div class="col bg-gray">
+                                        3 of 3
+                                    </div>
+                                </div>
+                            </div>
+                            </xmp></code></pre>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -332,8 +541,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -344,8 +553,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -364,8 +573,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -376,8 +585,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -389,7 +598,7 @@
             </div>
 
             <div class="section bg-dark">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -401,7 +610,7 @@
             </div>
 
             <div class="section bg-dark">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="mb-20 col-12">
                             <h1 class="bbb">Select</h1>
@@ -529,8 +738,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -541,8 +750,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -553,8 +762,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -565,8 +774,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -577,8 +786,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -589,8 +798,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -602,7 +811,7 @@
             </div>
 
             <div class="section bg-dark">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="mb-20 col-12">
                             <h1 class="bbb">Switches</h1>
@@ -722,8 +931,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -734,8 +943,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -746,8 +955,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -758,8 +967,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -770,8 +979,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -782,8 +991,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -794,8 +1003,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -806,8 +1015,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -818,8 +1027,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -830,8 +1039,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -842,8 +1051,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -854,8 +1063,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -866,8 +1075,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -878,8 +1087,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -890,8 +1099,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -902,8 +1111,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -914,8 +1123,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -926,8 +1135,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -938,8 +1147,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -950,8 +1159,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -962,8 +1171,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -974,8 +1183,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -986,8 +1195,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -998,8 +1207,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1010,8 +1219,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1022,8 +1231,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1034,8 +1243,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1046,8 +1255,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1058,8 +1267,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1070,8 +1279,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1082,8 +1291,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1094,8 +1303,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1106,8 +1315,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1118,8 +1327,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1130,8 +1339,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">
@@ -1142,8 +1351,8 @@
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="container-fluid with-sidebar with-navbar with-footer fh">
+            <div class="section bg-dark">
+                <div class="container with-sidebar with-navbar fh">
                     <div class="container row p-10">
                         <div class="row">
                             <div class="mb-20 col-12">

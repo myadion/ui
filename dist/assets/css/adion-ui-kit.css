@@ -2145,6 +2145,50 @@ td, th {
   border-right: 0.3125rem solid #343537;
 }
 
+.bg-dark-alt {
+  background-color: #3e3e3e;
+}
+
+.b-dark-alt {
+  border: 0.0625rem solid #3e3e3e;
+}
+
+.c-dark-alt {
+  color: #3e3e3e;
+}
+
+.bt-dark-alt {
+  border-top: 0.0625rem solid #3e3e3e;
+}
+
+.bt-5-dark-alt {
+  border-top: 0.3125rem solid #3e3e3e;
+}
+
+.bb-dark-alt {
+  border-bottom: 0.0625rem solid #3e3e3e;
+}
+
+.bb-5-dark-alt {
+  border-bottom: 0.3125rem solid #3e3e3e;
+}
+
+.bl-dark-alt {
+  border-left: 0.0625rem solid #3e3e3e;
+}
+
+.bl-5-dark-alt {
+  border-left: 0.3125rem solid #3e3e3e;
+}
+
+.br-dark-alt {
+  border-right: 0.0625rem solid #3e3e3e;
+}
+
+.br-5-dark-alt {
+  border-right: 0.3125rem solid #3e3e3e;
+}
+
 .bg-orange {
   background-color: #FF9052;
 }
@@ -3284,6 +3328,13 @@ a i {
   transition: 0.4s;
 }
 
+ul.list-style {
+  list-style: unset;
+}
+ul.list-style li {
+  margin: 10px 25px;
+}
+
 .nav {
   top: 0;
   width: 100%;
@@ -3723,6 +3774,13 @@ button.btn-dark, label.btn-dark.btn, a.btn-dark.btn {
 }
 button.btn-dark:hover, label.btn-dark.btn:hover, a.btn-dark.btn:hover {
   background-color: #404244;
+}
+button.btn-dark-alt, label.btn-dark-alt.btn, a.btn-dark-alt.btn {
+  color: #eeeeee;
+  background-color: #3e3e3e;
+}
+button.btn-dark-alt:hover, label.btn-dark-alt.btn:hover, a.btn-dark-alt.btn:hover {
+  background-color: #4b4b4b;
 }
 button.btn-orange, label.btn-orange.btn, a.btn-orange.btn {
   color: #eeeeee;

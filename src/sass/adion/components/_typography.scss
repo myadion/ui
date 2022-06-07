@@ -55,3 +55,13 @@ a{
         @include transition(.4s);
     }
 }
+
+ul{
+    &.list-style{
+        list-style: unset;
+
+        li{
+            margin: 10px 25px;
+        }
+    }
+}
