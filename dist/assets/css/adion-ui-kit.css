@@ -4270,19 +4270,23 @@ select.xl[size] {
 .adion__home > div {
   align-items: center;
   justify-content: center;
+  align-content: flex-start;
+}
+.adion__home > div > div {
+  padding: 0px 0px;
 }
 .adion__home__logo {
   max-width: 180px;
 }
-.adion__home__content {
+.adion__home__content, .adion__home__actions {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.adion__home__content {
   text-align: center;
 }
 .adion__home__actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=adion-ui-kit.css.map */

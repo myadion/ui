@@ -9,23 +9,30 @@
         > div{
             align-items: center;
             justify-content: center;
+            align-content: flex-start;
+
+            > div{
+                padding: 0px 0px;
+            }
         }
+
 
         &__logo{
             max-width: 180px;
         }
 
-        &__content{
+        &__content, &__actions{
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        &__content{
             text-align: center;
         }
 
         &__actions{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin-top: 20px;
         }
     }
 
