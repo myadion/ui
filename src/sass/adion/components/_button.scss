@@ -125,3 +125,40 @@ label.btn{
     @extend button;
     text-decoration:none;
 }
+
+nav{
+    &.btn-slide{
+
+        .down, .up{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            right: 0;
+
+            a{
+                font-size: 12px;
+                text-transform: uppercase;
+                color: white;
+                letter-spacing: 6px;
+                display: flex;
+                text-align: center;
+                flex-direction: column;
+            }
+
+            i{
+                font-size: 45px;
+            }
+        }
+
+        .up{
+            top: 0px;
+            a{
+                flex-direction: column-reverse;
+            }
+        }
+
+        .down{
+            bottom: 0px;
+        }
+    }
+}

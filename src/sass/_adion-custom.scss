@@ -4,20 +4,28 @@
     // For slide #home
     &__home{
         
-        @include media('<=md') {
+        // @include media('<=lg') {
+        // }
+        > div{
+            align-items: center;
             justify-content: center;
         }
 
         &__logo{
-            max-width: 10vw;
+            max-width: 180px;
         }
 
-        &__title{
-            
+        &__content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         &__actions{
-            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
 
