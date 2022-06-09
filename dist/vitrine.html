@@ -8,196 +8,144 @@
 
         <link rel="stylesheet" href="assets/css/font-awesome/font-awesome-5-14.css">  
         <link rel="stylesheet" href="assets/css/fullpage/fullpage.css">  
+        <link rel="stylesheet" href="assets/css/prism/prism.css">  
         <link rel="stylesheet" href="assets/css/adion-ui-kit.css">  
         <link rel="shortcut icon" href="assets/img/logo_adion.png">
-        <title>Adion - Cloud Web Télécom and more</title>
+        <title>Adion - Telecom, Cloud, Web and more</title>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="assets/js/adion-ui-kit/fullpage/fullpage.min.js"></script>
+        <script type="text/javascript" src="assets/js/adion-ui-kit/prism/prism.js"></script>
     </head>
-    <body>
-        <div class="nav d-none row">
-            <div class="col-1">
-                <button class="btn-small btn-green c btn-noradius">Choisir un autre domaine</button>
-            </div>
-            <div class="col-1 fh">
-                <img src="assets/img/logo_adion.png" width="50px" alt="logo adion">
-            </div>
-            <div class="col-1">
-                <h1>CLOUD</h1>
-            </div>
-        </div>
+    <body class="container-fluid">
         
-        <div class="side-nav-control">
-            <a href="#" class="btn radius icon btn-white" onclick="$('#nav').toggle()"><i class="fa fa-bars" aria-hidden="true"></i></a>
-        </div>
-        <div id="nav" class="side-nav d-none">
-            <div class="header">
-                <img src="assets/img/logo_adion.png" width="50px" alt="logo adion">
-                <a href="#" onclick="$('#nav').toggle()"><i class="fa fa-times" aria-hidden="true"></i></a>
-            </div>
-            <ul onclick="$('#nav').toggle()">
-                <li class="category"><span>General</span></li>
-                <li><a data-menuanchor="home" class href="#home">Accueil</a></li>
-                <li class="category"><span>Section</span></li>
-                <li><a data-menuanchor="section2" class href="#section2">Section 2</a></li>
-                <li><a data-menuanchor="section3" class href="#section3">Section 3</a></li>
-                <li><a data-menuanchor="section4" class href="#section4">Section 4</a></li>
-                <li><a data-menuanchor="section5" class href="#section5">Section 5</a></li>
-                <li><a data-menuanchor="section6" class href="#section6">Section 6</a></li>
-                <li><a data-menuanchor="section7" class href="#section7">Section 7</a></li>
-            </ul>
-        </div>
-        <div id="welcome">
-            <div class="section bg-gr-1">
-                <div class="container fluid">
-                    <div class="home-header c">
-                        <img src="assets/img/logo_adion.png" width="150px" alt="Adion Logo">
-                    </div>
-                    <div class="home-title c">
-                        <img src="assets/svg/human_on_desktop.svg" alt="Human on desktop">
-                        <h1><span class="b">Bienvenue</span><br> dans le monde du <span class="b">digital</span></h1>
-                    </div>
-                    <div class="home-action row">
-                        <div class="col-8 col-o-2">
-                            <a href="#" class="btn btn-white bbbb c mb-15">Découvrir nos services</a>
-                            <a href="#" class="btn btn-green bbbb c">Nous contacter</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section bg-gr-1">
-                <div class="container fluid with-sidebar with-navbar with-footer fh">
-                    <div class="col-10">
-                        <h1>Section 2</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="section bg-gr-2">
-                <div class="container fluid with-sidebar with-navbar with-footer fh">
-                    <div class="col-10">
-                        <h1>Section 3</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="section bg-gr-3">
-                <div class="container fluid with-sidebar with-navbar with-footer fh">
-                    <div class="col-10">
-                        <h1>Section 4</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="section bg-gr-4">
-                <div class="container fluid with-sidebar with-navbar with-footer fh">
-                    <div class="col-10">
-                        <h1>Section 5</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="section bg-gr-5">
-                <div class="container fluid with-sidebar with-navbar with-footer fh">
-                    <div class="col-10">
-                        <h1>Section 6</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="section bg-gr-2">
-                <div class="container fluid with-sidebar with-navbar with-footer fh">
-                    <div class="row">
-                        <div class="col-6">
-                            <h1>.col-6</h1>
-                        </div>
-                        <div class="col-6">
-                            <h1>.col-6</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <footer class="d-none container fluid bt-5-green">
-            <div class="content">
+        <div id="web">
+            
+            <div class="section bg-gr-1 adion__home">
                 <div class="row fh">
-                    <div class="col-2">
-                        <div class="logo">
-                            <img src="assets/img/logo_adion.png" width="70px" alt="Adion Logo">
-                            <h3 class="pl-30">Adion</h3>
-                        </div>
+                    <div class="col-12 adion__home__logo">
+                        <img src="assets/img/logo_adion.png" alt="Logo de la société Adion contenant un anneau allongé en horizontal qui à pour fond vert dégradé">
                     </div>
-                    <div class="col-5 pl-40">
-                        <div class="row fh links pt-20">
-                            <div class="col-3">
-                                <h3>Lien pratique</h3>
-                                <hr>
-                                <ul>
-                                    <li><a href="#">Espace client</a></li>
-                                    <li><a href="#">Webmail</a></li>
-                                    <li><a href="#">API et documentation</a></li>
-                                    <li><a href="#">Procédure</a></li>
-                                    <li><a href="#">Status des services</a></li>
-                                    <li><a href="#">Whois</a></li>
-                                    <li><a href="#">Signaler un abus</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-3">
-                                <h3>Services</h3>
-                                <hr>
-                                <ul>
-                                    <li><a href="#">Parcourir le centre d'aide</a></li>
-                                    <li><a href="#">Contacter le service client</a></li>
-                                    <li><a href="#">Discuter avec la communauté</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-3">
-                                <h3>Divers</h3>
-                                <hr>
-                                <ul>
-                                    <li><a href="#">Mention légales</a></li>
-                                    <li><a href="#">Contrats et conditions</a></li>
-                                    <li><a href="#">Protection des données</a></li>
-                                    <li><a href="#">Documentation ICANN</a></li>
-                                    <li><a href="#">A propos</a></li>
-                                    <li><a href="#">Adion recrute</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-3">
-                                <h3>Suivez-nous</h3>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <ul>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-github"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-2">
-                                        <ul>
-                                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                        </ul>
+                    <div class="col-12 adion__home__title">
+                        <img src="assets/svg/human_on_desktop.svg" alt="Une personne travaille sur un ordinateur portable">
+                        <h1><b>Bienvenue</b><br>dans le monde du <b>digital</b></h1>
+                    </div>
+                    <div class="col-12 adion__home__actions">
+                        <button class="btn-white">Découvrir nos services</button>
+                        <button class="btn-green">Nous contacter</button>
+                    </div>
+                </div>
+                <nav>
+                    <a href="#about">
+                        <span>Que faisons nous ?</span>
+                        <i class="fa fa-home"></i>
+                    </a>
+                </nav>
+            </div>
 
-                                    </div>
-                                </div>
-                            </div>
+            <div class="section bg-gr-2">
+                <div class="row fh">
+                </div>
+            </div>
+
+            <div class="section bg-gr-4">
+                <div class="row fh">
+                </div>
+            </div>
+
+            <div class="section bg-gr-3">
+                <div class="row fh">
+                </div>
+            </div>
+
+            <div class="section bg-gr-7">
+                <div class="row fh">
+                </div>
+            </div>
+
+            <div class="section bg-gr-5">
+                <div class="row fh">
+                </div>
+            </div>
+
+            <div class="section bg-gr-6">
+                <div class="row fh">
+                </div>
+            </div>
+
+        </div>
+
+    
+        <footer class="d-none container-fluid bt-5-green">
+            <div class="content row fh">
+                <div class="col-2 fh">
+                    <div class="logo">
+                        <img src="assets/img/logo_adion.png" width="70px" alt="Adion Logo">
+                        <h3 class="pl-30">Adion</h3>
+                    </div>
+                </div>
+                <div class="col-5 pl-40 fh">
+                    <div class="row fh links pt-5">
+                        <div class="col-3 fh">
+                            <h3>Lien pratique</h3>
+                            <hr>
+                            <ul>
+                                <li><a href="#">Espace client</a></li>
+                                <li><a href="#">Webmail</a></li>
+                                <li><a href="#">API et documentation</a></li>
+                                <li><a href="#">Procédure</a></li>
+                                <li><a href="#">Status des services</a></li>
+                                <li><a href="#">Whois</a></li>
+                                <li><a href="#">Signaler un abus</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3 fh">
+                            <h3>Services</h3>
+                            <hr>
+                            <ul>
+                                <li><a href="#">Parcourir le centre d'aide</a></li>
+                                <li><a href="#">Contacter le service client</a></li>
+                                <li><a href="#">Discuter avec la communauté</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3 fh">
+                            <h3>Divers</h3>
+                            <hr>
+                            <ul>
+                                <li><a href="#">Mention légales</a></li>
+                                <li><a href="#">Contrats et conditions</a></li>
+                                <li><a href="#">Protection des données</a></li>
+                                <li><a href="#">Documentation ICANN</a></li>
+                                <li><a href="#">A propos</a></li>
+                                <li><a href="#">Adion recrute</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3 fh">
+                            <h3>Suivez-nous</h3>
+                            <hr>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
-                    <div class="col-5 pl-40">
-                        <div class="row fh contact pt-20">
-                            <div class="col-3">
-                                <h4>Service commercial</h4>
-                                <p>Lundi au vendredi<br>de 9h à 18h</p>
-                                <p>+33 1 88 33 13 03<br>hello@myadion.com</p>
-                            </div>
-                            <div class="col-3">
-                                <h4>Service client</h4>
-                                <p>Lundi au samedi<br>de 9h à 18h</p>
-                                <p>+33 820 690 311<br>help@myadion.com</p>
-                            </div>
-                            <div class="col-4">
-                                <h4>Siège</h4>
-                                <p><span class="bb">Adion Cloud - Service relation client</span><br>97 rue Réguelongue,<br>BAT B, BAL n°92,<br>31100 Toulouse, France</p>
-                            </div>
+                </div>
+                <div class="col-5 pl-40 fh">
+                    <div class="row fh contact pt-5">
+                        <div class="col-3 fh">
+                            <h4>Service commercial</h4>
+                            <p>Lundi au vendredi<br>de 9h à 18h</p>
+                            <p>+33 1 88 33 13 03<br>hello@myadion.com</p>
+                        </div>
+                        <div class="col-3 fh">
+                            <h4>Service client</h4>
+                            <p>Lundi au samedi<br>de 9h à 18h</p>
+                            <p>+33 820 690 311<br>help@myadion.com</p>
+                        </div>
+                        <div class="col-4 fh">
+                            <h4>Siège</h4>
+                            <p><span class="bb">Adion Cloud - Service relation client</span><br>97 rue Réguelongue,<br>BAT B, BAL n°92,<br>31100 Toulouse, France</p>
                         </div>
                     </div>
                 </div>
@@ -206,19 +154,24 @@
                 <p>&copy; Copyright 2016-2022 Adion. Conformément à la Directive 2006/112/CE modifiée, à partir du 01/01/2015, les prix TTC sont susceptibles de varier selon le pays de résidence du client (par défaut les prix TTC affichés incluent la TVA française en vigueur).</p>
             </div>
         </footer>
+
+        
         <script>
-
-            $('a[data-menuanchor="home"]').click(function(){
-                $('.side-nav').hide();
-                $('.nav').hide();
-            });
-
-            var test = new $('#welcome').fullpage({
-                anchors: ['home', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+            var test = new $('#web').fullpage({
+                anchors: [
+                'home', 
+                'about',
+                'mission',
+                'values',
+                'engagements',
+                'qualifications',
+                'letstart'
+                ],
                 scrollBar: false,
                 menu: "#nav",
                 afterLoad: function(anchorLink, index, direction){
                     if($(window).width() > 768) {
+                        console.log(index.index);
                         if (index.index > 0){
                             $('.side-nav').fadeTo("fast", 1);
                             $('.side-nav').addClass("with-navbar");

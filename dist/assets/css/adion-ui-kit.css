@@ -3694,14 +3694,14 @@ div.input-group [ok] + i:before {
 
 button, label.btn, a.btn {
   background-color: #343537;
-  width: 100%;
+  width: fit-content;
   height: 2.5rem;
   font-size: 0.9375rem;
   color: #eeeeee;
   padding: 0.625rem;
   border: none;
   border-radius: 0.3125rem;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   text-align: left;
   justify-content: center;
@@ -3825,6 +3825,9 @@ button.btn-switch, label.btn-switch.btn, a.btn-switch.btn, button.btn-special, l
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+button.btn-switch span, label.btn-switch.btn span, a.btn-switch.btn span, button.btn-special span, label.btn-special.btn span, a.btn-special.btn span {
+  margin-right: 50px;
 }
 button.btn-special i, label.btn-special.btn i, a.btn-special.btn i {
   font-size: 0.9375rem;
@@ -4191,5 +4194,14 @@ select.xl[size] {
   content: "\f057";
   -webkit-transition: 0.4s;
   transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+  .adion__home {
+    justify-content: center;
+  }
+}
+.adion__home__logo {
+  max-width: 10vw;
 }
 /*# sourceMappingURL=adion-ui-kit.css.map */

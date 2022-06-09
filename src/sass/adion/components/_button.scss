@@ -1,14 +1,13 @@
 button{
     background-color: $dark;
-    // width: rem(325);
-    width: 100%;
+    width: fit-content;
     height: rem(40);
     font-size: rem(15);
     color: $white;
     padding: rem(10);
     border: none;
     border-radius: rem(5);
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     text-align: left;
     justify-content: center;
@@ -88,6 +87,10 @@ button{
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
+        span{
+            margin-right: 50px;
+        }
     }
 
     &.btn-special{

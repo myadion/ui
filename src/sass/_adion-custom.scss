@@ -1,0 +1,25 @@
+.adion{
+
+
+    // For slide #home
+    &__home{
+        
+        @include media('<=md') {
+            justify-content: center;
+        }
+
+        &__logo{
+            max-width: 10vw;
+        }
+
+        &__title{
+            
+        }
+
+        &__actions{
+            
+        }
+    }
+
+    
+}
