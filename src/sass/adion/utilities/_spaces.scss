@@ -8,3 +8,8 @@
       .p#{$name}-#{$space} { padding-#{$side}: rem(#{$space}) !important; }
     }
   }
+
+  /* Width */
+  @each $space in $space-amounts {
+    .w-#{$space} { width: rem(#{$space}) !important; }
+  }

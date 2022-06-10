@@ -1,12 +1,13 @@
 button{
     background-color: $dark;
+    width: -moz-fit-content;
     width: fit-content;
     height: rem(40);
     font-size: rem(15);
     color: $white;
     padding: rem(10);
     border: none;
-    border-radius: rem(5);
+    border-radius: rem(3);
     display: inline-flex;
     flex-direction: column;
     text-align: left;
@@ -134,9 +135,11 @@ nav{
             width: 100%;
             left: 0;
             right: 0;
+            z-index: 10;
 
             a{
-                font-size: 12px;
+                font-size: rem(12);
+                font-weight: 700;
                 text-transform: uppercase;
                 color: white;
                 letter-spacing: 6px;
@@ -146,7 +149,8 @@ nav{
             }
 
             i{
-                font-size: 45px;
+                font-size: rem(45);
+                font-weight: 600;
             }
         }
 

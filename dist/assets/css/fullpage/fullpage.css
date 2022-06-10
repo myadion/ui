@@ -4,7 +4,6 @@ html.fp-enabled,
   padding: 0;
   overflow: hidden;
   /*Avoid flicker on slides transitions for mobile phones #336 */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .fp-section {
@@ -117,9 +116,9 @@ html.fp-enabled,
   z-index: 100;
   top: 50%;
   opacity: 1;
-  transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -webkit-transform: translate3d(0, -50%, 0);
+  transform: translateY(-50%);
 }
 
 #fp-nav.fp-right {

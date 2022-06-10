@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
 
@@ -15,7 +15,7 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="assets/js/adion-ui-kit/fullpage/fullpage.min.js"></script>
-        <script type="text/javascript" src="assets/js/adion-ui-kit/prism/prism.js"></script>
+                <script type="text/javascript" src="assets/js/adion-ui-kit/prism/prism.js"></script>
     </head>
     <body class="container-fluid">
         
@@ -31,20 +31,35 @@
                     </div>
                     <div class="col-12 adion__home__content">
                             <img src="assets/svg/human_on_desktop.svg" alt="Une personne travaille sur un ordinateur portable">
-                            <h1><b>Bienvenue</b><br>dans le monde du <b>digital</b></h1>
+                            <div class="adion__home__content__logo">
+                                <h1><b>Bienvenue</b><br>dans le monde du <b>digital</b></h1>
+                                <img src="assets/img/logo_adion.png" alt="Logo de la société Adion contenant un anneau allongé en horizontal qui à pour fond vert dégradé">
+                            </div>
                     </div>
                     <div class="col-7 adion__home__actions">
-                        <button class="btn-white auto c bbb mb-15">Découvrir nos services</button>
-                        <button class="btn-green auto c bbb">Nous contacter</button>
+                        <button type="button" class="btn-white auto c bbb mb-15">Découvrir nos services</button>
+                        <button type="button" class="btn-green auto c bbb">Nous contacter</button>
                     </div>
                 </div>
             </div>
 
-            <div class="section bg-gr-2">
-                <div class="row fh">
-                    <nav class="btn-slide">
-                        <div class="down"><a href="#mission"><span>Notre mission</span><i class="fal fa-chevron-down"></i></a></div>
-                    </nav>
+            <div class="section bg-gr-2 adion__about">
+                <div class="container">
+                    <div class="row">
+                        <nav class="btn-slide">
+                            <div class="down"><a href="#mission"><span>Notre mission</span><i class="fal fa-chevron-down"></i></a></div>
+                        </nav>
+                        <div class="col-12 col-lg-6 adion__about__image">
+                            <img src="assets/svg/human_on_desktop_2.svg" alt="Une personne travaille sur un ordinateur portable assise sur une coline">
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h3 class="pl-10 b">Que faisons nous chez Adion ?</h3>
+                            <p>Nous déployons des solutions de cloud computing, d’hébergement mutualisé, de développement. Nous proposons également l’enregistrement de noms de domaine, de la téléphonie, ainsi que de l’accès à Internet.</p>
+                            <p>Créé en 2016, Adion est une entreprise française qui a pour gout d’accompagner et de maintenir les entreprises dans la digitalisation sans qu’elle n’ait à s’en préoccuper.</p>
+                            <p>Notre ADN c’est à l’origine l’innovation technologique, l’automatisation et l’optimisation. Ainsi pourrons vous dire nos clients, nous aimons ce que nous faisons et nous leurs rendons facilité et efficacité tout les jours.</p>
+                            <button type="button" class="btn-white btn-small bbb mt-10 w-140 c">En savoir plus</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -183,7 +198,6 @@
                 menu: "#nav",
                 afterLoad: function(anchorLink, index, direction){
                     if($(window).width() > 768) {
-                        console.log(index.index);
                         if (index.index > 0){
                             $('.side-nav').fadeTo("fast", 1);
                             $('.side-nav').addClass("with-navbar");
