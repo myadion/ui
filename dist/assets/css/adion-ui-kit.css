@@ -2,14 +2,14 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: OpenSans;
 }
 
 html {
-  font-family: segoe-ui;
-  font-weight: 500;
   background-color: #292929;
-  color: #eeeeee;
   font-size: 16px;
+  font-weight: 400;
+  color: #eeeeee;
   line-height: 1.5;
 }
 
@@ -3635,106 +3635,168 @@ td, th {
   }
 }
 @font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-italic-thin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
-@font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-italic-semi-thin.ttf") format("truetype");
-  font-weight: 200;
-  font-style: italic;
-}
-@font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-semi-light.ttf") format("truetype");
+  font-family: "SoundsGood";
   font-weight: 400;
-  font-style: normal;
+  src: url("../fonts/SoundsGood-Regular.ttf") format("eot"), url("../fonts/SoundsGood-Regular.ttf") format("woff2"), url("../fonts/SoundsGood-Regular.ttf") format("woff"), url("../fonts/SoundsGood-Regular.ttf") format("truetype"), url("../fonts/SoundsGood-Regular.ttf") format("svg");
 }
 @font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
+  font-family: "OpenSans";
+  font-weight: 400;
+  src: url("../fonts/Roboto-Regular.ttf") format("eot"), url("../fonts/Roboto-Regular.ttf") format("woff2"), url("../fonts/Roboto-Regular.ttf") format("woff"), url("../fonts/Roboto-Regular.ttf") format("truetype"), url("../fonts/Roboto-Regular.ttf") format("svg");
 }
 @font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-italic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
+  font-family: "SourceSans";
+  font-weight: 400;
+  src: url("../fonts/SourceSans-Regular.ttf") format("eot"), url("../fonts/SourceSans-Regular.ttf") format("woff2"), url("../fonts/SourceSans-Regular.ttf") format("woff"), url("../fonts/SourceSans-Regular.ttf") format("truetype"), url("../fonts/SourceSans-Regular.ttf") format("svg");
 }
 @font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-semi-bold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-italic-semi-bold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: italic;
-}
-@font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-bold.ttf") format("truetype");
+  font-family: "OpenSans";
   font-weight: 700;
-  font-style: normal;
+  src: url("../fonts/Quality-Bold.ttf") format("eot"), url("../fonts/Quality-Bold.ttf") format("woff2"), url("../fonts/Quality-Bold.ttf") format("woff"), url("../fonts/Quality-Bold.ttf") format("truetype"), url("../fonts/Quality-Bold.ttf") format("svg");
 }
 @font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-italic-bold.ttf") format("truetype");
+  font-family: "Cocogoose";
+  font-weight: 800;
+  src: url("../fonts/Cocogoose-ExtraBold.ttf") format("eot"), url("../fonts/Cocogoose-ExtraBold.ttf") format("woff2"), url("../fonts/Cocogoose-ExtraBold.ttf") format("woff"), url("../fonts/Cocogoose-ExtraBold.ttf") format("truetype"), url("../fonts/Cocogoose-ExtraBold.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-weight: 300;
+  src: url("../fonts/OpenSans-Light.ttf") format("eot"), url("../fonts/OpenSans-Light.ttf") format("woff2"), url("../fonts/OpenSans-Light.ttf") format("woff"), url("../fonts/OpenSans-Light.ttf") format("truetype"), url("../fonts/OpenSans-Light.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/OpenSans-LightItalic.ttf") format("eot"), url("../fonts/OpenSans-LightItalic.ttf") format("woff2"), url("../fonts/OpenSans-LightItalic.ttf") format("woff"), url("../fonts/OpenSans-LightItalic.ttf") format("truetype"), url("../fonts/OpenSans-LightItalic.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-weight: 400;
+  src: url("../fonts/OpenSans-Regular.ttf") format("eot"), url("../fonts/OpenSans-Regular.ttf") format("woff2"), url("../fonts/OpenSans-Regular.ttf") format("woff"), url("../fonts/OpenSans-Regular.ttf") format("truetype"), url("../fonts/OpenSans-Regular.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/OpenSans-Italic.ttf") format("eot"), url("../fonts/OpenSans-Italic.ttf") format("woff2"), url("../fonts/OpenSans-Italic.ttf") format("woff"), url("../fonts/OpenSans-Italic.ttf") format("truetype"), url("../fonts/OpenSans-Italic.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-weight: 500;
+  src: url("../fonts/OpenSans-Medium.ttf") format("eot"), url("../fonts/OpenSans-Medium.ttf") format("woff2"), url("../fonts/OpenSans-Medium.ttf") format("woff"), url("../fonts/OpenSans-Medium.ttf") format("truetype"), url("../fonts/OpenSans-Medium.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/OpenSans-MediumItalic.ttf") format("eot"), url("../fonts/OpenSans-MediumItalic.ttf") format("woff2"), url("../fonts/OpenSans-MediumItalic.ttf") format("woff"), url("../fonts/OpenSans-MediumItalic.ttf") format("truetype"), url("../fonts/OpenSans-MediumItalic.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-weight: 600;
+  src: url("../fonts/OpenSans-SemiBold.ttf") format("eot"), url("../fonts/OpenSans-SemiBold.ttf") format("woff2"), url("../fonts/OpenSans-SemiBold.ttf") format("woff"), url("../fonts/OpenSans-SemiBold.ttf") format("truetype"), url("../fonts/OpenSans-SemiBold.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/OpenSans-SemiBoldItalic.ttf") format("eot"), url("../fonts/OpenSans-SemiBoldItalic.ttf") format("woff2"), url("../fonts/OpenSans-SemiBoldItalic.ttf") format("woff"), url("../fonts/OpenSans-SemiBoldItalic.ttf") format("truetype"), url("../fonts/OpenSans-SemiBoldItalic.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
   font-weight: 700;
+  src: url("../fonts/OpenSans-Bold.ttf") format("eot"), url("../fonts/OpenSans-Bold.ttf") format("woff2"), url("../fonts/OpenSans-Bold.ttf") format("woff"), url("../fonts/OpenSans-Bold.ttf") format("truetype"), url("../fonts/OpenSans-Bold.ttf") format("svg");
+}
+@font-face {
+  font-family: "OpenSans";
   font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/OpenSans-BoldItalic.ttf") format("eot"), url("../fonts/OpenSans-BoldItalic.ttf") format("woff2"), url("../fonts/OpenSans-BoldItalic.ttf") format("woff"), url("../fonts/OpenSans-BoldItalic.ttf") format("truetype"), url("../fonts/OpenSans-BoldItalic.ttf") format("svg");
 }
 @font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-black.ttf") format("truetype");
+  font-family: "OpenSans";
   font-weight: 800;
-  font-style: normal;
+  src: url("../fonts/OpenSans-ExtraBold.ttf") format("eot"), url("../fonts/OpenSans-ExtraBold.ttf") format("woff2"), url("../fonts/OpenSans-ExtraBold.ttf") format("woff"), url("../fonts/OpenSans-ExtraBold.ttf") format("truetype"), url("../fonts/OpenSans-ExtraBold.ttf") format("svg");
 }
 @font-face {
-  font-family: "segoe-ui";
-  src: url("../fonts/segoe-ui-italic-black.ttf") format("truetype");
-  font-weight: 800;
+  font-family: "OpenSans";
   font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/OpenSans-ExtraBoldItalic.ttf") format("eot"), url("../fonts/OpenSans-ExtraBoldItalic.ttf") format("woff2"), url("../fonts/OpenSans-ExtraBoldItalic.ttf") format("woff"), url("../fonts/OpenSans-ExtraBoldItalic.ttf") format("truetype"), url("../fonts/OpenSans-ExtraBoldItalic.ttf") format("svg");
 }
 @font-face {
-  font-family: "century-gothic";
-  src: url(../fonts/century-gothic.woff) format("opentype");
+  font-family: "SegoeUI";
+  font-weight: 200;
+  src: url("../fonts/SegoeUI-ExtraLight.ttf") format("eot"), url("../fonts/SegoeUI-ExtraLight.ttf") format("woff2"), url("../fonts/SegoeUI-ExtraLight.ttf") format("woff"), url("../fonts/SegoeUI-ExtraLight.ttf") format("truetype"), url("../fonts/SegoeUI-ExtraLight.ttf") format("svg");
 }
 @font-face {
-  font-family: "cocogoose";
-  src: url(../fonts/cocogoose.ttf) format("opentype");
+  font-family: "SegoeUI";
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/SegoeUI-ExtraLightItalic.ttf") format("eot"), url("../fonts/SegoeUI-ExtraLightItalic.ttf") format("woff2"), url("../fonts/SegoeUI-ExtraLightItalic.ttf") format("woff"), url("../fonts/SegoeUI-ExtraLightItalic.ttf") format("truetype"), url("../fonts/SegoeUI-ExtraLightItalic.ttf") format("svg");
 }
 @font-face {
-  font-family: "quality-bold";
-  src: url(../fonts/quality-bold.ttf) format("opentype");
+  font-family: "SegoeUI";
+  font-weight: 300;
+  src: url("../fonts/SegoeUI-Light.ttf") format("eot"), url("../fonts/SegoeUI-Light.ttf") format("woff2"), url("../fonts/SegoeUI-Light.ttf") format("woff"), url("../fonts/SegoeUI-Light.ttf") format("truetype"), url("../fonts/SegoeUI-Light.ttf") format("svg");
 }
 @font-face {
-  font-family: "roboto";
-  src: url(../fonts/roboto.ttf) format("truetype");
+  font-family: "SegoeUI";
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/SegoeUI-LightItalic.ttf") format("eot"), url("../fonts/SegoeUI-LightItalic.ttf") format("woff2"), url("../fonts/SegoeUI-LightItalic.ttf") format("woff"), url("../fonts/SegoeUI-LightItalic.ttf") format("truetype"), url("../fonts/SegoeUI-LightItalic.ttf") format("svg");
 }
 @font-face {
-  font-family: "sounds-good";
-  src: url(../fonts/sounds-good.ttf) format("truetype");
+  font-family: "SegoeUI";
+  font-weight: 400;
+  src: url("../fonts/SegoeUI-Regular.ttf") format("eot"), url("../fonts/SegoeUI-Regular.ttf") format("woff2"), url("../fonts/SegoeUI-Regular.ttf") format("woff"), url("../fonts/SegoeUI-Regular.ttf") format("truetype"), url("../fonts/SegoeUI-Regular.ttf") format("svg");
 }
 @font-face {
-  font-family: "source-sans-pro";
-  src: url(../fonts/source-sans-pro.ttf) format("truetype");
+  font-family: "SegoeUI";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/SegoeUI-Italic.ttf") format("eot"), url("../fonts/SegoeUI-Italic.ttf") format("woff2"), url("../fonts/SegoeUI-Italic.ttf") format("woff"), url("../fonts/SegoeUI-Italic.ttf") format("truetype"), url("../fonts/SegoeUI-Italic.ttf") format("svg");
+}
+@font-face {
+  font-family: "SegoeUI";
+  font-weight: 600;
+  src: url("../fonts/SegoeUI-SemiBold.ttf") format("eot"), url("../fonts/SegoeUI-SemiBold.ttf") format("woff2"), url("../fonts/SegoeUI-SemiBold.ttf") format("woff"), url("../fonts/SegoeUI-SemiBold.ttf") format("truetype"), url("../fonts/SegoeUI-SemiBold.ttf") format("svg");
+}
+@font-face {
+  font-family: "SegoeUI";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/SegoeUI-SemiBoldItalic.ttf") format("eot"), url("../fonts/SegoeUI-SemiBoldItalic.ttf") format("woff2"), url("../fonts/SegoeUI-SemiBoldItalic.ttf") format("woff"), url("../fonts/SegoeUI-SemiBoldItalic.ttf") format("truetype"), url("../fonts/SegoeUI-SemiBoldItalic.ttf") format("svg");
+}
+@font-face {
+  font-family: "SegoeUI";
+  font-weight: 700;
+  src: url("../fonts/SegoeUI-Bold.ttf") format("eot"), url("../fonts/SegoeUI-Bold.ttf") format("woff2"), url("../fonts/SegoeUI-Bold.ttf") format("woff"), url("../fonts/SegoeUI-Bold.ttf") format("truetype"), url("../fonts/SegoeUI-Bold.ttf") format("svg");
+}
+@font-face {
+  font-family: "SegoeUI";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/SegoeUI-BoldItalic.ttf") format("eot"), url("../fonts/SegoeUI-BoldItalic.ttf") format("woff2"), url("../fonts/SegoeUI-BoldItalic.ttf") format("woff"), url("../fonts/SegoeUI-BoldItalic.ttf") format("truetype"), url("../fonts/SegoeUI-BoldItalic.ttf") format("svg");
+}
+@font-face {
+  font-family: "SegoeUI";
+  font-weight: 900;
+  src: url("../fonts/SegoeUI-Black.ttf") format("eot"), url("../fonts/SegoeUI-Black.ttf") format("woff2"), url("../fonts/SegoeUI-Black.ttf") format("woff"), url("../fonts/SegoeUI-Black.ttf") format("truetype"), url("../fonts/SegoeUI-Black.ttf") format("svg");
+}
+@font-face {
+  font-family: "SegoeUI";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/SegoeUI-BlackItalic.ttf") format("eot"), url("../fonts/SegoeUI-BlackItalic.ttf") format("woff2"), url("../fonts/SegoeUI-BlackItalic.ttf") format("woff"), url("../fonts/SegoeUI-BlackItalic.ttf") format("truetype"), url("../fonts/SegoeUI-BlackItalic.ttf") format("svg");
 }
 .code-toolbar pre {
   font-size: 0.6875rem;
   border-radius: 5px;
   border: #585858 solid 1px;
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -3793,42 +3855,42 @@ h1 {
   font-size: 1.625rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
-  font-family: "Segoe UI";
+  font-family: OpenSans;
 }
 
 h2 {
   font-size: 1.3125rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
-  font-family: "Segoe UI";
+  font-family: OpenSans;
 }
 
 h3 {
   font-size: 1rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
-  font-family: "Segoe UI";
+  font-family: OpenSans;
 }
 
 h4 {
   font-size: 0.6875rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
-  font-family: "Segoe UI";
+  font-family: OpenSans;
 }
 
 h5 {
   font-size: 0.375rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
-  font-family: "Segoe UI";
+  font-family: OpenSans;
 }
 
 h6 {
   font-size: 0.0625rem;
   padding-bottom: 1.5625rem;
   font-weight: 100;
-  font-family: "Segoe UI";
+  font-family: OpenSans;
 }
 
 @media (min-width: 768px) {
@@ -3836,42 +3898,42 @@ h6 {
     font-size: 2.1875rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h2 {
     font-size: 1.875rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h3 {
     font-size: 1.5625rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h4 {
     font-size: 1.25rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h5 {
     font-size: 0.9375rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h6 {
     font-size: 0.625rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 }
 @media (min-width: 1200px) {
@@ -3879,42 +3941,42 @@ h6 {
     font-size: 3rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h2 {
     font-size: 2.6875rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h3 {
     font-size: 2.375rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h4 {
     font-size: 2.0625rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h5 {
     font-size: 1.75rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 
   h6 {
     font-size: 1.4375rem;
     padding-bottom: 1.5625rem;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: OpenSans;
   }
 }
 p {
@@ -3937,18 +3999,21 @@ a {
 }
 a:hover {
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
   cursor: pointer;
   color: #eeeeee;
 }
 a:hover i {
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
   color: #eeeeee;
 }
 a i {
   font-size: 1.375rem;
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -3972,6 +4037,7 @@ ul.list-style li {
   background-color: #292929;
   padding: 0 0.625rem;
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 .nav h1 {
@@ -4002,6 +4068,7 @@ ul.list-style li {
   background-color: #3e3e3e;
   overflow: auto;
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 .side-nav .header {
@@ -4065,6 +4132,7 @@ ul.list-style li {
   color: #eeeeee;
   content: "";
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -4112,6 +4180,10 @@ footer {
   z-index: 10;
   padding: 0;
   position: absolute;
+}
+footer p {
+  font-size: 0.75rem;
+  margin: 0;
 }
 footer .content {
   height: 85%;
@@ -4264,6 +4336,7 @@ div.input-group {
 }
 div.input-group i {
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
   position: absolute;
   margin-left: 88%;
@@ -4332,6 +4405,7 @@ button, label.btn, a.btn {
   justify-content: center;
   align-content: space-around;
   -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 button:hover, label.btn:hover, a.btn:hover {
@@ -4349,6 +4423,12 @@ button.btn-small, label.btn-small.btn, a.btn-small.btn {
   height: 1.875rem;
   width: max-content;
   font-size: 0.6875rem;
+}
+@media (min-width: 992px) {
+  button.btn-small, label.btn-small.btn, a.btn-small.btn {
+    height: unset;
+    font-size: unset;
+  }
 }
 button.btn-noradius, label.btn-noradius.btn, a.btn-noradius.btn {
   border-radius: 0;
@@ -4613,6 +4693,7 @@ select option {
   align-items: center;
   width: 100%;
   -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 select option:active, select option:focus, select option:checked {
@@ -4620,6 +4701,7 @@ select option:active, select option:focus, select option:checked {
   outline: solid 2px #585858;
   font-weight: 600;
   -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
 }
 select option:hover {
@@ -4837,6 +4919,7 @@ select.xl[size] {
   padding: 0.0625rem;
   background-color: #585858;
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 .switch .switch-slider:before {
@@ -4849,6 +4932,7 @@ select.xl[size] {
   color: #eeeeee;
   content: "\f057";
   -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -4935,33 +5019,51 @@ select.xl[size] {
     margin-right: 1.5625rem;
   }
 }
-.adion__about {
+@media (max-width: 992px) {
+  .adion__mission > div > div, .adion__engagements > div > div {
+    flex-direction: column-reverse;
+  }
+}
+.adion__about, .adion__mission, .adion__values, .adion__engagements, .adion__qualifications {
   justify-content: flex-start;
 }
 @media (min-width: 992px) {
-  .adion__about {
+  .adion__about, .adion__mission, .adion__values, .adion__engagements, .adion__qualifications {
     justify-content: center;
   }
 }
-.adion__about > div {
-  margin-top: 5rem;
+.adion__about > div, .adion__mission > div, .adion__values > div, .adion__engagements > div, .adion__qualifications > div {
+  margin-top: 1.5625rem;
   padding: 0px 30px;
 }
-.adion__about__image {
+.adion__about__image, .adion__mission__image, .adion__values__image, .adion__engagements__image, .adion__qualifications__image {
   text-align: center;
 }
-.adion__about h3 {
+.adion__about h3, .adion__mission h3, .adion__values h3, .adion__engagements h3, .adion__qualifications h3 {
   text-align: center;
   padding-left: 0 !important;
 }
-.adion__about p {
+@media (min-width: 992px) {
+  .adion__about h3, .adion__mission h3, .adion__values h3, .adion__engagements h3, .adion__qualifications h3 {
+    text-align: left;
+  }
+}
+.adion__about p, .adion__mission p, .adion__values p, .adion__engagements p, .adion__qualifications p {
   text-align: justify;
 }
-.adion__about img {
+.adion__about button, .adion__about a.btn, .adion__about label.btn, .adion__mission button, .adion__mission a.btn, .adion__mission label.btn, .adion__values button, .adion__values a.btn, .adion__values label.btn, .adion__engagements button, .adion__engagements a.btn, .adion__engagements label.btn, .adion__qualifications button, .adion__qualifications a.btn, .adion__qualifications label.btn {
+  width: 8.75rem;
+}
+@media (min-width: 992px) {
+  .adion__about button, .adion__about a.btn, .adion__about label.btn, .adion__mission button, .adion__mission a.btn, .adion__mission label.btn, .adion__values button, .adion__values a.btn, .adion__values label.btn, .adion__engagements button, .adion__engagements a.btn, .adion__engagements label.btn, .adion__qualifications button, .adion__qualifications a.btn, .adion__qualifications label.btn {
+    width: 12.5rem;
+  }
+}
+.adion__about img, .adion__mission img, .adion__values img, .adion__engagements img, .adion__qualifications img {
   width: 15.625rem;
 }
 @media (min-width: 992px) {
-  .adion__about img {
+  .adion__about img, .adion__mission img, .adion__values img, .adion__engagements img, .adion__qualifications img {
     width: 56.25rem;
   }
 }

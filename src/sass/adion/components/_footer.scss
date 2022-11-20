@@ -6,6 +6,11 @@ footer{
     padding: 0;
     position: absolute;
 
+    p{        
+        font-size: rem(12);
+        margin: 0;
+    }
+
     .content{
         height: 85%;
         background-color: $gray-alt;

@@ -33,6 +33,11 @@ button{
         height: rem(30);
         width: max-content;
         font-size: rem(11);
+
+        @include media('>=lg'){
+            height: unset;
+            font-size: unset;
+        }
     }
 
     &.btn-noradius{

@@ -98,8 +98,16 @@
         }
     }
     
-    // For slide #about
-    &__about{
+    // For slide 
+    &__mission, &__engagements{
+        @include media('<=lg') {
+            >div>div{
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    &__about, &__mission, &__values, &__engagements, &__qualifications{
 
         justify-content: flex-start;
         
@@ -108,7 +116,7 @@
         }
 
         >div{
-            margin-top: rem(80);
+            margin-top: rem(25);
             padding: 0px 30px;
         }
 
@@ -119,10 +127,22 @@
         h3{
             text-align: center;
             padding-left: 0 !important;
+            
+            @include media('>=lg') {
+                text-align: left;
+            }
         }
 
         p{
             text-align: justify;
+        }
+
+        button{
+            width: rem(140);
+                
+            @include media('>=lg') {
+                width: rem(200);
+            }
         }
 
         img{

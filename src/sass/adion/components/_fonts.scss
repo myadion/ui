@@ -1,115 +1,54 @@
-// Primary Fonts
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-italic-thin.ttf") format("truetype");
-    font-weight: 100;
-    font-style: italic;
-}
+// SoundsGood
+@include fontface('SoundsGood', '../fonts/SoundsGood-Regular', 400);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-italic-semi-thin.ttf") format("truetype");
-    font-weight: 200;
-    font-style: italic;
-}
+// Roboto
+@include fontface('OpenSans', '../fonts/Roboto-Regular', 400);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-light.ttf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
-}
+// SourceSans
+@include fontface('SourceSans', '../fonts/SourceSans-Regular', 400);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-semi-light.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-}
+// Quality
+@include fontface('OpenSans', '../fonts/Quality-Bold', 700);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
+// Cocogoose
+@include fontface('Cocogoose', '../fonts/Cocogoose-ExtraBold', 800);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-italic.ttf") format("truetype");
-    font-weight: 500;
-    font-style: italic;
-}
+// OpenSans
+@include fontface('OpenSans', '../fonts/OpenSans-Light', 300);
+@include fontface('OpenSans', '../fonts/OpenSans-LightItalic', 300, italic);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-semi-bold.ttf") format("truetype");
-    font-weight: 600;
-    font-style: normal;
-}
+@include fontface('OpenSans', '../fonts/OpenSans-Regular', 400);
+@include fontface('OpenSans', '../fonts/OpenSans-Italic', 400, italic);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-italic-semi-bold.ttf") format("truetype");
-    font-weight: 600;
-    font-style: italic;
-}
+@include fontface('OpenSans', '../fonts/OpenSans-Medium', 500);
+@include fontface('OpenSans', '../fonts/OpenSans-MediumItalic', 500, italic);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
-}
+@include fontface('OpenSans', '../fonts/OpenSans-SemiBold', 600);
+@include fontface('OpenSans', '../fonts/OpenSans-SemiBoldItalic', 600, italic);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-italic-bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: italic;
-}
+@include fontface('OpenSans', '../fonts/OpenSans-Bold', 700);
+@include fontface('OpenSans', '../fonts/OpenSans-BoldItalic', 700, italic);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-black.ttf") format("truetype");
-    font-weight: 800;
-    font-style: normal;
-}
+@include fontface('OpenSans', '../fonts/OpenSans-ExtraBold', 800);
+@include fontface('OpenSans', '../fonts/OpenSans-ExtraBoldItalic', 800, italic);
 
-@font-face {
-    font-family: "segoe-ui";
-    src: url("../fonts/segoe-ui-italic-black.ttf") format("truetype");
-    font-weight: 800;
-    font-style: italic;
-}
+// SegoeUI
+@include fontface('SegoeUI', '../fonts/SegoeUI-ExtraLight', 200);
+@include fontface('SegoeUI', '../fonts/SegoeUI-ExtraLightItalic', 200, italic);
 
-// Optionnal Fonts
-@font-face {
-    font-family: 'century-gothic';
-    src: url(../fonts/century-gothic.woff) format('opentype');
-}
+@include fontface('SegoeUI', '../fonts/SegoeUI-Light', 300);
+@include fontface('SegoeUI', '../fonts/SegoeUI-LightItalic', 300, italic);
 
-@font-face {
-    font-family: 'cocogoose';
-    src: url(../fonts/cocogoose.ttf) format('opentype');
-}
+@include fontface('SegoeUI', '../fonts/SegoeUI-Regular', 400);
+@include fontface('SegoeUI', '../fonts/SegoeUI-Italic', 400, italic);
 
-@font-face {
-    font-family: 'quality-bold';
-    src: url(../fonts/quality-bold.ttf) format('opentype');
-}
+@include fontface('SegoeUI', '../fonts/SegoeUI-SemiBold', 600);
+@include fontface('SegoeUI', '../fonts/SegoeUI-SemiBoldItalic', 600, italic);
 
-@font-face {
-    font-family: 'roboto';
-    src: url(../fonts/roboto.ttf) format('truetype');
-}
+@include fontface('SegoeUI', '../fonts/SegoeUI-Bold', 700);
+@include fontface('SegoeUI', '../fonts/SegoeUI-BoldItalic', 700, italic);
 
-@font-face {
-    font-family: 'sounds-good';
-    src: url(../fonts/sounds-good.ttf) format('truetype');
-}
+@include fontface('SegoeUI', '../fonts/SegoeUI-Black', 900);
+@include fontface('SegoeUI', '../fonts/SegoeUI-BlackItalic', 900, italic);
 
-@font-face {
-    font-family: 'source-sans-pro';
-    src: url(../fonts/source-sans-pro.ttf) format('truetype');
-}
+

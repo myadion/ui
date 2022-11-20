@@ -25,19 +25,19 @@ $i: 500; $class_name : 'b'; @while $i < 900 {
 
 // Set H1-H6 font-size
 $i: 1; $fs: rem(26); @while $i < 7 {
-    h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: 'Segoe UI'; }  $i: $i + 1; $fs : $fs - rem(5);
+    h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: $default_font; }  $i: $i + 1; $fs : $fs - rem(5);
 }
 
 @include media('>=md') {
     
     $i: 1; $fs: rem(35); @while $i < 7 {
-        h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: 'Segoe UI'; }  $i: $i + 1; $fs : $fs - rem(5);
+        h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: $default_font; }  $i: $i + 1; $fs : $fs - rem(5);
     }
 }
 @include media('>=xl') {
     
     $i: 1; $fs: rem(48); @while $i < 7 {
-        h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: 'Segoe UI'; }  $i: $i + 1; $fs : $fs - rem(5);
+        h#{$i}{ font-size: $fs; padding-bottom: rem(25);font-weight: 100; font-family: $default_font; }  $i: $i + 1; $fs : $fs - rem(5);
     }
 }
 
