@@ -1,3 +1,4 @@
-RewriteEngine on
-RewriteCond %{QUERY_STRING} ^q\=1234$
-RewriteRule ^$ https://ui-kit.cdn.myadion.com/dist/? [R=301,L]
+RewriteEngine On
+RewriteCond %{HTTPS}  !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteRule ^(?!dist/).+ dist/$0 [L,NC]
