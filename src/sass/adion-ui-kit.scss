@@ -1,7 +1,7 @@
-@import "adion/variables"; 
-@import "adion/functions"; 
+@import 'adion/variables';
+@import 'adion/functions';
 
-*{
+* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -16,8 +16,7 @@ html {
     line-height: 1.5;
 }
 
-@import "adion/plugins";
-@import "adion/mixins";
-@import "adion/utilities";
-@import "adion/components";
-@import "adion-custom";
+@import 'adion/plugins';
+@import 'adion/mixins';
+@import 'adion/utilities';
+@import 'adion/components';
