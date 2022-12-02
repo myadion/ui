@@ -1,0 +1,11 @@
+{
+  "src/sass/adion-ui-kit.scss": {
+    "file": "ui-kit.umd.cjs",
+    "src": "src/sass/adion-ui-kit.scss",
+    "isEntry": true
+  },
+  "style.css": {
+    "file": "style.css",
+    "src": "style.css"
+  }
+}
