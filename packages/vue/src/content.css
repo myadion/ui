@@ -1,0 +1,261 @@
+/*
+ * ADION UI - LE CONTENU (refonte du 2026-10-27, Kevin : « on etouffe »,
+ * « trop sombre », « il faut des couleurs et du contraste »).
+ *
+ * La barre du haut et la barre de gauche de l'espace client ne changent pas :
+ * tout ici vise le contenu des pages (.ui-page), les fenetres (.ui-dialog) et
+ * les menus du kit. Leurs jetons (--adion-nav-*, --adion-bg-0) sont intacts.
+ *
+ * Le langage : le contenu pose sur des cartes nettement plus claires que la
+ * page, des filets visibles, du texte franc ; Inter pour l'interface (prevue
+ * par la charte), la casse telle qu'elle est ecrite ; de l'air partout ; la
+ * couleur de chaque famille de produit sur ses icones et ses chiffres ; le
+ * vert d'Adion reserve a l'action principale.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Les jetons du contenu                                               */
+/* ------------------------------------------------------------------ */
+:root,
+html[data-theme='dark'],
+.v-theme--adionDark {
+  --adion-font-ui: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --adion-card: #1c1d23;
+  --adion-card-2: #24252c;
+  --adion-card-hover: #292a32;
+  --adion-line: rgba(255, 255, 255, 0.1);
+  --adion-line-2: rgba(255, 255, 255, 0.18);
+  --adion-ink-1: #f6f8fa;
+  --adion-ink-2: #c6cfd7;
+  --adion-ink-3: #9aa5b1;
+  --adion-lift: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 12px 32px -18px rgba(0, 0, 0, 0.7);
+}
+html[data-theme='light'],
+.v-theme--adionLight {
+  --adion-card: #ffffff;
+  --adion-card-2: #f2f6f4;
+  --adion-card-hover: #edf3f0;
+  --adion-line: #dce4e0;
+  --adion-line-2: #c2cec8;
+  --adion-ink-1: #0f161b;
+  --adion-ink-2: #36443f;
+  --adion-ink-3: #52615b;
+  --adion-lift: 0 1px 2px rgba(16, 40, 30, 0.06), 0 10px 28px -16px rgba(16, 40, 30, 0.18);
+}
+
+/* La couleur d'une famille, pour ses icones et ses chiffres (la marque a defaut). */
+.ui-page { --ui-hue: var(--adion-family-brand); }
+.ui-grad--brand { --ui-hue: var(--adion-family-brand); }
+.ui-grad--web { --ui-hue: var(--adion-family-web); }
+.ui-grad--telecom { --ui-hue: var(--adion-family-telecom); }
+.ui-grad--payment { --ui-hue: var(--adion-family-payment); }
+.ui-grad--marketing { --ui-hue: var(--adion-family-marketing); }
+.ui-grad--cloud { --ui-hue: var(--adion-family-cloud); }
+.ui-grad--ai { --ui-hue: var(--adion-family-ai); }
+
+/* ------------------------------------------------------------------ */
+/* L'ecriture                                                          */
+/* ------------------------------------------------------------------ */
+.ui-page,
+.ui-dialog,
+.ui-actionmenu,
+.ui-page *,
+.ui-dialog *,
+.ui-actionmenu * {
+  font-family: var(--adion-font-ui);
+  letter-spacing: normal;
+  text-transform: none;
+}
+.ui-page,
+.ui-dialog { font-size: 14px; line-height: 1.6; color: var(--adion-ink-1); -webkit-font-smoothing: antialiased; }
+.ui-page :is(code, pre, kbd, .ui-mono, .mono),
+.ui-dialog :is(code, pre, kbd, .ui-mono, .mono) { font-family: var(--adion-font-mono); }
+
+/* La page respire : de grands ecarts entre les blocs. */
+.ui-page { gap: 28px; }
+.ui-page .ui-layout__body,
+.ui-page .ui-detail__content { gap: 24px; }
+
+/* ------------------------------------------------------------------ */
+/* L'en-tete                                                           */
+/* ------------------------------------------------------------------ */
+.ui-header { row-gap: 6px; padding-bottom: 4px; }
+.ui-header__family { font-size: 13px; font-weight: 600; color: var(--ui-hue, var(--adion-accent-text)); }
+.ui-header__title { font-size: 30px; font-weight: 650; letter-spacing: -0.025em !important; line-height: 1.15; color: var(--adion-ink-1); }
+.ui-header__lead { max-width: 72ch; font-size: 15px; line-height: 1.6; color: var(--adion-ink-2); }
+.ui-header__meta { font-size: 13.5px; color: var(--adion-ink-3); }
+.ui-crumbs { font-size: 13px; color: var(--adion-ink-3); }
+/* Le cartouche d'une fiche : une carte claire, une lueur de la couleur du produit. */
+.ui-header--resource {
+  padding: 22px 24px 24px;
+  border: 1px solid var(--adion-line);
+  border-radius: 16px;
+  background:
+    radial-gradient(120% 160% at 0% 0%, color-mix(in srgb, var(--ui-hue) 22%, transparent), transparent 55%),
+    var(--adion-card) !important;
+  box-shadow: var(--adion-lift);
+}
+
+/* ------------------------------------------------------------------ */
+/* Les sections : des cartes                                           */
+/* ------------------------------------------------------------------ */
+.ui-page .ui-section {
+  padding: 24px;
+  border: 1px solid var(--adion-line);
+  border-radius: 16px;
+  background: var(--adion-card);
+  box-shadow: var(--adion-lift);
+  gap: 18px;
+}
+/* Une section dans une section, une fenetre ou une carte : sans second cadre. */
+.ui-page .ui-section .ui-section,
+.ui-page .ui-card .ui-section,
+.ui-dialog .ui-section { padding: 0; border: 0; background: none; box-shadow: none; }
+.ui-section__title { font-size: 17px; font-weight: 600; letter-spacing: -0.015em !important; color: var(--adion-ink-1); }
+.ui-section__lead { font-size: 14px; line-height: 1.6; color: var(--adion-ink-2); }
+
+.ui-page .ui-card {
+  padding: 22px;
+  border: 1px solid var(--adion-line);
+  border-radius: 14px;
+  background: var(--adion-card);
+  box-shadow: var(--adion-lift);
+}
+.ui-page .ui-section .ui-card { background: var(--adion-card-2); box-shadow: none; }
+.ui-card__eyebrow { font-size: 12.5px; font-weight: 600; color: var(--ui-hue, var(--adion-accent-text)); }
+
+/* ------------------------------------------------------------------ */
+/* Les chiffres : chacun sa carte, sa pastille de couleur, sa courbe   */
+/* ------------------------------------------------------------------ */
+.ui-page .ui-stats.is-band,
+.ui-page .ui-stats.is-aside {
+  padding: 0;
+  border: 0;
+  background: none !important;
+  box-shadow: none;
+  gap: 14px;
+}
+.ui-page .ui-stats.is-band { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.ui-page .ui-stat {
+  position: relative;
+  padding: 18px 20px;
+  border: 1px solid var(--adion-line);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--ui-hue) 9%, transparent), transparent 70%),
+    var(--adion-card);
+  box-shadow: var(--adion-lift);
+  overflow: hidden;
+}
+.ui-page .ui-stat::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--ui-hue);
+  opacity: 0.85;
+}
+.ui-stat__label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--adion-ink-2); }
+.ui-page .ui-stat__label .v-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  color: var(--ui-hue);
+  background: color-mix(in srgb, var(--ui-hue) 16%, transparent);
+}
+.ui-stat__value { font-size: 28px; font-weight: 650; letter-spacing: -0.03em !important; color: var(--adion-ink-1); }
+.ui-stat__hint { font-size: 13px; color: var(--adion-ink-3); }
+.ui-stat__spark { color: var(--ui-hue); opacity: 0.9; }
+
+/* ------------------------------------------------------------------ */
+/* Les tableaux                                                        */
+/* ------------------------------------------------------------------ */
+.ui-page .grid-table th,
+.ui-dialog .grid-table th {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--adion-ink-3);
+  background: var(--adion-card-2);
+  border-bottom: 1px solid var(--adion-line);
+}
+.ui-page .grid-table td,
+.ui-dialog .grid-table td {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  color: var(--adion-ink-2);
+  border-bottom: 1px solid var(--adion-line);
+}
+.ui-page .grid-table td.is-main { color: var(--adion-ink-1); font-weight: 550; }
+.ui-page .grid-table tbody tr:hover > td { background: var(--adion-card-hover); }
+.ui-page .ui-table { border: 1px solid var(--adion-line); border-radius: 12px; overflow: hidden; background: var(--adion-card); }
+.ui-page .ui-section .ui-table { background: transparent; }
+
+/* ------------------------------------------------------------------ */
+/* Les etats : pastilles teintees franchement                          */
+/* ------------------------------------------------------------------ */
+.ui-badge,
+.ui-status {
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: none !important;
+}
+.ui-badge.is-tone-ok, .ui-status.is-tone-ok { background: color-mix(in srgb, var(--adion-ok) 16%, transparent); }
+.ui-badge.is-tone-warn, .ui-status.is-tone-warn { background: color-mix(in srgb, var(--adion-warn) 16%, transparent); }
+.ui-badge.is-tone-bad, .ui-status.is-tone-bad { background: color-mix(in srgb, var(--adion-bad) 16%, transparent); }
+.ui-badge.is-tone-info, .ui-status.is-tone-info { background: color-mix(in srgb, var(--adion-info) 16%, transparent); }
+.ui-badge.is-tone-accent { background: var(--adion-accent-soft); }
+.ui-badge.is-tone-muted, .ui-status.is-tone-muted { background: var(--adion-card-2); color: var(--adion-ink-2); }
+.ui-badge .v-icon { font-size: 14px !important; }
+
+/* ------------------------------------------------------------------ */
+/* Les onglets                                                         */
+/* ------------------------------------------------------------------ */
+.ui-tabs__bar { border-bottom: 1px solid var(--adion-line); }
+.ui-tabs__item { height: 44px; padding: 0 14px; font-size: 14px; font-weight: 550; color: var(--adion-ink-3); }
+.ui-tabs__item:hover { color: var(--adion-ink-1); background: none; }
+.ui-tabs__item.is-active { color: var(--adion-ink-1); box-shadow: inset 0 -2px 0 var(--ui-hue, var(--adion-accent-text)); }
+.ui-tabs__count { font-weight: 600; }
+
+/* ------------------------------------------------------------------ */
+/* Les boutons et les champs du contenu                                */
+/* ------------------------------------------------------------------ */
+:is(.ui-page, .ui-dialog, .ui-actionmenu) .v-btn {
+  border-radius: 10px !important;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+:is(.ui-page, .ui-dialog) .v-btn.v-btn--size-default { height: 38px !important; padding: 0 16px; }
+:is(.ui-page, .ui-dialog) .ui-btn:not(.ui-btn--primary).v-btn--variant-tonal,
+:is(.ui-page, .ui-dialog) .ui-btn:not(.ui-btn--primary).v-btn--variant-flat {
+  background: var(--adion-card-2) !important;
+  box-shadow: inset 0 0 0 1px var(--adion-line-2);
+  color: var(--adion-ink-1) !important;
+}
+:is(.ui-page, .ui-dialog) .ui-btn--primary {
+  box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--adion-primary) 80%, transparent);
+}
+:is(.ui-page, .ui-dialog) .v-field { border-radius: 10px !important; background: var(--adion-card-2); }
+:is(.ui-page, .ui-dialog) .v-field__outline { --v-field-border-opacity: 0.22; }
+.ui-field__label { font-size: 13px; font-weight: 600; color: var(--adion-ink-2); }
+
+/* ------------------------------------------------------------------ */
+/* Faits, encadres, vides, fenetres                                    */
+/* ------------------------------------------------------------------ */
+.ui-kv dt { font-size: 13px; font-weight: 500; color: var(--adion-ink-3); }
+.ui-kv dd { color: var(--adion-ink-1); }
+.ui-notice { border-radius: 12px; padding: 14px 16px; }
+.ui-notice.is-tone-ok { background: color-mix(in srgb, var(--adion-ok) 12%, var(--adion-card)); }
+.ui-notice.is-tone-warn { background: color-mix(in srgb, var(--adion-warn) 12%, var(--adion-card)); }
+.ui-notice.is-tone-bad { background: color-mix(in srgb, var(--adion-bad) 12%, var(--adion-card)); }
+.ui-notice.is-tone-info { background: color-mix(in srgb, var(--adion-info) 12%, var(--adion-card)); }
+.ui-empty { border: 1px dashed var(--adion-line-2); border-style: solid; border-radius: 14px; background: var(--adion-card); padding: 28px; }
+.ui-dialog__card,
+.ui-dialog > .v-overlay__content > * { border-radius: 16px; }

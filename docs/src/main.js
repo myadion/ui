@@ -11,7 +11,7 @@ import 'vuetify/styles'
 import '@adion-cloud/tokens/tokens.css'
 import '@adion-cloud/ui-vue/base.css'
 import '@adion-cloud/ui-vue/ui.css'
-import '@adion-cloud/ui-vue/refresh.css'
+import '@adion-cloud/ui-vue/content.css'
 import './docs.css'
 import App from './App.vue'
 
