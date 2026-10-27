@@ -265,3 +265,19 @@ html[data-theme='light'],
 .ui-empty { border: 1px dashed var(--adion-line-2); border-style: solid; border-radius: 14px; background: var(--adion-card); padding: 28px; }
 .ui-dialog__card,
 .ui-dialog > .v-overlay__content > * { border-radius: 16px; }
+
+/* ------------------------------------------------------------------ */
+/* Les listes : les chiffres en rangee de cartes au-dessus, le tableau */
+/* sur toute la largeur (la colonne de droite l'ecrasait).             */
+/* ------------------------------------------------------------------ */
+.ui-page .ui-listgrid.has-aside { grid-template-columns: minmax(0, 1fr) !important; gap: 20px; }
+.ui-page .ui-listgrid.has-aside > .ui-stats {
+  order: -1 !important;
+  position: static !important;
+  margin-top: 0 !important;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important;
+}
+/* Une cellule courte ne se coupe pas en morceaux. */
+.ui-page .grid-table td { white-space: nowrap; }
+.ui-page .grid-table td.is-main,
+.ui-page .grid-table td.wrap { white-space: normal; }
