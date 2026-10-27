@@ -20,6 +20,8 @@ function toggle() {
 
 <template>
   <v-app>
+    <router-view v-if="$route.meta.bare" />
+    <template v-else>
     <header class="docs-bar">
       <router-link to="/" class="docs-logo" aria-label="Adion UI, accueil">
         <img src="/favicon.png" alt="" width="34" height="34" />
@@ -29,6 +31,7 @@ function toggle() {
         <router-link to="/">Principes</router-link>
         <router-link to="/jetons">Jetons</router-link>
         <router-link to="/composants">Composants</router-link>
+        <router-link to="/maquette">Maquette</router-link>
       </nav>
       <div class="docs-look" role="group" aria-label="Style">
         <button type="button" :class="{ 'is-on': look === 'v1' }" @click="setLook('v1')">Avant</button>
@@ -43,5 +46,6 @@ function toggle() {
         <router-view />
       </div>
     </v-main>
+    </template>
   </v-app>
 </template>

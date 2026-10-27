@@ -26,6 +26,7 @@ const router = createRouter({
     { path: '/', component: () => import('./HomeView.vue') },
     { path: '/jetons', component: () => import('./TokensView.vue') },
     { path: '/composants', component: () => import('./ShowcaseView.vue') },
+    { path: '/maquette', component: () => import('./mockup/MockupView.vue'), meta: { bare: true } },
   ],
   scrollBehavior: () => ({ top: 0 }),
 })
