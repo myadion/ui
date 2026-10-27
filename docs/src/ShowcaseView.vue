@@ -231,9 +231,7 @@ const timeline = [
 
 <template>
   <div class="ui-page">
-    <UiPageHeader eyebrow="Équipe Adion" title="Adion UI" lead="Le kit de l’espace client : quatre gabarits de page, les composants et leurs états. Tout nouvel écran s’assemble avec ces pièces ; un motif qui manque s’ajoute ici, jamais dans l’écran. Les règles sont dans src/ui/README.md.">
-      <template #actions><UiBadge label="Réservé à l’équipe" tone="accent" /></template>
-    </UiPageHeader>
+    <UiPageHeader eyebrow="Adion UI" title="Composants" lead="Quatre gabarits de page, les composants et leurs états, en direct. Tout écran s’assemble avec ces pièces ; un motif qui manque s’ajoute au kit, jamais dans l’écran." />
     <nav class="ui-doc__nav">
       <UiButton v-for="[id, label] in SECTIONS" :key="id" kind="quiet" :href="`#${id}`">{{ label }}</UiButton>
     </nav>

@@ -1003,7 +1003,8 @@
 }
 
 .ui-features { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--adion-space-5); }
-@media (min-width: 760px) { .ui-features { grid-template-columns: repeat(var(--ui-features-cols, 3), minmax(0, 1fr)); } }
+/* Autant de colonnes que la place en donne (240 px au moins par benefice), jamais plus que de benefices. */
+@media (min-width: 760px) { .ui-features { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); } }
 .ui-feature { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--adion-space-3); align-items: start; }
 .ui-feature__icon {
   display: grid;

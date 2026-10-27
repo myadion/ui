@@ -31,6 +31,7 @@ const platforms = [
 
 // main.js
 import '@adion-cloud/tokens/tokens.css'
+import '@adion-cloud/ui-vue/base.css'
 import '@adion-cloud/ui-vue/ui.css'
 import { vuetifyThemes } from '@adion-cloud/tokens'
 import { createAdionUi } from '@adion-cloud/ui-vue'

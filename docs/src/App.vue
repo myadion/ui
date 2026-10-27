@@ -29,7 +29,9 @@ function toggle() {
       </button>
     </header>
     <v-main>
-      <router-view />
+      <div class="ui-frame" :class="{ 'ui-frame--read': $route.path !== '/composants' }">
+        <router-view />
+      </div>
     </v-main>
   </v-app>
 </template>

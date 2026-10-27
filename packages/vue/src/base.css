@@ -217,3 +217,101 @@ h3 {
   h1 { font-size: 27px; letter-spacing: 0; }
   h2 { font-size: 20px; }
 }
+
+/*
+ * LE CADRE D'UNE PAGE (2026-10-27) : les marges de l'espace client (24 px en
+ * haut et en bas ; de cote 16 px sur telephone, 24 px des 600 px, 32 px des
+ * 960 px) et sa largeur de lecture, centree. A poser autour du contenu, sous
+ * la barre : la barre suit les memes marges.
+ */
+.ui-frame { width: 100%; max-width: 1500px; margin-inline: auto; padding: var(--adion-space-6) var(--adion-space-4) var(--adion-space-10); }
+@media (min-width: 600px) { .ui-frame { padding-inline: var(--adion-space-6); } }
+@media (min-width: 960px) { .ui-frame { padding-inline: var(--adion-space-8); } }
+.ui-frame--read { max-width: 1180px; }
+
+/*
+ * LES TABLEAUX ET LES LIBELLES DE BOUTON (2026-10-27) : repris de
+ * myadion/src/style.css, dont UiTable et les boutons du kit dependent
+ * (.grid-table, .table-wrap, .btn-sentence-case, .row-actions, .row-link).
+ */
+.btn-sentence-case .v-btn__content {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: var(--adion-text-base);
+}
+
+.table-wrap { overflow-x: auto; }
+
+.grid-table { width: 100%; border-collapse: collapse; font-size: var(--adion-text-sm); }
+
+.grid-table th {
+  text-align: left;
+  padding: 10px 12px 10px 0;
+  font-size: var(--adion-text-xs);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--adion-text-2);
+  white-space: nowrap;
+}
+
+.grid-table td {
+  padding: 15px 12px 15px 0;
+  border-top: 1px solid var(--adion-border);
+  vertical-align: middle;
+}
+
+.grid-table tbody tr:hover > td { background: var(--adion-row-hover); }
+
+.grid-table tbody tr.is-clickable { cursor: pointer; }
+
+.grid-table .num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+
+.grid-table .right { text-align: right; padding-right: 0; }
+
+.grid-table .num:not(:last-child),
+.grid-table .right:not(:last-child) { padding-right: 24px; }
+
+.grid-table th:first-child,
+.grid-table td:first-child { padding-left: 14px; }
+
+.grid-table th:last-child,
+.grid-table td:last-child { padding-right: 14px; }
+
+.grid-table--dense td { padding-top: 7px; padding-bottom: 7px; }
+
+.grid-table--dense th { padding-top: 7px; padding-bottom: 7px; }
+
+.grid-table .strong { font-weight: 500; }
+
+.grid-table .cap { text-transform: capitalize; }
+
+.row-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--adion-text-2);
+  font-size: var(--adion-text-sm);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.row-link:hover { color: var(--adion-accent-text); }
+
+.row-link.is-danger:hover { color: var(--adion-bad); }
+
+.row-actions { display: inline-flex; align-items: center; gap: 18px; }
+
+@media (max-width: 720px) {
+  /* Une rangee de tableau se resserre : c'est elle qui prend le plus de place
+     sur un telephone, et la plus facile a alleger sans rien perdre. */
+  /* Douze pixels : en dessous, une colonne de chiffres se devine plus qu'elle
+     ne se lit. */
+  .grid-table { font-size: 12px; }
+  .grid-table th { padding: 8px 8px 8px 0; letter-spacing: 1.4px; }
+  .grid-table td { padding: 11px 8px 11px 0; }
+  .grid-table th:first-child,
+  .grid-table td:first-child { padding-left: 10px; }
+  .grid-table th:last-child,
+  .grid-table td:last-child { padding-right: 10px; }
+}
