@@ -63,8 +63,8 @@ html[data-theme='light'],
 .ui-dialog *,
 .ui-actionmenu * {
   font-family: var(--adion-font-ui);
-  letter-spacing: normal;
-  text-transform: none;
+  letter-spacing: normal !important;
+  text-transform: none !important;
 }
 .ui-page,
 .ui-dialog { font-size: 14px; line-height: 1.6; color: var(--adion-ink-1); -webkit-font-smoothing: antialiased; }
@@ -72,7 +72,8 @@ html[data-theme='light'],
 .ui-dialog :is(code, pre, kbd, .ui-mono, .mono) { font-family: var(--adion-font-mono); }
 
 /* La page respire : de grands ecarts entre les blocs. */
-.ui-page { gap: 28px; }
+.ui-page { gap: 20px; }
+.ui-page :is(.ui-stats, .ui-tabs) { margin-top: 4px; padding-top: 0; }
 .ui-page .ui-layout__body,
 .ui-page .ui-detail__content { gap: 24px; }
 
@@ -249,7 +250,12 @@ html[data-theme='light'],
 /* ------------------------------------------------------------------ */
 /* Faits, encadres, vides, fenetres                                    */
 /* ------------------------------------------------------------------ */
-.ui-kv dt { font-size: 13px; font-weight: 500; color: var(--adion-ink-3); }
+.ui-kv dt { font-size: 13.5px; font-weight: 500; color: var(--adion-ink-3); }
+.ui-page .ui-kv :is(dt, dd) { padding-block: 4px; }
+/* Les nombres s'alignent : chiffres a chasse fixe partout dans le contenu. */
+.ui-page, .ui-dialog { font-variant-numeric: tabular-nums; }
+/* Tout ce qui se survole repond en douceur. */
+.ui-page :is(a, button, .v-btn, tr, .ui-card, .ui-tabs__item) { transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; }
 .ui-kv dd { color: var(--adion-ink-1); }
 .ui-notice { border-radius: 12px; padding: 14px 16px; }
 .ui-notice.is-tone-ok { background: color-mix(in srgb, var(--adion-ok) 12%, var(--adion-card)); }
