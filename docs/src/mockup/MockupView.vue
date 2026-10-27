@@ -49,6 +49,30 @@ const line = (values, w = 100, h = 36) => {
   return values.map((v, i) => `${i ? 'L' : 'M'}${(i * step).toFixed(1)},${(h - 2 - (v / max) * (h - 6)).toFixed(1)}`).join(' ')
 }
 const ring = 37
+// Consommation par jour d'octobre : calcul + stockage, en euros.
+const days = Array.from({ length: 27 }, (_, i) => {
+  const compute = i < 20 ? 0.32 + ((i * 7) % 5) * 0.03 : 0.62 + ((i * 3) % 4) * 0.04
+  const storage = i < 12 ? 0.08 : 0.15
+  return { day: i + 1, compute, storage }
+})
+const dayMax = 1
+const period = ref('month')
+const periods = [{ id: 'week', label: '7 jours' }, { id: 'month', label: 'Mois' }, { id: 'year', label: '12 mois' }]
+const volumes = [
+  { name: 'data-web', to: 'web-1', size: '50 Go', used: 64, tone: 'teal' },
+  { name: 'backup', to: 'non rattaché', size: '100 Go', used: 22, tone: 'blue' },
+]
+const network = [
+  { icon: 'globe', title: '51.75.12.40', sub: 'IP publique · web-1', tone: 'teal' },
+  { icon: 'network', title: 'lan-prod', sub: '10.0.0.0/24 · 2 instances', tone: 'blue' },
+  { icon: 'shield', title: 'Pare-feu « web »', sub: '3 règles · 2 instances', tone: 'violet' },
+]
+const quotas = [
+  { label: 'vCPU', used: 8, max: 20, unit: '', tone: 'teal' },
+  { label: 'Mémoire', used: 16, max: 40, unit: ' Go', tone: 'blue' },
+  { label: 'Stockage', used: 250, max: 1000, unit: ' Go', tone: 'violet' },
+  { label: 'IP publiques', used: 1, max: 5, unit: '', tone: 'teal' },
+]
 </script>
 
 <template>
@@ -137,6 +161,12 @@ const ring = 37
           </article>
         </section>
 
+        <div class="notice">
+          <span class="notice__icon"><Icon name="alert" size="16" /></span>
+          <p><strong>Maintenance à Toulouse le 3 novembre, de 2 h à 4 h.</strong> Vos instances restent en marche ; la console Horizon sera indisponible.</p>
+          <a href="#" class="link">En savoir plus</a>
+        </div>
+
         <nav class="tabs" role="tablist">
           <button v-for="t in tabs" :key="t.id" role="tab" class="tab" :class="{ 'is-on': tab === t.id }" :aria-selected="tab === t.id" @click="tab = t.id">
             {{ t.label }}<span v-if="t.count" class="tab__count">{{ t.count }}</span>
@@ -144,6 +174,7 @@ const ring = 37
         </nav>
 
         <div class="grid">
+          <div class="stack">
           <section class="card">
             <header class="card__head">
               <h2>Instances</h2>
@@ -171,6 +202,61 @@ const ring = 37
             </div>
           </section>
 
+          <section class="card">
+            <header class="card__head">
+              <h2>Consommation d’octobre</h2>
+              <div class="legend"><span><i class="is-teal" />Calcul</span><span><i class="is-blue" />Stockage</span></div>
+              <div class="seg">
+                <button v-for="p in periods" :key="p.id" class="seg__opt" :class="{ 'is-on': period === p.id }" @click="period = p.id">{{ p.label }}</button>
+              </div>
+            </header>
+            <div class="usage">
+              <div class="usage__sum">
+                <div><small>Total du mois</small><strong>18,42 €</strong></div>
+                <div><small>Moyenne par jour</small><strong>0,68 €</strong></div>
+                <div><small>Jour le plus cher</small><strong>0,84 € <em>le 24</em></strong></div>
+              </div>
+              <div class="bars" aria-hidden="true">
+                <div class="bars__grid"><span>1 €</span><span>0,50 €</span><span>0</span></div>
+                <div class="bars__cols">
+                  <div v-for="d in days" :key="d.day" class="bar" :class="{ 'is-today': d.day === 27 }">
+                    <span class="bar__s" :style="{ height: `${(d.storage / dayMax) * 100}%` }" />
+                    <span class="bar__c" :style="{ height: `${(d.compute / dayMax) * 100}%` }" />
+                    <span v-if="d.day === 27" class="bar__tip"><strong>27 oct.</strong>0,79 € · aujourd’hui</span>
+                  </div>
+                </div>
+                <div class="bars__axis"><span>1 oct.</span><span>8</span><span>15</span><span>22</span><span>27</span></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="pair">
+            <section class="card card--pad">
+              <header class="card__head card__head--plain"><h2>Volumes</h2><a href="#" class="link">Créer un volume</a></header>
+              <ul class="vols">
+                <li v-for="v in volumes" :key="v.name">
+                  <span class="res" :class="`is-${v.tone}`"><Icon name="disk" size="16" /></span>
+                  <span class="vols__main">
+                    <span class="vols__top"><strong>{{ v.name }}</strong><small>{{ v.size }}</small></span>
+                    <span class="meter"><span :class="`is-${v.tone}`" :style="{ width: `${v.used}%` }" /></span>
+                    <small>{{ v.used }} % utilisés · {{ v.to }}</small>
+                  </span>
+                </li>
+              </ul>
+            </section>
+            <section class="card card--pad">
+              <header class="card__head card__head--plain"><h2>Réseau</h2><a href="#" class="link">Gérer</a></header>
+              <ul class="net">
+                <li v-for="n in network" :key="n.title">
+                  <span class="feed__icon" :class="`is-${n.tone}`"><Icon :name="n.icon" size="15" /></span>
+                  <span><strong>{{ n.title }}</strong><small>{{ n.sub }}</small></span>
+                  <span class="net__go"><Icon name="chevronRight" size="14" /></span>
+                </li>
+              </ul>
+            </section>
+          </div>
+          </div>
+
           <aside class="stack">
             <section class="card card--pad">
               <header class="card__head card__head--plain"><h2>Activité</h2><a href="#" class="link">Tout voir</a></header>
@@ -180,6 +266,15 @@ const ring = 37
                   <span><strong>{{ a.text }}</strong><small>{{ a.who }} · {{ a.when }}</small></span>
                 </li>
               </ol>
+            </section>
+            <section class="card card--pad">
+              <header class="card__head card__head--plain"><h2>Quotas du projet</h2><a href="#" class="link">Augmenter</a></header>
+              <ul class="quotas">
+                <li v-for="q in quotas" :key="q.label">
+                  <span class="quotas__top"><span>{{ q.label }}</span><small><strong>{{ q.used }}</strong> / {{ q.max }}{{ q.unit }}</small></span>
+                  <span class="meter"><span :class="`is-${q.tone}`" :style="{ width: `${(q.used / q.max) * 100}%` }" /></span>
+                </li>
+              </ul>
             </section>
             <section class="card card--promo">
               <div class="promo__tag"><Icon name="shield" size="14" />Vos données restent en Europe</div>
@@ -377,10 +472,62 @@ a.row:hover { background: rgba(255, 255, 255, 0.025); }
 .promo__tag { display: inline-flex; align-items: center; gap: 6px; width: max-content; font-size: 12px; font-weight: 600; color: var(--brand); }
 .promo__row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
 
+/* ===== Elements ajoutes (bandeau, consommation, volumes, reseau, quotas) ===== */
+.notice { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 16px; border-radius: 8px; background: linear-gradient(90deg, rgba(123, 159, 220, 0.12), rgba(123, 159, 220, 0.04)); box-shadow: inset 0 0 0 1px rgba(123, 159, 220, 0.22); }
+.notice__icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; color: var(--blue); background: rgba(123, 159, 220, 0.14); }
+.notice p { flex: 1; min-width: 220px; margin: 0; font-size: 13.5px; color: var(--ink-2); }
+.notice strong { color: var(--ink); font-weight: 600; }
+.legend { display: flex; gap: 14px; font-size: 12.5px; color: var(--ink-3); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 8px; height: 8px; border-radius: 2px; }
+.legend .is-teal { background: var(--brand); }
+.legend .is-blue { background: var(--blue); }
+.usage { display: grid; gap: 18px; padding: 18px 20px 16px; }
+.usage__sum { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.usage__sum small { display: block; font-size: 12px; color: var(--ink-3); }
+.usage__sum strong { font-size: 20px; font-weight: 650; letter-spacing: -0.02em; }
+.usage__sum em { font-style: normal; font-size: 12.5px; font-weight: 500; color: var(--ink-3); }
+.bars { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); grid-template-rows: 150px auto; column-gap: 8px; row-gap: 6px; }
+.bars__grid { display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; color: var(--ink-3); text-align: right; margin: -6px 0; }
+.bars__cols { position: relative; display: flex; align-items: flex-end; gap: 4px; background: repeating-linear-gradient(180deg, var(--line) 0 1px, transparent 1px 75px); border-bottom: 1px solid var(--line-2); }
+.bar { position: relative; flex: 1; height: 100%; display: flex; flex-direction: column-reverse; gap: 1px; }
+.bar__c, .bar__s { display: block; transition: filter 0.15s; }
+.bar__c { border-radius: 2px 2px 0 0; background: rgba(84, 186, 155, 0.55); }
+.bar__s { background: rgba(123, 159, 220, 0.5); }
+.bar:hover .bar__c, .bar:hover .bar__s { filter: brightness(1.35); }
+.bar.is-today .bar__c { background: var(--brand); }
+.bar.is-today .bar__s { background: var(--blue); }
+.bar__tip { position: absolute; top: -4px; right: calc(100% + 8px); z-index: 2; display: grid; padding: 6px 10px; border-radius: 6px; white-space: nowrap; font-size: 12px; color: var(--ink-2); background: #1c2638; box-shadow: 0 0 0 1px var(--line-2), 0 8px 24px rgba(0, 0, 0, 0.35); }
+.bar__tip strong { color: var(--ink); font-weight: 600; }
+.bars__axis { grid-column: 2; display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-3); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.vols, .net, .quotas { list-style: none; margin: 0; padding: 6px 20px 14px; display: grid; gap: 16px; }
+.vols li { display: flex; gap: 12px; align-items: flex-start; }
+.vols__main { flex: 1; display: grid; gap: 6px; min-width: 0; }
+.vols__top, .quotas__top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.vols strong { font-weight: 600; }
+.vols small, .quotas small { font-size: 12.5px; color: var(--ink-3); }
+.quotas__top span { font-size: 13.5px; font-weight: 500; }
+.quotas strong { color: var(--ink); font-weight: 600; }
+.quotas li { display: grid; gap: 7px; }
+.res.is-teal { color: var(--brand); background: rgba(84, 186, 155, 0.08); }
+.res.is-blue { color: var(--blue); background: rgba(123, 159, 220, 0.08); }
+.meter { display: block; height: 6px; border-radius: 3px; background: var(--panel-2); overflow: hidden; }
+.meter span { display: block; height: 100%; border-radius: 3px; }
+.meter .is-teal { background: linear-gradient(90deg, #3f9d82, var(--brand)); }
+.meter .is-blue { background: linear-gradient(90deg, #5b80c0, var(--blue)); }
+.meter .is-violet { background: linear-gradient(90deg, #7a6fbb, var(--violet)); }
+.net li { display: flex; align-items: center; gap: 12px; }
+.net li > span:nth-child(2) { flex: 1; min-width: 0; }
+.net strong { display: block; font-weight: 600; font-size: 13.5px; }
+.net small { font-size: 12.5px; color: var(--ink-3); }
+.net__go { display: grid; color: var(--ink-3); }
+.feed__icon.is-teal { color: var(--brand); background: rgba(84, 186, 155, 0.12); }
+
 @media (max-width: 1280px) {
   .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid { grid-template-columns: minmax(0, 1fr); }
-  .stack { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  aside.stack { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 }
 @media (max-width: 960px) {
   .mk { grid-template-columns: minmax(0, 1fr); }
@@ -401,7 +548,11 @@ a.row:hover { background: rgba(255, 255, 255, 0.025); }
   .search { display: none; }
   .row { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 12px 16px; }
   .row > :nth-child(5), .row > :nth-child(6), .row--head { display: none; }
-  .stack { grid-template-columns: minmax(0, 1fr); }
+  .stack, aside.stack { grid-template-columns: minmax(0, 1fr); }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .usage__sum { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .legend { order: 4; width: 100%; }
+  .bars__cols { gap: 2px; }
 }
 </style>
 
