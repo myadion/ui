@@ -189,6 +189,11 @@ const ring = 37
                 <button class="btn is-soft"><Icon name="copy" />clouds.yaml</button>
                 <button class="btn is-soft"><Icon name="key" />Clés d’API</button>
               </div>
+              <!-- Deux vagues qui ondulent lentement (coupees si l'on reduit les animations). -->
+              <svg class="waves" viewBox="0 0 400 80" preserveAspectRatio="none" aria-hidden="true">
+                <path class="wave wave--a" d="M0 44 C 50 30, 100 58, 150 44 S 250 30, 300 44 S 400 58, 450 44 S 550 30, 600 44 S 700 58, 750 44 S 850 30, 900 44 V 80 H 0 Z" />
+                <path class="wave wave--b" d="M0 54 C 60 42, 120 66, 180 54 S 300 42, 360 54 S 480 66, 540 54 S 660 42, 720 54 S 840 66, 900 54 V 80 H 0 Z" />
+              </svg>
             </section>
           </aside>
         </div>
@@ -292,7 +297,7 @@ const ring = 37
 
 .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; border-radius: 8px; overflow: hidden; background: var(--line); box-shadow: 0 0 0 1px var(--line); }
 .kpi { display: grid; align-content: start; gap: 6px; padding: 20px 22px; background: var(--panel); }
-.kpi--wide { background: var(--panel); }
+.kpi--wide { background: linear-gradient(135deg, #15283a 0%, #142233 45%, var(--panel) 100%); }
 .kpi__head { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
 .kpi__icon { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 6px; }
 .kpi__icon.is-teal { color: var(--brand); background: rgba(84, 186, 155, 0.12); }
@@ -358,7 +363,15 @@ a.row:hover { background: rgba(255, 255, 255, 0.025); }
 .feed__icon.is-muted { color: var(--ink-2); background: rgba(150, 165, 190, 0.1); }
 .feed__icon.is-violet { color: var(--violet); background: rgba(155, 143, 214, 0.13); }
 .feed__icon.is-blue { color: var(--blue); background: rgba(123, 159, 220, 0.12); }
-.card--promo { display: grid; gap: 8px; padding: 20px; background: linear-gradient(160deg, #172036, var(--panel) 70%); }
+.card--promo { position: relative; display: grid; gap: 8px; padding: 20px 20px 64px; background: linear-gradient(150deg, #19284a 0%, #14243a 45%, #11302d 100%); overflow: hidden; }
+.card--promo > :not(.waves) { position: relative; z-index: 1; }
+.waves { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 72px; overflow: visible; }
+.wave { will-change: transform; }
+.wave--a { fill: rgba(84, 186, 155, 0.16); animation: drift 14s linear infinite; }
+.wave--b { fill: rgba(111, 149, 216, 0.14); animation: drift-b 22s linear infinite; }
+@keyframes drift { from { transform: translateX(0); } to { transform: translateX(-300px); } }
+@keyframes drift-b { from { transform: translateX(-360px); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .wave { animation: none; } }
 .card--promo h3 { margin: 4px 0 0; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
 .card--promo p { margin: 0; color: var(--ink-2); font-size: 13.5px; }
 .promo__tag { display: inline-flex; align-items: center; gap: 6px; width: max-content; font-size: 12px; font-weight: 600; color: var(--brand); }
