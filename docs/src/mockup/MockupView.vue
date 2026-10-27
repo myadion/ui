@@ -3,193 +3,196 @@ import { ref } from 'vue'
 import Icon from './Icon.vue'
 
 /*
- * LA MAQUETTE DE LA REFONTE (2026-10-27, a valider par Kevin) : un vrai ecran
- * de l'espace client, la fiche d'un projet Public Cloud, dans la direction
- * proposee. La barre du haut et la barre de gauche gardent leur structure
- * (Kevin) ; leur habillage change. Donnees de demonstration, aucun appel.
+ * LA MAQUETTE v2 (2026-10-27), d'apres les references de Kevin (Memberset,
+ * Coinbase, abyss, Dyte...) : bleu nuit profond et halos de lumiere, cartes
+ * ardoise tres arrondies, une couleur d'action vive (le vert-sarcelle
+ * d'Adion), typo geometrique (Manrope), grands chiffres, anneaux et courbes.
+ * La barre du haut et la barre de gauche de l'espace client sont reproduites
+ * telles qu'elles sont aujourd'hui (Kevin : on les garde).
  */
 const tab = ref('instances')
+const filter = ref('all')
 const navOpen = ref(false)
 const tabs = [
   { id: 'overview', label: 'Vue d’ensemble' },
   { id: 'instances', label: 'Instances', count: 3 },
   { id: 'volumes', label: 'Volumes', count: 2 },
   { id: 'network', label: 'Réseau' },
-  { id: 'firewall', label: 'Pare-feu' },
   { id: 'usage', label: 'Consommation' },
 ]
-const nav = [
-  { title: '', items: [{ icon: 'home', label: 'Accueil' }, { icon: 'layers', label: 'Tous mes services' }] },
-  { title: 'Web', items: [{ icon: 'globe', label: 'Domaines' }, { icon: 'server', label: 'Hébergement' }, { icon: 'mail', label: 'Messagerie' }] },
-  { title: 'Télécom', items: [{ icon: 'phone', label: 'Lilou' }, { icon: 'mail', label: 'SMS' }] },
-  { title: 'Paiement', items: [{ icon: 'card', label: 'Adion Pay' }] },
-  { title: 'Cloud', items: [{ icon: 'cloud', label: 'Public Cloud', active: true }, { icon: 'cpu', label: 'VPS' }, { icon: 'disk', label: 'Serveurs dédiés' }, { icon: 'network', label: 'IP publiques' }, { icon: 'layers', label: 'Fabric' }] },
+const filters = [
+  { id: 'all', label: 'Toutes', count: 3 },
+  { id: 'on', label: 'En marche', count: 2 },
+  { id: 'off', label: 'Arrêtées', count: 1 },
 ]
-const kpis = [
-  { label: 'Consommé ce mois', value: '18,42 €', unit: 'HT', delta: '+12 %', spark: [2, 3, 3, 4, 6, 5, 7, 8, 9, 11, 12, 14] },
-  { label: 'Estimation fin de mois', value: '41,90 €', unit: 'HT', hint: 'à ressources constantes', spark: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] },
-  { label: 'Instances', value: '3', unit: '/ 4', hint: '2 en marche · 1 arrêtée' },
-  { label: 'Plafond du mois', value: '18,42 €', unit: '/ 50 €', gauge: 37 },
+const groups = [
+  { title: 'Web', items: ['Hébergements web', 'Bases de données', 'Noms de domaine', 'Zones DNS', 'E-mails'] },
+  { title: 'Télécom', items: ['Accès fibre', 'Lignes mobiles', 'Trunks SIP', 'Lilou', 'SMS'] },
+  { title: 'Cloud', items: ['Public Cloud', 'VPS', 'Serveurs dédiés', 'IP publiques', 'Fabric'], active: 'Public Cloud' },
 ]
 const instances = [
-  { name: 'web-1', id: '812dc7b3', state: 'En marche', tone: 'ok', region: 'Toulouse', flavor: 'B2', size: '2 vCPU · 4 Go', ip: '51.75.12.40', cost: '0,0246 €/h', billing: 'À l’heure' },
-  { name: 'db-1', id: '4a19e0c2', state: 'Arrêtée', tone: 'muted', region: 'Toulouse', flavor: 'B4', size: '4 vCPU · 8 Go', ip: '10.0.0.12', cost: '17,99 €/mois', billing: 'Au mois' },
-  { name: 'worker-2', id: 'c07b55e1', state: 'En création', tone: 'info', region: 'Toulouse', flavor: 'B2', size: '2 vCPU · 4 Go', ip: '—', cost: '0,0246 €/h', billing: 'À l’heure' },
+  { name: 'web-1', sub: 'Debian 12 · Toulouse', state: 'En marche', tone: 'ok', flavor: 'B2', size: '2 vCPU · 4 Go · 50 Go', ip: '51.75.12.40', cost: '0,0246 €', per: 'par heure', cpu: [20, 35, 30, 50, 42, 60, 48, 55, 40, 62, 58, 70] },
+  { name: 'db-1', sub: 'Debian 12 · Toulouse', state: 'Arrêtée', tone: 'muted', flavor: 'B4', size: '4 vCPU · 8 Go · 100 Go', ip: '10.0.0.12', cost: '17,99 €', per: 'par mois', cpu: [10, 12, 8, 9, 6, 4, 3, 2, 1, 1, 1, 1] },
+  { name: 'worker-2', sub: 'Ubuntu 24.04 · Toulouse', state: 'En création', tone: 'info', flavor: 'B2', size: '2 vCPU · 4 Go · 50 Go', ip: 'en attente', cost: '0,0246 €', per: 'par heure', cpu: [] },
 ]
 const activity = [
-  { icon: 'plus', text: 'worker-2 créée', who: 'Kévin Paly', when: 'il y a 2 min' },
-  { icon: 'power', text: 'db-1 arrêtée', who: 'Kévin Paly', when: 'il y a 1 h' },
-  { icon: 'wallet', text: 'db-1 passée au mois', who: 'Kévin Paly', when: 'hier' },
-  { icon: 'network', text: 'IP 51.75.12.40 rattachée à web-1', who: 'API · ci-deploy', when: '25 oct.' },
+  { icon: 'plus', text: 'worker-2 créée', who: 'Kévin Paly', when: 'il y a 2 min', tone: 'brand' },
+  { icon: 'power', text: 'db-1 arrêtée', who: 'Kévin Paly', when: 'il y a 1 h', tone: 'muted' },
+  { icon: 'wallet', text: 'db-1 passée au mois', who: 'Kévin Paly', when: 'hier', tone: 'violet' },
+  { icon: 'network', text: '51.75.12.40 rattachée à web-1', who: 'API · ci-deploy', when: '25 oct.', tone: 'blue' },
 ]
-const sparkPath = (values) => {
-  const max = Math.max(...values)
-  const step = 100 / (values.length - 1)
-  return values.map((v, i) => `${i ? 'L' : 'M'}${(i * step).toFixed(1)},${(28 - (v / max) * 24).toFixed(1)}`).join(' ')
+const usage = [3, 4, 4, 5, 7, 6, 8, 9, 11, 12, 14, 15, 18]
+const line = (values, w = 100, h = 36) => {
+  if (!values.length) return ''
+  const max = Math.max(...values, 1)
+  const step = w / (values.length - 1)
+  return values.map((v, i) => `${i ? 'L' : 'M'}${(i * step).toFixed(1)},${(h - 2 - (v / max) * (h - 6)).toFixed(1)}`).join(' ')
 }
+const ring = 37
 </script>
 
 <template>
   <div class="mk" :class="{ 'is-nav-open': navOpen }">
-    <!-- La barre du haut : meme structure qu'aujourd'hui, habillage neuf. -->
-    <header class="mk-top">
-      <button class="mk-icon-btn mk-only-narrow" aria-label="Menu" @click="navOpen = !navOpen"><Icon name="menu" /></button>
-      <a class="mk-logo" href="#" aria-label="Adion Cloud">
-        <span class="mk-pill" aria-hidden="true" />
-        <span class="mk-logo__text">ADION<br />CLOUD</span>
-      </a>
-      <div class="mk-top__search">
-        <Icon name="search" />
-        <span>Rechercher un service, une facture, une IP…</span>
-        <kbd>Ctrl K</kbd>
-      </div>
-      <nav class="mk-top__actions" aria-label="Raccourcis">
-        <button class="mk-icon-btn is-brand" aria-label="Assistant"><Icon name="sparkles" /></button>
-        <button class="mk-icon-btn" aria-label="Notifications"><Icon name="bell" /><span class="mk-dot" /></button>
-        <button class="mk-icon-btn mk-hide-narrow" aria-label="Accueil"><Icon name="home" /></button>
-        <button class="mk-icon-btn mk-hide-narrow" aria-label="Documentation"><Icon name="book" /></button>
-        <button class="mk-icon-btn mk-hide-narrow" aria-label="Thème"><Icon name="sun" /></button>
-        <span class="mk-avatar" title="Kévin Paly">KP</span>
-      </nav>
-    </header>
-
-    <div class="mk-body">
-      <!-- La barre de gauche : le perimetre, puis les familles de produits. -->
-      <aside class="mk-side">
-        <button class="mk-scope">
-          <span class="mk-scope__mark">S</span>
-          <span class="mk-scope__text"><strong>Sandbox – Kévin Paly</strong><small>Projet · Test Cloud</small></span>
-          <Icon name="chevron" size="14" />
-        </button>
-        <nav class="mk-nav" aria-label="Services">
-          <div v-for="group in nav" :key="group.title" class="mk-nav__group">
-            <div v-if="group.title" class="mk-nav__title">{{ group.title }}</div>
-            <a v-for="item in group.items" :key="item.label" href="#" class="mk-nav__item" :class="{ 'is-active': item.active }">
-              <Icon :name="item.icon" />
-              <span>{{ item.label }}</span>
-            </a>
-          </div>
-        </nav>
-        <div class="mk-side__foot">
-          <a href="#" class="mk-nav__item"><Icon name="wallet" /><span>Facturation</span></a>
-          <a href="#" class="mk-nav__item"><Icon name="key" /><span>Accès et clés</span></a>
-          <a href="#" class="mk-nav__item"><Icon name="logout" /><span>Se déconnecter</span></a>
+    <!-- ===== Barre de gauche : celle d'aujourd'hui ===== -->
+    <aside class="side">
+      <a class="side__brand" href="#"><span class="pill" /><span class="brand-text">ADION<br />CLOUD</span></a>
+      <button class="ctx"><span class="ctx__label">Compte</span><span class="ctx__value">Sandbox – Kévin Paly</span></button>
+      <button class="ctx"><span class="ctx__label">Projet</span><span class="ctx__value">Test Cloud</span></button>
+      <div class="side__tabs"><span class="is-on">Produits</span><span>Par domaine</span></div>
+      <div class="side__filter"><Icon name="search" size="12" />Filtrer</div>
+      <nav class="side__nav">
+        <div v-for="g in groups" :key="g.title" class="side__group">
+          <div class="side__title">{{ g.title }}</div>
+          <a v-for="item in g.items" :key="item" href="#" class="side__item" :class="{ 'is-on': item === g.active }">{{ item }}</a>
         </div>
-      </aside>
+      </nav>
+    </aside>
 
-      <main class="mk-main">
-        <div class="mk-glow" aria-hidden="true" />
-        <div class="mk-page">
-          <nav class="mk-crumbs" aria-label="Fil d’Ariane">
-            <a href="#">Cloud</a><Icon name="chevronRight" size="14" /><a href="#">Public Cloud</a>
-          </nav>
+    <div class="frame">
+      <!-- ===== Barre du haut : celle d'aujourd'hui ===== -->
+      <header class="top">
+        <button class="top__burger" aria-label="Menu" @click="navOpen = !navOpen"><Icon name="menu" /></button>
+        <span class="top__spacer" />
+        <button class="top__icon is-ai" aria-label="Assistant"><Icon name="sparkles" /></button>
+        <button class="top__icon" aria-label="Notifications"><Icon name="bell" /><span class="top__badge">4</span></button>
+        <button class="top__icon" aria-label="Rechercher"><Icon name="search" /></button>
+        <button class="top__icon" aria-label="Accueil"><Icon name="home" /></button>
+        <button class="top__icon" aria-label="Documentation"><Icon name="book" /></button>
+        <button class="top__icon" aria-label="Thème"><Icon name="sun" /></button>
+        <button class="top__icon" aria-label="Se déconnecter"><Icon name="logout" /></button>
+      </header>
 
-          <header class="mk-head">
-            <div class="mk-head__mark"><Icon name="cloud" size="22" /></div>
-            <div class="mk-head__text">
-              <div class="mk-head__line">
+      <!-- ===== Le contenu, dans la nouvelle direction ===== -->
+      <main class="page">
+        <div class="aura aura--a" aria-hidden="true" />
+        <div class="aura aura--b" aria-hidden="true" />
+
+        <section class="hero">
+          <div class="hero__crumbs"><a href="#">Cloud</a><Icon name="chevronRight" size="13" /><a href="#">Public Cloud</a></div>
+          <div class="hero__row">
+            <div class="hero__mark"><Icon name="cloud" size="26" /></div>
+            <div class="hero__text">
+              <div class="hero__title">
                 <h1>Test Cloud</h1>
-                <span class="mk-status is-ok"><i />Actif</span>
+                <span class="chip is-ok"><i />Actif</span>
               </div>
-              <p>Toulouse · FRTLS01 · créé le 27 octobre 2026 · facturé à l’heure ou au mois</p>
+              <p>Toulouse · facturé à l’heure ou au mois · créé le 27 octobre 2026</p>
             </div>
-            <div class="mk-head__actions">
-              <button class="mk-btn"><Icon name="terminal" />Ouvrir Horizon</button>
-              <button class="mk-btn is-icon" aria-label="Plus d’actions"><Icon name="more" /></button>
-              <button class="mk-btn is-primary"><Icon name="plus" />Créer une instance</button>
+            <div class="hero__actions">
+              <button class="btn is-ghost"><Icon name="terminal" />Horizon</button>
+              <button class="btn is-primary"><Icon name="plus" />Créer une instance</button>
             </div>
-          </header>
+          </div>
+        </section>
 
-          <section class="mk-kpis">
-            <article v-for="k in kpis" :key="k.label" class="mk-kpi">
-              <div class="mk-kpi__label">{{ k.label }}</div>
-              <div class="mk-kpi__value">{{ k.value }}<small>{{ k.unit }}</small><span v-if="k.delta" class="mk-delta">{{ k.delta }}</span></div>
-              <svg v-if="k.spark" class="mk-spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true">
-                <path :d="`${sparkPath(k.spark)} L100,30 L0,30 Z`" class="mk-spark__area" />
-                <path :d="sparkPath(k.spark)" class="mk-spark__line" />
-              </svg>
-              <div v-else-if="k.gauge !== undefined" class="mk-gauge"><span :style="{ width: `${k.gauge}%` }" /></div>
-              <div v-if="k.hint" class="mk-kpi__hint">{{ k.hint }}</div>
-              <div v-else-if="k.gauge !== undefined" class="mk-kpi__hint">jusqu’à la première facture payée</div>
-            </article>
+        <section class="kpis">
+          <article class="kpi kpi--wide">
+            <div class="kpi__head"><span class="kpi__icon is-teal"><Icon name="wallet" size="18" /></span>Consommé ce mois</div>
+            <div class="kpi__value">18,42 €<small>HT</small></div>
+            <div class="kpi__foot"><span class="up">+12 %</span> par rapport à septembre</div>
+            <svg class="kpi__chart" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5eead4" stop-opacity="0.45" /><stop offset="1" stop-color="#5eead4" stop-opacity="0" /></linearGradient></defs>
+              <path :d="`${line(usage)} L100,36 L0,36 Z`" fill="url(#g1)" />
+              <path :d="line(usage)" fill="none" stroke="#5eead4" stroke-width="1.6" vector-effect="non-scaling-stroke" />
+            </svg>
+          </article>
+          <article class="kpi">
+            <div class="kpi__head"><span class="kpi__icon is-blue"><Icon name="activity" size="18" /></span>Fin de mois estimée</div>
+            <div class="kpi__value">41,90 €<small>HT</small></div>
+            <div class="kpi__foot">si rien ne change</div>
+          </article>
+          <article class="kpi">
+            <div class="kpi__head"><span class="kpi__icon is-violet"><Icon name="server" size="18" /></span>Instances</div>
+            <div class="kpi__value">3<small>/ 4</small></div>
+            <div class="kpi__foot"><span class="dot is-ok" />2 en marche · <span class="dot is-muted" />1 arrêtée</div>
+          </article>
+          <article class="kpi kpi--ring">
+            <svg class="ring" viewBox="0 0 44 44" aria-hidden="true">
+              <circle cx="22" cy="22" r="18" class="ring__track" />
+              <circle cx="22" cy="22" r="18" class="ring__value" :stroke-dasharray="`${(ring / 100) * 113.1} 113.1`" />
+            </svg>
+            <div>
+              <div class="kpi__head">Plafond du mois</div>
+              <div class="kpi__value kpi__value--sm">{{ ring }} %</div>
+              <div class="kpi__foot">18,42 € sur 50 €</div>
+            </div>
+          </article>
+        </section>
+
+        <nav class="tabs" role="tablist">
+          <button v-for="t in tabs" :key="t.id" role="tab" class="tab" :class="{ 'is-on': tab === t.id }" :aria-selected="tab === t.id" @click="tab = t.id">
+            {{ t.label }}<span v-if="t.count" class="tab__count">{{ t.count }}</span>
+          </button>
+        </nav>
+
+        <div class="grid">
+          <section class="card">
+            <header class="card__head">
+              <h2>Instances</h2>
+              <div class="seg">
+                <button v-for="f in filters" :key="f.id" class="seg__opt" :class="{ 'is-on': filter === f.id }" @click="filter = f.id">{{ f.label }}<span>{{ f.count }}</span></button>
+              </div>
+              <label class="search"><Icon name="search" size="15" /><input placeholder="Rechercher" /></label>
+            </header>
+            <div class="rows">
+              <div class="row row--head"><span>Instance</span><span>État</span><span>Gabarit</span><span>Activité</span><span class="r">Coût</span><span /></div>
+              <a v-for="i in instances" :key="i.name" href="#" class="row">
+                <span class="cell-name">
+                  <span class="res" :class="`is-${i.tone}`"><Icon name="server" size="17" /></span>
+                  <span><strong>{{ i.name }}</strong><small>{{ i.sub }}</small></span>
+                </span>
+                <span><span class="chip" :class="`is-${i.tone}`"><i />{{ i.state }}</span></span>
+                <span class="cell-two"><strong>{{ i.flavor }}</strong><small>{{ i.size }}</small></span>
+                <span>
+                  <svg v-if="i.cpu.length" class="spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><path :d="line(i.cpu)" fill="none" :stroke="i.tone === 'ok' ? '#5eead4' : '#64748b'" stroke-width="1.6" vector-effect="non-scaling-stroke" /></svg>
+                  <small v-else class="dim">—</small>
+                </span>
+                <span class="cell-two r"><strong>{{ i.cost }}</strong><small>{{ i.per }}</small></span>
+                <span class="more"><Icon name="more" /></span>
+              </a>
+            </div>
           </section>
 
-          <nav class="mk-tabs" role="tablist">
-            <button v-for="t in tabs" :key="t.id" role="tab" class="mk-tab" :class="{ 'is-active': tab === t.id }" :aria-selected="tab === t.id" @click="tab = t.id">
-              {{ t.label }}<span v-if="t.count" class="mk-tab__count">{{ t.count }}</span>
-            </button>
-          </nav>
-
-          <div class="mk-grid">
-            <section class="mk-card">
-              <header class="mk-card__head">
-                <div>
-                  <h2>Instances</h2>
-                  <p>Les machines de ce projet, toutes régions.</p>
-                </div>
-                <div class="mk-card__tools">
-                  <label class="mk-input"><Icon name="search" size="14" /><input placeholder="Filtrer" /></label>
-                  <button class="mk-btn is-icon" aria-label="Actualiser"><Icon name="refresh" /></button>
-                </div>
-              </header>
-              <div class="mk-table" role="table">
-                <div class="mk-tr mk-th" role="row">
-                  <span role="columnheader">Nom</span><span role="columnheader">État</span><span role="columnheader">Gabarit</span><span role="columnheader">Adresse</span><span role="columnheader" class="num">Coût</span><span />
-                </div>
-                <a v-for="i in instances" :key="i.id" href="#" class="mk-tr" role="row">
-                  <span class="mk-cell-name" role="cell">
-                    <span class="mk-res"><Icon name="server" size="15" /></span>
-                    <span><strong>{{ i.name }}</strong><small class="mono">{{ i.id }} · {{ i.region }}</small></span>
-                  </span>
-                  <span role="cell"><span class="mk-status" :class="`is-${i.tone}`"><i />{{ i.state }}</span></span>
-                  <span role="cell" class="mk-cell-meta"><strong>{{ i.flavor }}</strong><small>{{ i.size }}</small></span>
-                  <span role="cell" class="mono mk-dim">{{ i.ip }}</span>
-                  <span role="cell" class="num mk-cell-meta"><strong>{{ i.cost }}</strong><small>{{ i.billing }}</small></span>
-                  <span role="cell" class="mk-row-more"><Icon name="more" /></span>
-                </a>
+          <aside class="stack">
+            <section class="card card--pad">
+              <header class="card__head card__head--plain"><h2>Activité</h2><a href="#" class="link">Tout voir</a></header>
+              <ol class="feed">
+                <li v-for="a in activity" :key="a.text">
+                  <span class="feed__icon" :class="`is-${a.tone}`"><Icon :name="a.icon" size="15" /></span>
+                  <span><strong>{{ a.text }}</strong><small>{{ a.who }} · {{ a.when }}</small></span>
+                </li>
+              </ol>
+            </section>
+            <section class="card card--promo">
+              <div class="promo__tag"><Icon name="shield" size="14" />Vos données restent en Europe</div>
+              <h3>Pilotez ce projet avec vos outils</h3>
+              <p>OpenStack, Terraform ou l’API Adion : vos accès sont prêts.</p>
+              <div class="promo__row">
+                <button class="btn is-soft"><Icon name="copy" />clouds.yaml</button>
+                <button class="btn is-soft"><Icon name="key" />Clés d’API</button>
               </div>
             </section>
-
-            <aside class="mk-aside">
-              <section class="mk-card">
-                <header class="mk-card__head"><div><h2>Activité</h2></div><a href="#" class="mk-link">Tout voir</a></header>
-                <ol class="mk-feed">
-                  <li v-for="a in activity" :key="a.text">
-                    <span class="mk-feed__icon"><Icon :name="a.icon" size="14" /></span>
-                    <span><strong>{{ a.text }}</strong><small>{{ a.who }} · {{ a.when }}</small></span>
-                  </li>
-                </ol>
-              </section>
-              <section class="mk-card mk-card--accent">
-                <div class="mk-card__eyebrow"><Icon name="shield" size="14" />Vos données restent en Europe</div>
-                <p>Accédez au projet avec vos outils : OpenStack, Terraform, ou l’API Adion.</p>
-                <div class="mk-row">
-                  <button class="mk-btn"><Icon name="copy" />clouds.yaml</button>
-                  <button class="mk-btn"><Icon name="key" />Clés d’API</button>
-                </div>
-              </section>
-            </aside>
-          </div>
+          </aside>
         </div>
       </main>
     </div>
@@ -198,165 +201,198 @@ const sparkPath = (values) => {
 
 <style scoped>
 .mk {
-  --bg: #09090b; --panel: #0f0f12; --raised: #141418; --hover: #1a1a1f;
-  --line: #1f1f24; --line-2: #2a2a31;
-  --text: #ececef; --text-2: #a1a1aa; --text-3: #71717a;
-  --brand: #54ba9b; --brand-2: #67dcc6; --brand-ink: #04130e;
-  --ok: #4ade80; --warn: #fbbf24; --bad: #f87171; --info: #60a5fa;
-  min-height: 100vh; background: var(--bg); color: var(--text);
-  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; line-height: 1.5;
-  -webkit-font-smoothing: antialiased; font-feature-settings: 'cv11', 'ss01', 'tnum';
+  --night: #0a0f1a;
+  --night-2: #0d1422;
+  --slate: #141c2b;
+  --slate-2: #1a2436;
+  --slate-3: #212d42;
+  --edge: rgba(148, 178, 255, 0.08);
+  --edge-2: rgba(148, 178, 255, 0.15);
+  --ink: #f3f6fb;
+  --ink-2: #b4bfd3;
+  --ink-3: #7f8ba3;
+  --teal: #5eead4;
+  --brand: #54ba9b;
+  --brand-hi: #37d6b4;
+  --blue: #60a5fa;
+  --violet: #a78bfa;
+  --amber: #fbbf24;
+  --ok: #4ade80;
+  display: grid;
+  grid-template-columns: 236px minmax(0, 1fr);
+  min-height: 100vh;
+  background: var(--night);
+  color: var(--ink);
+  font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'tnum';
 }
-.mk * { box-sizing: border-box; letter-spacing: normal; }
+.mk * { box-sizing: border-box; letter-spacing: normal; font-family: inherit; }
 .mk a { color: inherit; text-decoration: none; }
 .mk button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-.mono { font-family: ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace; font-size: 12.5px; }
-.num { text-align: right; justify-self: end; }
+.r { text-align: right; justify-self: end; }
 
-/* Barre du haut */
-.mk-top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 16px; height: 56px; padding: 0 16px; background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-.mk-logo { display: flex; align-items: center; gap: 10px; width: 216px; }
-.mk-pill { width: 30px; height: 16px; border-radius: 99px; border: 4px solid; border-image: none; border-color: var(--brand); background: transparent; box-shadow: inset 0 0 0 0 transparent; }
-.mk-logo__text { font-family: 'Lilita One', sans-serif; font-size: 12.5px; line-height: 1.05; color: #fff; }
-.mk-top__search { flex: 1; max-width: 520px; display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 10px; border: 1px solid var(--line-2); border-radius: 8px; background: var(--panel); color: var(--text-3); }
-.mk-top__search span { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-kbd { padding: 1px 6px; border: 1px solid var(--line-2); border-radius: 5px; font: 11px/1.5 inherit; color: var(--text-3); background: var(--raised); }
-.mk-top__actions { margin-left: auto; display: flex; align-items: center; gap: 4px; }
-.mk-icon-btn { position: relative; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px; color: var(--text-2); }
-.mk-icon-btn:hover { background: var(--hover); color: var(--text); }
-.mk-icon-btn.is-brand { color: var(--brand-2); }
-.mk-dot { position: absolute; top: 8px; right: 8px; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-2); box-shadow: 0 0 0 2px var(--bg); }
-.mk-avatar { display: grid; place-items: center; width: 30px; height: 30px; margin-left: 6px; border-radius: 50%; font-size: 11.5px; font-weight: 600; color: var(--brand-ink); background: linear-gradient(135deg, var(--brand-2), #37b9b8); }
+/* ===== Les barres d'aujourd'hui (reproduites, inchangees) ===== */
+.side { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #0a0a0c; border-right: 1px solid rgba(255, 255, 255, 0.08); font-family: 'Raleway', sans-serif; overflow: hidden; }
+.side__brand { display: flex; align-items: center; gap: 8px; padding: 4px 4px 10px; }
+.pill { width: 22px; height: 12px; border: 3px solid #54ba9b; border-radius: 99px; }
+.brand-text { font-family: 'Lilita One', sans-serif; font-size: 10.5px; line-height: 1.05; color: #fff; }
+.ctx { display: grid; text-align: left; padding: 2px 4px; }
+.ctx__label { font-size: 9.5px; letter-spacing: 1.5px !important; text-transform: uppercase; color: #a2adb6; }
+.ctx__value { font-size: 12.5px; font-weight: 500; color: #eafcf6; }
+.side__tabs { display: grid; grid-template-columns: 1fr 1fr; margin-top: 6px; font-size: 10px; letter-spacing: 1px !important; text-transform: uppercase; text-align: center; }
+.side__tabs span { padding: 7px 0; color: #b6c0c8; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.side__tabs .is-on { background: rgba(84, 186, 155, 0.16); color: #67dcc6; }
+.side__filter { display: flex; align-items: center; gap: 6px; padding: 6px 4px; font-size: 11px; color: #a2adb6; }
+.side__nav { display: grid; gap: 8px; overflow: hidden; }
+.side__title { padding: 4px; font-size: 9.5px; letter-spacing: 1.5px !important; text-transform: uppercase; color: #a2adb6; }
+.side__item { display: block; padding: 5px 8px; font-size: 12px; color: #eafcf6; border-radius: 4px; }
+.side__item.is-on { background: rgba(84, 186, 155, 0.16); color: #67dcc6; }
+.frame { min-width: 0; display: flex; flex-direction: column; }
+.top { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 4px; height: 48px; padding: 0 12px; background: #0a0a0c; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.top__spacer { flex: 1; }
+.top__burger { display: none; }
+.top__icon { position: relative; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: #e6e6e6; }
+.top__icon.is-ai { background: rgba(255, 255, 255, 0.06); }
+.top__badge { position: absolute; top: 0; right: 0; min-width: 14px; height: 14px; border-radius: 7px; font-size: 9px; font-weight: 700; display: grid; place-items: center; background: #54ba9b; color: #06140f; }
 
-/* Barre de gauche */
-.mk-body { display: grid; grid-template-columns: 248px minmax(0, 1fr); }
-.mk-side { position: sticky; top: 56px; height: calc(100vh - 56px); display: flex; flex-direction: column; gap: 12px; padding: 12px; border-right: 1px solid var(--line); background: var(--bg); overflow-y: auto; }
-.mk-scope { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--panel); text-align: left; }
-.mk-scope:hover { border-color: #3a3a42; }
-.mk-scope__mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 7px; font-weight: 700; font-size: 12px; color: #1b1406; background: linear-gradient(135deg, #fde68a, #f59e0b); }
-.mk-scope__text { flex: 1; display: grid; min-width: 0; }
-.mk-scope__text strong { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.mk-scope__text small { color: var(--text-3); font-size: 12px; }
-.mk-nav { display: grid; gap: 14px; }
-.mk-nav__group { display: grid; gap: 1px; }
-.mk-nav__title { padding: 4px 10px; font-size: 11.5px; font-weight: 500; color: var(--text-3); }
-.mk-nav__item { display: flex; align-items: center; gap: 10px; height: 32px; padding: 0 10px; border-radius: 7px; color: var(--text-2); font-weight: 450; }
-.mk-nav__item:hover { background: var(--hover); color: var(--text); }
-.mk-nav__item.is-active { background: var(--raised); color: var(--text); box-shadow: inset 0 0 0 1px var(--line-2); }
-.mk-nav__item.is-active svg { color: var(--brand-2); }
-.mk-side__foot { margin-top: auto; display: grid; gap: 1px; padding-top: 12px; border-top: 1px solid var(--line); }
+/* ===== Le contenu ===== */
+.page { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 28px 32px 64px; overflow: hidden; }
+.aura { position: absolute; pointer-events: none; border-radius: 50%; filter: blur(80px); opacity: 0.55; }
+.aura--a { top: -180px; left: -120px; width: 620px; height: 420px; background: radial-gradient(closest-side, rgba(45, 212, 191, 0.35), transparent); }
+.aura--b { top: 40px; right: -200px; width: 640px; height: 480px; background: radial-gradient(closest-side, rgba(99, 102, 241, 0.32), transparent); }
+.page > *:not(.aura) { position: relative; min-width: 0; }
+.hero, .hero__row, .card, .stack, .kpi { min-width: 0; }
 
-/* Contenu */
-.mk-main { position: relative; min-width: 0; overflow: hidden; }
-.mk-glow { position: absolute; inset: -200px auto auto -100px; width: 700px; height: 420px; background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 16%, transparent), transparent); pointer-events: none; filter: blur(10px); }
-.mk-page { position: relative; max-width: 1240px; margin: 0 auto; padding: 24px 32px 64px; display: grid; gap: 24px; }
-.mk-crumbs { display: flex; align-items: center; gap: 6px; color: var(--text-3); font-size: 12.5px; }
-.mk-crumbs a:hover { color: var(--text); }
-.mk-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.mk-head__mark { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; color: var(--brand-2); background: linear-gradient(160deg, color-mix(in srgb, var(--brand) 22%, transparent), color-mix(in srgb, var(--brand) 4%, transparent)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 35%, transparent); }
-.mk-head__text { flex: 1; min-width: 240px; }
-.mk-head__line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.mk-head h1 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.2; }
-.mk-head p { margin: 2px 0 0; color: var(--text-2); }
-.mk-head__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.hero__crumbs { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; font-size: 13px; color: var(--ink-3); }
+.hero__crumbs a:hover { color: var(--ink); }
+.hero__row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.hero__mark { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 18px; color: #04201a; background: linear-gradient(145deg, #7ff0dc, #37b9b8 60%, #2b8fd6); box-shadow: 0 12px 30px -10px rgba(55, 214, 180, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+.hero__text { flex: 1; min-width: 220px; }
+.hero__title { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hero h1 { margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.hero p { margin: 4px 0 0; color: var(--ink-2); font-size: 14.5px; }
+.hero__actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-.mk-btn { white-space: nowrap; display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line-2) !important; background: var(--panel) !important; color: var(--text) !important; font-weight: 500; font-size: 13px; transition: background 0.12s, border-color 0.12s; }
-.mk-btn:hover { background: var(--hover) !important; border-color: #3a3a42 !important; }
-.mk-btn.is-icon { width: 32px; padding: 0; justify-content: center; }
-.mk-btn.is-primary { border-color: transparent !important; background: var(--brand) !important; color: var(--brand-ink) !important; box-shadow: 0 0 0 1px color-mix(in srgb, var(--brand) 50%, transparent), 0 8px 24px -10px color-mix(in srgb, var(--brand) 70%, transparent); }
-.mk-btn.is-primary:hover { background: var(--brand-2) !important; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-size: 14px; white-space: nowrap; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn.is-primary { color: #03201a; background: linear-gradient(180deg, #6ff2d8, #37d6b4); box-shadow: 0 10px 28px -10px rgba(55, 214, 180, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.5); }
+.btn.is-ghost { color: var(--ink); background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 1px var(--edge-2); }
+.btn.is-soft { height: 36px; padding: 0 14px; font-size: 13px; background: rgba(255, 255, 255, 0.08); }
 
-.mk-status { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 9px 0 8px; border-radius: 99px; font-size: 12px; font-weight: 500; color: var(--text-2); background: var(--raised); box-shadow: inset 0 0 0 1px var(--line-2); white-space: nowrap; }
-.mk-status i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-.mk-status.is-ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 9%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ok) 22%, transparent); }
-.mk-status.is-ok i { box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 20%, transparent); }
-.mk-status.is-info { color: var(--info); background: color-mix(in srgb, var(--info) 9%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--info) 22%, transparent); }
-.mk-status.is-info i { animation: mk-pulse 1.2s ease-in-out infinite; }
-.mk-status.is-muted i { background: var(--text-3); }
-@keyframes mk-pulse { 50% { opacity: 0.3; } }
+.chip { display: inline-flex; align-items: center; gap: 7px; height: 26px; padding: 0 11px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+.chip i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.chip.is-ok { color: var(--ok); background: rgba(74, 222, 128, 0.13); }
+.chip.is-ok i { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.22), 0 0 10px rgba(74, 222, 128, 0.8); }
+.chip.is-info { color: var(--blue); background: rgba(96, 165, 250, 0.14); }
+.chip.is-info i { animation: pulse 1.2s ease-in-out infinite; }
+.chip.is-muted { color: var(--ink-2); background: rgba(148, 163, 184, 0.13); }
+@keyframes pulse { 50% { opacity: 0.25; } }
 
-.mk-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.mk-kpi { position: relative; display: grid; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(180deg, var(--raised), var(--panel)); overflow: hidden; }
-.mk-kpi__label { color: var(--text-2); font-size: 12.5px; font-weight: 500; }
-.mk-kpi__value { display: flex; flex-wrap: wrap; white-space: nowrap; align-items: baseline; gap: 2px 6px; font-size: 24px; font-weight: 600; letter-spacing: -0.03em; }
-.mk-kpi__value small { font-size: 13px; font-weight: 500; color: var(--text-3); letter-spacing: 0; }
-.mk-delta { margin-left: auto; font-size: 12px; font-weight: 500; color: var(--ok); letter-spacing: 0; }
-.mk-kpi__hint { color: var(--text-3); font-size: 12px; }
-.mk-spark { width: 100%; height: 30px; margin-top: 2px; }
-.mk-spark__line { fill: none; stroke: var(--brand-2); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.mk-spark__area { fill: color-mix(in srgb, var(--brand) 12%, transparent); }
-.mk-gauge { height: 6px; margin: 12px 0 4px; border-radius: 99px; background: var(--hover); overflow: hidden; }
-.mk-gauge span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--brand), var(--brand-2)); }
+.kpis { display: grid; grid-template-columns: 1.35fr 1fr 1fr 1fr; gap: 16px; }
+.kpi { position: relative; display: grid; align-content: start; gap: 8px; padding: 20px; border-radius: 20px; background: linear-gradient(180deg, var(--slate-2), var(--slate)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 0 1px var(--edge), 0 20px 40px -24px rgba(0, 0, 0, 0.8); overflow: hidden; }
+.kpi--wide { background: radial-gradient(120% 120% at 100% 0%, rgba(45, 212, 191, 0.18), transparent 55%), linear-gradient(180deg, var(--slate-2), var(--slate)); }
+.kpi__head { display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.kpi__icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; }
+.kpi__icon.is-teal { color: var(--teal); background: rgba(94, 234, 212, 0.14); }
+.kpi__icon.is-blue { color: var(--blue); background: rgba(96, 165, 250, 0.14); }
+.kpi__icon.is-violet { color: var(--violet); background: rgba(167, 139, 250, 0.15); }
+.kpi__value { margin-top: 4px; font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; }
+.kpi__value small { margin-left: 6px; font-size: 14px; font-weight: 600; color: var(--ink-3); letter-spacing: 0; }
+.kpi__value--sm { font-size: 26px; margin-top: 2px; }
+.kpi__foot { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; color: var(--ink-3); }
+.up { color: var(--ok); font-weight: 700; }
+.dot { width: 7px; height: 7px; border-radius: 50%; }
+.dot.is-ok { background: var(--ok); }
+.dot.is-muted { background: #64748b; }
+.kpi__chart { width: 100%; height: 44px; margin-top: 2px; }
+.kpi--ring { grid-template-columns: auto 1fr; align-items: center; gap: 16px; }
+.ring { width: 76px; height: 76px; transform: rotate(-90deg); }
+.ring__track { fill: none; stroke: rgba(148, 178, 255, 0.12); stroke-width: 5; }
+.ring__value { fill: none; stroke: url(#none); stroke: var(--teal); stroke-width: 5; stroke-linecap: round; filter: drop-shadow(0 0 6px rgba(94, 234, 212, 0.6)); }
 
-.mk-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
-.mk-tab { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 10px; color: var(--text-3) !important; font-weight: 500; white-space: nowrap; box-shadow: inset 0 -2px 0 transparent; }
-.mk-tab:hover { color: var(--text) !important; }
-.mk-tab.is-active { color: var(--text) !important; box-shadow: inset 0 -2px 0 var(--text); }
-.mk-tab__count { padding: 0 6px; border-radius: 99px; font-size: 11.5px; color: var(--text-2); background: var(--raised); box-shadow: inset 0 0 0 1px var(--line-2); }
+.tabs { display: flex; gap: 6px; padding: 5px; width: max-content; max-width: 100%; overflow-x: auto; border-radius: 999px; background: rgba(20, 28, 43, 0.8); box-shadow: inset 0 0 0 1px var(--edge); scrollbar-width: none; }
+.tab { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border-radius: 999px; font-weight: 600; color: var(--ink-3) !important; white-space: nowrap; }
+.tab:hover { color: var(--ink) !important; }
+.tab.is-on { color: var(--ink) !important; background: var(--slate-3); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 12px -6px rgba(0, 0, 0, 0.6); }
+.tab__count { min-width: 20px; padding: 0 6px; border-radius: 999px; font-size: 11.5px; font-weight: 700; text-align: center; color: #03201a; background: var(--teal); }
+.tab:not(.is-on) .tab__count { color: var(--ink-2); background: rgba(255, 255, 255, 0.08); }
 
-.mk-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; align-items: start; }
-.mk-aside { display: grid; gap: 16px; }
-.mk-card { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); overflow: hidden; }
-.mk-card__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
-.mk-card__head h2 { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
-.mk-card__head p { margin: 2px 0 0; font-size: 12.5px; color: var(--text-3); }
-.mk-card__tools { display: flex; gap: 8px; }
-.mk-input { display: flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px; border: 1px solid var(--line-2); border-radius: 8px; color: var(--text-3); background: var(--bg); }
-.mk-input input { width: 140px; border: 0; outline: 0; background: none; color: var(--text); font: inherit; }
-.mk-link { font-size: 12.5px; color: var(--text-2); }
-.mk-link:hover { color: var(--brand-2); }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 18px; align-items: start; }
+.stack { display: grid; gap: 18px; }
+.card { border-radius: 22px; background: linear-gradient(180deg, var(--slate), var(--night-2)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px var(--edge); overflow: hidden; }
+.card--pad { padding-bottom: 6px; }
+.card__head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 18px 20px; }
+.card__head h2 { margin: 0 auto 0 0; font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+.card__head--plain { padding-bottom: 6px; }
+.link { font-size: 13px; font-weight: 600; color: var(--teal); }
+.seg { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255, 255, 255, 0.04); box-shadow: inset 0 0 0 1px var(--edge); }
+.seg__opt { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ink-3) !important; }
+.seg__opt span { font-size: 11.5px; opacity: 0.8; }
+.seg__opt.is-on { color: #03201a !important; background: var(--teal); }
+.search { display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 999px; color: var(--ink-3); background: rgba(255, 255, 255, 0.04); box-shadow: inset 0 0 0 1px var(--edge); }
+.search input { width: 150px; border: 0; outline: 0; background: none; color: var(--ink); font: inherit; }
 
-.mk-table { display: grid; }
-.mk-tr { display: grid; grid-template-columns: minmax(180px, 1.6fr) minmax(110px, 1fr) minmax(110px, 1fr) minmax(110px, 1fr) minmax(100px, 0.9fr) 32px; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
-.mk-tr:last-child { border-bottom: 0; }
-a.mk-tr:hover { background: var(--raised); }
-.mk-th { padding-top: 8px; padding-bottom: 8px; font-size: 12px; font-weight: 500; color: var(--text-3); background: color-mix(in srgb, var(--raised) 50%, transparent); }
-.mk-cell-name { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.mk-cell-name strong, .mk-cell-meta strong { display: block; font-weight: 500; }
-.mk-cell-name small, .mk-cell-meta small { display: block; color: var(--text-3); font-size: 12px; }
-.mk-res { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; color: var(--text-2); background: var(--raised); box-shadow: inset 0 0 0 1px var(--line-2); }
-.mk-dim { color: var(--text-2); }
-.mk-row-more { display: grid; place-items: center; color: var(--text-3); }
+.rows { display: grid; padding: 0 10px 10px; }
+.row { display: grid; grid-template-columns: minmax(190px, 1.6fr) minmax(120px, 1fr) minmax(150px, 1.1fr) minmax(90px, 0.8fr) minmax(90px, 0.8fr) 28px; align-items: center; gap: 14px; padding: 12px 12px; border-radius: 14px; }
+a.row:hover { background: rgba(255, 255, 255, 0.04); }
+.row--head { padding-top: 6px; padding-bottom: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink-3); }
+.cell-name { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.cell-name strong, .cell-two strong { display: block; font-weight: 700; }
+.cell-name small, .cell-two small { display: block; font-size: 12.5px; color: var(--ink-3); }
+.res { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; }
+.res.is-ok { color: var(--teal); background: rgba(94, 234, 212, 0.12); }
+.res.is-muted { color: var(--ink-3); background: rgba(148, 163, 184, 0.1); }
+.res.is-info { color: var(--blue); background: rgba(96, 165, 250, 0.12); }
+.spark { width: 100%; max-width: 110px; height: 28px; }
+.dim { color: var(--ink-3); }
+.more { display: grid; place-items: center; color: var(--ink-3); }
 
-.mk-feed { list-style: none; margin: 0; padding: 8px 16px 14px; display: grid; gap: 14px; }
-.mk-feed li { display: flex; gap: 12px; position: relative; }
-.mk-feed li:not(:last-child)::after { content: ''; position: absolute; left: 13px; top: 30px; bottom: -12px; width: 1px; background: var(--line-2); }
-.mk-feed__icon { flex: none; display: grid; place-items: center; width: 27px; height: 27px; border-radius: 50%; color: var(--text-2); background: var(--raised); box-shadow: inset 0 0 0 1px var(--line-2); }
-.mk-feed strong { display: block; font-weight: 500; }
-.mk-feed small { color: var(--text-3); font-size: 12px; }
-.mk-card--accent { display: grid; gap: 10px; padding: 16px; background: radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--brand) 14%, transparent), transparent 60%), var(--panel); }
-.mk-card--accent p { margin: 0; color: var(--text-2); }
-.mk-card__eyebrow { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: var(--brand-2); }
-.mk-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.feed { list-style: none; margin: 0; padding: 6px 20px 16px; display: grid; gap: 16px; }
+.feed li { display: flex; gap: 12px; }
+.feed strong { display: block; font-weight: 700; font-size: 13.5px; }
+.feed small { font-size: 12.5px; color: var(--ink-3); }
+.feed__icon { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; }
+.feed__icon.is-brand { color: var(--teal); background: rgba(94, 234, 212, 0.13); }
+.feed__icon.is-muted { color: var(--ink-2); background: rgba(148, 163, 184, 0.1); }
+.feed__icon.is-violet { color: var(--violet); background: rgba(167, 139, 250, 0.14); }
+.feed__icon.is-blue { color: var(--blue); background: rgba(96, 165, 250, 0.13); }
+.card--promo { display: grid; gap: 8px; padding: 22px; background: radial-gradient(140% 120% at 100% 0%, rgba(99, 102, 241, 0.45), transparent 60%), radial-gradient(120% 120% at 0% 100%, rgba(45, 212, 191, 0.3), transparent 60%), var(--slate); }
+.card--promo h3 { margin: 4px 0 0; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+.card--promo p { margin: 0; color: var(--ink-2); }
+.promo__tag { display: inline-flex; align-items: center; gap: 6px; width: max-content; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; color: var(--teal); background: rgba(94, 234, 212, 0.12); }
+.promo__row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
 
-.mk-only-narrow { display: none; }
-@media (max-width: 1180px) {
-  .mk-grid { grid-template-columns: minmax(0, 1fr); }
-  .mk-aside { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+@media (max-width: 1280px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .stack { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 }
-@media (max-width: 1024px) {
-  .mk-body { grid-template-columns: minmax(0, 1fr); }
-  .mk-side { position: fixed; z-index: 30; top: 56px; left: 0; width: 280px; transform: translateX(-100%); transition: transform 0.2s; }
-  .is-nav-open .mk-side { transform: none; box-shadow: 24px 0 48px rgba(0, 0, 0, 0.5); }
-  .mk-only-narrow { display: grid; }
-  .mk-logo { width: auto; }
-  .mk-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 960px) {
+  .mk { grid-template-columns: minmax(0, 1fr); }
+  .side { position: fixed; z-index: 20; left: 0; width: 260px; transform: translateX(-100%); transition: transform 0.2s; }
+  .is-nav-open .side { transform: none; }
+  .top__burger { display: grid; place-items: center; width: 32px; height: 32px; color: #e6e6e6; }
+  .row { grid-template-columns: minmax(170px, 1.5fr) minmax(110px, 1fr) minmax(90px, 0.8fr) 28px; }
+  .row > :nth-child(3), .row > :nth-child(4) { display: none; }
 }
 @media (max-width: 640px) {
-  .mk-top { gap: 8px; padding: 0 8px; }
-  .mk-top__search span, .mk-top__search kbd, .mk-hide-narrow, .mk-logo__text { display: none; }
-  .mk-top__search { flex: 0 0 34px; justify-content: center; padding: 0; }
-  .mk-page { padding: 16px 16px 48px; gap: 18px; }
-  .mk-head__actions { width: 100%; }
-  .mk-head__actions .mk-btn.is-primary { flex: 1 0 100%; order: -1; justify-content: center; height: 38px; }
-  .mk-head__actions .mk-btn:not(.is-primary):not(.is-icon) { flex: 1; justify-content: center; }
-  .mk-delta { margin-left: 0; }
-  .mk-kpi__value { font-size: 20px; }
-  .mk-th { display: none; }
-  .mk-tr { grid-template-columns: minmax(0, 1fr) auto; row-gap: 8px; }
-  .mk-tr > :nth-child(3), .mk-tr > :nth-child(4) { display: none; }
-  .mk-tr > :nth-child(5) { grid-column: 1; justify-self: start; text-align: left; }
-  .mk-tr > :nth-child(6) { grid-row: 1; grid-column: 2; }
-  .mk-card__tools .mk-input { display: none; }
+  .page { padding: 20px 16px 48px; gap: 18px; }
+  .hero h1 { font-size: 26px; }
+  .hero__mark { width: 48px; height: 48px; border-radius: 15px; }
+  .hero__actions { width: 100%; flex-direction: column-reverse; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .seg { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .row > :nth-child(6) { display: none; }
+  .stack { grid-template-columns: minmax(0, 1fr); }
+  .kpis { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .kpi__value { font-size: 30px; }
+  .card__head { padding: 16px; }
+  .search { display: none; }
+  .row { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+  .row > :nth-child(5) { display: none; }
+  .row--head { display: none; }
 }
 </style>
