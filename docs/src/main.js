@@ -24,11 +24,14 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: () => import('./HomeView.vue') },
+    { path: '/installation', component: () => import('./InstallView.vue') },
     { path: '/jetons', component: () => import('./TokensView.vue') },
-    { path: '/composants', component: () => import('./ShowcaseView.vue') },
+    { path: '/contrastes', component: () => import('./ContrastView.vue') },
+    { path: '/composants', redirect: '/composants/list-layout' },
+    { path: '/composants/:id', component: () => import('./ComponentView.vue') },
     { path: '/maquette', component: () => import('./mockup/MockupView.vue'), meta: { bare: true } },
   ],
-  scrollBehavior: () => ({ top: 0 }),
+  scrollBehavior: (to) => (to.hash ? { el: to.hash, top: 72, behavior: 'smooth' } : { top: 0 }),
 })
 
 const vuetify = createVuetify({

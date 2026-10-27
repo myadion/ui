@@ -15,10 +15,15 @@ const sizes = size.groups
 </script>
 
 <template>
-  <div class="docs-page">
-    <UiSection title="Les jetons" lead="La seule source des couleurs, des tailles et des polices d’Adion. Web : la variable --adion-<nom>. Android : la couleur et la dimension adion_<nom>, ou AdionColors.Dark / Light en Compose. JavaScript : tokens.dark[<nom>].">
-      <UiCode wrap :code="`npm install @adion-cloud/tokens\n\nimport '@adion-cloud/tokens/tokens.css'\nimport { tokens, vuetifyThemes } from '@adion-cloud/tokens'`" />
-    </UiSection>
+  <div class="doc-page doc-page--wide">
+    <article class="doc-article">
+    <header class="doc-head">
+      <p class="doc-eyebrow">Démarrer</p>
+      <h1>Jetons</h1>
+      <p class="doc-lead">La seule source des couleurs, des tailles et des polices d’Adion. Web : la variable --adion-&lt;nom&gt;. Android : la couleur et la dimension adion_&lt;nom&gt;, ou AdionColors.Dark / Light en Compose. JavaScript : tokens.dark[&lt;nom&gt;].</p>
+    </header>
+    <div class="ui-page">
+    <UiCode wrap :code="`npm install @adion-cloud/tokens\n\nimport '@adion-cloud/tokens/tokens.css'\nimport { tokens, vuetifyThemes } from '@adion-cloud/tokens'`" />
 
     <UiSection v-for="group in groups" :key="group.id" :title="group.title" :lead="group.description">
       <div class="docs-swatches">
@@ -40,5 +45,7 @@ const sizes = size.groups
     <UiSection title="Les polices" lead="Libres (OFL). Raleway pour le texte, Lilita One pour le logo seulement.">
       <UiKeyValue :items="Object.entries(font.families).map(([name, f]) => ({ label: `--adion-${name}`, value: f.value, tip: f.description, mono: true }))" />
     </UiSection>
+    </div>
+    </article>
   </div>
 </template>
