@@ -11,6 +11,7 @@ import 'vuetify/styles'
 import '@adion-cloud/tokens/tokens.css'
 import '@adion-cloud/ui-vue/base.css'
 import '@adion-cloud/ui-vue/ui.css'
+import '@adion-cloud/ui-vue/refresh.css'
 import './docs.css'
 import App from './App.vue'
 
@@ -40,6 +41,8 @@ const demo = createAdionUi({
   context: reactive({ orgId: 'demo', projectId: 'demo' }),
   // La doc ne parle a aucun serveur : chaque appel rend une liste vide.
   request: async () => ({ data: [], features: [] }),
+  // Comme une vraie app : les libelles d'un etat viennent d'elle (myadion : lib/services.js).
+  labels: { stateLabel: (v) => ({ active: 'Actif', suspended: 'Suspendu', terminated: 'Résilié', pending: 'En cours' })[String(v || 'active')] || v },
   services: {
     fetchActions: async () => ({ actions: [] }),
     monitoringStatus: async () => null,

@@ -17,6 +17,7 @@
     ".": "./src/index.js",
     "./base.css": "./src/base.css",
     "./ui.css": "./src/ui.css",
+    "./refresh.css": "./src/refresh.css",
     "./*": "./src/*"
   },
   "peerDependencies": {

@@ -14,3 +14,7 @@
 .docs-swatch__meta code { font-family: var(--adion-font-mono); color: var(--adion-text-3); font-size: var(--adion-text-xs); }
 @media (min-width: 960px) { .docs-bar { padding-inline: var(--adion-space-8); } }
 @media (max-width: 599px) { .docs-bar { gap: var(--adion-space-3); padding: var(--adion-space-2) var(--adion-space-4); } .docs-logo__text { display: none; } }
+.docs-look { display: inline-flex; padding: 2px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-control); }
+.docs-look button { padding: 4px 10px; border-radius: calc(var(--adion-radius-control) - 2px); color: var(--adion-text-3); font-size: var(--adion-text-sm); }
+.docs-look button.is-on { background: var(--adion-row-hover); color: var(--adion-text-1); }
+.docs-look button:focus-visible { outline: 2px solid var(--adion-focus); }
