@@ -1,0 +1,133 @@
+{
+  "$description": "Les couleurs d'Adion, en deux thèmes. Relevées sur adioncloud.com puis consolidées dans l'espace client (myadion, 2026-10-13 à 2026-10-16). Chaque clé devient la variable CSS --adion-<clé>, la couleur Android adion_<clé> et la propriété Compose du même nom.",
+  "groups": [
+    {
+      "id": "surfaces",
+      "title": "Les surfaces",
+      "description": "Trois niveaux : la navigation (la plus sombre), la page, la carte ; plus le champ et le survol.",
+      "tokens": {
+        "bg-0": { "dark": "#111113", "light": "#e6ece9", "description": "Le fond de la page." },
+        "bg-1": { "dark": "#17171b", "light": "#f4f7f6", "description": "Un fond un cran au-dessus de la page." },
+        "bg-2": { "dark": "#1f1f24", "light": "#d9e2de", "description": "Un fond deux crans au-dessus." },
+        "surface": { "dark": "rgba(255, 255, 255, 0.055)", "light": "#fbfdfc", "description": "Carte, section, encadré." },
+        "surface-solid": { "dark": "#1d1d22", "light": "#fbfdfc", "description": "Ce qui flotte au-dessus de la page (menu, fenêtre) : jamais translucide." },
+        "field-bg": { "dark": "rgba(255, 255, 255, 0.035)", "light": "#ffffff", "description": "Ce que l'on remplit." },
+        "border": { "dark": "rgba(255, 255, 255, 0.11)", "light": "#c5d1cc", "description": "Le filet ordinaire." },
+        "border-strong": { "dark": "rgba(255, 255, 255, 0.26)", "light": "#7f918a", "description": "Le filet qui doit se voir." },
+        "row-hover": { "dark": "rgba(255, 255, 255, 0.065)", "light": "rgba(19, 40, 32, 0.06)", "description": "Le survol d'une ligne." },
+        "nav-bg": { "dark": "#0a0a0c", "light": "#f4f7f6", "description": "La barre du haut et la barre de gauche." },
+        "nav-sub-bg": { "dark": "#0f0f12", "light": "#edf2f0", "description": "Un sous-menu de la navigation." },
+        "nav-hover": { "dark": "rgba(255, 255, 255, 0.08)", "light": "rgba(19, 40, 32, 0.07)", "description": "Le survol dans la navigation." },
+        "nav-item": { "dark": "#ffffff", "light": "#12171c", "description": "Le texte d'une entrée de menu." },
+        "scrim": { "dark": "#05070a", "light": "#05070a", "description": "Le voile derrière une fenêtre." }
+      }
+    },
+    {
+      "id": "text",
+      "title": "Les textes",
+      "description": "Trois textes, chacun à 4,5:1 au moins sur chaque surface (vérifié par le test de contraste). Le blanc d'Adion est légèrement verdi, son gris bleuté.",
+      "tokens": {
+        "text-1": { "dark": "#eafcf6", "light": "#12171c", "description": "Le texte principal." },
+        "text-2": { "dark": "#b6c0c8", "light": "#3b4a44", "description": "Le texte secondaire." },
+        "text-3": { "dark": "#a2adb6", "light": "#43514b", "description": "Les méta-informations." }
+      }
+    },
+    {
+      "id": "accent",
+      "title": "L'accent et l'action",
+      "description": "Le vert d'Adion est un accent : réservé à l'action principale d'une zone. Deux verts : celui des aplats et, plus clair, celui du texte mis en avant.",
+      "tokens": {
+        "primary": { "dark": "#54ba9b", "light": "#15803d", "description": "Le vert des aplats (l'action principale, la pilule)." },
+        "on-primary": { "dark": "#06140f", "light": "#ffffff", "description": "Le texte posé sur l'action principale." },
+        "accent-text": { "dark": "#67dcc6", "light": "#0b6650", "description": "Le vert d'un texte mis en avant." },
+        "accent-soft": { "dark": "rgba(84, 186, 155, 0.16)", "light": "rgba(15, 122, 95, 0.1)", "description": "Le fond d'un élément actif ou choisi." },
+        "secondary": { "dark": "#06b6d4", "light": "#0891b2", "description": "Le cyan, secondaire et rare." },
+        "info": { "dark": "#6cc9e6", "light": "#0a6680", "description": "Une information." },
+        "focus": { "dark": "#67dcc6", "light": "#0b6650", "description": "L'anneau du focus clavier." },
+        "cta-bg": { "dark": "#e6e6e6", "light": "#12171c", "description": "L'appel à l'action du site vitrine : gris très clair, texte noir." },
+        "cta-fg": { "dark": "#000000", "light": "#ffffff", "description": "Le texte de l'appel à l'action du site." }
+      }
+    },
+    {
+      "id": "states",
+      "title": "Les états",
+      "description": "Une teinte par état. Un état ne se dit jamais par la seule couleur : une icône et un mot l'accompagnent.",
+      "tokens": {
+        "ok": { "dark": "#4ade9b", "light": "#11703a", "description": "Tout va bien." },
+        "warn": { "dark": "#f5c451", "light": "#8f4806", "description": "À surveiller." },
+        "bad": { "dark": "#ff9c9c", "light": "#b91c1c", "description": "En échec, refusé." },
+        "ok-soft": { "mix": "ok", "percent": 8, "description": "Le fond d'un bandeau « ok »." },
+        "ok-line": { "mix": "ok", "percent": 38, "description": "Le filet d'un bandeau « ok »." },
+        "warn-soft": { "mix": "warn", "percent": 8, "description": "Le fond d'un bandeau « warn »." },
+        "warn-line": { "mix": "warn", "percent": 38, "description": "Le filet d'un bandeau « warn »." },
+        "bad-soft": { "mix": "bad", "percent": 7, "description": "Le fond d'un bandeau « bad »." },
+        "bad-line": { "mix": "bad", "percent": 38, "description": "Le filet d'un bandeau « bad »." }
+      }
+    },
+    {
+      "id": "families",
+      "title": "Les familles de produits",
+      "description": "Une couleur par famille, pour les pages qui donnent envie (accroche, bénéfices, mise en route), lisible à 4,5:1 sur la page.",
+      "tokens": {
+        "family-web": { "dark": "#7cc0ff", "light": "#1d5fa8", "description": "Web et hébergement." },
+        "family-telecom": { "dark": "#c9a2ff", "light": "#6d3cc4", "description": "Télécom." },
+        "family-payment": { "dark": "#ffbf73", "light": "#874a08", "description": "Paiement." },
+        "family-marketing": { "dark": "#ff97b9", "light": "#a42256", "description": "Marketing." },
+        "family-cloud": { "dark": "#79d7f7", "light": "#0d6382", "description": "Cloud." },
+        "family-ai": { "dark": "#8ee6c9", "light": "#0b6650", "description": "Intelligence artificielle." },
+        "family-brand": { "dark": "#5ebc9e", "light": "#0b6650", "description": "La marque : le départ du dégradé de la pilule." },
+        "brand-to": { "dark": "#37b9b8", "light": "#0d6382", "description": "L'arrivée du dégradé de la pilule." },
+        "family-web-soft": { "mix": "family-web", "percent": 12 },
+        "family-telecom-soft": { "mix": "family-telecom", "percent": 12 },
+        "family-payment-soft": { "mix": "family-payment", "percent": 12 },
+        "family-marketing-soft": { "mix": "family-marketing", "percent": 12 },
+        "family-cloud-soft": { "mix": "family-cloud", "percent": 12 },
+        "family-ai-soft": { "mix": "family-ai", "percent": 12 },
+        "family-brand-soft": { "mix": "family-brand", "percent": 12 },
+        "tint-web": { "mix": "family-web", "percent": 20 },
+        "tint-telecom": { "mix": "family-telecom", "percent": 20 },
+        "tint-payment": { "mix": "family-payment", "percent": 20 },
+        "tint-marketing": { "mix": "family-marketing", "percent": 20 },
+        "tint-cloud": { "mix": "family-cloud", "percent": 20 },
+        "tint-ai": { "mix": "family-ai", "percent": 20 },
+        "tint-brand": { "mix": "family-brand", "percent": 20 },
+        "tint-brand-to": { "mix": "brand-to", "percent": 20 }
+      }
+    },
+    {
+      "id": "charts",
+      "title": "Les graphiques",
+      "description": "Les séries d'un graphique, à 3:1 au moins sur une carte.",
+      "tokens": {
+        "chart-1": { "dark": "#7cc0ff", "light": "#1d5fa8" },
+        "chart-2": { "dark": "#ffbf73", "light": "#874a08" },
+        "chart-3": { "dark": "#ff97b9", "light": "#a42256" },
+        "chart-4": { "dark": "#8ee6c9", "light": "#0b6650" },
+        "chart-5": { "dark": "#c9a2ff", "light": "#6d3cc4" }
+      }
+    }
+  ],
+  "gradients": {
+    "$description": "Des dégradés, pour le web seulement : chaque plateforme les recompose avec les couleurs ci-dessus.",
+    "grad-brand": "linear-gradient(135deg, var(--adion-tint-brand), color-mix(in srgb, var(--adion-brand-to) 5%, transparent) 70%)",
+    "grad-web": "linear-gradient(135deg, var(--adion-tint-web), color-mix(in srgb, var(--adion-family-web) 4%, transparent) 70%)",
+    "grad-telecom": "linear-gradient(135deg, var(--adion-tint-telecom), color-mix(in srgb, var(--adion-family-telecom) 4%, transparent) 70%)",
+    "grad-payment": "linear-gradient(135deg, var(--adion-tint-payment), color-mix(in srgb, var(--adion-family-payment) 4%, transparent) 70%)",
+    "grad-marketing": "linear-gradient(135deg, var(--adion-tint-marketing), color-mix(in srgb, var(--adion-family-marketing) 4%, transparent) 70%)",
+    "grad-cloud": "linear-gradient(135deg, var(--adion-tint-cloud), color-mix(in srgb, var(--adion-family-cloud) 4%, transparent) 70%)",
+    "grad-ai": "linear-gradient(135deg, var(--adion-tint-ai), color-mix(in srgb, var(--adion-family-ai) 4%, transparent) 70%)"
+  },
+  "shadows": {
+    "shadow-card": {
+      "dark": "0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 24px rgba(0, 0, 0, 0.28)",
+      "light": "0 1px 2px rgba(20, 40, 32, 0.08), 0 6px 18px rgba(20, 40, 32, 0.08)"
+    }
+  },
+  "brand": {
+    "$description": "Les couleurs de la marque, hors thème (charte, §5) : la pilule, le mot ADION du site.",
+    "brand-green": "#54ba9b",
+    "gradient": "linear-gradient(90deg, #22c55e 0%, #06b6d4 100%)",
+    "brand-wordmark-from": "#54ba9b",
+    "brand-wordmark-to": "#b487ff"
+  }
+}

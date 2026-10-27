@@ -1,0 +1,55 @@
+{
+  "$description": "Les tailles d'Adion, identiques dans les deux thèmes. En pixels (px sur le web, dp sur Android, sp pour le texte).",
+  "groups": [
+    {
+      "id": "space",
+      "title": "Les espacements",
+      "description": "Une échelle de 4 px : rien entre deux crans. Une section espace ses blocs de 16 px, deux sections sont à 32 px.",
+      "tokens": {
+        "space-1": { "px": 4 },
+        "space-2": { "px": 8 },
+        "space-3": { "px": 12 },
+        "space-4": { "px": 16 },
+        "space-5": { "px": 20 },
+        "space-6": { "px": 24 },
+        "space-8": { "px": 32 },
+        "space-10": { "px": 40 },
+        "section-gap": { "px": 34, "description": "Le rythme des sections d'une page." },
+        "header-gap": { "ref": "space-6", "description": "L'écart sous l'en-tête d'une page : ce qui suit commence à zéro." }
+      }
+    },
+    {
+      "id": "radius",
+      "title": "Les arrondis",
+      "description": "Une surface (carte, panneau, fenêtre) garde l'arrondi du site ; un petit contrôle reste presque droit. Les boutons d'action sont des pilules.",
+      "tokens": {
+        "radius-card": { "px": 8, "description": "Carte, fenêtre, encadré." },
+        "radius-control": { "px": 4, "description": "Champ, onglet, filtre, sélecteur." },
+        "radius-sm": { "px": 8 },
+        "radius-lg": { "px": 14 },
+        "radius-pill": { "px": 24, "description": "Les boutons d'action." }
+      }
+    },
+    {
+      "id": "control",
+      "title": "Les contrôles",
+      "description": "Champs, listes, segments et boutons font tous la même hauteur.",
+      "tokens": {
+        "control-h": { "px": 32 },
+        "control-h-sm": { "px": 26 }
+      }
+    },
+    {
+      "id": "text-size",
+      "title": "Les tailles de texte",
+      "description": "Un cran plus bas que le site vitrine : l'espace client s'adresse à quelqu'un qui travaille et lit des tableaux.",
+      "tokens": {
+        "text-xs": { "px": 10.5, "text": true },
+        "text-sm": { "px": 12, "text": true },
+        "text-base": { "px": 13, "text": true },
+        "text-md": { "px": 14, "text": true },
+        "text-lg": { "px": 16, "text": true }
+      }
+    }
+  ]
+}

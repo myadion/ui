@@ -1,0 +1,37 @@
+{
+  "name": "@adion-cloud/ui-vue",
+  "version": "0.1.0",
+  "description": "Les composants et gabarits d'Adion Cloud pour Vue 3 et Vuetify 3.",
+  "type": "module",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myadion/ui-kit.git",
+    "directory": "packages/vue"
+  },
+  "files": [
+    "src"
+  ],
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./base.css": "./src/base.css",
+    "./ui.css": "./src/ui.css",
+    "./*": "./src/*"
+  },
+  "peerDependencies": {
+    "@adion-cloud/tokens": "^0.1.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.0.0",
+    "vuetify": "^3.8.0",
+    "three": ">=0.160.0"
+  },
+  "scripts": {
+    "test": "node --test \"src/*.test.js\""
+  },
+  "peerDependenciesMeta": {
+    "three": {
+      "optional": true
+    }
+  }
+}

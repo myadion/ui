@@ -1,0 +1,219 @@
+/*
+ * ADION UI - LA BASE (2026-10-27) : la page et l'habillage de Vuetify (police,
+ * titres, boutons, puces, fenetres, menus, infobulles, tableaux), repris de
+ * myadion/src/style.css. Les classes d'ecran d'avant le kit (.sheet,
+ * .callout, .grid-table...) n'y sont pas : elles restent dans l'app jusqu'a
+ * la migration de ses ecrans.
+ */
+/* ---------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+  font-family: var(--adion-font-text);
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  width: 100%;
+  min-height: 100dvh;
+  font-size: var(--adion-text-base);
+  background: var(--adion-bg-0);
+  color: var(--adion-text-1);
+}
+
+
+/*
+ * Les titres du site sont legers et grands. C'est l'inverse de ce qu'on attend
+ * d'un titre d'application, et c'est ce qui lui donne son calme.
+ */
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--adion-text-1);
+}
+
+h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+h3 {
+  margin: 0;
+  font-size: var(--adion-text-md);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* Les boutons du site : pilules, minuscules, interlettrage marque. */
+
+.v-btn {
+  border-radius: var(--adion-radius-pill) !important;
+  letter-spacing: 1.25px;
+}
+
+/*
+ * LE LIBELLÉ TEL QU'IL EST ÉCRIT. Tout passait en minuscules, et la majuscule
+ * de la première lettre devait revenir par ::first-letter - qui ne s'applique
+ * pas au contenu flexible d'un bouton Vuetify. Restaient « ouvrir vs code »,
+ * « passer à web hosting - business ». Les libellés sont écrits avec leur
+ * casse : on la garde.
+ */
+
+.v-btn--variant-flat.bg-primary,
+.v-btn--variant-elevated.bg-primary,
+.v-btn.adion-cta {
+  background: var(--adion-cta-bg) !important;
+  color: var(--adion-cta-fg) !important;
+}
+
+.v-application,
+.v-field__input,
+.v-list-item-title { font-size: var(--adion-text-base); }
+
+.v-chip {
+  font-size: var(--adion-text-xs);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/*
+ * Une surface posee sur la page peut se contenter d'un voile clair : le fond
+ * de l'application est derriere, et l'ensemble reste lisible. Une surface qui
+ * flotte, elle, a du contenu derriere elle - et le voile la rendait
+ * transparente. Le menu du compte laissait lire la page a travers, et chaque
+ * fenetre de reglage - carte bancaire, plafond hors forfait, enregistrement DNS
+ * - donnait la meme impression de calque rate.
+ *
+ * Tout ce qui flotte prend donc un fond a soi, un filet et une ombre portee :
+ * l'ombre est ce qui dit qu'une chose est au-dessus, et le site l'emploie
+ * exactement ainsi sur ses propres menus.
+ */
+
+.v-overlay__content > .v-card,
+.v-overlay__content > .v-sheet,
+.v-overlay__content > .v-list,
+.v-menu > .v-overlay__content > .v-card,
+.v-dialog > .v-overlay__content > .v-card {
+  background: var(--adion-surface-solid) !important;
+  background-image: none !important;
+  border: 1px solid var(--adion-border-strong);
+  border-radius: var(--adion-radius-card) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42) !important;
+  color: var(--adion-text-1);
+  backdrop-filter: none !important;
+}
+
+/* Les listes deroulantes d'un champ passent par le meme calque. */
+
+.v-overlay__content .v-list {
+  background: var(--adion-surface-solid) !important;
+  color: var(--adion-text-1);
+}
+
+/* Le voile derriere un dialogue : assez sombre pour detacher la fenetre, pas
+   au point de faire disparaitre la page. */
+
+.v-overlay__scrim { background: var(--adion-scrim); opacity: 0.62 !important; }
+
+/* Les titres d'une fenetre suivent l'ecriture du site : legers et grands, et
+   non gras et petits. */
+
+.v-card-title {
+  padding-inline: 0;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em;
+  line-height: 1.35 !important;
+}
+
+.v-card-subtitle {
+  padding-inline: 0;
+  opacity: 1 !important;
+  color: var(--adion-text-2);
+  font-size: var(--adion-text-sm) !important;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+/* Une fenetre respire comme une section : le contenu ne colle pas au bord. */
+
+.v-dialog .v-card-title,
+.v-dialog .v-card-subtitle { padding-inline: 26px; }
+
+.v-dialog .v-card-title { padding-top: 24px; }
+
+.v-dialog .v-card-text { padding: 18px 26px; font-size: var(--adion-text-base); }
+
+.v-dialog .v-card-actions { padding: 12px 22px 20px; }
+
+
+/* Une infobulle est un calque, elle aussi. */
+
+.v-tooltip > .v-overlay__content {
+  background: var(--adion-surface-solid) !important;
+  border: 1px solid var(--adion-border-strong);
+  color: var(--adion-text-1) !important;
+  font-size: var(--adion-text-sm);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+}
+
+/*
+ * Les listes du site : des rangees separees par un filet, a meme le fond, avec
+ * de l'air. Aucun cadre autour.
+ */
+
+.v-table {
+  background: transparent !important;
+  color: var(--adion-text-1);
+  font-size: var(--adion-text-sm);
+}
+
+.v-table th {
+  font-size: var(--adion-text-xs) !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--adion-text-2) !important;
+  white-space: nowrap;
+}
+
+.v-table td,
+.v-table th {
+  height: auto !important;
+  padding: 15px 12px !important;
+}
+
+.v-table tbody tr:hover > td { background: var(--adion-row-hover); }
+
+/*
+ * L'echelle d'un telephone.
+ *
+ * Les mesures relevees sur le site sont celles d'un ecran large : un titre de
+ * quarante-six pixels, une accroche de dix-huit sur une interligne de 1,8, des
+ * blocs qui respirent sur trente pixels. Reportees telles quelles sur un
+ * telephone, elles donnent une page ou tout est enorme et ou l'on ne voit
+ * jamais plus d'un bloc a la fois - il faut faire defiler pour comprendre ce
+ * qu'on regarde.
+ *
+ * On ne change pas la grammaire, on change son corps : les memes rapports,
+ * a une taille qui tient dans la main.
+ */
+
+@media (max-width: 900px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 18px; }
+}
+
+@media (max-width: 720px) {
+  h1 { font-size: 27px; letter-spacing: 0; }
+  h2 { font-size: 20px; }
+}

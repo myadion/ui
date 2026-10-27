@@ -1,0 +1,22 @@
+{
+  "name": "@adion-cloud/tokens",
+  "version": "0.1.0",
+  "description": "Les jetons de design d'Adion Cloud (couleurs, tailles, polices) pour le web, JavaScript et Android.",
+  "type": "module",
+  "license": "BSD-3-Clause",
+  "repository": { "type": "git", "url": "https://github.com/myadion/ui-kit.git", "directory": "tokens" },
+  "files": ["dist", "src", "scripts"],
+  "main": "./dist/tokens.mjs",
+  "exports": {
+    ".": "./dist/tokens.mjs",
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json",
+    "./contrast": "./scripts/contrast.js",
+    "./src/*": "./src/*",
+    "./android/*": "./dist/android/*"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test \"test/*.test.mjs\""
+  }
+}
