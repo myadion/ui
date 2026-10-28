@@ -1,60 +1,56 @@
 # Adion UI
 
-Le kit d'interface d'Adion Cloud : **une seule source pour toutes nos applications**, sur le web comme sur Android. Tenu par Inès Moreau (design).
+Le kit d'interface d'Adion Cloud : des jetons de design pour toutes les plateformes, des composants Vue 3, et leur documentation avec des exemples en direct.
 
-## Les règles (Kevin, 2026-10-13 et 2026-10-27)
+## Paquets
 
-1. **Aucune application ne crée de composant.** Le kit fournit les composants, les gabarits de page et les jetons. Un motif qui manque s'ajoute ici, et toutes les applications en profitent à la mise à jour.
-2. **Un écran n'écrit aucune couleur et n'a pas de style propre** : il assemble les composants, qui emploient les jetons.
-3. **La référence visuelle est adioncloud.com.** L'espace client garde sa barre du haut et sa barre de gauche ; Orbit (l'outil de l'équipe) reprend cette barre de gauche et vise d'abord le pratique.
-4. **Les libellés, les états et leurs tons viennent de l'API (Nexus)** : le kit les affiche, il ne les invente pas.
-5. **Contraste et téléphone** : chaque texte tient 4,5:1 sur chaque surface, dans les deux thèmes (test automatique) ; tout se vérifie à 375 px.
-6. Le dépôt sert **toutes les technologies** ; il est public.
-
-## Le dépôt
-
-| Dossier | Paquet | Pour qui |
+| Dossier | Paquet | Contenu |
 | --- | --- | --- |
-| `tokens/` | `@myadion/tokens` | Tout le monde : la source unique (`tokens/src/*.json`) et ses sorties : `tokens.css` (variables `--adion-*`, thèmes sombre et clair), `tokens.mjs` (valeurs et thèmes Vuetify), `tokens.json`, Android (`res/values*/adion_*.xml`, `AdionTokens.kt` pour Compose) |
-| `packages/vue/` | `@myadion/ui` | Les applications Vue 3 + Vuetify 3 : composants `Ui*`, gabarits (`UiListLayout`, `UiDetailLayout`, `UiWizardLayout`, `UiFormLayout`), `base.css` (l'habillage de Vuetify), `ui.css` |
-| `docs/` | — | La doc publique : principes, jetons, tous les composants en direct |
+| `tokens/` | [`@myadion/tokens`](https://www.npmjs.com/package/@myadion/tokens) | Couleurs (thèmes sombre et clair), tailles et polices, depuis une seule source (`tokens/src/*.json`) : variables CSS `--adion-*`, module JavaScript, JSON, ressources Android et Jetpack Compose |
+| `packages/vue/` | [`@myadion/ui`](https://www.npmjs.com/package/@myadion/ui) | Composants `Ui*` et gabarits de page pour Vue 3 + Vuetify 3 |
+| `docs/` | — | La documentation : chaque composant, ses exemples, son code et son API |
 
-## Brancher une application Vue
+## Installer
+
+```sh
+npm install @myadion/tokens @myadion/ui
+```
 
 ```js
 import '@myadion/tokens/tokens.css'
 import '@myadion/ui/base.css'
 import '@myadion/ui/ui.css'
+import '@myadion/ui/content.css'
 import { vuetifyThemes } from '@myadion/tokens'
 import { createAdionUi } from '@myadion/ui'
 
-app.use(createAdionUi({
-  request,        // (options) => Promise : un appel à Nexus { method, path, data, params, projectId }
-  context,        // objet réactif { orgId, projectId }
-  services,       // fetchActions, cancelTermination, updateDescription, monitoringStatus
-  labels,         // serviceLabel, offerLabel, stateLabel
-  notifications,  // useNotifications, useAssistant, onUpdate
-  components,     // OrderButton, ServiceTermination, ServiceMigration (en attendant qu'ils rejoignent le kit)
+const vuetify = createVuetify({ theme: { defaultTheme: 'adionDark', themes: vuetifyThemes } })
+
+app.use(vuetify).use(createAdionUi({
+  request,   // (options) => Promise : un appel à votre API
+  context,   // objet réactif { orgId, projectId }
+  services, labels, notifications, components,
 }))
 ```
 
-Le kit ne lit jamais le store d'une application : l'**adaptateur** lui donne ce dont il a besoin. Un morceau absent rend le composant plus discret (pas de bouton Commander sans `OrderButton`), jamais en panne.
+Les composants ne lisent jamais l'état d'une application : l'adaptateur `createAdionUi` leur donne ce dont ils ont besoin. Un élément absent rend le composant plus discret, jamais en panne.
 
 ## Android
 
 Copier `tokens/dist/android/res` dans le module (couleurs `adion_*`, thème clair dans `values`, sombre dans `values-night`), ou `AdionTokens.kt` pour Compose (`AdionColors.Dark`, `AdionColors.Light`, `AdionDimens`).
 
-## Travailler sur le kit
+## Développer
 
-```bash
+```sh
 npm install
 npm test          # jetons (dont les contrastes) et logique des composants
-npm run dev       # la doc sur http://localhost:5180
-npm run build     # jetons et doc
+npm run dev       # la documentation sur http://localhost:5180
+npm run build     # jetons et documentation
 ```
 
-Changer une couleur : `tokens/src/color.json`, puis `npm test` (qui reconstruit). Ajouter un composant : `packages/vue/src/Ui*.vue`, ses classes `ui-*` dans `ui.css`, son export dans `index.js`, une démonstration dans `docs/src/ShowcaseView.vue`.
+- Changer une couleur : `tokens/src/color.json`, puis `npm test`, qui reconstruit les sorties et vérifie que chaque texte garde un contraste de 4,5:1 au moins.
+- Ajouter un composant : `packages/vue/src/Ui*.vue`, ses classes `ui-*` dans `ui.css`, son export dans `index.js`, puis sa page dans `docs/src/catalog.js` avec un exemple dans `docs/src/examples/`.
 
 ## Licence
 
-BSD 3-Clause. Les polices (Raleway, Lilita One, Inter) sont sous licence OFL et chargées depuis Google Fonts.
+BSD 3-Clause. Les polices (Inter, Raleway, Lilita One) sont sous licence OFL et chargées depuis Google Fonts.

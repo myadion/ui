@@ -1,8 +1,8 @@
 # @myadion/ui
 
-Les composants et gabarits de page d'Adion Cloud pour **Vue 3 + Vuetify 3**. Toutes les applications d'Adion (espace client, Orbit, sites) les emploient : un écran assemble ces composants et n'a pas de style propre.
+Les composants et gabarits de page d'Adion Cloud pour **Vue 3 + Vuetify 3** : listes, fiches, formulaires, tableaux, graphiques, fenêtres, notifications, dans un thème sombre et un thème clair.
 
-Documentation, exemples en direct et code : le dossier `docs/` du dépôt [myadion/ui-kit](https://github.com/myadion/ui-kit).
+Documentation, exemples en direct et code : le dossier `docs/` du dépôt [myadion/ui](https://github.com/myadion/ui).
 
 ## Installer
 

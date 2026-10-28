@@ -41,7 +41,7 @@ const count = groups.reduce((n, g) => n + g.pages.length, 0)
         <span class="doc-bar__spacer" />
         <router-link to="/installation" class="doc-bar__link">Installation</router-link>
         <router-link to="/composants/list-layout" class="doc-bar__link">Composants</router-link>
-        <a href="https://github.com/myadion/ui-kit" class="doc-bar__icon" aria-label="Le dépôt sur GitHub" target="_blank" rel="noopener"><v-icon icon="mdi-github" size="20" /></a>
+        <a href="https://github.com/myadion/ui" class="doc-bar__icon" aria-label="Le dépôt sur GitHub" target="_blank" rel="noopener"><v-icon icon="mdi-github" size="20" /></a>
         <button type="button" class="doc-bar__icon" :aria-label="dark ? 'Passer au thème clair' : 'Passer au thème sombre'" @click="toggle">
           <v-icon :icon="dark ? 'mdi-weather-sunny' : 'mdi-weather-night'" size="18" />
         </button>
