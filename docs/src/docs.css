@@ -100,8 +100,8 @@ html[data-theme='light'] {
 .doc-import code { overflow-x: auto; white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; color: #d6dde8; scrollbar-width: none; }
 
 .doc-example { margin-bottom: 44px; scroll-margin-top: 72px; }
-.doc-example h2, .doc-api h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 21px; font-weight: 650; letter-spacing: -0.015em; }
-.doc-example h2 a:hover::after, .doc-api h2 a:hover::after { content: ' #'; color: var(--d-ink-3); }
+.doc-example > h2, .doc-api > h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 21px; font-weight: 650; letter-spacing: -0.015em; }
+.doc-example > h2 a:hover::after, .doc-api > h2 a:hover::after { content: ' #'; color: var(--d-ink-3); }
 .doc-step { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 6px; font-size: 13px; font-weight: 700; color: var(--d-brand-ink); background: var(--d-brand); }
 
 /* Un exemple : l'apercu en direct, le code dessous. */

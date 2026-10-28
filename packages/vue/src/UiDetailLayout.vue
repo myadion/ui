@@ -31,6 +31,8 @@ const props = defineProps({
   title: { type: String, default: '' },
   /** Le degrade du cartouche et des chiffres : une famille (web, telecom…) ; par defaut, celui du premier maillon du fil d'Ariane. */
   tint: { type: String, default: '' },
+  /** L'icone du produit, en tuile a gauche du nom. */
+  icon: { type: String, default: '' },
   crumbs: { type: Array, default: () => [] },
   status: { type: Object, default: null },
   href: { type: String, default: '' },
@@ -74,7 +76,7 @@ const trail = computed(() => crumbTrail(props.crumbs))
     :error="error"
     @retry="$emit('retry')"
   >
-    <UiPageHeader resource :class="grad" :title="shownTitle" :crumbs="trail" :status="status" :href="href">
+    <UiPageHeader resource :class="grad" :icon="icon" :title="shownTitle" :crumbs="trail" :status="status" :href="href">
       <template v-if="$slots.title" #title><slot name="title" /></template>
       <template v-if="$slots.meta" #meta><slot name="meta" /></template>
       <template v-if="$slots.actions || menu" #actions>
@@ -88,21 +90,18 @@ const trail = computed(() => crumbTrail(props.crumbs))
       <UiServiceNotice v-if="serviceId" :service-id="serviceId" />
       <slot name="notices" />
 
-      <!-- Les chiffres en colonne a droite : les onglets et leur contenu a gauche, une seule colonne sur telephone, chiffres d'abord. -->
-      <div v-if="$slots.stats || $slots.aside" class="ui-split ui-split--detail">
-        <div class="ui-layout__body">
-          <UiTabs v-if="ordered.length > 1" :tabs="ordered" :model-value="tab" query="onglet" @update:model-value="(v) => emit('update:tab', v)" />
-          <slot :tab="tab" />
-        </div>
-        <aside class="ui-split__aside">
-          <div v-if="$slots.stats" class="ui-stats is-aside" :class="grad"><slot name="stats" /></div>
-          <slot name="aside" :tab="tab" />
-        </aside>
-      </div>
-      <template v-else>
-        <UiTabs v-if="ordered.length > 1" :tabs="ordered" :model-value="tab" query="onglet" @update:model-value="(v) => emit('update:tab', v)" />
+      <!--
+        Comme /maquette (2026-10-28) : les chiffres en bande sous l'en-tete, les
+        onglets sur toute la largeur, puis le contenu et, s'il y en a, une
+        colonne a droite (l'activite, un encart).
+      -->
+      <div v-if="$slots.stats" class="ui-stats is-band" :class="grad"><slot name="stats" /></div>
+      <UiTabs v-if="ordered.length > 1" :tabs="ordered" :model-value="tab" query="onglet" @update:model-value="(v) => emit('update:tab', v)" />
+      <div v-if="$slots.aside" class="ui-split ui-split--detail">
         <div class="ui-layout__body"><slot :tab="tab" /></div>
-      </template>
+        <aside class="ui-split__aside"><slot name="aside" :tab="tab" /></aside>
+      </div>
+      <div v-else class="ui-layout__body"><slot :tab="tab" /></div>
     </div>
   </UiPage>
 </template>

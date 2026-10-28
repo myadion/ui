@@ -20,13 +20,15 @@ defineProps({
   status: { type: Object, default: null },
   href: { type: String, default: '' },
   resource: { type: Boolean, default: false },
+  /** Une icone mdi en tuile, a gauche du nom (la marque du produit, comme sur /maquette). */
+  icon: { type: String, default: '' },
   /** @type {Array<{label:string,to?:string|object}>} */
   crumbs: { type: Array, default: () => [] },
 })
 </script>
 
 <template>
-  <header class="ui-header" :class="{ 'ui-header--resource': resource }">
+  <header class="ui-header" :class="{ 'ui-header--resource': resource, 'has-mark': icon }">
     <ol v-if="crumbs.length" class="ui-crumbs" aria-label="Fil d’Ariane">
       <template v-for="(crumb, index) in crumbs" :key="index">
         <li>
@@ -36,6 +38,7 @@ defineProps({
         <li v-if="index < crumbs.length - 1" aria-hidden="true">›</li>
       </template>
     </ol>
+    <span v-if="icon" class="ui-header__mark" aria-hidden="true"><v-icon :icon="icon" size="24" /></span>
     <div class="ui-header__line">
       <span v-if="eyebrow && !crumbs.length" class="ui-header__family">{{ eyebrow }}</span>
       <h1 class="ui-header__title">

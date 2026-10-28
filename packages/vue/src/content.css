@@ -275,3 +275,79 @@ html[data-theme='light'],
 .ui-page .grid-table td { white-space: nowrap; }
 .ui-page .grid-table td.is-main,
 .ui-page .grid-table td.wrap { white-space: normal; }
+
+/* ------------------------------------------------------------------ */
+/* LA MAQUETTE (/maquette, validee le 2026-10-27, portee le 2026-10-28) */
+/* ------------------------------------------------------------------ */
+
+/* Le fond de la page : un degrade bleu nuit en haut, des lignes de niveau qui derivent. */
+.ui-shell__main.is-decor { position: relative; isolation: isolate; background: linear-gradient(180deg, color-mix(in srgb, #1b2a44 55%, var(--adion-bg-0)) 0, var(--adion-bg-0) 420px); }
+html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(180deg, #e3ebf3 0, var(--adion-bg-0) 420px); }
+.ui-shell__decor { position: absolute; z-index: -1; top: 0; left: 0; width: 100%; height: 440px; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent); mask-image: linear-gradient(180deg, #000 45%, transparent); }
+.ui-shell__decor path { fill: none; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.ui-shell__drift.is-a path { stroke: color-mix(in srgb, var(--adion-primary) 22%, transparent); }
+.ui-shell__drift.is-b path { stroke: color-mix(in srgb, var(--adion-family-web) 18%, transparent); }
+.ui-shell__drift.is-a { animation: ui-drift-a 70s linear infinite; }
+.ui-shell__drift.is-b { animation: ui-drift-b 95s linear infinite; }
+@keyframes ui-drift-a { to { transform: translateX(-1200px); } }
+@keyframes ui-drift-b { from { transform: translateX(-1200px); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .ui-shell__drift { animation: none; } }
+
+/* L'en-tete d'une fiche : pose sur la page, sans cadre ; la tuile du produit a gauche. */
+.ui-page .ui-header--resource { padding: 4px 0 8px; border: 0; background: none !important; box-shadow: none; }
+.ui-header.has-mark { grid-template-columns: 44px minmax(0, 1fr) auto; }
+.ui-header.has-mark > .ui-header__mark { grid-column: 1; grid-row: 2 / span 3; align-self: start; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px; color: var(--ui-hue, var(--adion-primary)); background: color-mix(in srgb, var(--ui-hue, var(--adion-primary)) 10%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-hue, var(--adion-primary)) 26%, transparent); }
+.ui-header.has-mark > :is(.ui-header__line, .ui-header__lead, .ui-header__meta) { grid-column: 2; }
+.ui-header.has-mark > .ui-header__actions { grid-column: 3; grid-row: 2; }
+@media (max-width: 640px) {
+  .ui-header.has-mark { grid-template-columns: 40px minmax(0, 1fr); }
+  .ui-header.has-mark > .ui-header__mark { width: 40px; height: 40px; grid-row: 2; }
+  .ui-header.has-mark > .ui-header__actions { grid-column: 1 / -1; grid-row: auto; }
+}
+
+/* Les chiffres : une bande d'un seul tenant, des filets de 1 px entre eux. */
+.ui-page :is(.ui-stats.is-band, .ui-stats.is-aside),
+.ui-page .ui-listgrid.has-aside > .ui-stats {
+  gap: 1px !important;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--adion-line) !important;
+  box-shadow: 0 0 0 1px var(--adion-line);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+}
+.ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) > .ui-stat,
+.ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 20px 22px; border: 0; border-radius: 0; box-shadow: none; }
+.ui-page .ui-stats > .ui-stat:nth-child(3n + 2) { --ui-hue: var(--adion-family-web); }
+.ui-page .ui-stats > .ui-stat:nth-child(3n + 3) { --ui-hue: var(--adion-family-telecom); }
+.ui-page .ui-stat__value { margin-top: 6px; }
+
+/* Les sections : la tete separee du contenu par un filet, un titre de 15 px. */
+.ui-section__title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em !important; }
+.ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__head:not(:last-child) { margin: -24px -24px 0; padding: 14px 24px; border-bottom: 1px solid var(--adion-line); }
+.ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__head:not(:last-child) + .ui-section__lead { margin-top: 4px; }
+@media (max-width: 640px) {
+  .ui-page .ui-section { padding: 18px 16px; }
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__head:not(:last-child) { margin: -18px -16px 0; padding: 12px 16px; }
+}
+
+/* Les encadres : un degrade leger de leur ton, l'icone en tuile. */
+.ui-notice { align-items: center; }
+.ui-notice.is-tone-info { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-info) 13%, var(--adion-card)), color-mix(in srgb, var(--adion-info) 4%, var(--adion-card))); border-color: color-mix(in srgb, var(--adion-info) 26%, transparent); }
+.ui-notice.is-tone-ok { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-ok) 13%, var(--adion-card)), color-mix(in srgb, var(--adion-ok) 4%, var(--adion-card))); border-color: color-mix(in srgb, var(--adion-ok) 26%, transparent); }
+.ui-notice.is-tone-warn { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-warn) 13%, var(--adion-card)), color-mix(in srgb, var(--adion-warn) 4%, var(--adion-card))); border-color: color-mix(in srgb, var(--adion-warn) 26%, transparent); }
+.ui-notice.is-tone-bad { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-bad) 13%, var(--adion-card)), color-mix(in srgb, var(--adion-bad) 4%, var(--adion-card))); border-color: color-mix(in srgb, var(--adion-bad) 26%, transparent); }
+.ui-notice > .v-icon:first-child { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 28px !important; height: 28px !important; margin-top: 0; border-radius: 6px; background: color-mix(in srgb, currentColor 14%, transparent); }
+
+/* Sans cadre autour de l'en-tete, plus de gouttiere : tout s'aligne sur le bord de la page. */
+.ui-page .ui-detail__content { padding-inline: 0; }
+
+/* Une fiche : la colonne de droite apres le contenu sur telephone (l'activite se lit apres). */
+.ui-page .ui-split--detail > .ui-split__aside { order: 0; padding-top: 0; }
+
+/* Les jauges : un degrade de leur couleur. */
+.ui-meter__fill:not([class*="is-"]) { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-primary) 75%, #000), var(--adion-primary)); border-radius: 3px; }
+
+/* L'icone d'un chiffre en tuile de sa couleur (Vuetify fixe sa taille : on la force). */
+.ui-page .ui-stat__label .v-icon { width: 26px !important; height: 26px !important; font-size: 16px !important; }
