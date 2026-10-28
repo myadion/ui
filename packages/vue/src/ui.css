@@ -1964,6 +1964,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 
 /* ---------------------------------------------------------------- */
 /* La coque d'une application : UiAppShell, UiTopBar, UiIconActions  */
+/* --adion-top-offset : ce qui occupe deja le haut de l'ecran (un bandeau). */
 /* (2026-10-28). Les mesures sont celles de l'espace client ; la      */
 /* barre du haut prend le filet et les gestes ronds de /maquette.     */
 /* ---------------------------------------------------------------- */
@@ -1975,7 +1976,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 @media (min-width: 960px) { .ui-shell__content:not(.is-centered) { padding-inline: 32px; } }
 @media (max-width: 900px) { .ui-shell__sidebar { display: none; } }
 
-.ui-topbar { position: sticky; top: 0; z-index: 1200; background: var(--adion-nav-bg); }
+.ui-topbar { position: sticky; top: var(--adion-top-offset, 0px); z-index: 1200; background: var(--adion-nav-bg); }
 .ui-topbar__bar { display: flex; align-items: stretch; height: var(--adion-topnav-height); border-bottom: 1px solid var(--adion-border); }
 .ui-topbar__brand { display: none; align-items: center; gap: 10px; padding: 0 20px; border-right: 1px solid var(--adion-border); text-decoration: none; }
 .ui-topbar__brand.is-always { display: flex; }
