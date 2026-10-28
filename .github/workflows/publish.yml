@@ -1,0 +1,55 @@
+# Publie @myadion/tokens et @myadion/ui sur npm quand leur version change.
+#
+# Publication de confiance (trusted publishing) : npm reconnait ce depot et ce
+# fichier, sans jeton ni mot de passe. Chaque version porte sa provenance.
+# Un paquet dont la version est deja sur npm est simplement laisse de cote.
+name: Publier sur npm
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tokens/**'
+      - 'packages/vue/**'
+      - '.github/workflows/publish.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+
+      # La publication de confiance demande npm 11.5.1 ou plus.
+      - run: npm install -g npm@^11.5.1
+
+      - run: npm ci
+
+      - name: Tests (jetons, contrastes, composants)
+        run: npm test
+
+      - name: Publier ce qui a change de version
+        run: |
+          for ws in tokens packages/vue; do
+            name=$(node -p "require('./$ws/package.json').name")
+            version=$(node -p "require('./$ws/package.json').version")
+            if npm view "$name@$version" version >/dev/null 2>&1; then
+              echo "$name@$version est deja sur npm."
+            else
+              echo "Publication de $name@$version."
+              npm publish -w "$ws" --access public
+            fi
+          done
