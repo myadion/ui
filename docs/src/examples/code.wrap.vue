@@ -1,5 +1,5 @@
 <script setup>
-import { UiCode } from '@adion-cloud/ui-vue'
+import { UiCode } from '@myadion/ui'
 </script>
 
 <template>

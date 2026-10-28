@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiTagsInput } from '@adion-cloud/ui-vue'
+import { UiTagsInput } from '@myadion/ui'
 
 const numbers = ref(['06 12 34 56 78', '0700000000', '12'])
 </script>

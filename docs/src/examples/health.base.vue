@@ -1,5 +1,5 @@
 <script setup>
-import { UiBadge, UiHealthGroup, healthOf } from '@adion-cloud/ui-vue'
+import { UiBadge, UiHealthGroup, healthOf } from '@myadion/ui'
 </script>
 
 <template>

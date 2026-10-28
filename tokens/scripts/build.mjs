@@ -85,7 +85,7 @@ export function css({ color, size, font }) {
 
   return [
     '/*',
-    ' * ADION UI - LES JETONS. Fichier produit par @adion-cloud/tokens',
+    ' * ADION UI - LES JETONS. Fichier produit par @myadion/tokens',
     ' * (tokens/scripts/build.mjs) : ne pas le modifier a la main, modifier',
     ' * tokens/src/*.json.',
     ' */',
@@ -142,7 +142,7 @@ export function js(tokens) {
   return {
     json: JSON.stringify(data, null, 2),
     mjs: [
-      '// Produit par @adion-cloud/tokens (tokens/scripts/build.mjs) : ne pas modifier a la main.',
+      '// Produit par @myadion/tokens (tokens/scripts/build.mjs) : ne pas modifier a la main.',
       `export const tokens = ${JSON.stringify(data, null, 2)}`,
       '',
       '/** Les deux themes Vuetify d\'Adion : createVuetify({ theme: { defaultTheme: \'adionDark\', themes: vuetifyThemes } }). */',
@@ -164,7 +164,7 @@ const camel = (name) => name.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase())
 export function android({ color, size }) {
   const xmlColors = (theme) => [
     '<?xml version="1.0" encoding="utf-8"?>',
-    '<!-- Produit par @adion-cloud/tokens : ne pas modifier a la main. -->',
+    '<!-- Produit par @myadion/tokens : ne pas modifier a la main. -->',
     '<resources>',
     ...Object.entries(palette(color, theme)).map(([k, c]) => `    <color name="${androidName(k)}">${argb(c)}</color>`),
     '</resources>',
@@ -174,7 +174,7 @@ export function android({ color, size }) {
   const resolve = (t) => (t.ref ? resolve(sizes[t.ref]) : t)
   const dimens = [
     '<?xml version="1.0" encoding="utf-8"?>',
-    '<!-- Produit par @adion-cloud/tokens : ne pas modifier a la main. -->',
+    '<!-- Produit par @myadion/tokens : ne pas modifier a la main. -->',
     '<resources>',
     ...Object.entries(sizes).map(([k, t]) => {
       const r = resolve(t)
@@ -187,7 +187,7 @@ export function android({ color, size }) {
   const light = palette(color, 'light')
   const names = Object.keys(dark)
   const kt = [
-    '// Produit par @adion-cloud/tokens (tokens/scripts/build.mjs) : ne pas modifier a la main.',
+    '// Produit par @myadion/tokens (tokens/scripts/build.mjs) : ne pas modifier a la main.',
     'package cloud.adion.ui.tokens',
     '',
     'import androidx.compose.ui.graphics.Color',

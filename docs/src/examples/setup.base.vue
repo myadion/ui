@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiButton, UiChoiceCards, UiCopyCallout, UiPromptList, UiSetup } from '@adion-cloud/ui-vue'
+import { UiButton, UiChoiceCards, UiCopyCallout, UiPromptList, UiSetup } from '@myadion/ui'
 
 const step = ref('choose')
 const done = ref([])

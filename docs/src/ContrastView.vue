@@ -1,7 +1,7 @@
 <script setup>
-import { UiBadge, UiTable } from '@adion-cloud/ui-vue'
-import tokensCss from '@adion-cloud/tokens/tokens.css?raw'
-import { themeReport, themeVars } from '@adion-cloud/tokens/contrast'
+import { UiBadge, UiTable } from '@myadion/ui'
+import tokensCss from '@myadion/tokens/tokens.css?raw'
+import { themeReport, themeVars } from '@myadion/tokens/contrast'
 
 /* Chaque couple texte/surface des jetons, calcule (WCAG), dans les deux themes. */
 const columns = [

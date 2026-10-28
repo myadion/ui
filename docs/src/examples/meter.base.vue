@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiInput, UiMeter } from '@adion-cloud/ui-vue'
+import { UiInput, UiMeter } from '@myadion/ui'
 
 const text = ref('Bonjour Anne, votre commande est prête. STOP au 36180')
 </script>

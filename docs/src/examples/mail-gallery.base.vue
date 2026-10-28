@@ -1,5 +1,5 @@
 <script setup>
-import { UiButton, UiMailGallery } from '@adion-cloud/ui-vue'
+import { UiButton, UiMailGallery } from '@myadion/ui'
 import { mailDocument, renderMail } from './data.js'
 
 const html = renderMail(mailDocument())

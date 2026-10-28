@@ -1,11 +1,11 @@
 <script setup>
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
-import { tokens } from '@adion-cloud/tokens'
-import color from '@adion-cloud/tokens/src/color.json'
-import size from '@adion-cloud/tokens/src/size.json'
-import font from '@adion-cloud/tokens/src/font.json'
-import { UiCode, UiKeyValue, UiSection } from '@adion-cloud/ui-vue'
+import { tokens } from '@myadion/tokens'
+import color from '@myadion/tokens/src/color.json'
+import size from '@myadion/tokens/src/size.json'
+import font from '@myadion/tokens/src/font.json'
+import { UiCode, UiKeyValue, UiSection } from '@myadion/ui'
 
 /* Les jetons, tels que chaque plateforme les recoit : un nom, une valeur par theme. */
 const theme = useTheme()
@@ -23,7 +23,7 @@ const sizes = size.groups
       <p class="doc-lead">La seule source des couleurs, des tailles et des polices d’Adion. Web : la variable --adion-&lt;nom&gt;. Android : la couleur et la dimension adion_&lt;nom&gt;, ou AdionColors.Dark / Light en Compose. JavaScript : tokens.dark[&lt;nom&gt;].</p>
     </header>
     <div class="ui-page">
-    <UiCode wrap :code="`npm install @adion-cloud/tokens\n\nimport '@adion-cloud/tokens/tokens.css'\nimport { tokens, vuetifyThemes } from '@adion-cloud/tokens'`" />
+    <UiCode wrap :code="`npm install @myadion/tokens\n\nimport '@myadion/tokens/tokens.css'\nimport { tokens, vuetifyThemes } from '@myadion/tokens'`" />
 
     <UiSection v-for="group in groups" :key="group.id" :title="group.title" :lead="group.description">
       <div class="docs-swatches">

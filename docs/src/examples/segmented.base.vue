@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiSegmented } from '@adion-cloud/ui-vue'
+import { UiSegmented } from '@myadion/ui'
 
 const kind = ref('company')
 </script>

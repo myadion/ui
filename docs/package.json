@@ -1,5 +1,5 @@
 {
-  "name": "@adion-cloud/ui-docs",
+  "name": "@myadion/ui-docs",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,8 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@adion-cloud/tokens": "*",
-    "@adion-cloud/ui-vue": "*",
+    "@myadion/tokens": "*",
+    "@myadion/ui": "*",
     "@mdi/font": "^7.4.47",
     "vue": "^3.5.30",
     "vue-router": "^4.5.1",

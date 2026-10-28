@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiSubTabs, UiTabs } from '@adion-cloud/ui-vue'
+import { UiSubTabs, UiTabs } from '@myadion/ui'
 
 const tab = ref('ensemble')
 const subtab = ref('fichiers')

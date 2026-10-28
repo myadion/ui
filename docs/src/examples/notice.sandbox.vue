@@ -1,5 +1,5 @@
 <script setup>
-import { UiSandboxBanner } from '@adion-cloud/ui-vue'
+import { UiSandboxBanner } from '@myadion/ui'
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { UiInput, UiWizard } from '@adion-cloud/ui-vue'
+import { UiInput, UiWizard } from '@myadion/ui'
 import { steps } from './data.js'
 
 const step = ref('nom')

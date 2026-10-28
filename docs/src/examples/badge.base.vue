@@ -1,5 +1,5 @@
 <script setup>
-import { UiBadge } from '@adion-cloud/ui-vue'
+import { UiBadge } from '@myadion/ui'
 </script>
 
 <template>

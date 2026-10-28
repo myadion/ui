@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiButton, UiDetailLayout, UiNotice, UiSection, UiStat } from '@adion-cloud/ui-vue'
+import { UiButton, UiDetailLayout, UiNotice, UiSection, UiStat } from '@myadion/ui'
 import { sampleActions } from './data.js'
 
 const tab = ref('ensemble')

@@ -9,8 +9,8 @@ const rules = [
   { icon: 'mdi-eye-check-outline', title: 'Lisible partout', text: 'Chaque texte tient 4,5:1 sur chaque surface, dans les deux thèmes ; tout se vérifie à 375 px.' },
 ]
 const platforms = [
-  { icon: 'mdi-language-css3', title: 'Web', text: '@adion-cloud/tokens : les variables CSS --adion-*, deux thèmes.' },
-  { icon: 'mdi-vuejs', title: 'Vue 3 + Vuetify', text: '@adion-cloud/ui-vue : composants, gabarits, adaptateur vers l’API.' },
+  { icon: 'mdi-language-css3', title: 'Web', text: '@myadion/tokens : les variables CSS --adion-*, deux thèmes.' },
+  { icon: 'mdi-vuejs', title: 'Vue 3 + Vuetify', text: '@myadion/ui : composants, gabarits, adaptateur vers l’API.' },
   { icon: 'mdi-android', title: 'Android', text: 'Couleurs et dimensions en XML, AdionColors et AdionDimens pour Compose.' },
   { icon: 'mdi-code-json', title: 'Tout le reste', text: 'tokens.json : les valeurs résolues, pour n’importe quel outil.' },
 ]

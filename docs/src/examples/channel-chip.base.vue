@@ -1,5 +1,5 @@
 <script setup>
-import { UiChannelChip } from '@adion-cloud/ui-vue'
+import { UiChannelChip } from '@myadion/ui'
 </script>
 
 <template>

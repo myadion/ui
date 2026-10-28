@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue'
-import { UiColorInput, UiInput, UiMailStudio, UiMailTemplatePicker } from '@adion-cloud/ui-vue'
+import { UiColorInput, UiInput, UiMailStudio, UiMailTemplatePicker } from '@myadion/ui'
 import { mailDocument, renderMail } from './data.js'
 
 const doc = ref(mailDocument())

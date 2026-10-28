@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiButton, UiDialog, UiInput } from '@adion-cloud/ui-vue'
+import { UiButton, UiDialog, UiInput } from '@myadion/ui'
 
 const open = ref(false)
 const name = ref('')

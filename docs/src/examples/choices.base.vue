@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiChoices } from '@adion-cloud/ui-vue'
+import { UiChoices } from '@myadion/ui'
 import { scopes } from './data.js'
 
 const picked = ref(['sms.send'])

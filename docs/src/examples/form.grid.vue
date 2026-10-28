@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
-import { UiButton, UiCombobox, UiForm, UiInput, UiSegmented, UiSelect } from '@adion-cloud/ui-vue'
+import { UiButton, UiCombobox, UiForm, UiInput, UiSegmented, UiSelect } from '@myadion/ui'
 
 const form = reactive({ name: '', plan: null, tags: [], kind: 'company' })
 </script>

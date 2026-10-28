@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiCheckbox } from '@adion-cloud/ui-vue'
+import { UiCheckbox } from '@myadion/ui'
 
 const agree = ref(false)
 const auto = ref(true)

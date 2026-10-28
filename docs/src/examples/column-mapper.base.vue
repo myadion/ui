@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiColumnMapper } from '@adion-cloud/ui-vue'
+import { UiColumnMapper } from '@myadion/ui'
 
 const columns = [
   { index: 0, header: 'Courriel', example: 'anne@exemple.fr', field_target: 'field:courriel', field_label: 'Courriel' },

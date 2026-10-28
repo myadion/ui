@@ -1,5 +1,5 @@
 <script setup>
-import { UiCard } from '@adion-cloud/ui-vue'
+import { UiCard } from '@myadion/ui'
 </script>
 
 <template>

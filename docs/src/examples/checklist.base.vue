@@ -1,5 +1,5 @@
 <script setup>
-import { UiChecklist } from '@adion-cloud/ui-vue'
+import { UiChecklist } from '@myadion/ui'
 </script>
 
 <template>

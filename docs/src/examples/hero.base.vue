@@ -1,5 +1,5 @@
 <script setup>
-import { UiButton, UiFeatureGrid, UiHero } from '@adion-cloud/ui-vue'
+import { UiButton, UiFeatureGrid, UiHero } from '@myadion/ui'
 
 const benefits = [
   { icon: 'mdi-rocket-launch-outline', title: 'En ligne en une minute', text: 'Votre site, son certificat et son domaine, prêts sans réglage.' },

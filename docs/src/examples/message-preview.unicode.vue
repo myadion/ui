@@ -1,5 +1,5 @@
 <script setup>
-import { UiMessagePreview, UiUnicodeNotice } from '@adion-cloud/ui-vue'
+import { UiMessagePreview, UiUnicodeNotice } from '@myadion/ui'
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-import { UiLoading } from '@adion-cloud/ui-vue'
+import { UiLoading } from '@myadion/ui'
 </script>
 
 <template>

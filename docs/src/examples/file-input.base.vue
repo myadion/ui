@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiFileInput } from '@adion-cloud/ui-vue'
+import { UiFileInput } from '@myadion/ui'
 
 const file = ref(null)
 </script>

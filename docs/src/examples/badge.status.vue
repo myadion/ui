@@ -1,5 +1,5 @@
 <script setup>
-import { UiStatus } from '@adion-cloud/ui-vue'
+import { UiStatus } from '@myadion/ui'
 </script>
 
 <template>

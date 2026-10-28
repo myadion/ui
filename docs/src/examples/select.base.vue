@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiCombobox, UiSelect } from '@adion-cloud/ui-vue'
+import { UiCombobox, UiSelect } from '@myadion/ui'
 
 const plan = ref(null)
 const tags = ref([])

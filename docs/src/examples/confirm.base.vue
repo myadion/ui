@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiButton, UiConfirm } from '@adion-cloud/ui-vue'
+import { UiButton, UiConfirm } from '@myadion/ui'
 
 const open = ref(false)
 </script>

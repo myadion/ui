@@ -1,5 +1,5 @@
 <script setup>
-import { UiButton, UiPageHeader } from '@adion-cloud/ui-vue'
+import { UiButton, UiPageHeader } from '@myadion/ui'
 </script>
 
 <template>

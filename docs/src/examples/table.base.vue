@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiBadge, UiButton, UiSegmented, UiTable } from '@adion-cloud/ui-vue'
+import { UiBadge, UiButton, UiSegmented, UiTable } from '@myadion/ui'
 
 const state = ref('rows')
 const rows = [

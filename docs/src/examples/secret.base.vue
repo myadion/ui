@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiSecret } from '@adion-cloud/ui-vue'
+import { UiSecret } from '@myadion/ui'
 
 const secret = ref('7Hq2kP9sLm4Vx8Rt1Zc6Wy3Nb5Jd0FgQ2kP9sLm4')
 </script>

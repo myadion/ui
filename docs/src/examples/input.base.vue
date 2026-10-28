@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiInput } from '@adion-cloud/ui-vue'
+import { UiInput } from '@myadion/ui'
 
 const name = ref('')
 </script>

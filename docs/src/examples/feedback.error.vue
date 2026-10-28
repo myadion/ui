@@ -1,5 +1,5 @@
 <script setup>
-import { UiDenied, UiError } from '@adion-cloud/ui-vue'
+import { UiDenied, UiError } from '@myadion/ui'
 </script>
 
 <template>

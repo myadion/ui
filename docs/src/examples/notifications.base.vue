@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiAssistantButton, UiNotificationBell, UiNotificationDrawer } from '@adion-cloud/ui-vue'
+import { UiAssistantButton, UiNotificationBell, UiNotificationDrawer } from '@myadion/ui'
 import { demoNotifications } from './data.js'
 
 const open = ref(false)

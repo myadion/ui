@@ -2,9 +2,9 @@
  * ADION UI - le kit d'Adion Cloud pour Vue 3 et Vuetify. Une seule source :
  * aucune app ne cree de composant, elle importe d'ici.
  *
- *   import '@adion-cloud/tokens/tokens.css'
- *   import '@adion-cloud/ui-vue/ui.css'
- *   import { createAdionUi, UiListLayout, UiTable, UiBadge } from '@adion-cloud/ui-vue'
+ *   import '@myadion/tokens/tokens.css'
+ *   import '@myadion/ui/ui.css'
+ *   import { createAdionUi, UiListLayout, UiTable, UiBadge } from '@myadion/ui'
  */
 
 export { createAdionUi, useAdion } from './adapter.js'

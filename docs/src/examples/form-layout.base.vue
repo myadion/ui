@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import { UiAddress, UiFormLayout, UiInput, UiSection, UiSelect } from '@adion-cloud/ui-vue'
+import { UiAddress, UiFormLayout, UiInput, UiSection, UiSelect } from '@myadion/ui'
 
 const dirty = ref(true)
 const form = reactive({ name: 'Kévin Paly', lang: 'Français' })

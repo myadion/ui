@@ -1,5 +1,5 @@
 <script setup>
-import { UiCode } from '@adion-cloud/ui-vue'
+import { UiCode } from '@myadion/ui'
 
 const example = [
   'curl -X POST https://adion-api.eu/api/v1/sms \\',

@@ -1,5 +1,5 @@
 <script setup>
-import { UiButton } from '@adion-cloud/ui-vue'
+import { UiButton } from '@myadion/ui'
 </script>
 
 <template>

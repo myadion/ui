@@ -1,5 +1,5 @@
 <script setup>
-import { UiAssistantPanel } from '@adion-cloud/ui-vue'
+import { UiAssistantPanel } from '@myadion/ui'
 import { assistantLimited } from './data.js'
 </script>
 

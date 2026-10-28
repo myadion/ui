@@ -1,5 +1,5 @@
 <script setup>
-import { UiStat } from '@adion-cloud/ui-vue'
+import { UiStat } from '@myadion/ui'
 </script>
 
 <template>

@@ -44,7 +44,7 @@ async function copy(text, key) {
   copied.value = key
   setTimeout(() => { if (copied.value === key) copied.value = '' }, 1600)
 }
-const importLine = computed(() => `import { ${page.value.components.join(', ')} } from '@adion-cloud/ui-vue'`)
+const importLine = computed(() => `import { ${page.value.components.join(', ')} } from '@myadion/ui'`)
 </script>
 
 <template>

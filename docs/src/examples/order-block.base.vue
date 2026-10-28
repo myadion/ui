@@ -1,5 +1,5 @@
 <script setup>
-import { UiOrderBlock } from '@adion-cloud/ui-vue'
+import { UiOrderBlock } from '@myadion/ui'
 </script>
 
 <template>

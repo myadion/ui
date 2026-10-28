@@ -1,5 +1,5 @@
 <script setup>
-import { UiMessagePreview } from '@adion-cloud/ui-vue'
+import { UiMessagePreview } from '@myadion/ui'
 </script>
 
 <template>

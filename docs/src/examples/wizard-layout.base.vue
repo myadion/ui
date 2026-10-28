@@ -1,6 +1,6 @@
 <script setup>
 import { computed, reactive, ref } from 'vue'
-import { UiCard, UiChoices, UiInput, UiKeyValue, UiSegmented, UiSelect, UiWizardLayout } from '@adion-cloud/ui-vue'
+import { UiCard, UiChoices, UiInput, UiKeyValue, UiSegmented, UiSelect, UiWizardLayout } from '@myadion/ui'
 import { scopes, steps } from './data.js'
 
 const step = ref('nom')

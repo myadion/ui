@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiActionMenu } from '@adion-cloud/ui-vue'
+import { UiActionMenu } from '@myadion/ui'
 import { sampleActions } from './data.js'
 
 const last = ref('')

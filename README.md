@@ -15,18 +15,18 @@ Le kit d'interface d'Adion Cloud : **une seule source pour toutes nos applicatio
 
 | Dossier | Paquet | Pour qui |
 | --- | --- | --- |
-| `tokens/` | `@adion-cloud/tokens` | Tout le monde : la source unique (`tokens/src/*.json`) et ses sorties : `tokens.css` (variables `--adion-*`, thèmes sombre et clair), `tokens.mjs` (valeurs et thèmes Vuetify), `tokens.json`, Android (`res/values*/adion_*.xml`, `AdionTokens.kt` pour Compose) |
-| `packages/vue/` | `@adion-cloud/ui-vue` | Les applications Vue 3 + Vuetify 3 : composants `Ui*`, gabarits (`UiListLayout`, `UiDetailLayout`, `UiWizardLayout`, `UiFormLayout`), `base.css` (l'habillage de Vuetify), `ui.css` |
+| `tokens/` | `@myadion/tokens` | Tout le monde : la source unique (`tokens/src/*.json`) et ses sorties : `tokens.css` (variables `--adion-*`, thèmes sombre et clair), `tokens.mjs` (valeurs et thèmes Vuetify), `tokens.json`, Android (`res/values*/adion_*.xml`, `AdionTokens.kt` pour Compose) |
+| `packages/vue/` | `@myadion/ui` | Les applications Vue 3 + Vuetify 3 : composants `Ui*`, gabarits (`UiListLayout`, `UiDetailLayout`, `UiWizardLayout`, `UiFormLayout`), `base.css` (l'habillage de Vuetify), `ui.css` |
 | `docs/` | — | La doc publique : principes, jetons, tous les composants en direct |
 
 ## Brancher une application Vue
 
 ```js
-import '@adion-cloud/tokens/tokens.css'
-import '@adion-cloud/ui-vue/base.css'
-import '@adion-cloud/ui-vue/ui.css'
-import { vuetifyThemes } from '@adion-cloud/tokens'
-import { createAdionUi } from '@adion-cloud/ui-vue'
+import '@myadion/tokens/tokens.css'
+import '@myadion/ui/base.css'
+import '@myadion/ui/ui.css'
+import { vuetifyThemes } from '@myadion/tokens'
+import { createAdionUi } from '@myadion/ui'
 
 app.use(createAdionUi({
   request,        // (options) => Promise : un appel à Nexus { method, path, data, params, projectId }

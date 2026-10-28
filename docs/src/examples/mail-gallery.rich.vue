@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiButton, UiMailDropZone, UiMailStyleFields, UiMailTemplateGallery } from '@adion-cloud/ui-vue'
+import { UiButton, UiMailDropZone, UiMailStyleFields, UiMailTemplateGallery } from '@myadion/ui'
 import { mailDocument, mailEditor, renderMail } from './data.js'
 
 const style = ref({ font: 'playfair', size: 32, background: '#fef3c7' })

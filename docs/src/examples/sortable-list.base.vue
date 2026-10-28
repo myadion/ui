@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { UiSortableList } from '@adion-cloud/ui-vue'
+import { UiSortableList } from '@myadion/ui'
 
 const cascade = ref([
   { key: 'email', label: 'E-mail', hint: 'Premier essai', icon: 'mdi-email-outline' },

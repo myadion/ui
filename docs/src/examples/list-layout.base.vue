@@ -1,5 +1,5 @@
 <script setup>
-import { UiListLayout, UiServiceTable, UiStat } from '@adion-cloud/ui-vue'
+import { UiListLayout, UiServiceTable, UiStat } from '@myadion/ui'
 import { demoServices, productLinks } from './data.js'
 </script>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { UiLineChart } from '@adion-cloud/ui-vue'
+import { UiLineChart } from '@myadion/ui'
 import { chartLabels, chartSeries } from './data.js'
 </script>
 

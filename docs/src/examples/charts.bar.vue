@@ -1,5 +1,5 @@
 <script setup>
-import { UiBarChart } from '@adion-cloud/ui-vue'
+import { UiBarChart } from '@myadion/ui'
 </script>
 
 <template>

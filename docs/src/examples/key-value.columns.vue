@@ -1,5 +1,5 @@
 <script setup>
-import { UiKeyValue } from '@adion-cloud/ui-vue'
+import { UiKeyValue } from '@myadion/ui'
 </script>
 
 <template>

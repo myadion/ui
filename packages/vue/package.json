@@ -1,5 +1,5 @@
 {
-  "name": "@adion-cloud/ui-vue",
+  "name": "@myadion/ui",
   "version": "0.1.0",
   "description": "Les composants et gabarits d'Adion Cloud pour Vue 3 et Vuetify 3.",
   "type": "module",
@@ -10,7 +10,9 @@
     "directory": "packages/vue"
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.js",
+    "README.md"
   ],
   "main": "./src/index.js",
   "exports": {
@@ -21,18 +23,28 @@
     "./*": "./src/*"
   },
   "peerDependencies": {
-    "@adion-cloud/tokens": "^0.1.0",
+    "@myadion/tokens": "^0.1.0",
     "vue": "^3.5.0",
     "vue-router": "^4.0.0",
     "vuetify": "^3.8.0",
     "three": ">=0.160.0"
   },
   "scripts": {
-    "test": "node --test \"src/*.test.js\""
+    "test": "node --test \"src/*.test.js\"",
+    "prepublishOnly": "node --test \"src/*.test.js\""
   },
   "peerDependenciesMeta": {
     "three": {
       "optional": true
     }
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/myadion/ui-kit",
+  "keywords": [
+    "adion",
+    "design-system",
+    "ui-kit"
+  ]
 }
