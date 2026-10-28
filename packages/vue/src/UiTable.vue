@@ -20,8 +20,13 @@ import { usePreference } from './preferences'
  * fiche (`stack`).
  *
  * Colonnes : { key, label, align: 'num'|'right', sortable, value(row),
- * sortValue(row), main, mono, muted, nowrap, ellipsis }. Une cellule se
- * dessine par le creneau `cell-<key>` ({ row, value }).
+ * sortValue(row), main, mono, muted, nowrap, ellipsis, icon, tone, sub }. Une
+ * cellule se dessine par le creneau `cell-<key>` ({ row, value }).
+ *
+ * Comme /maquette (2026-10-28) : `icon(row)` pose une tuile devant la valeur,
+ * teintee par `tone(row)` (ok, info, warn, bad, muted) ; `sub(row)` ajoute une
+ * seconde ligne grise. `quick(row)` donne des gestes en icones au bout de la
+ * ligne ([{ key, icon, label, tone? }]) : `quick` est emis avec { key, row }.
  *
  * Deux modes :
  *   - par defaut, tout se fait ici (recherche, filtres, tri, pages) ;
@@ -37,6 +42,7 @@ const props = defineProps({
   filters: { type: Array, default: () => [] },
   rowTo: { type: Function, default: null },
   goLabel: { type: [String, Function], default: 'Ouvrir' },
+  quick: { type: Function, default: null },
   pageSize: { type: Number, default: 0 },
   loading: { type: Boolean, default: false },
   error: { type: String, default: '' },
@@ -55,7 +61,8 @@ const props = defineProps({
    */
   prefKey: { type: String, default: '' },
 })
-const emit = defineEmits(['query', 'retry', 'row-click', 'search'])
+const emit = defineEmits(['query', 'retry', 'row-click', 'search', 'quick'])
+const call = (v, row) => (typeof v === 'function' ? v(row) : v)
 
 const router = useRouter()
 const needle = ref('')
@@ -110,7 +117,7 @@ function onRow(event, row, index) {
 
 const clickable = computed(() => Boolean(props.rowTo) || props.expandable)
 const goText = (row) => (typeof props.goLabel === 'function' ? props.goLabel(row) : props.goLabel)
-const colCount = computed(() => shown.value.length + (props.rowTo || hasRowActions.value ? 1 : 0))
+const colCount = computed(() => shown.value.length + (props.rowTo || hasRowActions.value || props.quick ? 1 : 0))
 const slots = useSlots()
 const hasRowActions = computed(() => Boolean(slots['row-actions']))
 const alignClass = (column) => ({ num: 'num', right: 'right' }[column.align] || '')
@@ -196,18 +203,27 @@ defineExpose({ clear })
               </button>
               <template v-else>{{ column.label }}</template>
             </th>
-            <th v-if="rowTo || $slots['row-actions']" class="right" />
+            <th v-if="rowTo || quick || $slots['row-actions']" class="right" />
           </tr>
         </thead>
         <tbody>
           <template v-for="(row, index) in view.rows" :key="keyOf(row, index)">
             <tr :class="{ 'is-clickable': clickable }" @click="onRow($event, row, index)">
               <td v-for="column in shown" :key="column.key" :class="cellClass(column)" :data-label="column.label || undefined">
-                <slot :name="`cell-${column.key}`" :row="row" :value="cellValue(row, column)">{{ cellValue(row, column) ?? '—' }}</slot>
+                <slot :name="`cell-${column.key}`" :row="row" :value="cellValue(row, column)">
+                  <span v-if="column.icon || column.sub" class="ui-table__cell">
+                    <span v-if="column.icon" class="ui-table__tile" :class="column.tone && `is-tone-${call(column.tone, row)}`"><v-icon :icon="call(column.icon, row)" size="17" /></span>
+                    <span class="ui-table__lines"><span class="ui-table__main">{{ cellValue(row, column) ?? '—' }}</span><small v-if="column.sub && call(column.sub, row)" class="ui-table__sub">{{ call(column.sub, row) }}</small></span>
+                  </span>
+                  <template v-else>{{ cellValue(row, column) ?? '—' }}</template>
+                </slot>
               </td>
-              <td v-if="rowTo || $slots['row-actions']" class="right is-go">
+              <td v-if="rowTo || quick || $slots['row-actions']" class="right is-go">
+                <span v-if="quick" class="ui-table__quick" @click.stop>
+                  <button v-for="q in quick(row)" :key="q.key" type="button" class="ui-iconactions__btn" :class="q.tone && `is-${q.tone}`" :title="q.label" :aria-label="q.label" @click="emit('quick', { key: q.key, row })"><v-icon :icon="q.icon" size="16" /></button>
+                </span>
                 <slot name="row-actions" :row="row">
-                  <router-link :to="rowTo(row)" class="row-link">{{ goText(row) }} <v-icon icon="mdi-arrow-right" size="14" /></router-link>
+                  <router-link v-if="rowTo" :to="rowTo(row)" class="row-link">{{ goText(row) }} <v-icon icon="mdi-arrow-right" size="14" /></router-link>
                 </slot>
               </td>
             </tr>

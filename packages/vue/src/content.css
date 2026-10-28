@@ -351,3 +351,20 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
 
 /* L'icone d'un chiffre en tuile de sa couleur (Vuetify fixe sa taille : on la force). */
 .ui-page .ui-stat__label .v-icon { width: 26px !important; height: 26px !important; font-size: 16px !important; }
+
+/* Le tableau de la maquette : une tuile par ligne, deux lignes de texte, des gestes au survol. */
+.ui-page .grid-table th { background: color-mix(in srgb, #000 14%, var(--adion-card)); }
+.ui-page .grid-table :is(th, td):first-child { padding-left: 20px; }
+.ui-table__cell { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.ui-table__lines { display: grid; min-width: 0; }
+.ui-table__main { overflow: hidden; text-overflow: ellipsis; }
+.ui-table__sub { overflow: hidden; text-overflow: ellipsis; font-size: 12.5px; font-weight: 400; color: var(--adion-ink-3); }
+.ui-table__tile { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 6px; color: var(--adion-primary); background: color-mix(in srgb, var(--adion-primary) 8%, transparent); box-shadow: inset 0 0 0 1px var(--adion-line); }
+.ui-table__tile.is-tone-info { color: var(--adion-info); background: color-mix(in srgb, var(--adion-info) 8%, transparent); }
+.ui-table__tile.is-tone-warn { color: var(--adion-warn); background: color-mix(in srgb, var(--adion-warn) 8%, transparent); }
+.ui-table__tile.is-tone-bad { color: var(--adion-bad); background: color-mix(in srgb, var(--adion-bad) 8%, transparent); }
+.ui-table__tile.is-tone-muted { color: var(--adion-ink-3); background: color-mix(in srgb, var(--adion-ink-3) 6%, transparent); }
+.ui-table__quick { display: inline-flex; gap: 2px; margin-right: 8px; vertical-align: middle; opacity: 0.4; transition: opacity 0.15s; }
+.grid-table tr:hover .ui-table__quick, .ui-table__quick:focus-within { opacity: 1; }
+.grid-table td.num .ui-table__cell, .grid-table td.right .ui-table__cell { justify-content: flex-end; }
+.grid-table td.num .ui-table__lines, .grid-table td.right .ui-table__lines { justify-items: end; text-align: right; }

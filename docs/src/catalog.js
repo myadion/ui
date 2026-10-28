@@ -20,6 +20,7 @@ export const groups = [
       { id: 'detail-layout', title: 'Fiche', components: ['UiDetailLayout'], lead: 'La page d’un service : fil d’Ariane, nom, état, gestes, bandeaux, chiffres, onglets. Le gabarit range les onglets : « Vue d’ensemble » en premier, réglages et résiliation à la fin.', examples: [{ file: 'detail-layout.base', title: 'La fiche d’un hébergement' }] },
       { id: 'wizard-layout', title: 'Création pas à pas', components: ['UiWizardLayout'], lead: 'Une question par écran, Précédent et Suivant en bas, un récapitulatif à droite.', examples: [{ file: 'wizard-layout.base', title: 'Créer une application' }] },
       { id: 'app-shell', title: 'Coque d’application', components: ['UiAppShell', 'UiTopBar', 'UiIconActions'], lead: 'La barre de gauche de haut en bas, la barre du haut à sa droite, puis la page. Sur un écran de 900 px et moins, la barre de gauche se cache et le bouton menu de la barre du haut l’ouvre dans un panneau.', examples: [{ file: 'app-shell.layout', title: 'La coque entière' }, { file: 'app-shell.topbar', title: 'La barre du haut', text: 'brand-always montre le logo même sur ordinateur, pour une app sans barre de gauche.' }, { file: 'app-shell.actions', title: 'Des gestes en icônes', text: 'Décrits par des données : un lien (to, href) ou un bouton qui émet action. tone: danger rougit au survol.' }] },
+      { id: 'sidebar', title: 'Barre de gauche', components: ['UiSidebar', 'UiSidebarContext', 'UiSidebarModes', 'UiSidebarSearch', 'UiSidebarSection', 'UiSidebarProduct', 'UiSidebarEntry', 'UiSidebarEmpty', 'UiSidebarFooter', 'UiSidebarLink', 'UiSidebarChild'], lead: 'La barre de gauche d’une application : le logo et ses gestes, le compte et le projet, les rangements, le filtre, l’arbre des produits et de leurs services, le pied. Le kit la dessine ; l’app la remplit et dit ce que fait chaque clic.', examples: [{ file: 'sidebar.base', title: 'La barre de l’espace client' }] },
       { id: 'form-layout', title: 'Réglages', components: ['UiFormLayout'], lead: 'Des sections titrées, des champs alignés et une barre d’enregistrement qui apparaît dès qu’un champ change.', examples: [{ file: 'form-layout.base', title: 'Les réglages du compte' }] },
     ],
   },
@@ -44,9 +45,10 @@ export const groups = [
   {
     title: 'Données',
     pages: [
-      { id: 'table', title: 'Tableau', components: ['UiTable'], lead: 'Recherche, filtres, tri, colonnes choisies par le client, pagination, ligne cliquable, états vide, chargement et erreur ; une fiche par ligne sur téléphone.', examples: [{ file: 'table.base', title: 'Un tableau et ses états' }] },
+      { id: 'table', title: 'Tableau', components: ['UiTable'], lead: 'Recherche, filtres, tri, colonnes choisies par le client, pagination, ligne cliquable, états vide, chargement et erreur ; une fiche par ligne sur téléphone.', examples: [{ file: 'table.maquette', title: 'À la forme de la maquette', text: 'icon et tone posent une tuile, sub une seconde ligne ; quick donne les gestes au survol et émet quick.' }, { file: 'table.base', title: 'Un tableau et ses états' }] },
       { id: 'stat', title: 'Chiffres', components: ['UiStat'], lead: 'Dans .ui-stats ou le créneau stats des gabarits. Une tendance, une courbe, une aide courte.', examples: [{ file: 'stat.base', title: 'Une rangée de chiffres' }] },
       { id: 'key-value', title: 'Faits', components: ['UiKeyValue'], lead: 'Une seule forme de faits, aux colonnes alignées. Une valeur vide s’affiche « — ».', examples: [{ file: 'key-value.columns', title: 'En colonnes' }, { file: 'key-value.tiles', title: 'En tuiles' }] },
+      { id: 'activity', title: 'Activité', components: ['UiActivity'], lead: 'Ce qui vient de se passer, du plus récent au plus ancien : une tuile d’icône teintée par le ton, le titre, puis qui et quand.', examples: [{ file: 'activity.base', title: 'L’activité d’un projet' }] },
       { id: 'list', title: 'Liste', components: ['UiList'], lead: 'Des phrases à puces, avec une icône si elle aide.', examples: [{ file: 'list.base', title: 'Une liste' }] },
       { id: 'timeline', title: 'Frise', components: ['UiTimeline'], lead: 'Ce qui s’est passé, du plus récent au plus ancien, avec le ton de chaque événement.', examples: [{ file: 'timeline.base', title: 'Le journal d’une application' }] },
       { id: 'code', title: 'Code et identifiants', components: ['UiCode', 'UiCopyId'], lead: 'Un bloc de code avec son bouton Copier ; un identifiant à copier d’un clic.', examples: [{ file: 'code.block', title: 'Un appel à l’API' }, { file: 'code.wrap', title: 'Un texte à lire en entier (wrap)' }, { file: 'code.copy-id', title: 'Un identifiant à copier' }] },
@@ -101,6 +103,7 @@ export const groups = [
     title: 'Pages qui donnent envie',
     pages: [
       { id: 'hero', title: 'Accroche', components: ['UiHero', 'UiFeatureGrid'], lead: 'Pour la page vide d’un produit : une promesse, une action, trois bénéfices. Une couleur par famille.', examples: [{ file: 'hero.base', title: 'L’hébergement web' }] },
+      { id: 'promo', title: 'Carte à vagues', components: ['UiPromoCard'], lead: 'Une carte qui donne envie : dégradé bleu nuit vers vert, deux vagues qui ondulent lentement. Une par écran, pas plus.', examples: [{ file: 'promo.base', title: 'Brancher ses outils' }] },
       { id: 'setup', title: 'Mise en route', components: ['UiSetup', 'UiChoiceCards', 'UiCopyCallout', 'UiPromptList'], lead: 'Trois étapes : choisir, copier, essayer.', examples: [{ file: 'setup.base', title: 'Brancher son IA' }] },
     ],
   },
