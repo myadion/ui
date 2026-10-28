@@ -1961,3 +1961,67 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 /* UiCopyId : un identifiant en chasse fixe et son bouton Copier */
 .ui-copyid { display: inline-flex; align-items: center; gap: var(--adion-space-1); max-width: 100%; }
 .ui-copyid__value { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; color: var(--adion-text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; user-select: all; }
+
+/* ---------------------------------------------------------------- */
+/* La coque d'une application : UiAppShell, UiTopBar, UiIconActions  */
+/* (2026-10-28). Les mesures sont celles de l'espace client ; la      */
+/* barre du haut prend le filet et les gestes ronds de /maquette.     */
+/* ---------------------------------------------------------------- */
+:root { --adion-topnav-height: 48px; }
+.ui-shell { display: flex; align-items: flex-start; min-width: 0; }
+.ui-shell__main { flex: 1; min-width: 0; }
+.ui-shell__content { width: 100%; max-width: 1480px; margin: 0 auto; padding: 24px 16px 96px; }
+.ui-shell__content.is-centered { display: grid; align-content: center; min-height: 100vh; max-width: 1200px; padding: 20px; }
+@media (min-width: 960px) { .ui-shell__content:not(.is-centered) { padding-inline: 32px; } }
+@media (max-width: 900px) { .ui-shell__sidebar { display: none; } }
+
+.ui-topbar { position: sticky; top: 0; z-index: 1200; background: var(--adion-nav-bg); }
+.ui-topbar__bar { display: flex; align-items: stretch; height: var(--adion-topnav-height); border-bottom: 1px solid var(--adion-border); }
+.ui-topbar__brand { display: none; align-items: center; gap: 10px; padding: 0 20px; border-right: 1px solid var(--adion-border); text-decoration: none; }
+.ui-topbar__brand.is-always { display: flex; }
+.ui-topbar__mark { width: 24px; height: 24px; flex: none; object-fit: contain; }
+.ui-topbar__pill { width: 22px; height: 12px; flex: none; border: 3px solid var(--adion-brand-green, var(--adion-primary)); border-radius: 99px; }
+.ui-topbar__name { font-family: var(--adion-font-brand); font-size: 12.8px; line-height: 1.1; text-transform: uppercase; color: var(--adion-text-1); }
+.ui-topbar__actions { display: flex; align-items: center; gap: 4px; margin-left: auto; padding: 0 18px 0 12px; }
+.ui-topbar__actions .v-btn--icon { width: 34px; height: 34px; min-width: 34px; border-radius: 50% !important; color: var(--adion-text-2); }
+.ui-topbar__actions .v-btn--icon:hover { background: var(--adion-nav-hover); color: var(--adion-text-1); }
+.ui-topbar__actions .v-btn--icon .v-icon { font-size: 19px; }
+.ui-topbar__actions .ui-iconactions { gap: 4px; }
+.ui-topbar__actions .ui-iconactions__btn { width: 32px; height: 32px; border-radius: 50%; }
+.ui-topbar__burger,
+.ui-topbar__close { display: none; place-items: center; width: 40px; height: 40px; margin-left: 4px; border: 0; border-radius: 10px; background: none; color: var(--adion-text-1); cursor: pointer; }
+.ui-topbar__close { display: grid; }
+.ui-topbar__burger:hover,
+.ui-topbar__close:hover { background: var(--adion-accent-soft); }
+.ui-topbar__menu { position: fixed; inset: 0; z-index: 2000; display: flex; justify-content: flex-end; background: rgba(3, 8, 12, 0.55); backdrop-filter: blur(2px); }
+.ui-topbar__panel { display: flex; flex-direction: column; width: 100%; height: 100%; overflow-y: auto; overscroll-behavior: contain; background: var(--adion-nav-bg); }
+.ui-topbar__panelhead { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 8px 0 20px; background: var(--adion-nav-bg); border-bottom: 1px solid var(--adion-border); font-size: 12px; font-weight: 500; letter-spacing: 1.4px; text-transform: uppercase; color: var(--adion-text-2); }
+.ui-topbar-menu-enter-active,
+.ui-topbar-menu-leave-active { transition: opacity 0.2s ease; }
+.ui-topbar-menu-enter-active .ui-topbar__panel,
+.ui-topbar-menu-leave-active .ui-topbar__panel { transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.ui-topbar-menu-enter-from,
+.ui-topbar-menu-leave-to { opacity: 0; }
+.ui-topbar-menu-enter-from .ui-topbar__panel,
+.ui-topbar-menu-leave-to .ui-topbar__panel { transform: translateX(100%); }
+@media (prefers-reduced-motion: reduce) {
+  .ui-topbar-menu-enter-active, .ui-topbar-menu-leave-active,
+  .ui-topbar-menu-enter-active .ui-topbar__panel, .ui-topbar-menu-leave-active .ui-topbar__panel { transition: none; }
+}
+@media (max-width: 900px) {
+  .ui-topbar__brand { display: flex; }
+  .ui-topbar__burger { display: grid; }
+}
+@media (max-width: 720px) {
+  .ui-topbar__brand { padding: 0 12px; }
+  .ui-topbar__name { display: none; }
+  .ui-topbar__actions { padding: 0 8px 0 4px; gap: 2px; }
+  .ui-topbar__actions .v-btn--icon { width: 30px; height: 30px; min-width: 30px; }
+}
+
+.ui-iconactions { display: flex; align-items: center; gap: 2px; }
+.ui-iconactions__btn { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 2px; background: none; color: var(--adion-text-2); text-decoration: none; cursor: pointer; }
+.ui-iconactions__btn:hover { background: var(--adion-row-hover); color: var(--adion-text-1); }
+.ui-iconactions__btn.router-link-exact-active { color: var(--adion-accent-text); }
+.ui-iconactions__btn.is-danger:hover { color: var(--adion-bad); }
+.ui-iconactions__btn:focus-visible { outline: 2px solid var(--adion-focus); outline-offset: 1px; }

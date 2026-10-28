@@ -109,6 +109,10 @@ export { default as UiMailTemplateGallery } from './UiMailTemplateGallery.vue'
 
 export { tone, toneOf } from './tone'
 export { default as UiPublicLayout } from './UiPublicLayout.vue'
+// La coque d'une application : barre de gauche, barre du haut, page (2026-10-28)
+export { default as UiAppShell } from './UiAppShell.vue'
+export { default as UiTopBar } from './UiTopBar.vue'
+export { default as UiIconActions } from './UiIconActions.vue'
 export { default as UiCard3D } from './UiCard3D.vue'
 export { default as UiCardField } from './UiCardField.vue'
 export { unicodeChars, unicodeFacts } from './unicode'
