@@ -7,7 +7,7 @@ import { unicodeChars, unicodeFacts } from './unicode'
  * L'AVERTISSEMENT UNICODE (Adion UI) : sous la zone de texte d'un SMS, quand
  * un caractère hors de l'alphabet GSM le fait passer en Unicode et coûter
  * plus cher. On prévient, on ne bloque pas : un encadré d'alerte, la phrase
- * de Nexus, les caractères en cause en pastilles, les SMS facturés.
+ * de l'API, les caractères en cause en pastilles, les SMS facturés.
  * Le bouton d'envoi reste actif.
  */
 const props = defineProps({

@@ -6,7 +6,7 @@ import { reactive } from 'vue'
  * fois au demarrage, et le kit lui demande ce dont il a besoin :
  *
  *   app.use(createAdionUi({
- *     request,               // (options) => Promise : un appel a Nexus
+ *     request,               // (options) => Promise : un appel a l'API
  *                            //   { method, path, data, params, projectId }
  *     context,               // objet reactif { orgId, projectId } (le perimetre ouvert)
  *     services: {            // les gestes communs d'un service
@@ -50,7 +50,7 @@ export function createAdionUi(options = {}) {
 /** Ce que l'app a branche ; lisible hors d'un composant (preferences, tableaux). */
 export const useAdion = () => current
 
-/** Un appel a Nexus par l'app, ou une erreur claire si l'app n'en a pas donne. */
+/** Un appel a l'API par l'app, ou une erreur claire si l'app n'en a pas donne. */
 export function adionRequest(options) {
   if (!current.request) return Promise.reject(Object.assign(new Error('Adion UI : aucune fonction « request » branchée (createAdionUi).'), { status: 0 }))
   return current.request(options)

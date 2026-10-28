@@ -12,7 +12,7 @@ import UiInput from './UiInput.vue'
  * ne connait que la France.
  *
  * `address` est modifiee en place ({ line1, line2, postal_code, city,
- * country }) ; `prefix` est le nom du champ dans les erreurs de Nexus.
+ * country }) ; `prefix` est le nom du champ dans les erreurs de l'API.
  */
 const props = defineProps({
   address: { type: Object, required: true },

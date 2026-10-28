@@ -9,9 +9,9 @@ import { COMMON_ACTIONS, REFRESH_ACTION, handledActions } from './actions'
 import { useAdion } from './adapter.js'
 
 /*
- * LE MENU D'ACTIONS D'UNE FICHE, QUI SE BRANCHE SEUL (Adion UI, coordination#54).
+ * LE MENU D'ACTIONS D'UNE FICHE, QUI SE BRANCHE SEUL (Adion UI).
  * Il lit lui-meme `GET /account/project/{projet}/service/{service}/actions`
- * (le projet est celui du selecteur), pose la question de Nexus (`confirm`)
+ * (le projet est celui du selecteur), pose la question de l'API (`confirm`)
  * avant d'agir et recharge la liste apres chaque geste.
  *
  * Les gestes communs se font ici, une seule fois, pour toutes les fiches :
@@ -28,7 +28,7 @@ import { useAdion } from './adapter.js'
  * affichee, pas plus qu'une `key` inconnue.
  *
  * Resilier a besoin de l'abonnement (`subscription`, avec ses champs de
- * resiliation) : celui de la fiche, ou celui que Nexus joint a la liste.
+ * resiliation) : celui de la fiche, ou celui que l'API joint a la liste.
  */
 const props = defineProps({
   serviceId: { type: String, default: '' },

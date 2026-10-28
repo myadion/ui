@@ -7,7 +7,7 @@
  * monde ; un membre de l'equipe en porte au moins un autre.
  *
  * Ce n'est qu'un confort d'affichage (la doc du kit, /ui) : rien de ce qu'il
- * ouvre ne touche aux donnees, et Nexus reste seul juge de ce qui est permis.
+ * ouvre ne touche aux donnees, et l'API reste seul juge de ce qui est permis.
  */
 const EVERYONE = ['client', 'customer', 'tous le monde', 'tout le monde', 'everyone', 'user', 'utilisateur']
 

@@ -41,7 +41,7 @@ const props = defineProps({
   missing: { type: String, default: '' },
   missingTo: { type: [String, Object], default: '' },
   error: { type: String, default: '' },
-  /** Le menu d'actions standard (Migrer, Changer d'offre, Resilier...) : la liste `actions` que Nexus envoie sur le service. */
+  /** Le menu d'actions standard (Migrer, Changer d'offre, Resilier...) : la liste `actions` que l'API envoie sur le service. */
   actions: { type: Array, default: null },
   /** Le menu se branche seul : il lit les actions du service (`serviceId`) et fait les gestes communs (resilier, migrer, reactiver). */
   serviceId: { type: String, default: '' },
@@ -83,12 +83,12 @@ const trail = computed(() => crumbTrail(props.crumbs))
       </template>
     </UiPageHeader>
 
-    <!-- Sous le cartouche, tout s'aligne sur son texte : la gouttiere de la fiche (coordination#43). -->
+    <!-- Sous le cartouche, tout s'aligne sur son texte : la gouttiere de la fiche. -->
     <div class="ui-detail__content">
       <UiServiceNotice v-if="serviceId" :service-id="serviceId" />
       <slot name="notices" />
 
-      <!-- Les chiffres en colonne a droite (Kevin, coordination#52) : les onglets et leur contenu a gauche, une seule colonne sur telephone, chiffres d'abord. -->
+      <!-- Les chiffres en colonne a droite : les onglets et leur contenu a gauche, une seule colonne sur telephone, chiffres d'abord. -->
       <div v-if="$slots.stats || $slots.aside" class="ui-split ui-split--detail">
         <div class="ui-layout__body">
           <UiTabs v-if="ordered.length > 1" :tabs="ordered" :model-value="tab" query="onglet" @update:model-value="(v) => emit('update:tab', v)" />

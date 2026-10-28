@@ -13,8 +13,8 @@ import UiSelect from './UiSelect.vue'
 import { BLOCK_ICONS, BLOCK_TITLES, COLUMN_RATIOS, blockName, resizeColumns } from './mailBlocks'
 
 /*
- * LES REGLAGES DU BLOC CHOISI DANS LE COURRIEL (Adion UI, repris de
- * MailBlockSettings d'Orbit, 2026-10-14).
+ * LES REGLAGES DU BLOC CHOISI DANS LE COURRIEL (Adion UI,
+ * 2026-10-14).
  *
  * Un seul bloc a la fois : c'est la contrepartie de l'edition sur le
  * document. On choisit sur le message, on regle ici, et le message se
@@ -28,7 +28,7 @@ import { BLOCK_ICONS, BLOCK_TITLES, COLUMN_RATIOS, blockName, resizeColumns } fr
  * sur la zone du bloc, ou sur le courriel lui-meme (UiMailCanvas).
  *
  * LE REGLAGE FIN (2026-10-15) : typographie, boite, bouton, section - dans
- * UiMailStyleFields, avec le vocabulaire que Nexus donne (`editor`).
+ * UiMailStyleFields, avec le vocabulaire que l'API donne (`editor`).
  */
 const props = defineProps({
   block: { type: Object, default: null },
@@ -38,7 +38,7 @@ const props = defineProps({
   upload: { type: Function, default: null },
   gallery: { type: Function, default: null },
   remove: { type: Function, default: null },
-  /** Le vocabulaire de l'editeur riche (polices, graisses…), donne par Nexus. */
+  /** Le vocabulaire de l'editeur riche (polices, graisses…), donne par l'API. */
   editor: { type: Object, default: () => ({}) },
   /** Le bloc est-il pose dans une colonne ? Une section n'y entre pas. */
   nested: { type: Boolean, default: false },
@@ -61,7 +61,7 @@ const COUNTS = Object.freeze([
   { value: 3, label: 'Trois' },
 ])
 
-/* Ce que chaque type de bloc sait regler (MailBlockStyle de Nexus). */
+/* Ce que chaque type de bloc sait regler (MailBlockStyle de l'API). */
 const STYLE_GROUPS = Object.freeze({
   heading: ['text', 'box'],
   text: ['text', 'box'],

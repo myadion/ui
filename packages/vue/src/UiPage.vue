@@ -16,7 +16,7 @@ import UiLoading from './UiLoading.vue'
  *   denied   le role ne permet pas (`denied` vaut true, ou ce qu'on ne peut
  *            pas consulter : « les services SMS de ce projet ») ;
  *   missing  la chose n'existe pas, ou pas dans ce projet ;
- *   error    Nexus n'a pas repondu : le message et Reessayer.
+ *   error    l'API n'a pas repondu : le message et Reessayer.
  *
  * Les gabarits (UiListLayout, UiDetailLayout…) l'emploient : un ecran de
  * produit ne s'en sert pas directement.

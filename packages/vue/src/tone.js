@@ -1,7 +1,7 @@
 /*
  * LE TON D'UN ETAT (Adion UI, 2026-10-13).
  *
- * Nexus dit l'etat d'une chose et, de plus en plus, son ton : `tone`,
+ * L'API dit l'etat d'une chose et, de plus en plus, son ton : `tone`,
  * `status_tone`, `severity`. Il le dit avec ses mots - success, warning,
  * danger, neutral - et les ecrans traduisaient chacun a sa facon. Ici, une
  * seule traduction vers les cinq tons du kit : ok, warn, bad, info, muted.
@@ -24,8 +24,8 @@ export function tone(value) {
 }
 
 /*
- * Le ton porte par un objet de Nexus, sous l'un des noms qu'il emploie.
- * `fallback` sert le temps que Nexus ne l'envoie pas encore.
+ * Le ton porte par un objet de l'API, sous l'un des noms qu'il emploie.
+ * `fallback` sert le temps que l'API ne l'envoie pas encore.
  */
 export function toneOf(item, fallback = 'muted') {
   if (!item || typeof item !== 'object') return tone(fallback)

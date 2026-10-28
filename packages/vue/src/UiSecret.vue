@@ -5,7 +5,7 @@ import UiNotice from './UiNotice.vue'
 
 /*
  * UN SECRET MONTRE UNE SEULE FOIS (Adion UI) : une cle d'API, le secret
- * d'une application. Nexus n'en garde que l'empreinte ; l'ecran le montre
+ * d'une application. L'API n'en garde que l'empreinte ; l'ecran le montre
  * masque, avec Afficher et Copier, et dit qu'il ne reviendra pas. « C'est
  * note » le referme pour de bon (`done`).
  */

@@ -1,7 +1,6 @@
 <script setup>
 /*
- * UN BANDEAU D'ACCROCHE (Adion UI, 2026-10-14 ; Kevin : « le but est de
- * vendre »). Un titre court, une promesse en une ligne, une icone dans la
+ * UN BANDEAU D'ACCROCHE (Adion UI, 2026-10-14). Un titre court, une promesse en une ligne, une icone dans la
  * couleur de la famille du produit, et l'action principale. Pour la page
  * vide d'un produit, une decouverte, une mise en route.
  *

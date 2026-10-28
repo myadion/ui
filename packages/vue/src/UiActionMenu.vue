@@ -4,9 +4,9 @@ import UiButton from './UiButton.vue'
 import { menuItems } from './actions'
 
 /*
- * LE MENU D'ACTIONS D'UNE FICHE (Adion UI, coordination#54) : un bouton
+ * LE MENU D'ACTIONS D'UNE FICHE (Adion UI) : un bouton
  * « Actions » a droite de l'en-tete, tout a droite apres les gestes du
- * produit. Nexus envoie la liste sur chaque service ; le composant l'affiche
+ * produit. L'API envoie la liste sur chaque service ; le composant l'affiche
  * telle quelle :
  *
  *   actions  [{ key, label, icon?, available, reason?, danger?, to? }]

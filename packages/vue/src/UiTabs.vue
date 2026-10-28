@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
  * LES ONGLETS D'UNE FICHE (Adion UI), repris d'AdionTabs : petites capitales,
  * un trait sous l'onglet ouvert, des fleches quand ils ne tiennent pas.
  *
- * L'ORDRE EST IMPOSE (Kevin, 2026-10-13) : « Vue d'ensemble » en premier, les
+ * L'ORDRE EST IMPOSE : « Vue d'ensemble » en premier, les
  * reglages puis la resiliation en dernier. UiDetailLayout le verifie.
  *
  * `query="onglet"` garde l'onglet dans l'adresse : un lien, un retour
@@ -15,7 +15,7 @@ import { useRoute, useRouter } from 'vue-router'
 const props = defineProps({
   /**
    * `countHint` dit ce que compte la pastille (« 1 nom en attente ») : en
-   * infobulle et pour les lecteurs d'ecran (coordination#43).
+   * infobulle et pour les lecteurs d'ecran.
    * @type {Array<{id:string,label:string,count?:number|string,countHint?:string,icon?:string}>}
    */
   tabs: { type: Array, required: true },

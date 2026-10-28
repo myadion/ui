@@ -7,7 +7,7 @@ import UiEmpty from './UiEmpty.vue'
 import { sortNotifications, unreadCount, whenLabel } from './notifications'
 
 /*
- * LE VOLET DES NOTIFICATIONS (Adion UI, coordination#80) : il s'ouvre sur la
+ * LE VOLET DES NOTIFICATIONS (Adion UI) : il s'ouvre sur la
  * droite. Chaque notification dit sa gravite, son titre, son message, sa date
  * et, quand il y en a une, son action (« Ajouter un moyen de paiement »).
  *

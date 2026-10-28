@@ -2,13 +2,13 @@
 import { computed, ref } from 'vue'
 
 /*
- * LE CHOIX DU MESSAGE, DANS LA BARRE (Adion UI, repris de MailTemplatePicker
- * d'Orbit, 2026-10-14).
+ * LE CHOIX DU MESSAGE, DANS LA BARRE (Adion UI,
+ * 2026-10-14).
  *
  * Une liste qui s'ouvre d'un clic, avec son filtre, plutot qu'une colonne
  * permanente : la place revient a l'editeur et a l'apercu. En tete,
  * « Apparence » (le theme : logo, couleurs, pied de page) ; dessous, les
- * modeles, regroupes par `group` quand Nexus en donne un.
+ * modeles, regroupes par `group` quand l'API en donne un.
  *
  *   templates   [{ key, name, subject, version?, group? }]
  *   mode        `template` ou `theme`

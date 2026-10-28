@@ -8,7 +8,7 @@
  *
  * `collapsible` la replie sous son titre (des regles, un detail qu'on relit
  * rarement) ; `open` l'ouvre d'emblee. Le titre reste lisible, le contenu
- * attend un clic (coordination#43).
+ * attend un clic.
  */
 defineProps({
   title: { type: String, default: '' },

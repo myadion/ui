@@ -27,7 +27,7 @@ test('la date se dit simplement', () => {
   assert.equal(whenLabel(null, now), '')
 })
 
-test('une notification de Nexus se lit dans la langue demandée, avec son action', () => {
+test('une notification de l’API se lit dans la langue demandée, avec son action', () => {
   const raw = {
     id: 'notif_1', severity: 'action_required', dismissible: false, read: false, occurred_at: '2026-10-16T08:00:00+00:00',
     title: { fr: 'Moyen de paiement manquant', en: 'Payment method missing' },

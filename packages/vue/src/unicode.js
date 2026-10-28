@@ -1,5 +1,5 @@
 /*
- * L'AVERTISSEMENT UNICODE D'UN SMS (coordination#66). Nexus envoie `unicode`
+ * L'AVERTISSEMENT UNICODE D'UN SMS. L'API envoie `unicode`
  * dans l'estimation : les caractères en cause, les SMS par destinataire et au
  * total, la phrase à afficher. Ici on ne fait que normaliser ce qu'il dit :
  * rien n'est recalculé, rien ne bloque.

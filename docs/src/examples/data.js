@@ -1,6 +1,6 @@
 /*
  * Les donnees d'exemple de la doc. Dans une application, elles viennent de
- * Nexus ; ici, rien ne part vers un serveur.
+ * L'API ; ici, rien ne part vers un serveur.
  */
 export const productLinks = [
   { key: 'documentation', label: 'Documentation', href: 'https://docs.myadion.com' },
@@ -14,7 +14,7 @@ export const demoServices = [
   { id: 'd3', name: 'vieux-site.fr', subscription: { status: 'suspended', offer: { public_label: 'Hébergement Essentiel' } }, account_service: { project_name: 'Archives' } },
 ]
 
-// Ce que Nexus envoie sur un service (coordination#54).
+// Ce que l'API envoie sur un service.
 export const sampleActions = [
   { key: 'purge', label: 'Vider le cache', icon: 'mdi-broom' },
   { key: 'migrate', label: 'Migrer le service', icon: 'mdi-folder-swap-outline', available: false, reason: 'Un seul projet dans cette organisation.' },
@@ -67,7 +67,7 @@ export const timeline = [
 ]
 
 /*
- * Un rendu minuscule de courriel. Dans l'espace, le HTML vient de Nexus
+ * Un rendu minuscule de courriel. Dans l'espace, le HTML vient de l'API
  * (MailBlockRenderer) ; ici, il pose les memes reperes pour voir le canevas vivre.
  */
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))

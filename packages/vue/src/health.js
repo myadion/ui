@@ -1,7 +1,7 @@
 /*
- * L'ETAT D'UN SERVICE DE LA PLATEFORME (Adion UI, coordination#78).
+ * L'ETAT D'UN SERVICE DE LA PLATEFORME (Adion UI).
  *
- * Nexus envoie le code (`operational`, `degraded`, `outage`, `maintenance`,
+ * L'API envoie le code (`operational`, `degraded`, `outage`, `maintenance`,
  * `unknown`) et le libelle de la famille. Tant qu'il n'envoie pas aussi
  * `status_label` et `tone`, ce fichier dit le mot et le ton du code : c'est
  * le seul endroit, aucun ecran n'en garde la table.
@@ -32,7 +32,7 @@ export function overallText(status) {
   return OVERALL[status] || OVERALL.unknown
 }
 
-/* La disponibilite en texte : « — » quand Nexus n'a pas la mesure. */
+/* La disponibilite en texte : « — » quand l'API n'a pas la mesure. */
 export function uptimeText(value) {
   if (value === null || value === undefined || value === '' || Number.isNaN(Number(value))) return '—'
   return `${Number(value).toLocaleString('fr-FR', { maximumFractionDigits: 2 })} %`

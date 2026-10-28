@@ -5,8 +5,8 @@ import { healthOf } from './health'
 import { useAdion } from './adapter.js'
 
 /*
- * LE BANDEAU D'UN SERVICE TOUCHE (Adion UI, coordination#78). Sur la fiche
- * d'un service, Nexus dit si le serveur qui l'heberge a un incident
+ * LE BANDEAU D'UN SERVICE TOUCHE (Adion UI). Sur la fiche
+ * d'un service, l'API dit si le serveur qui l'heberge a un incident
  * (`affected_services`) et rédige le message : on l'affiche tel quel, sous
  * l'en-tete. UiDetailLayout le met tout seul des qu'il a un `service-id`.
  * Sans incident, ou si la lecture echoue, rien : la fiche reste la meme.

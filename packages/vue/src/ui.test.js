@@ -5,7 +5,7 @@ import { filterRows, nextSort, paginate, searchRows, sortRows } from './table.js
 import { orderTabs, wizardProgress } from './layout.js'
 import { isAdionStaff } from './staff.js'
 
-test('le ton de Nexus se traduit dans les cinq tons du kit', () => {
+test('le ton de l’API se traduit dans les cinq tons du kit', () => {
   assert.equal(tone('success'), 'ok')
   assert.equal(tone('WARNING'), 'warn')
   assert.equal(tone('danger'), 'bad')
@@ -118,7 +118,7 @@ test('le fil d’Ariane d’une fiche s’arrête à la liste', async () => {
 
 import { BLOCK_TYPES, duplicateBlock, insertBlock, labelsFor, moveBlock, patchBlock, removeBlock, resizeColumns } from './mailBlocks.js'
 
-test('les blocs d’un courriel : les gestes d’Orbit, colonnes comprises', () => {
+test('les blocs d’un courriel : les gestes de l’éditeur, colonnes comprises', () => {
   const blocks = [{ type: 'heading', text: 'A' }, { type: 'columns', ratio: '50-50', columns: [{ blocks: [] }, { blocks: [{ type: 'text', text: 'x' }] }] }]
   const inserted = insertBlock(blocks, { zone: 'body', index: 1 }, 'button')
   assert.equal(inserted.blocks[1].type, 'button')
@@ -136,7 +136,7 @@ test('les blocs d’un courriel : les gestes d’Orbit, colonnes comprises', () 
   assert.equal(three.ratio, '33-33-33')
   assert.equal(resizeColumns(three, 2).columns[1].blocks.length, 1, 'réduire ne perd rien')
   assert.equal(labelsFor('body', blocks)['body:1:1:0'], 'Paragraphe')
-  // Les treize blocs d'Orbit, plus la section (des colonnes a une seule colonne).
+  // Les treize blocs, plus la section (des colonnes a une seule colonne).
   assert.equal(BLOCK_TYPES.length, 14)
   const section = insertBlock([], { zone: 'body', index: 0 }, 'section').blocks[0]
   assert.equal(section.type, 'columns')

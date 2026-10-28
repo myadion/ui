@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { BLOCK_TYPES } from './mailBlocks'
 
 /*
- * LE CHOIX D'UN TYPE DE BLOC (Adion UI, repris de MailBlockMenu d'Orbit).
+ * LE CHOIX D'UN TYPE DE BLOC (Adion UI).
  *
  * Chaque entree dit a quoi elle sert : « Chapeau » ne veut rien dire tant
  * qu'on n'a pas lu « quelques mots en majuscules au-dessus du titre ».

@@ -3,7 +3,7 @@ import UiButton from './UiButton.vue'
 import UiNotice from './UiNotice.vue'
 
 /*
- * UNE ERREUR DE CHARGEMENT (Adion UI) : le message de Nexus, et Reessayer.
+ * UNE ERREUR DE CHARGEMENT (Adion UI) : le message de l'API, et Reessayer.
  * Pour l'erreur d'un geste (un enregistrement refuse), UiNotice tone="bad".
  */
 defineProps({

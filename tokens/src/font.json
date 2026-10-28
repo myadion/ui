@@ -1,5 +1,5 @@
 {
-  "$description": "La typographie d'Adion (charte, §6). Les quatre polices sont libres (OFL).",
+  "$description": "La typographie d'Adion. Les quatre polices sont libres (OFL).",
   "families": {
     "font-text": { "value": "'Raleway', sans-serif", "description": "Le texte des interfaces et du site (poids 300 à 600)." },
     "font-brand": { "value": "'Lilita One', sans-serif", "description": "Le logo seulement, et rarement un très gros titre de marque. Jamais un paragraphe." },

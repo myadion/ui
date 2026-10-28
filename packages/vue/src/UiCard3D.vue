@@ -3,8 +3,8 @@ import { onBeforeUnmount, onMounted, ref, watch, computed } from 'vue'
 import { cardPalette, drawFace, FACE_H, FACE_W, faceFor, shouldUse3D } from './card3d.js'
 
 /*
- * UNE CARTE BANCAIRE QUI MONTRE OU TROUVER L'INFORMATION (Adion UI,
- * coordination#49). Elle suit le champ en cours de saisie :
+ * UNE CARTE BANCAIRE QUI MONTRE OU TROUVER L'INFORMATION (Adion UI).
+ * Elle suit le champ en cours de saisie :
  *
  *   focus    'number' (chiffres mis en avant), 'expiry' (la date), 'cvc' (la
  *            carte se retourne : les 3 chiffres du dos), ou vide (au repos,

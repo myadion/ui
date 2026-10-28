@@ -1,5 +1,5 @@
 /*
- * LE MENU D'ACTIONS D'UNE FICHE (Adion UI, coordination#54). Nexus envoie sur
+ * LE MENU D'ACTIONS D'UNE FICHE (Adion UI). L'API envoie sur
  * chaque service `actions` : [{ key, label, available, reason, danger }]. Le
  * kit ne decide de rien : il affiche la liste telle quelle, les actions
  * indisponibles grisees avec leur raison, et rejette en bas, apres un
@@ -24,7 +24,7 @@ export const ACTION_ICONS = {
 export const DEFAULT_ACTION_ICON = 'mdi-circle-small'
 export function actionIcon(key) { return ACTION_ICONS[key] || DEFAULT_ACTION_ICON }
 
-/** Actualiser : une action du kit, premiere du menu, sans appel a Nexus. */
+/** Actualiser : une action du kit, premiere du menu, sans appel a l'API. */
 export const REFRESH_ACTION = { key: 'refresh', label: 'Actualiser', group: 'kit', available: true, danger: false, confirm: null }
 
 export function menuGroups(actions) {
@@ -34,7 +34,7 @@ export function menuGroups(actions) {
   return { normal: items.filter((a) => !a.danger), danger: items.filter((a) => a.danger) }
 }
 
-/** Les actions que l'ecran sait faire : une `key` inconnue n'est pas affichee (le contrat de Nexus). */
+/** Les actions que l'ecran sait faire : une `key` inconnue n'est pas affichee (le contrat de l'API). */
 export function handledActions(actions, keys) {
   const known = new Set(keys)
   return (Array.isArray(actions) ? actions : []).filter((a) => a && known.has(a.key))

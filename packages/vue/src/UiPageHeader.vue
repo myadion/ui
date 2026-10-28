@@ -2,8 +2,7 @@
 import UiStatus from './UiStatus.vue'
 
 /*
- * L'EN-TETE D'UNE PAGE (Adion UI), compact depuis la relecture de Kevin
- * (2026-10-13 : « trop de place pour un espace client ») :
+ * L'EN-TETE D'UNE PAGE (Adion UI), compact (2026-10-13) :
  *
  *   ligne 1   la famille (ou le fil d'Ariane), le titre et son etat ; les gestes a droite ;
  *   ligne 2   la phrase d'explication, courte ;

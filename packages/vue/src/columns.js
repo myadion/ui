@@ -1,5 +1,5 @@
 /*
- * LES COLONNES CHOISIES PAR LE CLIENT (Kevin, le 2026-10-13), sans Vue :
+ * LES COLONNES CHOISIES PAR LE CLIENT, sans Vue :
  * lesquelles s'affichent et dans quel ordre. La preference tient en
  * { order: [cles], hidden: [cles] } ; une colonne que la preference ne connait
  * pas (ajoutee depuis) vient a la fin, et la colonne principale

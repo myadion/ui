@@ -1,5 +1,5 @@
 /*
- * LA CARTE BANCAIRE (Adion UI, coordination#49) : ce qu'on dessine sur ses
+ * LA CARTE BANCAIRE (Adion UI) : ce qu'on dessine sur ses
  * deux faces, et quand la montrer en 3D.
  *
  * La carte ne montre JAMAIS ce que l'acheteur tape : les numeros restent dans

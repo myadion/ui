@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { handledActions, menuGroups, menuItems } from './actions.js'
 
-test('les actions dangereuses vont en bas, les autres gardent l’ordre de Nexus', () => {
+test('les actions dangereuses vont en bas, les autres gardent l’ordre de l’API', () => {
   const { normal, danger } = menuGroups([
     { key: 'a', label: 'A' },
     { key: 'r', label: 'Résilier', danger: true },

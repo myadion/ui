@@ -52,7 +52,7 @@ export { default as UiWizard } from './UiWizard.vue'
 export { default as UiSortableList } from './UiSortableList.vue'
 export { default as UiMeter } from './UiMeter.vue'
 
-// Resultats et controles (2026-10-15, coordination#62)
+// Resultats et controles (2026-10-15)
 export { default as UiLineChart } from './UiLineChart.vue'
 export { default as UiBarChart } from './UiBarChart.vue'
 export { default as UiChecklist } from './UiChecklist.vue'
@@ -91,7 +91,7 @@ export { default as UiSetup } from './UiSetup.vue'
 export { default as UiCopyCallout } from './UiCopyCallout.vue'
 export { default as UiPromptList } from './UiPromptList.vue'
 
-// Les courriels : l'editeur visuel d'Orbit (2026-10-14)
+// Les courriels : l'editeur visuel (2026-10-14)
 export { default as UiMailStudio } from './UiMailStudio.vue'
 export { default as UiMailCanvas } from './UiMailCanvas.vue'
 export { default as UiMailBlockSettings } from './UiMailBlockSettings.vue'
@@ -116,13 +116,13 @@ export { default as UiServiceNotice } from './UiServiceNotice.vue'
 export { healthOf, overallText, uptimeText, uptimeTone, historyStrip, measuredText, groupDisruptions } from './health'
 export { default as UiHealthGroup } from './UiHealthGroup.vue'
 
-// Le centre de notifications (coordination#80)
+// Le centre de notifications
 export { default as UiAssistantButton } from './UiAssistantButton.vue'
 export { default as UiNotificationBell } from './UiNotificationBell.vue'
 export { default as UiNotificationDrawer } from './UiNotificationDrawer.vue'
 export { default as UiNotificationCenter } from './UiNotificationCenter.vue'
 
-// L'assistant, second onglet du volet (coordination#80 point 8)
+// L'assistant, second onglet du volet
 export { default as UiAssistantPanel } from './UiAssistantPanel.vue'
 export { default as UiAssistantMessage } from './UiAssistantMessage.vue'
 export { default as UiAssistantConfirmCard } from './UiAssistantConfirmCard.vue'

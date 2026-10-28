@@ -7,7 +7,7 @@ import UiLoading from './UiLoading.vue'
 import { otherTheme, readTheme, rememberTheme } from './theme.js'
 
 /*
- * LE GABARIT D'UNE PAGE PUBLIQUE (Adion UI, coordination#49) : une page vue
+ * LE GABARIT D'UNE PAGE PUBLIQUE (Adion UI) : une page vue
  * par quelqu'un qui n'a pas de compte - la page de paiement d'un lien Pay,
  * demain une signature, une confirmation. Ni menu ni projet.
  *

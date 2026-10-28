@@ -7,7 +7,7 @@ import UiField from './UiField.vue'
  * UNE LISTE DE CHOIX DECRITS (Adion UI) : des droits (scopes) avec leur
  * description, des projets autorises, des options. Chaque choix porte son
  * libelle et sa phrase ; `multiple` (par defaut) pour en cocher plusieurs,
- * sinon un seul. Les choix viennent de Nexus : { value, label, description }.
+ * sinon un seul. Les choix viennent de l'API : { value, label, description }.
  */
 const props = defineProps({
   modelValue: { type: [Array, String, Number], default: () => [] },

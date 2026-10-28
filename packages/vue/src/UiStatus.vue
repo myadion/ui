@@ -5,7 +5,7 @@ import { tone as toTone, toneOf } from './tone'
 /*
  * L'ETAT D'UNE CHOSE (Adion UI) : un point et un mot, a cote de son nom.
  * C'est la pastille de l'en-tete d'une fiche ; dans un tableau, on prefere
- * UiBadge. Accepte un objet de Nexus ({ label, tone }) ou les deux a part.
+ * UiBadge. Accepte un objet de l'API ({ label, tone }) ou les deux a part.
  */
 const props = defineProps({
   status: { type: Object, default: null },

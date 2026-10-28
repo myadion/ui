@@ -15,8 +15,8 @@ import {
 } from './mailBlocks'
 
 /*
- * LE STUDIO D'UN COURRIEL (Adion UI, repris de l'ecran des courriels
- * d'Orbit, src/views/Mailing/Templates.vue, 2026-10-14).
+ * LE STUDIO D'UN COURRIEL (Adion UI,
+ * 2026-10-14).
  *
  * ON TRAVAILLE SUR LE MESSAGE, PAS A COTE. Le courriel occupe la place
  * (UiMailCanvas) ; on clique un bloc dedans, on le regle dans le volet de
@@ -27,7 +27,7 @@ import {
  * LE MEME POUR UN MODELE ET POUR UNE CAMPAGNE. Le studio ne sait pas ce qu'il
  * edite : `v-model` est le document entier ({ subject, preheader, blocks,
  * ... }), dont seuls les blocs se touchent ici. L'ecran demande le rendu a
- * Nexus a chaque `refresh` (apercu `editable`, dans le jeu de couleurs
+ * L'API a chaque `refresh` (apercu `editable`, dans le jeu de couleurs
  * `scheme`) et le rend par `html`.
  *
  * L'HISTORIQUE. Un editeur visuel sans « annuler » se prete mal a l'essai.
@@ -38,7 +38,7 @@ import {
  * (`upload`) puis posee : elle remplace l'image visee, ou s'ajoute sous le
  * bloc vise. « Mes images » se gere depuis le reglage d'une image
  * (`gallery`, `remove`). `editor` : le vocabulaire de l'editeur riche,
- * donne par Nexus.
+ * donne par l'API.
  */
 const props = defineProps({
   modelValue: { type: Object, required: true },

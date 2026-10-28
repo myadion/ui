@@ -9,11 +9,11 @@ import UiNotice from './UiNotice.vue'
 import { whenLabel } from './notifications'
 
 /*
- * L'ONGLET « ASSISTANT » DU VOLET (Adion UI, coordination#80 point 8). Le
+ * L'ONGLET « ASSISTANT » DU VOLET (Adion UI). Le
  * client pilote son espace en discutant ; rien ne s'execute sans son clic sur
  * une carte. Le composant n'appelle rien : `useAssistant` le nourrit.
  *
- *   available       faux : `unavailable` dit pourquoi (message de Nexus), plus de saisie
+ *   available       faux : `unavailable` dit pourquoi (message de l'API), plus de saisie
  *   thread          { messages, pending, limit, error, status, streaming }
  *   conversations   [{ id, title, last_message_at }]
  *   counter         « 3 / 50 messages aujourd'hui »

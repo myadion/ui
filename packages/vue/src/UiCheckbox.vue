@@ -7,7 +7,7 @@
  *   - `danger` : la case qui engage - « je comprends que tout sera
  *     supprime » - sur fond rouge pale ;
  *   - `switch` : un interrupteur qui agit tout de suite (activer, couper).
- *     Fin, a la hauteur d'un controle (Kevin, 2026-10-13 : « trop epais »).
+ *     Fin, a la hauteur d'un controle.
  */
 const props = defineProps({
   modelValue: { type: Boolean, default: false },

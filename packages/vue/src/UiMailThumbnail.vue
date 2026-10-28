@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 /*
  * LA VIGNETTE D'UN COURRIEL (Adion UI, 2026-10-14) : le haut du message rendu
- * par Nexus, reduit, pour reconnaitre un modele d'un coup d'oeil dans une
+ * par l'API, reduit, pour reconnaitre un modele d'un coup d'oeil dans une
  * liste. Le document garde sa largeur reelle (600 px + marges) et c'est
  * l'affichage qui se reduit ; rien ne s'y clique ni ne s'y execute
  * (bac a sable vide). Sans HTML : un chargement, ou l'icone d'un courriel.

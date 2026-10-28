@@ -7,7 +7,7 @@ import { addTags } from './tags'
  * UN CHAMP A PASTILLES (Adion UI) : des numeros, des adresses, des noms. On
  * tape puis Entree, ou on colle une liste : chaque valeur devient une
  * pastille qu'on retire d'un clic. `invalid` ({ valeur: raison }) marque en
- * rouge celles que Nexus a ecartees, la raison en infobulle. Ne coupe pas aux
+ * rouge celles que l'API a ecartees, la raison en infobulle. Ne coupe pas aux
  * espaces : « 06 12 34 56 78 » est une seule valeur.
  */
 const props = defineProps({

@@ -1,13 +1,13 @@
 /*
  * LA CORRESPONDANCE DES COLONNES (UiColumnMapper) : pour chaque colonne d'un
- * fichier, la cible que Nexus propose et que le client corrige. Les cibles
- * viennent de Nexus ({ value, label, group }) ; la colonne libre est propre a
+ * fichier, la cible que l'API propose et que le client corrige. Les cibles
+ * viennent de l'API ({ value, label, group }) ; la colonne libre est propre a
  * chaque colonne (`field_target`) et « ignore » peut servir plusieurs fois.
  * Une cible du carnet (e-mail, mobile...) ne recoit qu'une colonne.
  */
 export const IGNORE = 'ignore'
 
-/* Les cibles groupees pour une liste de choix : un intitule par groupe, dans l'ordre de Nexus. */
+/* Les cibles groupees pour une liste de choix : un intitule par groupe, dans l'ordre de l'API. */
 export function groupedTargets(targets = [], column = null) {
   const items = []
   const groups = []

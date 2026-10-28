@@ -3,9 +3,8 @@ import UiPage from './UiPage.vue'
 import UiPageHeader from './UiPageHeader.vue'
 
 /*
- * LE GABARIT DE L'ACCUEIL (Adion UI, coordination#80 point 3). Kevin : « quelque
- * chose de plus epure et propre, pour souhaiter la bienvenue confortablement
- * a nos clients ». Un mot de bienvenue, puis des sections espacees :
+ * LE GABARIT DE L'ACCUEIL (Adion UI) : souhaiter la bienvenue
+ * confortablement a nos clients. Un mot de bienvenue, puis des sections espacees :
  * l'attention du client, ses services en un coup d'oeil, quelques raccourcis.
  * Pas de tableau, rien de technique ; beaucoup d'air (`ui-home`).
  */

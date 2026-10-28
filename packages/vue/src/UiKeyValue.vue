@@ -2,8 +2,7 @@
 import { computed } from 'vue'
 
 /*
- * DES FAITS (Adion UI). Une seule forme depuis la relecture de Kevin
- * (2026-10-13) : l'intitule dans une colonne fixe, la valeur a cote, une
+ * DES FAITS (Adion UI). Une seule forme (2026-10-13) : l'intitule dans une colonne fixe, la valeur a cote, une
  * ligne par fait, les colonnes alignees d'une fiche a l'autre.
  *
  *   columns  1 (par defaut) ou 2 : deux listes cote a cote sur grand ecran ;

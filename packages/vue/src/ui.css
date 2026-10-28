@@ -1,15 +1,13 @@
 /*
  * ADION UI - LES CLASSES DU KIT (2026-10-13).
  *
- * Kevin : « a chaque fois que je fais rajouter un produit, les agents
- * inventent des designs differents ». Ce fichier est la seule place ou se
- * dessine un motif de l'espace client. Un ecran n'a pas de <style> : il
+ * Ce fichier est la seule place ou se dessine un motif d'interface. Un ecran n'a pas de <style> : il
  * assemble les composants de src/ui, et un motif qui manque s'ajoute ici.
  *
  * Toutes les classes commencent par `ui-`. Le garde-fou (src/ui/guard.test.js)
  * refuse qu'un ecran les redefinisse.
  *
- * DEUXIEME PASSE, apres la relecture de Kevin (2026-10-13) :
+ * DEUXIEME PASSE (2026-10-13) :
  *   - « on etouffe » : un rythme vertical par jetons (8, 12, 16, 24, 32) ;
  *   - « jamais aligne » : libelle 16 px, controle 32 px, aide dessous, partout ;
  *   - « tout est tres carre » : 4 px pour un controle, 8 px pour une carte ;
@@ -34,7 +32,7 @@
 
 .ui-layout__body { display: grid; min-width: 0; }
 
-/* La fiche : sous le cartouche, chiffres, onglets et sections s'alignent sur son texte (coordination#43). */
+/* La fiche : sous le cartouche, chiffres, onglets et sections s'alignent sur son texte. */
 .ui-detail__content { display: grid; min-width: 0; padding-inline: var(--adion-space-5); }
 .ui-detail__content > * { min-width: 0; }
 @media (max-width: 720px) { .ui-detail__content { padding-inline: var(--adion-space-1); } }
@@ -143,7 +141,7 @@
 .ui-crumbs a:hover { color: var(--adion-accent-text); }
 
 /*
- * L'ECART SOUS L'EN-TETE, UNE FOIS POUR TOUTES (2026-10-15, coordination#52).
+ * L'ECART SOUS L'EN-TETE, UNE FOIS POUR TOUTES (2026-10-15).
  * Chaque bloc qui suivait l'en-tete portait sa propre marge haute - le
  * bandeau 16 px, les chiffres 16 ou 24, les onglets 20, la section 24 - et
  * ce qui n'en portait pas (l'editeur de courriels, un tableau pose seul)
@@ -266,7 +264,7 @@
 .ui-tabs__item:hover { color: var(--adion-text-1); background: var(--adion-row-hover); }
 .ui-tabs__item.is-active { color: var(--adion-text-1); box-shadow: inset 0 -2px 0 var(--adion-accent-text); }
 .ui-tabs__item.is-active:hover { background: none; }
-/* Le focus se montre au clavier seulement, a l'interieur de l'onglet : apres un clic, pas de cadre (coordination#43). */
+/* Le focus se montre au clavier seulement, a l'interieur de l'onglet : apres un clic, pas de cadre. */
 .ui-page .ui-tabs__item:focus:not(:focus-visible) { outline: none; }
 .ui-page .ui-tabs__item:focus-visible { outline: 2px solid var(--adion-focus); outline-offset: -2px; border-radius: var(--adion-radius-control); }
 .ui-tabs__icon { opacity: 0.75; }
@@ -391,7 +389,7 @@
 .ui-card__actions { display: flex; gap: var(--adion-space-2); flex-wrap: wrap; margin-top: var(--adion-space-2); }
 
 /* ---------------------------------------------------------------- */
-/* Les chiffres (UiStat, inchange - Kevin : « excellent, j'adore »)   */
+/* Les chiffres (UiStat)                                           */
 /* ---------------------------------------------------------------- */
 
 .ui-stats {
@@ -954,7 +952,7 @@
 /* ---------------------------------------------------------------- */
 
 /*
- * Kevin : « le but est de VENDRE nos produits ». Une accroche, des benefices,
+ * Donner envie d'un produit : une accroche, des benefices,
  * une mise en route guidee, des cartes a choisir. La couleur vient de la
  * famille du produit (`family` : web, telecom, payment, marketing, cloud, ai).
  */
@@ -1199,7 +1197,7 @@
 .ui-message__note { padding: 0 var(--adion-space-4) var(--adion-space-3); font-size: var(--adion-text-xs); line-height: 1.5; color: var(--adion-text-3); }
 
 /* ---------------------------------------------------------------- */
-/* Les courriels : l'editeur visuel d'Orbit, porte dans le kit       */
+/* Les courriels : l'editeur visuel                                  */
 /* (UiMailStudio, UiMailCanvas, UiMailBlockSettings, UiMailBlockMenu, */
 /* UiMailTemplatePicker, UiMailThumbnail, UiMailGallery, 2026-10-14). */
 /* ---------------------------------------------------------------- */
@@ -1539,7 +1537,7 @@
 .ui-mail-studio > .ui-mail-studio__panel { grid-column: 2; grid-row: 1 / span 2; }
 @media (max-width: 1100px) { .ui-mail-studio > .ui-mail-studio__panel { grid-column: 1; grid-row: auto; } .ui-mail-studio__drop { grid-row: auto; } }
 
-/* Page publique, carte 3D, champ de carte (coordination#49)           */
+/* Page publique, carte 3D, champ de carte           */
 /* ---------------------------------------------------------------- */
 
 .ui-public {
@@ -1602,12 +1600,12 @@
 .ui-public__form .ui-section__body { gap: var(--adion-space-3); }
 .ui-public__form .ui-section__head { min-height: 24px; }
 .ui-public__form .ui-notice { padding-top: 6px; padding-bottom: 6px; }
-/* Dans l'iframe d'un marchand : fond transparent, pas de hauteur forcee, un peu d'air entre le code et Payer (coordination#53). */
+/* Dans l'iframe d'un marchand : fond transparent, pas de hauteur forcee, un peu d'air entre le code et Payer. */
 .ui-public.is-embed { min-height: 0; background: transparent; }
 .ui-public.is-embed .ui-public__main { max-width: 560px; padding: var(--adion-space-2) var(--adion-space-1) var(--adion-space-4); }
 .ui-public.is-embed .ui-public__foot { max-width: 560px; padding: 0 var(--adion-space-1) var(--adion-space-2); }
 
-/* Le menu d'actions d'une fiche (coordination#54). */
+/* Le menu d'actions d'une fiche. */
 .ui-actionmenu { display: grid; min-width: 240px; max-width: 320px; padding: var(--adion-space-1); border: 1px solid var(--adion-border-strong); border-radius: var(--adion-radius-card); background: var(--adion-surface-solid); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25); }
 .ui-actionmenu__item { display: flex; align-items: flex-start; gap: var(--adion-space-2); width: 100%; padding: 6px var(--adion-space-3); border: 0; border-radius: var(--adion-radius-control); background: none; font: inherit; font-size: var(--adion-text-base); color: var(--adion-text-1); text-align: left; text-decoration: none; cursor: pointer; }
 .ui-actionmenu__item:hover, .ui-actionmenu__item:focus-visible { background: var(--adion-row-hover); outline: none; }
@@ -1621,12 +1619,12 @@
 .ui-actionmenu__item.is-danger > .v-icon { color: inherit; }
 .ui-actionmenu__sep { height: 1px; margin: var(--adion-space-1) 0; background: var(--adion-border); }
 
-/* Le formulaire integre laisse voir la page du marchand : tout ce qui l'entoure est transparent (coordination#53). */
+/* Le formulaire integre laisse voir la page du marchand : tout ce qui l'entoure est transparent. */
 html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-application:has(.ui-public.is-embed) { background: transparent !important; }
 
 /* ---------------------------------------------------------------- */
 /* Correspondance des colonnes, canal + etat, depot de fichier        */
-/* (UiColumnMapper, UiChannelChip, UiFileInput, coordination#56)      */
+/* (UiColumnMapper, UiChannelChip, UiFileInput)      */
 /* ---------------------------------------------------------------- */
 
 .ui-colmap { display: grid; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface); }
@@ -1680,7 +1678,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-drop__link:hover:not(:disabled) { text-decoration: underline; }
 .ui-drop__link:focus-visible { outline: 2px solid var(--adion-focus); border-radius: 2px; }
 
-/* GRAPHIQUES, LISTE REORDONNABLE, LISTE DE CONTROLE, JAUGE (2026-10-15, coordination#62) */
+/* GRAPHIQUES, LISTE REORDONNABLE, LISTE DE CONTROLE, JAUGE (2026-10-15) */
 .ui-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .ui-chart, .ui-bars { margin: 0; display: grid; gap: var(--adion-space-3); }
 .ui-chart__title { font-size: var(--adion-text-md); font-weight: 600; color: var(--adion-text-1); }
@@ -1811,7 +1809,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 
 
 /* ---------------------------------------------------------------- */
-/* Les cartes en degrade (2026-10-16, coordination#80)                 */
+/* Les cartes en degrade (2026-10-16)                 */
 /* ---------------------------------------------------------------- */
 
 /*
@@ -1832,7 +1830,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-card.ui-grad.is-selected { background: var(--adion-accent-soft); }
 
 /* ---------------------------------------------------------------- */
-/* Le centre de notifications (2026-10-16, coordination#80)            */
+/* Le centre de notifications (2026-10-16)            */
 /* ---------------------------------------------------------------- */
 
 .ui-bell {
@@ -1883,7 +1881,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-notif__text { margin: 0; font-size: var(--adion-text-sm); line-height: 1.55; color: var(--adion-text-2); }
 .ui-notif__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--adion-space-2); }
 
-/* L'accueil (coordination#80, point 3) : de l'air, une colonne de lecture, des cartes en degrade. */
+/* L'accueil : de l'air, une colonne de lecture, des cartes en degrade. */
 .ui-home__welcome .ui-header__title { font-size: 30px; font-weight: 300; letter-spacing: -0.02em; }
 .ui-home__welcome .ui-header__lead { font-size: var(--adion-text-md); max-width: 60ch; }
 .ui-home__body { display: grid; gap: var(--adion-space-10); max-width: 1040px; }
@@ -1894,7 +1892,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-home .ui-card__title { font-size: var(--adion-text-lg); }
 .ui-home__calm { display: grid; gap: var(--adion-space-3); }
 
-/* L'assistant, second onglet du volet (coordination#80 point 8) */
+/* L'assistant, second onglet du volet */
 .ui-notif__tabs { display: flex; align-items: center; gap: var(--adion-space-1); flex: none; }
 .ui-notif__grow { flex: 1; }
 .ui-notif__tab { display: inline-flex; align-items: center; gap: var(--adion-space-2); height: var(--adion-control-h); padding: 0 var(--adion-space-3); border: 0; border-bottom: 2px solid transparent; background: none; color: var(--adion-text-2); font: inherit; font-size: var(--adion-text-md); cursor: pointer; }

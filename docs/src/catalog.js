@@ -35,7 +35,7 @@ export const groups = [
     title: 'Actions',
     pages: [
       { id: 'button', title: 'Bouton', components: ['UiButton'], lead: 'Quatre sortes, pas une de plus. Une seule action primaire par zone ; danger se confirme toujours (UiConfirm).', examples: [{ file: 'button.kinds', title: 'Les quatre sortes' }, { file: 'button.states', title: 'Chargement, désactivé, icône seule, lien' }] },
-      { id: 'action-menu', title: 'Menu d’actions', components: ['UiActionMenu'], lead: 'Le bouton « Actions » d’une fiche. Nexus envoie la liste ; une action indisponible est grisée avec sa raison, « Résilier » est en rouge, à part, tout en bas.', examples: [{ file: 'action-menu.base', title: 'Les actions d’un service' }] },
+      { id: 'action-menu', title: 'Menu d’actions', components: ['UiActionMenu'], lead: 'Le bouton « Actions » d’une fiche. L’API envoie la liste ; une action indisponible est grisée avec sa raison, « Résilier » est en rouge, à part, tout en bas.', examples: [{ file: 'action-menu.base', title: 'Les actions d’un service' }] },
       { id: 'dialog', title: 'Fenêtre', components: ['UiDialog'], lead: 'Plein écran sur téléphone. Annuler à gauche, l’action à droite.', examples: [{ file: 'dialog.base', title: 'Une fenêtre avec un champ' }] },
       { id: 'confirm', title: 'Confirmation', components: ['UiConfirm'], lead: 'Le bouton dit ce qu’il fait. Un geste définitif demande de cocher une case.', examples: [{ file: 'confirm.base', title: 'Confirmer un geste' }, { file: 'confirm.danger', title: 'Confirmer un geste dangereux' }] },
     ],
@@ -51,13 +51,13 @@ export const groups = [
       { id: 'code', title: 'Code et identifiants', components: ['UiCode', 'UiCopyId'], lead: 'Un bloc de code avec son bouton Copier ; un identifiant à copier d’un clic.', examples: [{ file: 'code.block', title: 'Un appel à l’API' }, { file: 'code.wrap', title: 'Un texte à lire en entier (wrap)' }, { file: 'code.copy-id', title: 'Un identifiant à copier' }] },
       { id: 'charts', title: 'Graphiques', components: ['UiLineChart', 'UiBarChart'], lead: 'Couleurs --adion-chart-*, un trait différent par série, valeurs lisibles au survol et aux flèches du clavier.', examples: [{ file: 'charts.line', title: 'Courbes' }, { file: 'charts.bar', title: 'Barres' }] },
       { id: 'meter', title: 'Jauge', components: ['UiMeter'], lead: 'Une quantité sur un maximum, avec son aide.', examples: [{ file: 'meter.base', title: 'La longueur d’un SMS' }] },
-      { id: 'health', title: 'État des services', components: ['UiHealthGroup'], lead: 'healthOf(état) donne le mot et le ton d’un état de Nexus ; UiHealthGroup montre une famille de services et leur disponibilité.', examples: [{ file: 'health.base', title: 'Une famille perturbée' }] },
+      { id: 'health', title: 'État des services', components: ['UiHealthGroup'], lead: 'healthOf(état) donne le mot et le ton d’un état de l’API ; UiHealthGroup montre une famille de services et leur disponibilité.', examples: [{ file: 'health.base', title: 'Une famille perturbée' }] },
     ],
   },
   {
     title: 'États et retours',
     pages: [
-      { id: 'badge', title: 'Badge et état', components: ['UiBadge', 'UiStatus'], lead: 'Le ton vient de Nexus (tone, status_tone) et se traduit en ok, warn, bad, info, accent, muted. Un état ne se dit jamais par la seule couleur.', examples: [{ file: 'badge.base', title: 'Les badges' }, { file: 'badge.status', title: 'L’état d’un service' }] },
+      { id: 'badge', title: 'Badge et état', components: ['UiBadge', 'UiStatus'], lead: 'Le ton vient de l’API (tone, status_tone) et se traduit en ok, warn, bad, info, accent, muted. Un état ne se dit jamais par la seule couleur.', examples: [{ file: 'badge.base', title: 'Les badges' }, { file: 'badge.status', title: 'L’état d’un service' }] },
       { id: 'notice', title: 'Encadré', components: ['UiNotice', 'UiSandboxBanner'], lead: 'UiNotice remplace v-alert, .callout, .banner et .flash.', examples: [{ file: 'notice.tones', title: 'Les quatre tons' }, { file: 'notice.sandbox', title: 'Le bandeau Sandbox' }] },
       { id: 'secret', title: 'Secret', components: ['UiSecret'], lead: 'Un secret montré une seule fois, à copier tout de suite.', examples: [{ file: 'secret.base', title: 'Le secret d’une application' }] },
       { id: 'feedback', title: 'Vide, chargement, erreur', components: ['UiEmpty', 'UiLoading', 'UiError', 'UiDenied'], lead: 'Chaque liste a ces quatre états ; aucun écran ne les dessine lui-même.', examples: [{ file: 'feedback.empty', title: 'Vide' }, { file: 'feedback.loading', title: 'Chargement' }, { file: 'feedback.error', title: 'Erreur et refus' }] },
@@ -86,7 +86,7 @@ export const groups = [
     pages: [
       { id: 'message-preview', title: 'Aperçu de SMS', components: ['UiMessagePreview', 'UiUnicodeNotice'], lead: 'Le message tel que le verra le destinataire, et l’avertissement Unicode.', examples: [{ file: 'message-preview.base', title: 'L’aperçu' }, { file: 'message-preview.unicode', title: 'Un caractère spécial' }] },
       { id: 'channel-chip', title: 'Canal', components: ['UiChannelChip'], lead: 'Un canal d’un contact et son accord.', examples: [{ file: 'channel-chip.base', title: 'E-mail et mobile' }] },
-      { id: 'order-block', title: 'Commander', components: ['UiOrderBlock'], lead: 'L’offre et ses paquets, quand le service manque dans le projet. Les liens viennent de Nexus.', examples: [{ file: 'order-block.base', title: 'Commander le SMS' }] },
+      { id: 'order-block', title: 'Commander', components: ['UiOrderBlock'], lead: 'L’offre et ses paquets, quand le service manque dans le projet. Les liens viennent de l’API.', examples: [{ file: 'order-block.base', title: 'Commander le SMS' }] },
     ],
   },
   {
@@ -106,7 +106,7 @@ export const groups = [
   {
     title: 'Courriels',
     pages: [
-      { id: 'mail-studio', title: 'Éditeur de courriel', components: ['UiMailStudio', 'UiMailCanvas', 'UiMailBlockSettings', 'UiMailTemplatePicker', 'UiColorInput'], lead: 'Cliquer, double-cliquer pour écrire, glisser, « + » entre deux blocs, clair ou sombre, ordinateur ou téléphone. Dans l’espace, le HTML vient de Nexus.', examples: [{ file: 'mail-studio.base', title: 'Le studio' }] },
+      { id: 'mail-studio', title: 'Éditeur de courriel', components: ['UiMailStudio', 'UiMailCanvas', 'UiMailBlockSettings', 'UiMailTemplatePicker', 'UiColorInput'], lead: 'Cliquer, double-cliquer pour écrire, glisser, « + » entre deux blocs, clair ou sombre, ordinateur ou téléphone. Dans l’espace, le HTML vient de l’API.', examples: [{ file: 'mail-studio.base', title: 'Le studio' }] },
       { id: 'mail-gallery', title: 'Modèles de courriel', components: ['UiMailGallery', 'UiMailTemplateGallery', 'UiMailStyleFields', 'UiMailDropZone'], lead: 'Les modèles en vignettes, la galerie, les réglages de style.', examples: [{ file: 'mail-gallery.base', title: 'Les vignettes' }, { file: 'mail-gallery.rich', title: 'Réglages et galerie' }] },
     ],
   },

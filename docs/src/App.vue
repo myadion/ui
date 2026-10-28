@@ -5,7 +5,7 @@ import { useTheme } from 'vuetify'
 import { groups, guides } from './catalog.js'
 
 /*
- * LA COQUE DE LA DOC (2026-10-27, Kevin : « comme la doc Bootstrap ») : une
+ * LA COQUE DE LA DOC (2026-10-27) : une
  * barre du haut, une barre de gauche avec un lien par composant, le contenu.
  */
 const theme = useTheme()

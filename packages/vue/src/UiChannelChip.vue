@@ -3,7 +3,7 @@ import UiBadge from './UiBadge.vue'
 
 /*
  * UN CANAL ET SON ETAT (Adion UI) : la valeur du canal (adresse, numero) puis
- * la pastille de consentement que Nexus nomme et colore. Sur telephone la
+ * la pastille de consentement que l'API nomme et colore. Sur telephone la
  * pastille passe sous la valeur plutot que de la couper. `icon` ajoute le
  * pictogramme du canal devant la valeur.
  */

@@ -1,13 +1,13 @@
 /*
- * LE CENTRE DE NOTIFICATIONS (Adion UI, coordination#80 point 7). Une
+ * LE CENTRE DE NOTIFICATIONS (Adion UI). Une
  * notification : { id, severity, title, message, at, read, action: { label,
- * to?|href? } }. La gravite vient de Nexus (critical, warning, info, success
+ * to?|href? } }. La gravite vient de l'API (critical, warning, info, success
  * et leurs synonymes : `tone.js`) ; le kit n'en invente aucune.
  */
 import { tone } from './tone.js'
 
 const RANK = { bad: 0, warn: 1, info: 2, accent: 3, ok: 4, muted: 5 }
-/** L'ordre de Nexus : `action_required` passe avant `warning`, deux tons « warn » pour le kit. */
+/** L'ordre de l'API : `action_required` passe avant `warning`, deux tons « warn » pour le kit. */
 const SEVERITY_RANK = { critical: 0, action_required: 1, warning: 2, info: 3 }
 
 /** Une notification, au format du volet ; le ton est celui du kit. */
@@ -25,7 +25,7 @@ export function normalizeNotification(raw, index = 0) {
     /** Une situation du compte (paiement manquant...) : elle ne se marque pas lue, elle se regle. */
     sticky: Boolean(n.sticky),
     action,
-    /** Nexus : seules les gravites legeres se ferment ; les autres disparaissent quand la cause est reglee. */
+    /** L'API : seules les gravites legeres se ferment ; les autres disparaissent quand la cause est reglee. */
     dismissible: Boolean(n.dismissible),
   }
 }
@@ -56,7 +56,7 @@ export function whenLabel(at, now = Date.now()) {
 
 const pick = (value, locale) => (value && typeof value === 'object' ? value[locale] || value.fr || value.en || '' : value || '')
 
-/** Une notification de Nexus (`GET /me/notification`) au format du volet, dans la langue demandee. */
+/** Une notification de l'API (`GET /me/notification`) au format du volet, dans la langue demandee. */
 export function fromApiNotification(item, locale = 'fr') {
   const n = item || {}
   const label = pick(n.action?.label, locale)
@@ -68,7 +68,7 @@ export function fromApiNotification(item, locale = 'fr') {
     at: n.occurred_at || null,
     read: Boolean(n.read),
     dismissible: Boolean(n.dismissible),
-    /** Un etat grave ne se marque pas lu : il se regle, et Nexus le retire. */
+    /** Un etat grave ne se marque pas lu : il se regle, et l'API le retire. */
     sticky: !n.dismissible && (n.severity === 'critical' || n.severity === 'action_required'),
     action: label && n.action?.url ? { label, to: n.action.url } : null,
   }

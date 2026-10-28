@@ -12,7 +12,7 @@ import { wizardProgress } from './layout'
  *
  * steps : [{ key, label }] ; v-model : la cle de l'etape ouverte.
  * L'assistant ne valide rien lui-meme : il emet `next` (ou `finish` a la
- * derniere), et le parent avance quand Nexus a dit oui.
+ * derniere), et le parent avance quand l'API a dit oui.
  */
 const props = defineProps({
   steps: { type: Array, required: true },

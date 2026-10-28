@@ -5,8 +5,8 @@ import { TONE_ICON, tone as toTone } from './tone'
 /*
  * UNE ETIQUETTE (Adion UI) : un mot, un filet, une teinte. Pour une
  * qualite - « Essai », « Par defaut », « 3 en attente » - ou l'etat d'une
- * ligne de tableau. Le ton vient de Nexus quand il le dit (`tone`), et le
- * libelle toujours de Nexus.
+ * ligne de tableau. Le ton vient de l'API quand il le dit (`tone`), et le
+ * libelle toujours de l'API.
  */
 const props = defineProps({
   label: { type: [String, Number], default: '' },

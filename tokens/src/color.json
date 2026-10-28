@@ -1,5 +1,5 @@
 {
-  "$description": "Les couleurs d'Adion, en deux thèmes. Relevées sur adioncloud.com puis consolidées dans l'espace client (myadion, 2026-10-13 à 2026-10-16). Chaque clé devient la variable CSS --adion-<clé>, la couleur Android adion_<clé> et la propriété Compose du même nom.",
+  "$description": "Les couleurs d'Adion, en deux thèmes. Chaque clé devient la variable CSS --adion-<clé>, la couleur Android adion_<clé> et la propriété Compose du même nom.",
   "groups": [
     {
       "id": "surfaces",
@@ -124,7 +124,7 @@
     }
   },
   "brand": {
-    "$description": "Les couleurs de la marque, hors thème (charte, §5) : la pilule, le mot ADION du site.",
+    "$description": "Les couleurs de la marque, hors thème : la pilule, le mot ADION du site.",
     "brand-green": "#54ba9b",
     "gradient": "linear-gradient(90deg, #22c55e 0%, #06b6d4 100%)",
     "brand-wordmark-from": "#54ba9b",

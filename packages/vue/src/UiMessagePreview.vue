@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 /*
  * L'APERCU D'UN MESSAGE (Adion UI) : ce que le destinataire lira, dans une
- * bulle de telephone. L'expediteur en haut (tel que Nexus le dit, jamais
+ * bulle de telephone. L'expediteur en haut (tel que l'API le dit, jamais
  * deviné par l'ecran), le texte dans la bulle, une ligne de faits dessous
  * (`note` : parties, mention ajoutee). Sans texte, `empty` tient la place.
  */

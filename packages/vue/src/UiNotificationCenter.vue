@@ -11,10 +11,10 @@ import { useAdion } from './adapter.js'
 const { useAssistant, useNotifications, onUpdate: onNotificationUpdate } = useAdion().notifications
 
 /*
- * LE CENTRE DE NOTIFICATIONS, branche sur Nexus (Adion UI, coordination#80) :
- * la cloche et son volet. Nexus calcule les etats, la gravite et les textes ;
+ * LE CENTRE DE NOTIFICATIONS, branche sur l'API (Adion UI) :
+ * la cloche et son volet. L'API calcule les etats, la gravite et les textes ;
  * ici on les affiche. Le temps reel relit le compteur, et la liste si le volet
- * est ouvert. Le second onglet, « Assistant », est celui de Nexus (point 8).
+ * est ouvert. Le second onglet, « Assistant », est celui de l'API (point 8).
  */
 const { items, loading, unread, refresh, refreshCount, markRead, markAllRead, dismiss } = useNotifications()
 const assistant = useAssistant()

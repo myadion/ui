@@ -1,7 +1,7 @@
 /*
- * LA RECHERCHE D'ADRESSE (Kevin, le 2026-10-13) : la Base Adresse Nationale,
- * servie par Nexus (`GET /address/search`), la même que l'inscription et
- * Orbit. Elle rend des « features » GeoJSON ; on n'en garde que de quoi
+ * LA RECHERCHE D'ADRESSE : la Base Adresse Nationale,
+ * servie par l'API (`GET /address/search`), la même que l'inscription.
+ * Elle rend des « features » GeoJSON ; on n'en garde que de quoi
  * remplir une adresse.
  */
 

@@ -4,14 +4,14 @@ import UiDialog from './UiDialog.vue'
 import UiMailBlockMenu from './UiMailBlockMenu.vue'
 
 /*
- * LE COURRIEL COMME SURFACE DE TRAVAIL (Adion UI, repris de MailCanvas
- * d'Orbit, 2026-10-14).
+ * LE COURRIEL COMME SURFACE DE TRAVAIL (Adion UI,
+ * 2026-10-14).
  *
  * On edite sur le message lui-meme : on clique un bloc dans le courriel, on
  * le regle, on le deplace a la souris, on en insere un entre deux autres ;
  * un double-clic ecrit directement dans le texte.
  *
- * COMMENT CA TIENT. Le document est rendu par Nexus - le meme moteur que
+ * COMMENT CA TIENT. Le document est rendu par l'API - le meme moteur que
  * l'envoi, donc ce qu'on voit est ce qui partira - et chaque bloc y porte sa
  * zone et son rang (apercu demande avec `editable`). L'iframe ne fait que
  * mesurer ses blocs et le dire ; toute l'interaction est dessinee par-dessus,
@@ -22,13 +22,13 @@ import UiMailBlockMenu from './UiMailBlockMenu.vue'
  * et c'est le cadre qui defile : le calque et le document bougent ensemble.
  *
  * `scheme` (clair ou sombre) ne change rien ici : la page redemande le rendu
- * a Nexus dans l'autre jeu de couleurs. `width` : bureau (680) ou telephone
+ * a l'API dans l'autre jeu de couleurs. `width` : bureau (680) ou telephone
  * (390), le meme HTML a sa largeur reelle, reduit a l'affichage.
  *
- * LA MISE EN FORME D'UN MOT (2026-10-15). Un champ que Nexus marque riche
+ * LA MISE EN FORME D'UN MOT (2026-10-15). Un champ que l'API marque riche
  * (`data-mail-rich` : titre, paragraphe, encadre) s'ouvre au double-clic avec
  * une barre flottante : gras, italique, souligne, couleur, lien. Ce qui est
- * ecrit repart en HTML ; Nexus ne garde que ces balises-la.
+ * ecrit repart en HTML ; l'API ne garde que ces balises-la.
  *
  * DEPOSER UNE IMAGE SUR LE COURRIEL. Une image glissee sur un bloc image le
  * remplace ; ailleurs, elle s'ajoute sous le bloc vise (`drop-files`). L'ecran
@@ -224,7 +224,7 @@ function slotStyle(slot) {
  *
  * On passe le point du double-clic a l'iframe, qui retrouve l'element sous ce
  * point et le rend modifiable. La page ne connait pas la structure du
- * document - c'est Nexus qui a dit quel element porte quel champ.
+ * document - c'est l'API qui a dit quel element porte quel champ.
  */
 function write(block, event) {
   if (!canReorder(block)) return
@@ -876,7 +876,7 @@ watch(() => props.width, measure)
       </div>
     </div>
 
-    <!-- Nexus pose sur chaque bloc de quoi le retrouver ; sans ces reperes, mieux vaut le dire que laisser chercher. -->
+    <!-- l'API pose sur chaque bloc de quoi le retrouver ; sans ces reperes, mieux vaut le dire que laisser chercher. -->
     <p v-if="editable && html && !blocks.length && !loading" class="ui-mail-canvas__stale">
       <v-icon icon="mdi-information-outline" size="15" />
       Ce message s’affiche, mais ne renvoie pas encore ses repères d’édition&nbsp;: rafraîchissez l’aperçu.

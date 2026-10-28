@@ -6,10 +6,10 @@ import UiEmpty from './UiEmpty.vue'
 
 /*
  * LE BLOC « COMMANDER » (Adion UI, 2026-10-16) : un service manque ou n'a
- * plus de quoi servir, et Nexus donne le geste - l'offre, ses paquets, leur
+ * plus de quoi servir, et l'API donne le geste - l'offre, ses paquets, leur
  * prix et leur lien. Une carte par paquet, un bouton qui mene a la boutique
  * avec l'offre et le paquet deja choisis. Rien n'est calcule ici : libelles,
- * prix et liens viennent de Nexus.
+ * prix et liens viennent de l'API.
  *
  * offers : [{ name, description, url, packs: [{ pack, label, price_ht, unit_price_ht, url }] }]
  */

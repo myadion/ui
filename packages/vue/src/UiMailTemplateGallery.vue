@@ -6,13 +6,13 @@ import UiInput from './UiInput.vue'
 import UiMailThumbnail from './UiMailThumbnail.vue'
 
 /*
- * LA GALERIE DES MODELES (Adion UI, 2026-10-15 - Kevin : « proposer des
- * templates, des templates meme ! »).
+ * LA GALERIE DES MODELES (Adion UI, 2026-10-15) :
+ * proposer des modeles prets a l'emploi.
  *
  * Une fenetre large : a gauche les modeles en vignettes, filtres par
  * categorie ; a droite l'apercu du modele choisi, a sa vraie taille et
  * qui defile, sur ordinateur ou sur telephone. On choisit, on nomme, on
- * cree. Les modeles viennent de Nexus (catalogue versionne, rendu dans le
+ * cree. Les modeles viennent de l'API (catalogue versionne, rendu dans le
  * theme du compte) ; l'ecran peut y ajouter les siens (`group`) et une page
  * blanche (`blank`).
  *

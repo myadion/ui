@@ -1,5 +1,5 @@
 /*
- * L'ASSISTANT D'ADION (Adion UI, coordination#80 point 8). Nexus pilote la
+ * L'ASSISTANT D'ADION (Adion UI). L'API pilote la
  * conversation et envoie un flux (SSE) : ici, la lecture du flux, le fil de
  * messages qui en sort, et le rendu markdown leger. Rien d'autre.
  */
@@ -53,7 +53,7 @@ export function threadFromConversation(conversation) {
   }
 }
 
-/** Une carte « Confirmer / Annuler » de Nexus, a plat. */
+/** Une carte « Confirmer / Annuler » de l'API, a plat. */
 export function normalizeCard(raw) {
   const r = raw || {}
   const card = r.card || r
@@ -76,7 +76,7 @@ export function addUserMessage(thread, text) {
   thread.status = ''
   thread.limit = null
   thread.error = ''
-  // Ecrire a la place d'une carte l'annule : Nexus les ferme, on les grise.
+  // Ecrire a la place d'une carte l'annule : l'API les ferme, on les grise.
   thread.pending = []
   thread.streaming = true
 }
@@ -141,7 +141,7 @@ export function limitFromError(error) {
 export const limitOffersNewConversation = (limit) => limit?.kind === 'conversation_max_messages'
 
 /**
- * « 3 / 50 messages aujourd'hui », vide si Nexus n'a pas donne le plafond.
+ * « 3 / 50 messages aujourd'hui », vide si l'API n'a pas donne le plafond.
  * Forme lue : `limits.user_daily_messages` = { limit, used } (ou un nombre,
  * avec `user_daily_used` a cote).
  */

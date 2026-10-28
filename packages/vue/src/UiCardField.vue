@@ -2,7 +2,7 @@
 import UiField from './UiField.vue'
 
 /*
- * UN CHAMP DE CARTE (Adion UI, coordination#49) : le cadre d'un champ dont le
+ * UN CHAMP DE CARTE (Adion UI) : le cadre d'un champ dont le
  * contenu n'est pas a nous - le numero, la date ou le code, que le prestataire
  * de paiement affiche dans son propre cadre. Meme libelle, meme hauteur et
  * meme anneau de focus qu'UiInput. Le contenu va dans le creneau par defaut.

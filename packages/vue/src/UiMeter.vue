@@ -5,8 +5,8 @@ import { computed } from 'vue'
  * UNE JAUGE (Adion UI) : « 63 / 160 caracteres », sous un champ. La barre se
  * remplit, passe a l'orange pres de la limite (`warnAt`, 90 % par defaut) puis
  * au rouge au-dela de `max` - et le texte le dit aussi (« 12 en trop »).
- * `hint` est la phrase de Nexus dessous (« lien et mention STOP compris · 1
- * SMS par contact »). Le calcul reste chez Nexus : ici, on affiche.
+ * `hint` est la phrase de l'API dessous (« lien et mention STOP compris · 1
+ * SMS par contact »). Le calcul reste chez l'API : ici, on affiche.
  */
 const props = defineProps({
   value: { type: Number, default: 0 },

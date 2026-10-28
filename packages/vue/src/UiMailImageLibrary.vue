@@ -13,7 +13,7 @@ import UiNotice from './UiNotice.vue'
  *
  * RETIRER N'EFFACE PAS FORCEMENT. Une image encore employee - par un modele,
  * une version, une campagne deja partie - quitte seulement la galerie : un
- * courriel envoye la charge peut-etre encore. Nexus le decide et le dit
+ * courriel envoye la charge peut-etre encore. L'API le decide et le dit
  * (`hidden`) ; la fenetre le rapporte.
  *
  *   gallery()      les images : [{ id, url, name, width, height, size_bytes }]

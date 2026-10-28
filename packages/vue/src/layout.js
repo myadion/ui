@@ -32,8 +32,8 @@ export function wizardProgress(steps = [], current = '') {
 }
 
 /*
- * LE FIL D'ARIANE D'UNE FICHE s'arrete a la liste (Kevin, coordination#43 :
- * « Telecom › SMS › SMS » repetait le titre). Le dernier maillon sans lien,
+ * LE FIL D'ARIANE D'UNE FICHE s'arrete a la liste
+ * (« Telecom › SMS › SMS » repetait le titre). Le dernier maillon sans lien,
  * c'est la page elle-meme : le titre le dit deja.
  */
 export function crumbTrail(crumbs = []) {

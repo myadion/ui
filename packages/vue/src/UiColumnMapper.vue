@@ -6,7 +6,7 @@ import { clashMessage, groupedTargets } from './columnMap'
 /*
  * LA CORRESPONDANCE DES COLONNES (Adion UI) : pour chaque colonne d'un
  * fichier, son nom et un exemple a gauche, « Va dans » a droite. Les cibles
- * viennent de Nexus, groupees (Canaux, Identite...), avec la colonne libre de
+ * viennent de l'API, groupees (Canaux, Identite...), avec la colonne libre de
  * la colonne et « Ne pas importer ». Une cible deja prise par une autre
  * colonne se dit sous le choix. `v-model` est la cible de chaque colonne, par son rang (tableau ou { rang: cible }).
  * Sur telephone, l'exemple passe sous le nom et le choix prend la largeur.

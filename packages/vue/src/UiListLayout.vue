@@ -15,15 +15,15 @@ import { gradientOf } from './layout'
 const OrderButton = useAdion().components?.OrderButton || null
 
 /*
- * LE GABARIT D'UNE PAGE PRODUIT (Adion UI, Kevin le 2026-10-13 : « sinon le
- * client se perd »). Toutes les listes de services ont la meme structure, au
+ * LE GABARIT D'UNE PAGE PRODUIT (Adion UI) : pour que le client ne se
+ * perde pas, toutes les listes de services ont la meme structure, au
  * meme endroit :
  *
  *   1. l'en-tete compact : la famille et le titre sur une ligne, Actualiser
  *      puis Commander a droite (Commander porte l'accent : c'est l'action de
  *      la page), la phrase d'explication dessous ;
  *      Un menu « Ressources » (`links`) suit Actualiser : Documentation,
- *      Offres, Conditions du produit (liens de Nexus) ;
+ *      Offres, Conditions du produit (liens de l'API) ;
  *   2. les chiffres (creneau `stats`) : en colonne a droite de la liste (par
  *      defaut, comme sur les fiches), au-dessus d'elle sur telephone ; ou en
  *      bande sous l'en-tete (`stats-layout="band"`) ;
@@ -47,7 +47,7 @@ const props = defineProps({
   /** Les codes produit a commander (OrderButton) ; vide : pas de Commander. */
   order: { type: Array, default: () => [] },
   orderLabel: { type: String, default: 'Commander un service' },
-  /** Documentation, Offres, Conditions du produit : [{ key, label, href }] (Nexus les donne par produit). */
+  /** Documentation, Offres, Conditions du produit : [{ key, label, href }] (l'API les donne par produit). */
   links: { type: Array, default: () => [] },
   orderable: { type: Boolean, default: true },
   loading: { type: Boolean, default: false },

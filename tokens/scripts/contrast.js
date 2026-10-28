@@ -1,5 +1,5 @@
 /*
- * LES CONTRASTES DES JETONS (Adion UI, Kevin le 2026-10-13 : « on est perdu »).
+ * LES CONTRASTES DES JETONS (Adion UI, 2026-10-13).
  *
  * Lit les couleurs d'un theme dans tokens.css, compose les teintes
  * translucides sur leur surface, et calcule le rapport de contraste WCAG.

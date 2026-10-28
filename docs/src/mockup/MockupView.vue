@@ -3,12 +3,12 @@ import { computed, ref } from 'vue'
 import Icon from './Icon.vue'
 
 /*
- * LA MAQUETTE v3 (2026-10-27), d'apres les references de Kevin (Memberset,
+ * LA MAQUETTE v3 (2026-10-27), d'apres des references (Memberset,
  * Coinbase, abyss, Dyte...) : bleu nuit profond et halos de lumiere, cartes
  * ardoise tres arrondies, une couleur d'action vive (le vert-sarcelle
  * d'Adion), typo geometrique (Manrope), grands chiffres, anneaux et courbes.
  * La barre du haut et la barre de gauche de l'espace client sont reproduites
- * telles qu'elles sont aujourd'hui (Kevin : on les garde).
+ * telles qu'elles sont aujourd'hui.
  */
 const tab = ref('instances')
 const filter = ref('all')
@@ -448,8 +448,7 @@ const quotas = [
 
 <style scoped>
 /*
- * v3 (Kevin : « pas de fluo », « pas fan des border radius », « c'est pas
- * qualite ») : le vert d'Adion tel quel, sans lueur ni halo ; des arrondis de
+ * v3 : le vert d'Adion tel quel, sans lueur ni halo ; des arrondis de
  * 4 a 8 px ; Inter ; des filets precis ; des teintes de categorie
  * desaturees ; la profondeur bleu nuit des references.
  */

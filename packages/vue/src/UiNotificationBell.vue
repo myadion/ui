@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 
 /*
- * LA CLOCHE (Adion UI, coordination#80) : en haut a droite, hors de la barre
+ * LA CLOCHE (Adion UI) : en haut a droite, hors de la barre
  * de navigation, avec le nombre de notifications non lues. Un clic ouvre le
  * volet (UiNotificationDrawer).
  */

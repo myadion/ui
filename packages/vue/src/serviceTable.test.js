@@ -3,14 +3,14 @@ import assert from 'node:assert/strict'
 import { SERVICE_COLUMNS, dayLabel, renewalOf, serviceRow } from './serviceTable.js'
 import { createAdionUi } from './adapter.js'
 
-// Les libelles d'un service sont ceux que l'app branche (myadion : lib/services.js).
+// Les libelles d'un service sont ceux que l'app branche.
 createAdionUi({ labels: { stateLabel: (v) => ({ active: 'Actif', terminated: 'Résilié' })[v] || v } })
 
 test('les colonnes du tableau sont les mêmes pour tous les produits', () => {
   assert.deepEqual(SERVICE_COLUMNS.map((c) => c.key), ['name', 'state', 'offer', 'project', 'renewal'])
 })
 
-test('un service de Nexus se range à la forme du tableau', () => {
+test('un service de l’API se range à la forme du tableau', () => {
   const row = serviceRow({
     id: 's1', name: 'exemple.fr', customer_description: 'Site de l’agence',
     subscription: { status: 'active', offer: { public_label: 'Pro' }, renews_at: '2026-11-03T08:00:00Z' },

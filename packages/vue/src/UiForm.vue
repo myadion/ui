@@ -4,7 +4,7 @@ import UiNotice from './UiNotice.vue'
 /*
  * UN FORMULAIRE (Adion UI) : les champs les uns sous les autres (ou en
  * grille avec `grid`, ou sur une ligne avec `inline`), l'erreur generale de
- * Nexus au-dessus, les boutons dessous. Entree envoie : `submit` est emis,
+ * L'API au-dessus, les boutons dessous. Entree envoie : `submit` est emis,
  * jamais la page rechargee.
  */
 defineProps({

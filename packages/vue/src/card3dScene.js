@@ -1,5 +1,5 @@
 /*
- * LA CARTE EN 3D (Adion UI, coordination#49). Charge Three.js a la demande :
+ * LA CARTE EN 3D (Adion UI). Charge Three.js a la demande :
  * ce module n'est importe que par UiCard3D, quand l'appareil s'y prete.
  *
  * Au repos la carte se balance doucement et un reflet la traverse ; le champ

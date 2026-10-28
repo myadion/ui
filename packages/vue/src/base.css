@@ -1,7 +1,6 @@
 /*
  * ADION UI - LA BASE (2026-10-27) : la page et l'habillage de Vuetify (police,
- * titres, boutons, puces, fenetres, menus, infobulles, tableaux), repris de
- * myadion/src/style.css. Les classes d'ecran d'avant le kit (.sheet,
+ * titres, boutons, puces, fenetres, menus, infobulles, tableaux). Les classes d'ecran d'avant le kit (.sheet,
  * .callout, .grid-table...) n'y sont pas : elles restent dans l'app jusqu'a
  * la migration de ses ecrans.
  */
@@ -230,8 +229,7 @@ h3 {
 .ui-frame--read { max-width: 1180px; }
 
 /*
- * LES TABLEAUX ET LES LIBELLES DE BOUTON (2026-10-27) : repris de
- * myadion/src/style.css, dont UiTable et les boutons du kit dependent
+ * LES TABLEAUX ET LES LIBELLES DE BOUTON (2026-10-27), dont UiTable et les boutons du kit dependent
  * (.grid-table, .table-wrap, .btn-sentence-case, .row-actions, .row-link).
  */
 .btn-sentence-case .v-btn__content {

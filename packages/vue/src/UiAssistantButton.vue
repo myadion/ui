@@ -1,6 +1,6 @@
 <script setup>
 /*
- * LE BOUTON DE L'ASSISTANT (Adion UI, coordination#80) : a cote de la cloche,
+ * LE BOUTON DE L'ASSISTANT (Adion UI) : a cote de la cloche,
  * il ouvre le meme volet sur l'onglet Assistant. Raccourci : Ctrl+K (⌘K).
  */
 defineProps({ open: { type: Boolean, default: false } })

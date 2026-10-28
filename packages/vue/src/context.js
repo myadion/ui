@@ -1,5 +1,5 @@
 /*
- * LE CONTEXTE DANS L'ADRESSE (Kevin, le 2026-10-13).
+ * LE CONTEXTE DANS L'ADRESSE.
  *
  *   /account/{compte}/project/{projet}/services/web/domain/{service}
  *

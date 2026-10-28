@@ -1,9 +1,8 @@
 /*
  * Les blocs d'un courriel, et les gestes qu'on leur applique.
  *
- * REPRIS TEL QUEL DE L'EDITEUR D'ORBIT (src/components/Mailing/mailBlocks.js,
- * 2026-10-14) : le client compose avec le meme editeur et le meme format de
- * blocs que l'equipe, rendus par le meme moteur de Nexus (MailBlockRenderer).
+ * LES BLOCS D'UN COURRIEL (2026-10-14) : le client compose avec le meme
+ * editeur et le meme format de blocs que l'equipe d'Adion, rendus par le meme moteur de l'API (MailBlockRenderer).
  * Un changement ici se reporte la-bas, et inversement.
  *
  * L'écran des gabarits et celui des campagnes faisaient chacun leur version
@@ -36,8 +35,8 @@ export const BLOCK_DEFAULTS = {
   spacer: { size: 24 },
   /*
    * Une section : une colonne sur un fond, avec ses marges. C'est un bloc
-   * « columns » a une seule colonne - le format d'Orbit, que le moteur de
-   * Nexus rend en bande de couleur (pleine largeur au besoin).
+   * « columns » a une seule colonne - un format que le moteur de
+   * L'API rend en bande de couleur (pleine largeur au besoin).
    */
   section: {
     type: 'columns',
@@ -269,8 +268,8 @@ export function resizeColumns(block, count) {
 }
 
 /*
- * Le menu d'ajout et l'en-tete des reglages (MailBlockMenu et
- * MailBlockSettings d'Orbit) : chaque type dit a quoi il sert.
+ * Le menu d'ajout et l'en-tete des reglages (UiMailBlockMenu et
+ * UiMailBlockSettings) : chaque type dit a quoi il sert.
  */
 export const BLOCK_TYPES = Object.freeze([
   { value: 'heading', title: 'Titre', icon: 'mdi-format-header-1', hint: 'Ce que le message annonce' },

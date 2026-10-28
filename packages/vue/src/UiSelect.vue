@@ -4,7 +4,7 @@ import UiField from './UiField.vue'
 
 /*
  * UNE LISTE DE CHOIX (Adion UI). Pour plus de quatre choix ; en deca,
- * UiSegmented se lit sans rien ouvrir. Les choix viennent de Nexus
+ * UiSegmented se lit sans rien ouvrir. Les choix viennent de l'API
  * ({ title, value } ou `item-title` / `item-value`). `multiple` pour en
  * prendre plusieurs ; `search` pour filtrer une longue liste.
  */

@@ -8,12 +8,12 @@ import UiSegmented from './UiSegmented.vue'
 import UiSelect from './UiSelect.vue'
 
 /*
- * LE REGLAGE FIN D'UN BLOC DE COURRIEL (Adion UI, 2026-10-15 : Kevin veut
- * « un vrai editeur avec des fonts, des tailles »).
+ * LE REGLAGE FIN D'UN BLOC DE COURRIEL (Adion UI, 2026-10-15) :
+ * un vrai editeur, avec des polices et des tailles.
  *
  * Trois groupes repliables, selon ce que le bloc sait faire :
  *
- *   Texte   police (liste fermee de Nexus, polices web signalees), taille,
+ *   Texte   police (liste fermee de l'API, polices web signalees), taille,
  *           graisse, interlignage, espacement des lettres, couleur,
  *           majuscules ;
  *   Bouton  forme, taille, couleurs, filet et couleurs au survol ;
@@ -22,7 +22,7 @@ import UiSelect from './UiSelect.vue'
  *           la pleine largeur.
  *
  * Le composant ne connait aucune liste : polices, graisses, formes… viennent
- * de Nexus (`editor`, GET …/template/starter). Il emet le `style` entier ;
+ * de l'API (`editor`, GET …/template/starter). Il emet le `style` entier ;
  * une valeur videe disparait du style, et le bloc reprend celle du theme.
  *
  *   groups   ['text', 'button', 'box', 'section', 'column', 'divider']

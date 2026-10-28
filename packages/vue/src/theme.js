@@ -1,5 +1,5 @@
 /*
- * LE THEME D'UNE PAGE PUBLIQUE (Adion UI, coordination#49) : celui du
+ * LE THEME D'UNE PAGE PUBLIQUE (Adion UI) : celui du
  * systeme par defaut, sauf si la personne a choisi (le petit bouton). Le
  * choix est garde sur ce poste, sous la meme cle que l'espace client.
  */

@@ -2,7 +2,7 @@
 import UiButton from './UiButton.vue'
 
 /*
- * LA CARTE « CONFIRMER / ANNULER » (Adion UI, coordination#80 point 8).
+ * LA CARTE « CONFIRMER / ANNULER » (Adion UI).
  * L'assistant ne touche a rien sans le clic du client : ecrire, supprimer,
  * resilier, changer des droits. `danger` passe Confirmer en rouge. Le detail
  * (arguments, route) reste replie.

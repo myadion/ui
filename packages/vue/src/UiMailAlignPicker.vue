@@ -1,6 +1,6 @@
 <script setup>
 /*
- * L'ALIGNEMENT D'UN BLOC (Adion UI, repris de MailAlignPicker d'Orbit) :
+ * L'ALIGNEMENT D'UN BLOC (Adion UI) :
  * trois boutons, a gauche, au centre, a droite.
  */
 defineProps({

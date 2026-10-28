@@ -3,9 +3,8 @@ import { useId } from 'vue'
 import UiField from './UiField.vue'
 
 /*
- * UNE COULEUR (Adion UI, 2026-10-14) : le nuancier du navigateur, comme dans
- * l'apparence des courriels d'Orbit, et la valeur en #rrggbb a cote pour
- * coller celle d'une charte. Ce que Nexus refuse s'affiche dessous.
+ * UNE COULEUR (Adion UI, 2026-10-14) : le nuancier du navigateur, et la valeur en #rrggbb a cote pour
+ * coller celle d'une charte. Ce que l'API refuse s'affiche dessous.
  */
 defineProps({
   modelValue: { type: String, default: '' },

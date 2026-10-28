@@ -4,10 +4,10 @@ import { healthOf, historyStrip, measuredText, uptimeText } from './health'
 import UiBadge from './UiBadge.vue'
 
 /*
- * UNE FAMILLE OU UNE SECTION DE SERVICES (Adion UI, coordination#78) : une
+ * UNE FAMILLE OU UNE SECTION DE SERVICES (Adion UI) : une
  * ligne (nom, etat), qui se deplie sur ses services. Chaque service dit son
  * point d'etat, sa disponibilite sur 24 h et 90 jours, et une frise de 90
- * jours ; un jour sans mesure est gris. Les codes d'etat viennent de Nexus,
+ * jours ; un jour sans mesure est gris. Les codes d'etat viennent de l'API,
  * les mots de health.js.
  */
 const props = defineProps({

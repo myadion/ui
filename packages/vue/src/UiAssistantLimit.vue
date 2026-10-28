@@ -5,8 +5,8 @@ import UiNotice from './UiNotice.vue'
 import { limitOffersNewConversation } from './assistant'
 
 /*
- * UN PLAFOND ATTEINT (Adion UI, coordination#80 point 8). Il prend la place du
- * champ de saisie : le message de Nexus, la date de reprise, et pour une
+ * UN PLAFOND ATTEINT (Adion UI). Il prend la place du
+ * champ de saisie : le message de l'API, la date de reprise, et pour une
  * conversation trop longue un bouton « Nouvelle conversation ».
  *
  *   limit  { kind, message, resetsAt }

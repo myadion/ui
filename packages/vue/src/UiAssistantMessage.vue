@@ -4,7 +4,7 @@ import { renderMarkdown, STATE_LABEL } from './assistant'
 import UiBadge from './UiBadge.vue'
 
 /*
- * UN MESSAGE DE L'ASSISTANT (Adion UI, coordination#80 point 8). Le client a
+ * UN MESSAGE DE L'ASSISTANT (Adion UI). Le client a
  * sa bulle a droite, l'assistant la sienne a gauche, en markdown leger. Les
  * lectures faites (« Lecture de vos domaines… ») sont de petites lignes
  * discretes ; les gestes (`actions`) disent leur etat.

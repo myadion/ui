@@ -7,10 +7,10 @@ const offerLabel = label('offerLabel', (o) => o?.public_label || o?.name || '')
 const stateLabel = label('stateLabel', (v) => v || '')
 
 /*
- * LE TABLEAU DE TOUS LES PRODUITS (Adion UI, coordination#80). Hebergements,
+ * LE TABLEAU DE TOUS LES PRODUITS (Adion UI). Hebergements,
  * domaines, e-mails, SMS, Campagnes, Pay : une liste de services a la meme
  * forme - nom, etat, offre, projet, echeance - et un clic vers la fiche. Ce
- * module range un service de Nexus dans cette forme ; l'ecran ne decide de
+ * module range un service de l'API dans cette forme ; l'ecran ne decide de
  * rien, il passe ses services et le lien de la fiche.
  */
 export const SERVICE_COLUMNS = [
@@ -21,11 +21,11 @@ export const SERVICE_COLUMNS = [
   { key: 'renewal', label: 'Échéance', muted: true, nowrap: true, sortable: true, value: (row) => row.renewalLabel, sortValue: (row) => row.renewal },
 ]
 
-/** Le premier champ de date que Nexus donne pour la prochaine echeance de l'abonnement. */
+/** Le premier champ de date que l'API donne pour la prochaine echeance de l'abonnement. */
 const RENEWAL_FIELDS = ['renews_at', 'next_renewal_at', 'next_billing_at', 'current_period_end', 'billed_until']
 
 export function renewalOf(service) {
-  // Nexus dit l'echeance toute faite (`due` : { date, kind, label }) ; sinon on la cherche dans l'abonnement.
+  // L'API dit l'echeance toute faite (`due` : { date, kind, label }) ; sinon on la cherche dans l'abonnement.
   const due = Date.parse(service?.due?.date || '')
   if (Number.isFinite(due)) return new Date(due).toISOString().slice(0, 10)
   const sub = service?.subscription || {}
@@ -43,8 +43,8 @@ export function dayLabel(iso) {
 }
 
 /**
- * Un service de Nexus, a la forme du tableau. `state` ({ label, tone }) vient
- * de Nexus quand il le dit (`status`, `status_tone`) ; sinon l'etat de
+ * Un service de l'API, a la forme du tableau. `state` ({ label, tone }) vient
+ * de l'API quand il le dit (`status`, `status_tone`) ; sinon l'etat de
  * l'abonnement, dit en francais. Les cles de `over` l'emportent (un produit
  * qui nomme ses services autrement, ou qui connait deja l'etat).
  */

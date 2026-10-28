@@ -4,7 +4,7 @@ import { ref } from 'vue'
 /*
  * DEPOSER UNE IMAGE (Adion UI, 2026-10-15) : une zone ou l'on glisse un
  * fichier, ou que l'on clique pour le choisir. Seules les images que les
- * messageries affichent passent (PNG, JPEG, GIF, WebP), 5 Mo au plus ; Nexus
+ * messageries affichent passent (PNG, JPEG, GIF, WebP), 5 Mo au plus ; l'API
  * le verifie aussi, et prepare l'image pour le courriel.
  *
  * Le composant ne depose rien : il rend le fichier (`file`), l'ecran sait a

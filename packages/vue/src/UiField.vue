@@ -2,7 +2,7 @@
 /*
  * UN CHAMP (Adion UI) : le libelle au-dessus, en petites capitales ; l'aide
  * dans une infobulle a cote du libelle (pas une ligne de plus sous chaque
- * champ) ; l'erreur dessous, en rouge, telle que Nexus la dit.
+ * champ) ; l'erreur dessous, en rouge, telle que l'API la dit.
  *
  * UiInput, UiSelect et UiCombobox l'emploient eux-memes : on ne s'en sert
  * directement que pour envelopper un controle qui n'est pas du kit.

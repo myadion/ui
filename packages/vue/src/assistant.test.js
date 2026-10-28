@@ -46,7 +46,7 @@ test('un plafond atteint se lit du 429 et du 503', () => {
   assert.equal(limitFromError({ status: 500 }), null)
 })
 
-test('le compteur ne s\'affiche que si Nexus donne les chiffres', () => {
+test('le compteur ne s\'affiche que si l’API donne les chiffres', () => {
   assert.equal(counterLabel({}), '')
   assert.equal(counterLabel({ user_daily_messages: 50, user_daily_used: 3 }), '3 / 50 messages aujourd’hui')
   assert.equal(counterLabel({ user_daily_messages: { limit: 50, used: 3 } }), '3 / 50 messages aujourd’hui')

@@ -5,7 +5,7 @@ import { groups } from './catalog.js'
 const rules = [
   { icon: 'mdi-puzzle-outline', title: 'Le kit seul crée des composants', text: 'Le kit fournit les composants, les gabarits de page et les jetons. Un motif qui manque s’ajoute au kit, et toutes les applications en profitent à la mise à jour.' },
   { icon: 'mdi-palette-outline', title: 'Un écran n’a pas de style', text: 'Il assemble les composants, qui emploient les jetons. Aucune couleur écrite à la main.' },
-  { icon: 'mdi-api', title: 'Les mots viennent de l’API', text: 'Libellés, états, tons et gestes permis viennent de Nexus ; le kit les affiche, il ne les invente pas.' },
+  { icon: 'mdi-api', title: 'Les mots viennent de l’API', text: 'Libellés, états, tons et gestes permis viennent de l’API ; le kit les affiche, il ne les invente pas.' },
   { icon: 'mdi-eye-check-outline', title: 'Lisible partout', text: 'Chaque texte tient 4,5:1 sur chaque surface, dans les deux thèmes ; tout se vérifie à 375 px.' },
 ]
 const platforms = [
@@ -34,7 +34,7 @@ const contour = (k) => {
         </svg>
         <p class="doc-eyebrow">Adion UI</p>
         <h1>Le kit d’interface d’Adion Cloud</h1>
-        <p class="doc-lead">Une seule source pour toutes nos applications : l’espace client, Orbit, nos sites et Android. Des composants prêts, leur code, et les règles qui les tiennent ensemble.</p>
+        <p class="doc-lead">Une seule source pour toutes nos applications : l’espace client, nos outils, nos sites et Android. Des composants prêts, leur code, et les règles qui les tiennent ensemble.</p>
         <div class="doc-hero__actions">
           <router-link to="/installation" class="doc-btn is-primary">Commencer</router-link>
           <router-link to="/composants/list-layout" class="doc-btn">Parcourir les composants</router-link>

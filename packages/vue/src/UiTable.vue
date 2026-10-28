@@ -25,7 +25,7 @@ import { usePreference } from './preferences'
  *
  * Deux modes :
  *   - par defaut, tout se fait ici (recherche, filtres, tri, pages) ;
- *   - `server` : Nexus cherche et pagine ; le tableau emet `query`
+ *   - `server` : l'API cherche et pagine ; le tableau emet `query`
  *     ({ search, filters, page }) et affiche `pages`.
  */
 const props = defineProps({

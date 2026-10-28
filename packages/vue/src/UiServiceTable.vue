@@ -4,9 +4,9 @@ import UiTable from './UiTable.vue'
 import { SERVICE_COLUMNS, serviceRow } from './serviceTable'
 
 /*
- * LE TABLEAU DES SERVICES D'UN PRODUIT (Adion UI, coordination#80) : le meme
+ * LE TABLEAU DES SERVICES D'UN PRODUIT (Adion UI) : le meme
  * pour tous - nom, etat, offre, projet, echeance - et un clic vers la fiche.
- * `services` : les services de Nexus (ou `rows` deja ranges par `serviceRow`) ;
+ * `services` : les services de l'API (ou `rows` deja ranges par `serviceRow`) ;
  * `to` : le lien de la fiche d'une ligne. Les options de UiTable (recherche,
  * filtres, `pref-key`, creneau `after`...) passent telles quelles.
  */

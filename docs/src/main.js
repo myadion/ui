@@ -18,7 +18,7 @@ import App from './App.vue'
 /*
  * LA DOC D'ADION UI (2026-10-27) : publique, sans compte. Le kit y tourne
  * pour de vrai, branche sur un adaptateur de demonstration : aucun appel a
- * Nexus ne part d'ici.
+ * L'API ne part d'ici.
  */
 const router = createRouter({
   history: createWebHistory(),
@@ -45,7 +45,7 @@ const demo = createAdionUi({
   context: reactive({ orgId: 'demo', projectId: 'demo' }),
   // La doc ne parle a aucun serveur : chaque appel rend une liste vide.
   request: async () => ({ data: [], features: [] }),
-  // Comme une vraie app : les libelles d'un etat viennent d'elle (myadion : lib/services.js).
+  // Comme une vraie app : les libelles d'un etat viennent d'elle.
   labels: { stateLabel: (v) => ({ active: 'Actif', suspended: 'Suspendu', terminated: 'Résilié', pending: 'En cours' })[String(v || 'active')] || v },
   services: {
     fetchActions: async () => ({ actions: [] }),

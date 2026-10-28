@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 /*
  * UNE LISTE DE CONTROLE (Adion UI) : chaque condition avant d'agir (un envoi),
- * prete ou a faire, avec la raison que Nexus donne. `items` = [{ key, label,
+ * prete ou a faire, avec la raison que l'API donne. `items` = [{ key, label,
  * ready, reason?, tone? }]. Une condition a faire dit pourquoi et reste
  * lisible sans la couleur (icone et mot « A faire »). `blocking` : tout ce qui
  * n'est pas pret bloque (rouge) ; sinon c'est une alerte (orange).
