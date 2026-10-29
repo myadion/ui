@@ -1,0 +1,636 @@
+/*
+ * ADION UI - LES EDITEURS (2026-10-29) : le dessin des outils plein ecran de
+ * l'espace client (studio d'appels, editeur de code, gestionnaire de fichiers).
+ * Chaque bloc est porte par une classe .ui-ed-… posee sur la racine de l'ecran,
+ * et ne s'applique qu'a l'interieur : la meme portee qu'un style scoped de Vue.
+ * A importer par l'app qui affiche ces ecrans : @myadion/ui/editors.css.
+ */
+
+/* components/studio/StudioBottom.vue -> .ui-ed-studio-bottom */
+/*
+ * LE BAS DU STUDIO : son cadre, et la liste des problemes (manque du kit :
+ * UiIssueList, des lignes cliquables avec icone de ton, le lieu, le texte et
+ * « Ouvrir »). Les lignes sont celles du menu d'actions du kit. Jetons seulement.
+ */
+.bottom:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { display: flex; flex-direction: column; height: 100%; min-height: 0; border-top: 1px solid var(--adion-border); background: var(--adion-bg-1);
+}
+.bottom__tabs:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { flex: none; padding: 0 var(--adion-space-3);
+}
+.bottom__body:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { flex: 1; min-height: 0; overflow: auto;
+}
+.bottom__pad:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { padding: var(--adion-space-3);
+}
+.issues:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { display: flex; flex-direction: column; padding: var(--adion-space-1);
+}
+.issue:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { display: grid; grid-template-columns: 18px minmax(100px, 220px) minmax(0, 1fr) auto; align-items: baseline;
+}
+.issue__bad:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { color: var(--adion-bad);
+}
+.issue__warn:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { color: var(--adion-warn);
+}
+.issue__block:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.issue__go:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { opacity: 0;
+}
+.issue:hover .issue__go:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { opacity: 1;
+}
+.line:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: var(--adion-space-2); align-items: center;
+}
+.line:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *):has(> :nth-child(2):last-child) { grid-template-columns: minmax(0, 1fr) auto;
+}
+.line--var:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto auto;
+}
+@media (max-width: 720px) {
+.issue:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { grid-template-columns: 18px minmax(0, 1fr);
+}
+.issue:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) > :nth-child(n + 3) { grid-column: 2;
+}
+.line--var:is(.ui-ed-studio-bottom, .ui-ed-studio-bottom *) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+}
+
+/* components/studio/StudioCanvas.vue -> .ui-ed-studio-canvas */
+/*
+ * LA TOILE (manque du kit : une surface de parcours a blocs relies,
+ * UiFlowCanvas). La barre, les boutons et les gestes viennent du kit ; ici,
+ * seulement la surface de Vue Flow habillee de jetons, et la liste qui
+ * s'ouvre au bout d'une sortie tiree dans le vide.
+ */
+.canvas:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { position: relative; display: flex; flex-direction: column; height: 100%; min-height: 0;
+}
+.canvas__bar:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { padding: var(--adion-space-1) var(--adion-space-3); border-bottom: 1px solid var(--adion-border); background: var(--adion-bg-1);
+}
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { flex: 1; min-height: 0; background: var(--adion-bg-0);
+}
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__node { border-radius: 0;
+}
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__edge-path { stroke: var(--adion-border-strong); stroke-width: 2;
+}
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .edge-branch .vue-flow__edge-path { stroke: color-mix(in srgb, var(--adion-primary) 55%, var(--adion-border-strong));
+}
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__edge.selected .vue-flow__edge-path { stroke: var(--adion-primary); stroke-width: 3;
+}
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__connection-path { stroke: var(--adion-primary); stroke-width: 2;
+}
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__selection,
+.canvas__flow:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__nodesselection-rect { border: 1px dashed var(--adion-primary); background: var(--adion-accent-soft);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { background: var(--adion-bg-1) !important; border: 1px solid var(--adion-border-strong);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-node.tone-blue { fill: var(--adion-family-web);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-node.tone-violet { fill: var(--adion-family-telecom);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-node.tone-amber { fill: var(--adion-warn);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-node.tone-teal { fill: var(--adion-family-cloud);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-node.tone-green { fill: var(--adion-ok);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-node.tone-red { fill: var(--adion-bad);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-node.tone-grey { fill: var(--adion-text-3);
+}
+.canvas__minimap:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .vue-flow__minimap-mask { fill: color-mix(in srgb, var(--adion-scrim) 45%, transparent);
+}
+.canvas__controls:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) button { background: var(--adion-bg-2); border-color: var(--adion-border); color: var(--adion-text-1); fill: var(--adion-text-1);
+}
+.picker:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) {
+  position: fixed;
+  z-index: 50;
+  display: grid;
+  gap: var(--adion-space-1);
+  width: min(300px, calc(100vw - 24px));
+  padding: var(--adion-space-2);
+  border: 1px solid var(--adion-border-strong);
+  background: var(--adion-surface-solid);
+  box-shadow: var(--adion-shadow-card);
+  border-radius: var(--adion-radius-control);
+  transform: translate(8px, -20px);
+}
+.picker__family:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.picker__item:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) .v-icon { color: var(--tone);
+}
+/* La teinte d'une famille de blocs : des jetons du kit, qui suivent le theme clair ou sombre. */
+.tone-blue:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { --tone: var(--adion-family-web);
+}
+.tone-violet:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { --tone: var(--adion-family-telecom);
+}
+.tone-amber:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { --tone: var(--adion-warn);
+}
+.tone-teal:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { --tone: var(--adion-family-cloud);
+}
+.tone-green:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { --tone: var(--adion-ok);
+}
+.tone-red:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { --tone: var(--adion-bad);
+}
+.tone-grey:is(.ui-ed-studio-canvas, .ui-ed-studio-canvas *) { --tone: var(--adion-text-3);
+}
+
+/* components/studio/StudioCode.vue -> .ui-ed-studio-code */
+/* L'editeur de texte CodeMirror (manque du kit : un editeur de code, UiCodeEditor) : son cadre et ses lignes en erreur, en jetons. */
+.code:is(.ui-ed-studio-code, .ui-ed-studio-code *) { display: flex; flex-direction: column; height: 100%; min-height: 0;
+}
+.code__hint:is(.ui-ed-studio-code, .ui-ed-studio-code *) { padding: var(--adion-space-1) var(--adion-space-3); border-bottom: 1px solid var(--adion-border); background: var(--adion-bg-1);
+}
+.code__editor:is(.ui-ed-studio-code, .ui-ed-studio-code *) { flex: 1; min-height: 0; overflow: hidden;
+}
+.code__editor:is(.ui-ed-studio-code, .ui-ed-studio-code *) .cm-editor { height: 100%;
+}
+.code__editor:is(.ui-ed-studio-code, .ui-ed-studio-code *) .cm-studio-error { background: var(--adion-bad-soft); box-shadow: inset 2px 0 0 var(--adion-bad);
+}
+
+/* components/studio/StudioFiles.vue -> .ui-ed-studio-files */
+/*
+ * Le panneau de gauche, et l'arbre des fichiers (manque du kit : UiFileTree).
+ * Jetons seulement.
+ */
+.files:is(.ui-ed-studio-files, .ui-ed-studio-files *) { display: flex; flex-direction: column; height: 100%; min-height: 0;
+}
+.files__head:is(.ui-ed-studio-files, .ui-ed-studio-files *) { display: grid; gap: var(--adion-space-2); padding: var(--adion-space-3); border-bottom: 1px solid var(--adion-border);
+}
+.files__edit:is(.ui-ed-studio-files, .ui-ed-studio-files *) { padding: var(--adion-space-3); border-bottom: 1px solid var(--adion-border); background: var(--adion-bg-2);
+}
+.files__list:is(.ui-ed-studio-files, .ui-ed-studio-files *) { flex: 1; min-height: 0; overflow: auto; padding: var(--adion-space-1) 0;
+}
+.files__pad:is(.ui-ed-studio-files, .ui-ed-studio-files *) { padding: var(--adion-space-3);
+}
+.files__folder:is(.ui-ed-studio-files, .ui-ed-studio-files *) { display: flex; align-items: center; gap: 6px; padding: var(--adion-space-2) var(--adion-space-3) 2px;
+}
+.file:is(.ui-ed-studio-files, .ui-ed-studio-files *) { display: flex; align-items: center; gap: var(--adion-space-2); padding: 6px var(--adion-space-2) 6px var(--adion-space-3); cursor: pointer; border-left: 2px solid transparent;
+}
+.file.in-folder:is(.ui-ed-studio-files, .ui-ed-studio-files *) { padding-left: 22px;
+}
+.file:is(.ui-ed-studio-files, .ui-ed-studio-files *):hover { background: var(--adion-row-hover);
+}
+.file.is-open:is(.ui-ed-studio-files, .ui-ed-studio-files *) { background: var(--adion-accent-soft); border-left-color: var(--adion-primary);
+}
+.file.is-gone:is(.ui-ed-studio-files, .ui-ed-studio-files *) { opacity: 0.5;
+}
+.file__text:is(.ui-ed-studio-files, .ui-ed-studio-files *) { display: flex; flex-direction: column; flex: 1; min-width: 0;
+}
+.file__name:is(.ui-ed-studio-files, .ui-ed-studio-files *) { overflow: hidden; font-size: var(--adion-text-sm); white-space: nowrap; text-overflow: ellipsis;
+}
+.file__meta:is(.ui-ed-studio-files, .ui-ed-studio-files *) { overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.files__vault:is(.ui-ed-studio-files, .ui-ed-studio-files *) { padding: 0 var(--adion-space-3) var(--adion-space-3); border-top: 1px solid var(--adion-border);
+}
+
+/* components/studio/StudioInspector.vue -> .ui-ed-studio-inspector */
+/*
+ * LE PANNEAU DES REGLAGES. Champs, listes, segments, boutons, encadres :
+ * le kit. Restent ici sa mise en page (l'en-tete colle en haut, la tuile
+ * teintee du bloc) et deux surfaces de l'editeur sans equivalent dans le
+ * kit : les touches d'un menu (UiKeyMap : une touche, sa branche, ses
+ * gestes) et le pave de touches. Jetons seulement.
+ */
+.insp:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: flex; flex-direction: column; min-height: 0;
+}
+/* La teinte d'une famille de blocs : des jetons du kit, qui suivent le theme clair ou sombre. */
+.tone-blue:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { --tone: var(--adion-family-web);
+}
+.tone-violet:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { --tone: var(--adion-family-telecom);
+}
+.tone-amber:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { --tone: var(--adion-warn);
+}
+.tone-teal:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { --tone: var(--adion-family-cloud);
+}
+.tone-green:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { --tone: var(--adion-ok);
+}
+.tone-red:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { --tone: var(--adion-bad);
+}
+.tone-grey:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { --tone: var(--adion-text-3);
+}
+.insp__head:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: var(--adion-space-3); padding: var(--adion-space-3); border-bottom: 1px solid var(--adion-border); background: var(--adion-bg-1);
+}
+.insp__icon:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border: 1px solid color-mix(in srgb, var(--tone) 45%, transparent); background: color-mix(in srgb, var(--tone) 14%, transparent); color: var(--tone); border-radius: var(--adion-radius-control);
+}
+.insp__titles:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; gap: var(--adion-space-1); flex: 1; min-width: 0;
+}
+.insp__kind:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { color: var(--tone);
+}
+.insp__tools:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: flex; gap: 2px; align-self: flex-start;
+}
+.insp__issues:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; gap: var(--adion-space-2); padding: var(--adion-space-3) var(--adion-space-3) 0;
+}
+.insp__body:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: flex; flex-direction: column; gap: var(--adion-space-1); padding: var(--adion-space-2) var(--adion-space-3) var(--adion-space-6);
+}
+.insp--empty:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { padding: var(--adion-space-6) var(--adion-space-4);
+}
+.keys:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--adion-space-1); margin: 0; padding: 0; list-style: none;
+}
+.keys__row:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: flex; align-items: center; border: 1px solid var(--adion-border); background: var(--adion-bg-2); border-radius: var(--adion-radius-control);
+}
+.keys__key:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; place-items: center; flex: none; align-self: stretch; width: 40px; border-right: 1px solid var(--adion-border); font-family: var(--adion-font-mono); font-size: 18px; font-weight: 600; color: var(--adion-accent-text);
+}
+.keys__row.is-other .keys__key:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { color: var(--adion-text-2);
+}
+.keys__what:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { flex: 1 1 0; width: auto; min-width: 0;
+}
+.keys__text:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.keys__what:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *):disabled { cursor: default;
+}
+.keys__row.is-empty .keys__what:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { color: var(--adion-text-2);
+}
+.keypad:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; grid-template-columns: repeat(3, minmax(48px, 64px)); gap: var(--adion-space-2);
+}
+.method-url:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; grid-template-columns: minmax(96px, 30%) minmax(0, 1fr); gap: var(--adion-space-2); align-items: start;
+}
+.pair:is(.ui-ed-studio-inspector, .ui-ed-studio-inspector *) { display: grid; grid-template-columns: 38% minmax(0, 1fr) auto; gap: var(--adion-space-2); align-items: start;
+}
+
+/* components/studio/StudioNode.vue -> .ui-ed-studio-node */
+/* La surface de la toile (manque du kit : un bloc de parcours relie, UiFlowNode). Jetons seulement. */
+.card:is(.ui-ed-studio-node, .ui-ed-studio-node *) {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 236px;
+  padding: 12px 14px 12px 12px;
+  border: 1px solid var(--adion-border-strong);
+  border-left: 4px solid var(--tone);
+  background: var(--adion-bg-1);
+  color: var(--adion-text-1);
+  border-radius: var(--adion-radius-control);
+  box-shadow: var(--adion-shadow-card);
+  cursor: grab;
+}
+.card.is-selected:is(.ui-ed-studio-node, .ui-ed-studio-node *) { border-color: var(--adion-primary); border-left-color: var(--tone); box-shadow: 0 0 0 2px var(--adion-primary), var(--adion-shadow-card);
+}
+.card.is-live:is(.ui-ed-studio-node, .ui-ed-studio-node *) { box-shadow: 0 0 0 3px var(--adion-warn), var(--adion-shadow-card);
+}
+.card.has-error:is(.ui-ed-studio-node, .ui-ed-studio-node *) { border-color: var(--adion-bad);
+}
+.card.has-warning:is(.ui-ed-studio-node, .ui-ed-studio-node *) { border-color: var(--adion-warn-line);
+}
+.card.is-aside:is(.ui-ed-studio-node, .ui-ed-studio-node *) { border-style: dashed; opacity: 0.78;
+}
+.card__icon:is(.ui-ed-studio-node, .ui-ed-studio-node *) {
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  height: 46px;
+  background: color-mix(in srgb, var(--tone) 20%, transparent);
+  color: var(--tone);
+  border-radius: var(--adion-radius-control);
+}
+.card__text:is(.ui-ed-studio-node, .ui-ed-studio-node *) { display: flex; flex-direction: column; gap: 3px; min-width: 0; padding-top: 2px;
+}
+.card__title:is(.ui-ed-studio-node, .ui-ed-studio-node *) { overflow: hidden; font-size: 13.5px; font-weight: 600; line-height: 1.25; white-space: nowrap; text-overflow: ellipsis;
+}
+.card__summary:is(.ui-ed-studio-node, .ui-ed-studio-node *) { overflow: hidden; font-size: 11.5px; color: var(--adion-text-2); white-space: nowrap; text-overflow: ellipsis;
+}
+.card__aside:is(.ui-ed-studio-node, .ui-ed-studio-node *) { font-size: 10.5px; color: var(--adion-warn);
+}
+.card__badge:is(.ui-ed-studio-node, .ui-ed-studio-node *) { position: absolute; top: 6px; right: 8px; color: var(--adion-bad);
+}
+.has-warning .card__badge:is(.ui-ed-studio-node, .ui-ed-studio-node *) { color: var(--adion-warn);
+}
+.h:is(.ui-ed-studio-node, .ui-ed-studio-node *) { width: 11px; height: 11px; border: 2px solid var(--adion-bg-1); background: var(--tone);
+}
+.h--in:is(.ui-ed-studio-node, .ui-ed-studio-node *) { background: var(--adion-text-2);
+}
+.h--free:is(.ui-ed-studio-node, .ui-ed-studio-node *) { background: var(--adion-bg-1); border: 2px solid var(--tone);
+}
+.out:is(.ui-ed-studio-node, .ui-ed-studio-node *) {
+  position: absolute;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  padding: 1px 7px;
+  border: 1px solid color-mix(in srgb, var(--tone) 55%, transparent);
+  background: var(--adion-bg-1);
+  color: var(--adion-text-1);
+  font-size: 11px;
+  white-space: nowrap;
+  pointer-events: none;
+  border-radius: var(--adion-radius-pill);
+}
+.out em:is(.ui-ed-studio-node, .ui-ed-studio-node *) { margin-left: 6px; font-style: normal; color: var(--adion-text-2);
+}
+.out em:is(.ui-ed-studio-node, .ui-ed-studio-node *)::before { content: '→ ';
+}
+.out--free:is(.ui-ed-studio-node, .ui-ed-studio-node *) { border-style: dashed; border-color: var(--adion-border-strong); color: var(--adion-text-2);
+}
+
+/* La teinte d'une famille de blocs : des jetons du kit, qui suivent le theme clair ou sombre. */
+.tone-blue:is(.ui-ed-studio-node, .ui-ed-studio-node *) { --tone: var(--adion-family-web);
+}
+.tone-violet:is(.ui-ed-studio-node, .ui-ed-studio-node *) { --tone: var(--adion-family-telecom);
+}
+.tone-amber:is(.ui-ed-studio-node, .ui-ed-studio-node *) { --tone: var(--adion-warn);
+}
+.tone-teal:is(.ui-ed-studio-node, .ui-ed-studio-node *) { --tone: var(--adion-family-cloud);
+}
+.tone-green:is(.ui-ed-studio-node, .ui-ed-studio-node *) { --tone: var(--adion-ok);
+}
+.tone-red:is(.ui-ed-studio-node, .ui-ed-studio-node *) { --tone: var(--adion-bad);
+}
+.tone-grey:is(.ui-ed-studio-node, .ui-ed-studio-node *) { --tone: var(--adion-text-3);
+}
+
+/* components/studio/StudioSimulator.vue -> .ui-ed-studio-simulator */
+/*
+ * Trois colonnes : l'appel qu'on simule, les pas, les variables ; empilees
+ * sur telephone. Le journal des pas (manque du kit : UiStepLog). Jetons seulement.
+ */
+.sim:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); height: 100%; min-height: 0;
+}
+.sim__setup:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { display: grid; align-content: start; gap: var(--adion-space-3); padding: var(--adion-space-3); border-right: 1px solid var(--adion-border); overflow: auto;
+}
+.sim__main:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { display: flex; flex-direction: column; gap: var(--adion-space-2); min-height: 0; padding-top: var(--adion-space-2);
+}
+.sim__run:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { display: flex; flex: 1; min-height: 0;
+}
+.sim__log:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { flex: 1; margin: 0; padding: var(--adion-space-1) 0; overflow: auto; list-style: none;
+}
+.sim__log li:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { display: flex; gap: var(--adion-space-2); align-items: center; padding: 3px var(--adion-space-3); font-size: var(--adion-text-sm); cursor: pointer;
+}
+.sim__log li:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *):hover { background: var(--adion-row-hover);
+}
+.sim__log li.is-last:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { background: var(--adion-accent-soft);
+}
+.sim__file:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { min-width: 70px;
+}
+.sim__log .k-error:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { color: var(--adion-bad);
+}
+.sim__log .k-transfer:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *), .sim__log .k-done:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { color: var(--adion-accent-text);
+}
+.sim__vars:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { flex: 0 1 220px; min-width: 0; padding: var(--adion-space-2) var(--adion-space-3); border-left: 1px solid var(--adion-border); overflow: auto;
+}
+@media (max-width: 720px) {
+.sim:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { grid-template-columns: minmax(0, 1fr); height: auto;
+}
+.sim__setup:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { border-right: 0; border-bottom: 1px solid var(--adion-border);
+}
+.sim__run:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { flex-direction: column;
+}
+.sim__vars:is(.ui-ed-studio-simulator, .ui-ed-studio-simulator *) { flex: none; border-left: 0; border-top: 1px solid var(--adion-border);
+}
+}
+
+/* components/studio/StudioStart.vue -> .ui-ed-studio-start */
+/* La surface de la toile (manque du kit : un noeud de depart de parcours). Jetons seulement. */
+.start:is(.ui-ed-studio-start, .ui-ed-studio-start *) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 190px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--c);
+  background: color-mix(in srgb, var(--c) 14%, var(--adion-bg-1));
+  color: var(--adion-text-1);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--adion-radius-pill);
+}
+.start:is(.ui-ed-studio-start, .ui-ed-studio-start *) .v-icon { color: var(--c);
+}
+.start.is-selected:is(.ui-ed-studio-start, .ui-ed-studio-start *) { box-shadow: 0 0 0 2px var(--adion-primary);
+}
+.flow-steps:is(.ui-ed-studio-start, .ui-ed-studio-start *) { --c: var(--adion-ok);
+}
+.flow-on_error:is(.ui-ed-studio-start, .ui-ed-studio-start *) { --c: var(--adion-bad);
+}
+.flow-on_hangup:is(.ui-ed-studio-start, .ui-ed-studio-start *) { --c: var(--adion-text-3);
+}
+.h:is(.ui-ed-studio-start, .ui-ed-studio-start *) { width: 11px; height: 11px; border: 2px solid var(--adion-bg-1); background: var(--c);
+}
+.h--free:is(.ui-ed-studio-start, .ui-ed-studio-start *) { background: var(--adion-bg-1); border: 2px solid var(--c);
+}
+.end:is(.ui-ed-studio-start, .ui-ed-studio-start *) {
+  position: absolute;
+  left: calc(100% + 10px);
+  padding: 1px 7px;
+  border: 1px dashed var(--adion-border-strong);
+  background: var(--adion-bg-1);
+  color: var(--adion-text-2);
+  font-size: 11px;
+  font-weight: 400;
+  white-space: nowrap;
+  border-radius: var(--adion-radius-pill);
+}
+
+/* components/studio/StudioTextField.vue -> .ui-ed-studio-text-field */
+/*
+ * La liste des variables, sous le champ (manque du kit : UiMention, une
+ * saisie qui propose apres `{{`). Les lignes sont celles du menu d'actions
+ * du kit ; ici, seulement sa place et la ligne choisie au clavier.
+ */
+.tf:is(.ui-ed-studio-text-field, .ui-ed-studio-text-field *) { position: relative;
+}
+.tf--mono:is(.ui-ed-studio-text-field, .ui-ed-studio-text-field *) input, .tf--mono:is(.ui-ed-studio-text-field, .ui-ed-studio-text-field *) textarea { font-family: var(--adion-font-mono);
+}
+.tf__menu:is(.ui-ed-studio-text-field, .ui-ed-studio-text-field *) {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  top: 100%;
+  max-width: none;
+  max-height: 220px;
+  overflow: auto;
+}
+.tf__menu .is-active:is(.ui-ed-studio-text-field, .ui-ed-studio-text-field *) { background: var(--adion-row-hover);
+}
+
+/* components/studio/StudioToolbox.vue -> .ui-ed-studio-toolbox */
+/*
+ * Les tuiles a glisser sur la toile (manque du kit : une palette de blocs
+ * a glisser-deposer, UiPalette). Les sections viennent du kit ; ici, la
+ * seule tuile, en jetons.
+ */
+.toolbox:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { padding: 0 var(--adion-space-3) var(--adion-space-3);
+}
+.toolbox__grid:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: var(--adion-space-2);
+}
+.tool-block:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 9px 4px 7px;
+  border: 1px solid var(--adion-border);
+  background: var(--adion-bg-2);
+  color: var(--adion-text-1);
+  font-size: var(--adion-text-xs);
+  line-height: 1.2;
+  text-align: center;
+  cursor: grab;
+  border-radius: var(--adion-radius-control);
+}
+.tool-block:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) .v-icon { color: var(--tone);
+}
+.tool-block:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *):hover:not(:disabled) { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 10%, var(--adion-bg-2));
+}
+.tool-block:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *):disabled { opacity: 0.45; cursor: not-allowed;
+}
+/* La teinte d'une famille de blocs : des jetons du kit, qui suivent le theme clair ou sombre. */
+.tone-blue:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { --tone: var(--adion-family-web);
+}
+.tone-violet:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { --tone: var(--adion-family-telecom);
+}
+.tone-amber:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { --tone: var(--adion-warn);
+}
+.tone-teal:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { --tone: var(--adion-family-cloud);
+}
+.tone-green:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { --tone: var(--adion-ok);
+}
+.tone-red:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { --tone: var(--adion-bad);
+}
+.tone-grey:is(.ui-ed-studio-toolbox, .ui-ed-studio-toolbox *) { --tone: var(--adion-text-3);
+}
+
+/* components/studio/StudioVersions.vue -> .ui-ed-studio-versions */
+/* La liste des versions et l'ecart ligne a ligne (manque du kit : UiDiff). Jetons seulement. */
+.vers:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { display: grid; grid-template-columns: minmax(160px, 220px) minmax(0, 1fr); min-height: 320px; max-height: 64vh; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-control);
+}
+.vers__list:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { display: grid; align-content: start; padding: var(--adion-space-1); border-right: 1px solid var(--adion-border); overflow: auto;
+}
+.vers__item.is-on:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { background: var(--adion-accent-soft);
+}
+.vers__diff:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { min-width: 0; padding: var(--adion-space-2) var(--adion-space-3); overflow: auto;
+}
+.vers__diff pre:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { margin: var(--adion-space-2) 0 0; font-family: var(--adion-font-mono); font-size: 12px; line-height: 1.5;
+}
+.d-add:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { display: block; background: var(--adion-ok-soft); color: var(--adion-ok);
+}
+.d-del:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { display: block; background: var(--adion-bad-soft); color: var(--adion-bad);
+}
+.d-same:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { display: block; color: var(--adion-text-2);
+}
+@media (max-width: 720px) {
+.vers:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { grid-template-columns: minmax(0, 1fr); max-height: none;
+}
+.vers__list:is(.ui-ed-studio-versions, .ui-ed-studio-versions *) { grid-auto-flow: column; grid-auto-columns: max-content; border-right: 0; border-bottom: 1px solid var(--adion-border); overflow-x: auto;
+}
+}
+
+/* components/studio/form/StudioField.vue -> .ui-ed-studio-field */
+/*
+ * Le reglage vise par un probleme clique en bas : il s'eclaire un instant
+ * (manque du kit : un etat « marque » de UiField, `flagged`). Jetons seulement.
+ */
+.sf:is(.ui-ed-studio-field, .ui-ed-studio-field *) { position: relative; scroll-margin-top: 84px; padding: var(--adion-space-2) var(--adion-space-3); margin: 0 calc(-1 * var(--adion-space-3)); border-left: 2px solid transparent; transition: background-color 0.3s;
+}
+.sf.is-flagged:is(.ui-ed-studio-field, .ui-ed-studio-field *) { background: var(--adion-bad-soft); border-left-color: var(--adion-bad); animation: sf-flag-ui-ed-studio-field 1.2s ease-out 2;
+}
+.sf__aside:is(.ui-ed-studio-field, .ui-ed-studio-field *) { position: absolute; top: var(--adion-space-1); right: var(--adion-space-3); z-index: 1;
+}
+@keyframes sf-flag-ui-ed-studio-field {
+0% { box-shadow: inset 0 0 0 1px var(--adion-bad);
+}
+100% { box-shadow: inset 0 0 0 1px transparent;
+}
+}
+
+/* components/studio/form/StudioSchedule.vue -> .ui-ed-studio-schedule */
+/* Une carte du kit qui se choisit d'un clic, et la semaine dessinee (manque du kit : UiWeekBar). Jetons seulement. */
+.sch__card:is(.ui-ed-studio-schedule, .ui-ed-studio-schedule *) { width: 100%; font: inherit; color: var(--adion-text-1); text-align: left; cursor: pointer;
+}
+.sch__card:is(.ui-ed-studio-schedule, .ui-ed-studio-schedule *):disabled { cursor: default; opacity: 0.6;
+}
+.sch__week:is(.ui-ed-studio-schedule, .ui-ed-studio-schedule *) { display: grid; gap: 3px;
+}
+.sch__day:is(.ui-ed-studio-schedule, .ui-ed-studio-schedule *) { display: grid; grid-template-columns: 30px 1fr; align-items: center; gap: 6px;
+}
+.sch__bar:is(.ui-ed-studio-schedule, .ui-ed-studio-schedule *) { position: relative; height: 7px; background: var(--adion-bg-0); border-radius: 1px;
+}
+.sch__open:is(.ui-ed-studio-schedule, .ui-ed-studio-schedule *) { position: absolute; top: 0; bottom: 0; background: var(--adion-accent-text); opacity: 0.75; border-radius: 1px;
+}
+
+/* components/studio/form/StudioStepper.vue -> .ui-ed-studio-stepper */
+/* Le chiffre entre moins et plus (manque du kit : UiStepper, un nombre court a pas). Jetons seulement. */
+.stp:is(.ui-ed-studio-stepper, .ui-ed-studio-stepper *) { display: grid; gap: var(--adion-space-1);
+}
+.stp__box:is(.ui-ed-studio-stepper, .ui-ed-studio-stepper *) { display: inline-flex; align-items: center; gap: var(--adion-space-1);
+}
+.stp__input:is(.ui-ed-studio-stepper, .ui-ed-studio-stepper *) {
+  width: 48px;
+  height: var(--adion-control-h-sm);
+  border: 1px solid var(--adion-border-strong);
+  background: var(--adion-field-bg);
+  color: var(--adion-text-1);
+  font: inherit;
+  font-size: var(--adion-text-md);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  outline: none;
+  border-radius: var(--adion-radius-control);
+}
+.stp__input:is(.ui-ed-studio-stepper, .ui-ed-studio-stepper *):focus { border-color: var(--adion-focus);
+}
+.stp__input:is(.ui-ed-studio-stepper, .ui-ed-studio-stepper *):disabled { opacity: 0.5;
+}
+
+/* views/CallStudioView.vue -> .ui-ed-call-studio */
+/*
+ * LA GRILLE DE L'EDITEUR (plein ecran par conception, manque du kit : un
+ * gabarit d'editeur a panneaux, UiEditorLayout, avec barre du haut, panneau
+ * gauche, centre, panneau droit qui s'elargit, bas qui se tire). Seulement
+ * la place des panneaux, leurs filets et leurs poignees ; jetons seulement.
+ */
+.studio:is(.ui-ed-call-studio, .ui-ed-call-studio *) { display: flex; flex-direction: column; width: 100%; height: 100vh; overflow: hidden; background: var(--adion-bg-0); color: var(--adion-text-1);
+}
+.studio__top:is(.ui-ed-call-studio, .ui-ed-call-studio *) { flex: none; padding: var(--adion-space-2) var(--adion-space-3); border-bottom: 1px solid var(--adion-border); background: var(--adion-bg-1);
+}
+.studio__mark:is(.ui-ed-call-studio, .ui-ed-call-studio *) { color: var(--adion-accent-text);
+}
+.studio__name:is(.ui-ed-call-studio, .ui-ed-call-studio *) { min-width: 0; max-width: 260px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.studio__notices:is(.ui-ed-call-studio, .ui-ed-call-studio *) { display: grid; gap: var(--adion-space-2); padding: var(--adion-space-2) var(--adion-space-3);
+}
+.studio__center:is(.ui-ed-call-studio, .ui-ed-call-studio *) { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; padding: var(--adion-space-5);
+}
+.body:is(.ui-ed-call-studio, .ui-ed-call-studio *) { flex: 1; min-height: 0; display: grid; transition: grid-template-columns 0.15s ease-out;
+}
+.left:is(.ui-ed-call-studio, .ui-ed-call-studio *) { grid-column: 1; grid-row: 1 / span 2; border-right: 1px solid var(--adion-border); background: var(--adion-bg-1); min-height: 0; overflow: hidden;
+}
+.middle:is(.ui-ed-call-studio, .ui-ed-call-studio *) { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0;
+}
+.right:is(.ui-ed-call-studio, .ui-ed-call-studio *) { position: relative; grid-column: 3; grid-row: 1 / span 2; display: flex; flex-direction: column; min-height: 0; border-left: 1px solid var(--adion-border); background: var(--adion-bg-1);
+}
+.right.is-drawer:is(.ui-ed-call-studio, .ui-ed-call-studio *) { box-shadow: var(--adion-shadow-card);
+}
+.right__grip:is(.ui-ed-call-studio, .ui-ed-call-studio *) { position: absolute; top: 0; bottom: 0; left: -3px; width: 6px; cursor: col-resize; z-index: 3;
+}
+.right__grip:is(.ui-ed-call-studio, .ui-ed-call-studio *):hover { background: var(--adion-accent-soft);
+}
+.right__tabs:is(.ui-ed-call-studio, .ui-ed-call-studio *) { flex: none; padding: var(--adion-space-2) var(--adion-space-3); border-bottom: 1px solid var(--adion-border);
+}
+.right__scroll:is(.ui-ed-call-studio, .ui-ed-call-studio *) { flex: 1; min-height: 0; overflow: auto;
+}
+.right__pad:is(.ui-ed-call-studio, .ui-ed-call-studio *) { display: grid; gap: var(--adion-space-3); margin: 0; padding: var(--adion-space-3); font-size: var(--adion-text-sm); line-height: 1.55;
+}
+.right__pad p:is(.ui-ed-call-studio, .ui-ed-call-studio *) { margin: 0;
+}
+.bottom:is(.ui-ed-call-studio, .ui-ed-call-studio *) { position: relative; grid-column: 2; grid-row: 2; min-height: 0;
+}
+.bottom__grip:is(.ui-ed-call-studio, .ui-ed-call-studio *) { position: absolute; top: -3px; left: 0; right: 0; height: 6px; cursor: row-resize; z-index: 2;
+}
+
+/* Sur telephone : la page defile, les panneaux s'empilent (la toile, ses reglages, le bas, les fichiers). */
+@media (max-width: 900px) {
+.studio:is(.ui-ed-call-studio, .ui-ed-call-studio *) { overflow-y: auto;
+}
+.body:is(.ui-ed-call-studio, .ui-ed-call-studio *) { display: flex; flex: none; flex-direction: column;
+}
+.middle:is(.ui-ed-call-studio, .ui-ed-call-studio *) { order: 1; height: 70vh;
+}
+.right:is(.ui-ed-call-studio, .ui-ed-call-studio *) { order: 2; border-left: 0; border-top: 1px solid var(--adion-border);
+}
+.right.is-drawer:is(.ui-ed-call-studio, .ui-ed-call-studio *) { box-shadow: none;
+}
+.right__scroll:is(.ui-ed-call-studio, .ui-ed-call-studio *) { flex: none; overflow: visible;
+}
+.bottom:is(.ui-ed-call-studio, .ui-ed-call-studio *) { order: 3; height: 60vh;
+}
+.left:is(.ui-ed-call-studio, .ui-ed-call-studio *) { order: 4; border-right: 0; border-top: 1px solid var(--adion-border); max-height: 70vh;
+}
+.right__grip:is(.ui-ed-call-studio, .ui-ed-call-studio *), .bottom__grip:is(.ui-ed-call-studio, .ui-ed-call-studio *) { display: none;
+}
+}
