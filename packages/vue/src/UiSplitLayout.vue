@@ -18,13 +18,13 @@ defineProps({
 </script>
 
 <template>
-  <div class="ui-split">
-    <figure class="ui-split__media">
+  <div class="ui-panes">
+    <figure class="ui-panes__media">
       <img :src="image" :alt="alt" :style="{ objectPosition: position }" />
-      <figcaption v-if="$slots.caption" class="ui-split__caption"><slot name="caption" /></figcaption>
+      <figcaption v-if="$slots.caption" class="ui-panes__caption"><slot name="caption" /></figcaption>
     </figure>
-    <div class="ui-split__content">
-      <div class="ui-split__inner"><slot /></div>
+    <div class="ui-panes__content">
+      <div class="ui-panes__inner"><slot /></div>
     </div>
   </div>
 </template>

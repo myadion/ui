@@ -2525,15 +2525,17 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 /* ---------------------------------------------------------------- */
 /* La page en deux volets (2026-10-29) : la photo, puis le contenu    */
 /* ---------------------------------------------------------------- */
-.ui-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-.ui-split__media { position: sticky; top: var(--ui-split-top, 48px); height: calc(100dvh - var(--ui-split-top, 48px)); margin: 0; overflow: hidden; }
-.ui-split__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.ui-split__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, color-mix(in srgb, var(--adion-bg-0) 55%, transparent)); pointer-events: none; }
-.ui-split__caption { position: absolute; left: 32px; bottom: 32px; right: 32px; z-index: 1; font-size: 15px; line-height: 1.5; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
-.ui-split__content { display: flex; justify-content: center; padding: 10vh 32px 64px; }
-.ui-split__inner { width: 100%; max-width: 560px; }
+/* Toute la hauteur sous la barre, sans defilement de la page : le contenu de droite s'etire, et defile en lui-meme s'il le faut. */
+.ui-panes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); height: calc(100dvh - var(--ui-panes-top, 48px)); }
+.ui-panes__media { position: relative; height: 100%; margin: 0; overflow: hidden; }
+.ui-panes__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ui-panes__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, color-mix(in srgb, var(--adion-bg-0) 55%, transparent)); pointer-events: none; }
+.ui-panes__caption { position: absolute; left: 32px; bottom: 32px; right: 32px; z-index: 1; font-size: 15px; line-height: 1.5; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
+.ui-panes__content { display: flex; justify-content: center; min-height: 0; padding: 32px; }
+.ui-panes__inner { display: flex; flex-direction: column; width: 100%; max-width: 560px; min-height: 0; }
+.ui-panes__inner > .ui-page { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 @media (max-width: 960px) {
-  .ui-split { grid-template-columns: minmax(0, 1fr); }
-  .ui-split__media { display: none; }
-  .ui-split__content { padding: 24px 16px 48px; }
+  .ui-panes { grid-template-columns: minmax(0, 1fr); height: auto; }
+  .ui-panes__media { display: none; }
+  .ui-panes__content { padding: 24px 16px 48px; }
 }
