@@ -29,6 +29,7 @@ defineProps({
       <figcaption v-if="$slots.caption" class="ui-panes__caption"><slot name="caption" /></figcaption>
     </figure>
     <div class="ui-panes__content">
+      <div v-if="$slots.top" class="ui-panes__top"><slot name="top" /></div>
       <div class="ui-panes__inner"><slot /></div>
       <div v-if="$slots.footer" class="ui-panes__footer"><slot name="footer" /></div>
     </div>

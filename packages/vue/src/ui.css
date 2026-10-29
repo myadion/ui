@@ -2616,6 +2616,16 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 /* Une pile d'elements espaces (un formulaire court) et une attente avec son loader. */
 .ui-stack { display: grid; gap: 16px; margin: 0; }
 .ui-wait { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 14px; color: var(--adion-text-3); }
+/* Le compte connecte (UiSignedInBadge) : une petite pastille d'une ligne. */
+.ui-signed-in { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; padding: 3px 4px 3px 3px; border: 1px solid var(--adion-line, var(--adion-border)); border-radius: 999px; background: var(--adion-card-2, transparent); font-size: 12px; line-height: 1; color: var(--adion-text-2); }
+.ui-signed-in__avatar { flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--adion-accent-soft, color-mix(in srgb, var(--adion-primary) 18%, transparent)); color: var(--adion-accent-text, var(--adion-primary)); font-weight: 700; font-size: 11px; }
+.ui-signed-in__text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-signed-in__text strong { font-weight: 600; color: var(--adion-text-1); }
+.ui-signed-in__action { flex: none; padding: 5px 10px; border: 0; border-left: 1px solid var(--adion-line, var(--adion-border)); border-radius: 0 999px 999px 0; background: none; font: inherit; font-size: 12px; color: var(--adion-accent-text, var(--adion-primary)); cursor: pointer; }
+.ui-signed-in__action:hover, .ui-signed-in__action:focus-visible { color: var(--adion-text-1); outline: none; }
+@media (max-width: 599px) { .ui-signed-in__label { display: none; } }
+/* La bande du haut d'un volet (UiSplitLayout #top) : centree. */
+.ui-panes__top { display: flex; justify-content: center; padding-bottom: 16px; }
 /* Une ligne qui montre sans se choisir (UiPasskeyList). */
 .ui-accounts__pick.is-static { cursor: default; }
 .ui-accounts__pick.is-static:hover { border-color: var(--adion-line, var(--adion-border)); background: var(--adion-card-2, transparent); }
