@@ -441,6 +441,7 @@
 @media (max-width: 720px) {
   .ui-stats, .ui-stats.is-band { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--adion-space-5) var(--adion-space-4); }
   .ui-stats.is-band { padding: var(--adion-space-4); }
+  .ui-stats > .ui-stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .ui-stat__value { font-size: 24px; }
 }
 
@@ -831,7 +832,8 @@
 .ui-notice.is-tone-info > .v-icon { color: var(--adion-info); }
 @media (max-width: 720px) {
   .ui-notice { flex-wrap: wrap; }
-  .ui-notice__actions { align-self: auto; width: 100%; justify-content: flex-start; padding-left: 30px; }
+  /* Les boutons passent dessous ; la croix reste en haut a droite. */
+  .ui-notice__actions { order: 2; align-self: auto; width: 100%; justify-content: flex-start; padding-left: 30px; }
 }
 
 /* Le bandeau de la Sandbox : permanent, sur toute la largeur, au-dessus du contenu. */
@@ -1865,6 +1867,8 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
   text-align: center;
 }
 .ui-notif.v-navigation-drawer { background: var(--adion-surface-solid); border-left: 1px solid var(--adion-border-strong); color: var(--adion-text-1); max-width: 100vw; }
+/* Au telephone le volet prend tout l'ecran : une bande de page a gauche ne sert a rien. */
+@media (max-width: 480px) { .ui-notif--full.v-navigation-drawer { width: 100vw !important; } }
 .ui-notif__head { display: flex; align-items: center; gap: var(--adion-space-2); padding: var(--adion-space-4) var(--adion-space-5); border-bottom: 1px solid var(--adion-border); position: sticky; top: 0; background: var(--adion-surface-solid); z-index: 1; }
 .ui-notif__title { display: flex; align-items: center; gap: var(--adion-space-2); flex: 1; margin: 0; font-size: 17px; font-weight: 400; }
 .ui-notif__head .ui-dialog__close { margin: 0; }
@@ -1875,11 +1879,18 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-notif__item.is-tone-warn { border-left-color: var(--adion-warn); }
 .ui-notif__item.is-tone-info { border-left-color: var(--adion-info); }
 .ui-notif__item.is-tone-ok { border-left-color: var(--adion-ok); }
-.ui-notif__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--adion-space-2); }
+.ui-notif__meta { display: flex; align-items: center; gap: var(--adion-space-2); }
 .ui-notif__when { font-size: var(--adion-text-sm); color: var(--adion-text-3); }
 .ui-notif__name { margin: 0; font-size: var(--adion-text-md); font-weight: 500; }
 .ui-notif__text { margin: 0; font-size: var(--adion-text-sm); line-height: 1.55; color: var(--adion-text-2); }
-.ui-notif__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--adion-space-2); }
+.ui-notif__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--adion-space-2); margin-left: calc(-1 * var(--adion-space-3)); }
+.ui-notif__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--adion-space-3); padding: var(--adion-space-2) var(--adion-space-5); border-bottom: 1px solid var(--adion-border); font-size: var(--adion-text-sm); color: var(--adion-text-3); }
+.ui-notif__link { padding: 0; border: 0; background: none; font: inherit; color: var(--adion-accent-text); cursor: pointer; }
+.ui-notif__link:hover { text-decoration: underline; }
+.ui-notif__icon { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--adion-radius-control); background: none; color: var(--adion-text-3); cursor: pointer; }
+.ui-notif__icon:hover { color: var(--adion-text-1); background: var(--adion-row-hover); }
+.ui-notif__icon:focus-visible, .ui-notif__link:focus-visible { outline: 2px solid var(--adion-focus); outline-offset: 2px; }
+.ui-notif__head .ui-notif__tabs { min-width: 0; overflow-x: auto; }
 
 /* L'accueil : de l'air, une colonne de lecture, des cartes en degrade. */
 .ui-home__welcome .ui-header__title { font-size: 30px; font-weight: 650; letter-spacing: -0.025em; }

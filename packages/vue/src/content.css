@@ -62,9 +62,11 @@ html[data-theme='light'],
 .ui-page,
 .ui-dialog,
 .ui-actionmenu,
+.ui-notif,
 .ui-page *,
 .ui-dialog *,
-.ui-actionmenu * {
+.ui-actionmenu *,
+.ui-notif * {
   font-family: var(--adion-font-ui);
   letter-spacing: normal !important;
   text-transform: none !important;
@@ -338,6 +340,9 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
   .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) > .ui-stat,
   .ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 14px 14px; }
   .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) .ui-stat__value { font-size: 22px; }
+  /* Un nombre impair de chiffres : le dernier prend la rangee, pas de case vide. */
+  .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) > .ui-stat:last-child:nth-child(odd),
+  .ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 /* Les sections : la tete separee du contenu par un filet, un titre de 15 px. */
@@ -351,6 +356,8 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
 
 /* Les encadres : un degrade leger de leur ton, l'icone en tuile. */
 .ui-notice { align-items: center; }
+/* Au telephone le texte prend plusieurs lignes : icone et croix restent en haut. */
+@media (max-width: 720px) { .ui-notice { align-items: flex-start; } }
 .ui-notice.is-tone-info { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-info) 13%, var(--adion-card)), color-mix(in srgb, var(--adion-info) 4%, var(--adion-card))); border-color: color-mix(in srgb, var(--adion-info) 26%, transparent); }
 .ui-notice.is-tone-ok { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-ok) 13%, var(--adion-card)), color-mix(in srgb, var(--adion-ok) 4%, var(--adion-card))); border-color: color-mix(in srgb, var(--adion-ok) 26%, transparent); }
 .ui-notice.is-tone-warn { background: linear-gradient(90deg, color-mix(in srgb, var(--adion-warn) 13%, var(--adion-card)), color-mix(in srgb, var(--adion-warn) 4%, var(--adion-card))); border-color: color-mix(in srgb, var(--adion-warn) 26%, transparent); }

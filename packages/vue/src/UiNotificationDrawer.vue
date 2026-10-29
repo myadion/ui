@@ -56,7 +56,6 @@ const unread = computed(() => unreadCount(items.value))
       </div>
       <h2 v-else class="ui-notif__title">Notifications <UiBadge v-if="unread" :label="unread" tone="accent" /></h2>
       <span v-if="hasAssistant" class="ui-notif__grow" />
-      <UiButton v-if="unread && current === 'notifications'" kind="quiet" @click="emit('read-all')">Tout marquer comme lu</UiButton>
       <button type="button" class="ui-dialog__close" aria-label="Fermer" title="Fermer" @click="emit('update:modelValue', false)">
         <v-icon icon="mdi-close" size="18" />
       </button>
@@ -64,18 +63,27 @@ const unread = computed(() => unreadCount(items.value))
 
     <div v-if="current === 'assistant'" class="ui-notif__assistant" role="tabpanel"><slot name="assistant" /></div>
     <template v-else>
+    <div v-if="unread" class="ui-notif__bar">
+      <span>{{ unread }} non lue{{ unread > 1 ? 's' : '' }}</span>
+      <button type="button" class="ui-notif__link" @click="emit('read-all')">Tout marquer comme lu</button>
+    </div>
     <ul v-if="items.length" class="ui-notif__list">
       <li v-for="n in items" :key="n.id" class="ui-notif__item" :class="[`is-tone-${n.tone}`, { 'is-unread': !n.read }]">
         <div class="ui-notif__meta">
           <UiBadge :label="{ bad: 'Urgent', warn: 'À faire', info: 'Information', ok: 'Terminé', accent: 'Nouveau', muted: 'Note' }[n.tone]" :tone="n.tone" />
           <time v-if="n.at" class="ui-notif__when" :datetime="n.at">{{ whenLabel(n.at) }}</time>
+          <span class="ui-notif__grow" />
+          <button v-if="!n.read && !n.sticky" type="button" class="ui-notif__icon" aria-label="Marquer comme lu" title="Marquer comme lu" @click="emit('read', n.id)">
+            <v-icon icon="mdi-check" size="16" />
+          </button>
+          <button v-if="n.dismissible" type="button" class="ui-notif__icon" aria-label="Retirer" title="Retirer" @click="emit('dismiss', n.id)">
+            <v-icon icon="mdi-close" size="16" />
+          </button>
         </div>
         <h3 class="ui-notif__name">{{ n.title }}</h3>
         <p v-if="n.message" class="ui-notif__text">{{ n.message }}</p>
-        <div class="ui-notif__actions">
-          <UiButton v-if="n.action" kind="secondary" :to="n.action.to" :href="n.action.href" @click="emit('action', n)">{{ n.action.label }}</UiButton>
-          <UiButton v-if="!n.read && !n.sticky" kind="quiet" @click="emit('read', n.id)">Marquer comme lu</UiButton>
-          <UiButton v-if="n.dismissible" kind="quiet" @click="emit('dismiss', n.id)">Fermer</UiButton>
+        <div v-if="n.action" class="ui-notif__actions">
+          <UiButton kind="quiet" append-icon="mdi-arrow-right" :to="n.action.to" :href="n.action.href" @click="emit('action', n)">{{ n.action.label }}</UiButton>
         </div>
       </li>
     </ul>
