@@ -84,7 +84,7 @@ html[data-theme='light'],
 /* L'en-tete                                                           */
 /* ------------------------------------------------------------------ */
 .ui-header { row-gap: 6px; padding-bottom: 4px; }
-.ui-header__family { font-size: 13px; font-weight: 600; color: var(--ui-hue, var(--adion-accent-text)); }
+.ui-header__family { flex-basis: 100%; font-size: 13px; font-weight: 600; color: var(--ui-hue, var(--adion-accent-text)); }
 .ui-header__title { font-size: 26px; font-weight: 650; letter-spacing: -0.025em !important; line-height: 1.15; color: var(--adion-ink-1); }
 .ui-header__lead { max-width: 72ch; font-size: 15px; line-height: 1.6; color: var(--adion-ink-2); }
 .ui-header__meta { font-size: 13.5px; color: var(--adion-ink-3); }
@@ -189,6 +189,15 @@ html[data-theme='light'],
 .ui-page .grid-table tbody tr:hover > td { background: var(--adion-card-hover); }
 .ui-page .ui-table { border: 1px solid var(--adion-line); border-radius: 8px; overflow: hidden; background: var(--adion-card); }
 .ui-page .ui-section .ui-table { background: transparent; }
+/* Un tableau qui finit une section en prend toute la largeur : un seul cadre, pas deux. */
+@media (min-width: 721px) {
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child:not(:has(> .ui-toolbar)) {
+    margin: 0 -24px -24px;
+    border: 0;
+    border-top: 1px solid var(--adion-line);
+    border-radius: 0 0 8px 8px;
+  }
+}
 
 /* ------------------------------------------------------------------ */
 /* Les etats : pastilles teintees franchement                          */
