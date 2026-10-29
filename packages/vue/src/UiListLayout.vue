@@ -1,6 +1,5 @@
 <script setup>
-import { ref } from 'vue'
-import { computed } from 'vue'
+import { computed, provide, ref, useSlots } from 'vue'
 import { useAdion } from './adapter.js'
 import UiActionMenu from './UiActionMenu.vue'
 import UiButton from './UiButton.vue'
@@ -19,15 +18,17 @@ const OrderButton = useAdion().components?.OrderButton || null
  * perde pas, toutes les listes de services ont la meme structure, au
  * meme endroit :
  *
- *   1. l'en-tete compact : la famille et le titre sur une ligne, Actualiser
- *      puis Commander a droite (Commander porte l'accent : c'est l'action de
- *      la page), la phrase d'explication dessous ;
+ *   1. l'en-tete compact : la famille et le titre, Actualiser puis Commander
+ *      a droite (Commander porte l'accent : c'est l'action de la page). Plus de
+ *      phrase d'explication (Kevin, 2026-10-29) : on sait ou l'on est ;
  *      Un menu « Ressources » (`links`) suit Actualiser : Documentation,
  *      Offres, Conditions du produit (liens de l'API) ;
  *   2. les chiffres (creneau `stats`) : en colonne a droite de la liste (par
  *      defaut, comme sur les fiches), au-dessus d'elle sur telephone ; ou en
  *      bande sous l'en-tete (`stats-layout="band"`) ;
- *   3. la liste : son titre, puis UiTable (recherche, filtres, colonnes) ;
+ *   3. la liste : UiTable, sans titre au-dessus (« Vos acces » ne disait rien
+ *      de plus que le titre de la page). Les filtres de la liste (creneau
+ *      list-actions) passent dans la barre du tableau, avec la recherche ;
  *   4. sans aucun service (`empty`), un etat vide qui explique le produit et
  *      propose de le commander.
  *
@@ -42,7 +43,8 @@ const props = defineProps({
   tint: { type: String, default: '' },
   family: { type: String, required: true },
   title: { type: String, required: true },
-  lead: { type: String, required: true },
+  /** Plus affiches (2026-10-29) ; gardes pour ne pas casser les pages qui les passent encore. */
+  lead: { type: String, default: '' },
   listTitle: { type: String, default: '' },
   /** Les codes produit a commander (OrderButton) ; vide : pas de Commander. */
   order: { type: Array, default: () => [] },
@@ -61,6 +63,13 @@ const props = defineProps({
 defineEmits(['refresh'])
 
 const orderer = ref(null)
+const slots = useSlots()
+
+/*
+ * Les filtres de la liste vont dans la barre du premier UiTable de la page
+ * (celui de la liste, monte le premier) : un seul rang, recherche et filtres.
+ */
+provide('uiListFilters', { render: () => slots['list-actions']?.(), present: () => Boolean(slots['list-actions']), owner: null })
 const ICONS = { documentation: 'mdi-book-open-variant', offers: 'mdi-tag-outline', terms: 'mdi-file-document-outline' }
 const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.label).map((l) => ({ key: l.key || l.label, label: l.label, href: l.href, icon: l.icon || ICONS[l.key], available: true })))
 </script>
@@ -69,7 +78,7 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
   <UiPage :denied="denied" :error="error" @retry="$emit('refresh')">
     <template #header>
       <slot name="hero">
-      <UiPageHeader :eyebrow="family" :title="title" :lead="lead">
+      <UiPageHeader :eyebrow="family" :title="title">
         <template #actions>
           <UiButton v-if="refreshable" kind="quiet" icon="mdi-refresh" :loading="loading" @click="$emit('refresh')">Actualiser</UiButton>
           <slot name="actions" />
@@ -88,8 +97,7 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
     <slot name="before" />
 
     <div class="ui-listgrid" :class="{ 'has-aside': $slots.stats && !empty && statsLayout === 'aside' }">
-      <UiSection :title="listTitle" first>
-        <template v-if="$slots['list-actions']" #actions><slot name="list-actions" /></template>
+      <UiSection first>
         <UiLoading v-if="loading && empty" />
         <UiEmpty v-else-if="empty" :text="emptyText" icon="mdi-package-variant-closed">
           <template v-if="(OrderButton && order.length && orderable) || $slots['empty-actions']" #actions>

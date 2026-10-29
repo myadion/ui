@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref, useSlots, watch } from 'vue'
+import { computed, getCurrentInstance, inject, onMounted, ref, useSlots, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { rowActivates } from './rows'
 import { cellValue, filterRows, nextSort, paginate, searchRows, sortRows } from './table'
@@ -35,6 +35,13 @@ import { usePreference } from './preferences'
  *   - `server` : l'API cherche et pagine ; le tableau emet `query`
  *     ({ search, filters, page }) et affiche `pages`.
  */
+/* Les filtres de la page liste (UiListLayout, creneau list-actions) : le premier tableau les prend. */
+const listFiltersHost = inject('uiListFilters', null)
+const tableUid = getCurrentInstance()?.uid
+if (listFiltersHost && listFiltersHost.owner === null) listFiltersHost.owner = tableUid
+const ListFilters = () => listFiltersHost?.render()
+const hasListFilters = computed(() => Boolean(listFiltersHost && listFiltersHost.owner === tableUid && listFiltersHost.present()))
+
 const props = defineProps({
   columns: { type: Array, required: true },
   rows: { type: Array, default: () => [] },
@@ -150,7 +157,7 @@ defineExpose({ clear })
 <template>
   <div class="ui-table" :class="{ 'ui-table--stack': stack }">
     <UiToolbar
-      v-if="search || filters.length || $slots.toolbar || prefKey"
+      v-if="search || filters.length || $slots.toolbar || prefKey || hasListFilters"
       :search="search ? needle : null"
       :placeholder="searchPlaceholder"
       @update:search="(v) => { needle = v }"
@@ -171,6 +178,7 @@ defineExpose({ clear })
           clearable
           class="ui-control ui-toolbar__filter"
         />
+        <ListFilters v-if="hasListFilters" />
       </template>
       <slot name="toolbar" />
       <v-menu v-if="prefKey" location="bottom end" :close-on-content-click="false">
