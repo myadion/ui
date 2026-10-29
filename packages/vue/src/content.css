@@ -193,14 +193,22 @@ html[data-theme='light'],
 .ui-page .grid-table tbody tr:hover > td { background: var(--adion-card-hover); }
 .ui-page .ui-table { border: 1px solid var(--adion-line); border-radius: 8px; overflow: hidden; background: var(--adion-card); }
 .ui-page .ui-section .ui-table { background: transparent; }
-/* Un tableau qui finit une section en prend toute la largeur : un seul cadre, pas deux. */
+/*
+ * Un tableau qui finit une section en prend toute la largeur : un seul cadre,
+ * pas deux (Kevin, 2026-10-29 : la meme base pour toutes les listes). Sa barre
+ * (recherche, Colonnes) reprend les marges de la section : la recherche
+ * s'aligne sur le titre, Colonnes sur les filtres de l'en-tete.
+ */
 @media (min-width: 721px) {
-  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child:not(:has(> .ui-toolbar)) {
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child {
     margin: 0 -18px -18px;
     border: 0;
-    border-top: 1px solid var(--adion-line);
     border-radius: 0 0 8px 8px;
   }
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child:not(:has(> .ui-toolbar)) { border-top: 1px solid var(--adion-line); }
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child > .ui-toolbar { padding: 0 18px; }
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child .grid-table :is(th, td):first-child { padding-left: 18px; }
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child .grid-table :is(th, td):last-child { padding-right: 18px; }
 }
 
 /* ------------------------------------------------------------------ */
