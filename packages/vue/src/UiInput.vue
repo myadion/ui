@@ -1,5 +1,5 @@
 <script setup>
-import { useId } from 'vue'
+import { computed, ref, useId } from 'vue'
 import UiField from './UiField.vue'
 
 /*
@@ -9,7 +9,7 @@ import UiField from './UiField.vue'
  * `multiline` en fait une zone de texte.
  */
 defineOptions({ inheritAttrs: false })
-defineProps({
+const props = defineProps({
   modelValue: { type: [String, Number], default: '' },
   label: { type: String, default: '' },
   tip: { type: String, default: '' },
@@ -22,17 +22,25 @@ defineProps({
   /** Chasse fixe : un IBAN, une cle, un identifiant. */
   mono: { type: Boolean, default: false },
   rows: { type: [Number, String], default: 3 },
+  /** L'identifiant du champ, quand l'ecran le fixe ; sinon le kit en donne un. */
+  id: { type: String, default: '' },
 })
 defineEmits(['update:modelValue'])
-const id = useId()
+const auto = useId()
+const fieldId = computed(() => props.id || auto)
+
+// Pour ramener le curseur sur le champ (une erreur de saisie, par exemple).
+const control = ref(null)
+defineExpose({ focus: () => control.value?.focus() })
 </script>
 
 <template>
-  <UiField :label="label" :tip="tip" :hint="hint" :error="error" :required="required" :for="id" :wide="wide">
+  <UiField :label="label" :tip="tip" :hint="hint" :error="error" :required="required" :for="fieldId" :wide="wide">
     <component
       :is="multiline ? 'v-textarea' : 'v-text-field'"
       v-bind="$attrs"
-      :id="id"
+      ref="control"
+      :id="fieldId"
       :model-value="modelValue"
       :placeholder="placeholder"
       :rows="multiline ? rows : undefined"

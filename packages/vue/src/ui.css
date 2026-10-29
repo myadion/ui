@@ -594,6 +594,8 @@
 /* L'accent est reserve a l'action principale d'une page. */
 .v-btn.ui-btn--primary { background: var(--adion-primary) !important; color: var(--adion-on-primary) !important; font-weight: 600; }
 .v-btn.ui-btn--primary:hover { filter: brightness(1.08); }
+/* Un bouton desactive se voit desactive : il garde sa forme, perd sa force. */
+.v-btn.ui-btn.v-btn--disabled { opacity: 0.42 !important; filter: saturate(0.4); cursor: not-allowed; }
 
 /* La case qui engage : « j'ai compris », « tout supprimer ». */
 .ui-check {
