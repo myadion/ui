@@ -1987,11 +1987,14 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-shell__content { width: 100%; max-width: 1480px; margin: 0 auto; padding: 24px 16px 96px; }
 .ui-shell__content.is-centered { display: grid; align-content: center; max-width: 1200px; padding: 20px; }
 /* Centre sous la barre du haut : le contenu prend la hauteur qui reste, pas tout l'ecran. */
-.ui-shell__main:has(> .ui-shell__content.is-centered) { display: flex; flex-direction: column; min-height: calc(100dvh - var(--adion-top-offset, 0px)); }
-.ui-shell__main:has(> .ui-shell__content.is-centered) > .ui-shell__content { flex: 1; }
+.ui-shell__main:has(> .ui-shell__content.is-centered, > .ui-shell__content.is-flush) { display: flex; flex-direction: column; min-height: calc(100dvh - var(--adion-top-offset, 0px)); }
+.ui-shell__main:has(> .ui-shell__content.is-centered, > .ui-shell__content.is-flush) > .ui-shell__content { flex: 1; }
+/* Sans marge ni largeur maximale : la page occupe tout, un gabarit en volets par exemple. */
+.ui-shell__content.is-flush { display: flex; max-width: none; padding: 0; }
+.ui-shell__content.is-flush > * { flex: 1; min-width: 0; }
 /* Une colonne etroite au milieu, posee a 10 % du haut : une porte, un formulaire seul (Kevin, 2026-10-29). */
 .ui-shell__content.is-centered.is-narrow { align-content: start; max-width: 600px; padding-top: 10vh; }
-@media (min-width: 960px) { .ui-shell__content:not(.is-centered) { padding-inline: 32px; } }
+@media (min-width: 960px) { .ui-shell__content:not(.is-centered, .is-flush) { padding-inline: 32px; } }
 @media (max-width: 900px) { .ui-shell__sidebar { display: none; } }
 
 .ui-topbar { position: sticky; top: var(--adion-top-offset, 0px); z-index: 1200; background: var(--adion-nav-bg); }
@@ -2518,3 +2521,19 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-identifier .v-field__prepend-inner { align-items: center; padding-top: 0; padding-right: 8px; }
 .ui-identifier__flag { width: 20px; height: 15px; flex: none; border-radius: 2px; background-size: cover; box-shadow: 0 0 0 1px var(--adion-line, var(--adion-border)); }
 .ui-identifier__icon { color: var(--adion-text-3); }
+
+/* ---------------------------------------------------------------- */
+/* La page en deux volets (2026-10-29) : la photo, puis le contenu    */
+/* ---------------------------------------------------------------- */
+.ui-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ui-split__media { position: sticky; top: var(--ui-split-top, 48px); height: calc(100dvh - var(--ui-split-top, 48px)); margin: 0; overflow: hidden; }
+.ui-split__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ui-split__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, color-mix(in srgb, var(--adion-bg-0) 55%, transparent)); pointer-events: none; }
+.ui-split__caption { position: absolute; left: 32px; bottom: 32px; right: 32px; z-index: 1; font-size: 15px; line-height: 1.5; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
+.ui-split__content { display: flex; justify-content: center; padding: 10vh 32px 64px; }
+.ui-split__inner { width: 100%; max-width: 560px; }
+@media (max-width: 960px) {
+  .ui-split { grid-template-columns: minmax(0, 1fr); }
+  .ui-split__media { display: none; }
+  .ui-split__content { padding: 24px 16px 48px; }
+}
