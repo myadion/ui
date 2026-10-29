@@ -206,7 +206,7 @@ html[data-theme='light'],
     border-radius: 0 0 8px 8px;
   }
   .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child:not(:has(> .ui-toolbar)) { border-top: 1px solid var(--adion-line); }
-  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child > .ui-toolbar { padding: 0 18px; }
+  .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child > .ui-toolbar { padding: 12px 18px 0; }
   .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child .grid-table :is(th, td):first-child { padding-left: 18px; }
   .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child .grid-table :is(th, td):last-child { padding-right: 18px; }
 }
