@@ -2866,3 +2866,14 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
   .ui-flow__nav { flex-direction: column-reverse; align-items: stretch; }
   .ui-flow__spacer { display: none; }
 }
+
+/* Le drapeau d'un pays (UiFlag) : un filet tres pale, sans lequel les drapeaux clairs se fondent dans la page. */
+.ui-flag { display: inline-grid; place-items: center; flex: none; border-radius: 2px; box-shadow: 0 0 0 1px var(--adion-border); background-size: cover; background-position: center; vertical-align: middle; }
+.ui-flag.is-unknown { box-shadow: none; color: var(--adion-text-2); }
+/* Le logo d'une application (UiAppMark). */
+.ui-app-mark { display: grid; place-items: center; flex: none; font-weight: 600; color: white; box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 8%, transparent); }
+/* Une barre collee en haut de page (UiStickyBar). */
+.ui-sticky-bar { position: sticky; top: var(--adion-topnav-height, 0px); z-index: 20; padding: var(--adion-space-2) 0; margin-bottom: var(--adion-space-6); background: var(--adion-surface-solid); border-bottom: 1px solid var(--adion-border); }
+/* Le menu d'export des graphiques Apexcharts, blanc par defaut : il prend les jetons de la page. */
+.apexcharts-menu { border-color: var(--adion-border) !important; background: var(--adion-surface-solid) !important; color: var(--adion-text-1); }
+.apexcharts-menu-item:hover { background: var(--adion-row-hover) !important; }
