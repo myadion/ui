@@ -293,6 +293,8 @@ html[data-theme='light'],
 
 /* Le fond de la page : un degrade bleu nuit en haut, des lignes de niveau qui derivent. */
 .ui-shell__main.is-decor { position: relative; isolation: isolate; background: linear-gradient(180deg, color-mix(in srgb, #1b2a44 55%, var(--adion-bg-0)) 0, var(--adion-bg-0) 420px); }
+/* La page tient au moins tout l'ecran : sous un contenu court, pas de second fond. */
+.ui-shell__main.is-decor { min-height: calc(100dvh - var(--adion-top-offset, 0px)); }
 html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(180deg, #e3ebf3 0, var(--adion-bg-0) 420px); }
 .ui-shell__decor { position: absolute; z-index: -1; top: 0; left: 0; width: 100%; height: 440px; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent); mask-image: linear-gradient(180deg, #000 45%, transparent); }
 .ui-shell__decor path { fill: none; stroke-width: 1; vector-effect: non-scaling-stroke; }
