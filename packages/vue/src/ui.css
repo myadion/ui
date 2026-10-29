@@ -663,7 +663,7 @@
 .ui-switch.is-on .ui-switch__thumb { transform: translateX(14px); background: var(--adion-on-primary); }
 
 /* Un choix exclusif entre quelques etats : la hauteur d'un champ. */
-.ui-segmented { display: inline-flex; flex: none; max-width: 100%; height: var(--adion-control-h); overflow-x: auto; scrollbar-width: none; border: 1px solid var(--adion-border-strong); border-radius: var(--adion-radius-control); }
+.ui-segmented { display: inline-flex; flex: none; justify-self: start; max-width: 100%; height: var(--adion-control-h); overflow-x: auto; scrollbar-width: none; border: 1px solid var(--adion-border-strong); border-radius: var(--adion-radius-control); }
 .ui-segmented__item {
   display: flex;
   align-items: center;
