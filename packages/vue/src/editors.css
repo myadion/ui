@@ -634,3 +634,864 @@
 .right__grip:is(.ui-ed-call-studio, .ui-ed-call-studio *), .bottom__grip:is(.ui-ed-call-studio, .ui-ed-call-studio *) { display: none;
 }
 }
+
+/* components/hosting/SiteCodeEditor.vue -> .ui-ed-site-code-editor */
+/*
+ * LES COULEURS DE L'ÉDITEUR, SOMBRE ET CLAIR.
+ *
+ * Tout passe par des variables `--ed-*`, lues aussi par le thème de
+ * CodeMirror : changer de thème change une classe, et rien d'autre. Le
+ * sombre reprend les noirs de la console ; la coloration est choisie pour
+ * se lire longtemps, pas pour briller.
+ */
+.ed:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  --ed-mono: var(--adion-font-mono);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--ed-bg);
+  color: var(--ed-text);
+  font-size: 12px;
+}
+
+/*
+ * Les jetons du kit suivent la classe de theme posee sur `.ed`
+ * (`v-theme--adionDark|Light`) : le choix « Sombre / Clair » de l'editeur
+ * repeint donc l'editeur seul, sans toucher a la console.
+ */
+.ed:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  --ed-bg: var(--adion-bg-0);
+  --ed-panel: var(--adion-surface-solid);
+  --ed-code-bg: var(--adion-card);
+  --ed-border: var(--adion-border);
+  --ed-border-strong: var(--adion-border-strong);
+  --ed-text: var(--adion-text-1);
+  --ed-muted: var(--adion-text-2);
+  --ed-gutter: color-mix(in srgb, var(--adion-text-3) 65%, transparent);
+  --ed-accent: var(--adion-accent-text);
+  --ed-accent-soft: var(--adion-accent-soft);
+  --ed-hover: var(--adion-row-hover);
+  --ed-active-line: color-mix(in srgb, var(--adion-row-hover) 55%, transparent);
+  --ed-selection: color-mix(in srgb, var(--adion-accent-text) 22%, transparent);
+  --ed-selection-blur: color-mix(in srgb, var(--adion-text-1) 10%, transparent);
+  --ed-selection-match: color-mix(in srgb, var(--adion-accent-text) 10%, transparent);
+  --ed-match: color-mix(in srgb, var(--adion-warn) 20%, transparent);
+  --ed-match-line: var(--adion-warn-line);
+  --ed-match-strong: color-mix(in srgb, var(--adion-warn) 45%, transparent);
+  --ed-bracket: color-mix(in srgb, var(--adion-accent-text) 16%, transparent);
+  --ed-bracket-line: color-mix(in srgb, var(--adion-accent-text) 50%, transparent);
+  --ed-bad: var(--adion-bad);
+  --ed-bad-bg: color-mix(in srgb, var(--adion-bad) 20%, transparent);
+  --ed-warn: var(--adion-warn);
+  /* La coloration : les teintes des graphiques du kit, lisibles dans les deux themes. */
+  --ed-syn-keyword: var(--adion-chart-5);
+  --ed-syn-control: var(--adion-chart-5);
+  --ed-syn-string: var(--adion-ok);
+  --ed-syn-escape: var(--adion-info);
+  --ed-syn-number: var(--adion-chart-2);
+  --ed-syn-comment: var(--adion-text-3);
+  --ed-syn-function: var(--adion-chart-1);
+  --ed-syn-type: var(--adion-info);
+  --ed-syn-property: var(--adion-chart-4);
+  --ed-syn-tag: var(--adion-chart-3);
+  --ed-syn-variable: var(--adion-text-1);
+  --ed-syn-definition: var(--adion-warn);
+  --ed-syn-operator: var(--adion-text-2);
+  --ed-syn-meta: var(--adion-chart-4);
+  --ed-syn-heading: var(--adion-chart-1);
+  --ed-syn-link: var(--adion-accent-text);
+  --ed-syn-invalid: var(--adion-bad);
+}
+.ed--dark:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color-scheme: dark;
+}
+.ed--light:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color-scheme: light;
+}
+
+/* -------------------------------------------------------------- les boutons -- */
+.ed-btn:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: none;
+  color: var(--ed-text);
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ed-btn:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):hover:not(:disabled) { background: var(--ed-hover);
+}
+.ed-btn:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):disabled { opacity: 0.38; cursor: default;
+}
+.ed-btn .v-icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { opacity: 0.8;
+}
+.ed-btn.is-on:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-accent); background: var(--ed-accent-soft);
+}
+.ed-btn--icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { justify-content: center; width: 28px; padding: 0;
+}
+.ed-count:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  min-width: 16px;
+  padding: 0 4px;
+  border-radius: 2px;
+  background: var(--ed-accent-soft);
+  color: var(--ed-accent);
+  font-size: 10.5px;
+  font-style: normal;
+  line-height: 16px;
+  text-align: center;
+}
+.ed-link:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { padding: 0; border: 0; background: none; color: var(--ed-accent); font-size: 11.5px; cursor: pointer;
+}
+.is-spinning:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { animation: ed-spin-ui-ed-site-code-editor 0.9s linear infinite;
+}
+@keyframes ed-spin-ui-ed-site-code-editor {
+to { transform: rotate(360deg);
+}
+}
+
+/* ------------------------------------------------------------ la barre d'outils -- */
+.ed-bar:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--ed-border);
+  background: var(--ed-panel);
+}
+.ed-sep:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: none; width: 1px; height: 18px; margin: 0 5px; background: var(--ed-border);
+}
+.ed-spacer:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: 1; min-width: 4px;
+}
+.ed-font:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: inline-flex; align-items: center;
+}
+.ed-font__value:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { min-width: 24px; color: var(--ed-muted); font-size: 11.5px; text-align: center;
+}
+.ed-menu-wrap:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { position: relative;
+}
+.ed-menu:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+  display: grid;
+  min-width: 220px;
+  padding: 4px;
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 2px;
+  background: var(--ed-panel);
+  box-shadow: var(--adion-shadow-card);
+}
+.ed-menu--right:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { right: 0; left: auto;
+}
+.ed-menu__item:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 2px;
+  background: none;
+  color: var(--ed-text);
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ed-menu__item:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):hover:not(:disabled) { background: var(--ed-hover);
+}
+.ed-menu__item:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):disabled { opacity: 0.4; cursor: default;
+}
+.ed-menu__item input:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { margin: 0; accent-color: var(--ed-accent);
+}
+.ed-menu__check:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { margin-left: auto; color: var(--ed-accent);
+}
+.ed-menu__sep:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { height: 1px; margin: 4px 0; background: var(--ed-border);
+}
+.ed-menu__hint:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { margin: 4px 8px 2px; color: var(--ed-muted); font-size: 10.5px;
+}
+
+/* ------------------------------------------------------------------ le corps -- */
+.ed-body:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  position: relative;
+  display: flex;
+  min-height: 0;
+}
+.ed-tree:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  width: 264px;
+  min-height: 0;
+  border-right: 1px solid var(--ed-border);
+  background: var(--ed-panel);
+}
+.ed-tree__head:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--ed-border);
+}
+
+/* Un long chemin se lit par sa fin : c'est le dossier où l'on est. */
+.ed-tree__path:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  flex: 1;
+  min-width: 0;
+  padding: 0 4px;
+  overflow: hidden;
+  color: var(--ed-muted);
+  font-family: var(--ed-mono);
+  font-size: 11.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: rtl;
+  text-align: left;
+}
+
+/* Le texte, lui, reste dans l'ordre : sans isolement, la barre de tête passait à la fin. */
+.ed-tree__path span:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { direction: ltr; unicode-bidi: isolate;
+}
+.ed-tree__search:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  margin: 6px;
+  padding: 0 8px;
+  border: 1px solid var(--ed-border);
+  border-radius: 2px;
+  color: var(--ed-muted);
+}
+.ed-tree__search:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):focus-within { border-color: var(--ed-accent);
+}
+.ed-tree__search input:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: 1; min-width: 0; border: 0; outline: none; background: none; color: var(--ed-text); font-size: 12px;
+}
+.ed-tree__rows:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: 1; min-height: 0; padding: 0 0 12px; overflow: auto;
+}
+.ed-row:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  min-height: 24px;
+  margin: 0;
+  padding-right: 8px;
+  border: 0;
+  background: none;
+  color: var(--ed-text);
+  font-size: 12.5px;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+button.ed-row:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):hover:not(:disabled) { background: var(--ed-hover);
+}
+.ed-row.is-open .ed-row__name:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-accent);
+}
+.ed-row.is-active:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { background: var(--ed-accent-soft);
+}
+.ed-row.is-flat:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-muted); cursor: default;
+}
+.ed-row__chev:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: none; width: 14px; opacity: 0.55;
+}
+.ed-row__folder:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: none; color: var(--adion-warn);
+}
+.ed-row__name:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { min-width: 0; overflow: hidden; text-overflow: ellipsis;
+}
+.ed-row__hint:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { min-width: 0; overflow: hidden; color: var(--ed-muted); font-size: 10.5px; text-overflow: ellipsis;
+}
+.ed-row--note:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { gap: 6px; color: var(--ed-muted); font-size: 11.5px; cursor: default;
+}
+.ed-row--error:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex-wrap: wrap; gap: 6px; color: var(--ed-bad); font-size: 11.5px; white-space: normal; cursor: default; padding-top: 4px; padding-bottom: 4px;
+}
+.ed-row--more:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-accent); font-size: 11.5px;
+}
+.ed-note:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: flex; align-items: center; gap: 6px; margin: 8px 12px; color: var(--ed-muted); font-size: 11.5px; line-height: 1.5;
+}
+.ed-dot:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ed-text); opacity: 0.7;
+}
+.ed-row .ed-dot:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { margin-left: auto; background: var(--ed-accent); opacity: 1;
+}
+
+/* Une teinte par langage : on reconnaît un fichier avant de lire son nom. */
+.ed-ic:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: none; opacity: 0.85;
+}
+.ed-ic--php:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-chart-5);
+}
+.ed-ic--javascript:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *), .ed-ic--jsx:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-warn);
+}
+.ed-ic--typescript:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *), .ed-ic--tsx:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-chart-1);
+}
+.ed-ic--css:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-info);
+}
+.ed-ic--scss:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *), .ed-ic--sass:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-chart-3);
+}
+.ed-ic--html:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-chart-2);
+}
+.ed-ic--vue:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-ok);
+}
+.ed-ic--json:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-warn);
+}
+.ed-ic--xml:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *), .ed-ic--yaml:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-chart-2);
+}
+.ed-ic--sql:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-info);
+}
+.ed-ic--shell:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--adion-ok);
+}
+
+/* ------------------------------------------------------------------- le code -- */
+.ed-main:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  background: var(--ed-code-bg);
+}
+.ed-tabs:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  flex: none;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--ed-border);
+  background: var(--ed-bg);
+  scrollbar-width: thin;
+}
+.ed-tab:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  max-width: 260px;
+  height: 32px;
+  padding: 0 4px 0 10px;
+  border-right: 1px solid var(--ed-border);
+  color: var(--ed-muted);
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+.ed-tab:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):hover { color: var(--ed-text); background: var(--ed-hover);
+}
+.ed-tab.is-active:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-text); background: var(--ed-code-bg);
+}
+.ed-tab.is-active:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *)::before { position: absolute; top: 0; right: 0; left: 0; height: 2px; background: var(--ed-accent); content: '';
+}
+.ed-tab.is-alert .ed-tab__name:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-warn);
+}
+.ed-tab.is-server .ed-tab__name:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { font-style: italic;
+}
+.ed-tab__name:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { min-width: 0; overflow: hidden; text-overflow: ellipsis;
+}
+.ed-tab__hint:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-muted); font-size: 10.5px;
+}
+.ed-tab__busy:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: none;
+}
+
+/*
+ * LE POINT DEVIENT UNE CROIX. Un onglet modifié montre son point ; au
+ * survol, la croix prend sa place - comme dans VS Code. Un onglet propre ne
+ * montre sa croix qu'au survol ou actif.
+ */
+.ed-tab__close:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: none;
+  color: var(--ed-muted);
+  cursor: pointer;
+}
+.ed-tab__close:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):hover { color: var(--ed-text); background: var(--ed-hover);
+}
+.ed-tab__close .ed-dot:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-tab__close .v-icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { grid-area: 1 / 1;
+}
+.ed-tab__close .ed-dot:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: none;
+}
+.ed-tab__close .v-icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { visibility: hidden;
+}
+.ed-tab:hover .ed-tab__close .v-icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-tab.is-active .ed-tab__close .v-icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { visibility: visible;
+}
+.ed-tab.is-dirty .ed-tab__close .ed-dot:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: block;
+}
+.ed-tab.is-dirty .ed-tab__close .v-icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { visibility: hidden;
+}
+.ed-tab.is-dirty .ed-tab__close:hover .ed-dot:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: none;
+}
+.ed-tab.is-dirty .ed-tab__close:hover .v-icon:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { visibility: visible;
+}
+
+/* L'encadre du kit, colle sous les onglets ; le detail technique en petit. */
+.ed-notice:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex: none; margin: 0; border-radius: 0;
+}
+.ed-notice__more:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { font-size: var(--adion-text-xs); color: var(--adion-text-2);
+}
+.ed-notice__more summary:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { cursor: pointer;
+}
+.ed-notice__more pre:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { margin: 4px 0 0; white-space: pre-wrap; word-break: break-word; font-family: var(--ed-mono);
+}
+.ed-code:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { position: relative; flex: 1; min-height: 0;
+}
+.ed-host:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { position: absolute; inset: 0;
+}
+.ed-host:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) .cm-editor { height: 100%;
+}
+.ed-empty:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 24px;
+  background: var(--ed-code-bg);
+  color: var(--ed-muted);
+  text-align: center;
+}
+.ed-empty p:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { margin: 0; font-size: 13px;
+}
+.ed-empty small:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { font-size: 11px; opacity: 0.8;
+}
+
+/* ------------------------------------------------------------- la barre d'état -- */
+.ed-status:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  height: 26px;
+  padding: 0 10px;
+  border-top: 1px solid var(--ed-border);
+  background: var(--ed-panel);
+  color: var(--ed-muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+.ed-status__path:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { min-width: 0; overflow: hidden; font-family: var(--ed-mono); text-overflow: ellipsis;
+}
+.ed-status__flash:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { min-width: 0; overflow: hidden; color: var(--ed-text); text-overflow: ellipsis;
+}
+.ed-status__live:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: inline-flex; align-items: center; gap: 4px; color: var(--ed-warn); cursor: help;
+}
+.ed-state:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: inline-flex; align-items: center; gap: 6px; color: var(--ed-text);
+}
+.ed-state i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { width: 7px; height: 7px; border-radius: 50%; background: var(--ed-accent);
+}
+.ed-state--modified i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--pending i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { background: var(--ed-warn);
+}
+.ed-state--saving i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--loading i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { background: var(--ed-muted); animation: ed-blink-ui-ed-site-code-editor 1s ease-in-out infinite;
+}
+.ed-state--conflict:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--gone:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--error:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--broken:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { color: var(--ed-bad);
+}
+.ed-state--conflict i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--gone i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--error i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+.ed-state--broken i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { background: var(--ed-bad);
+}
+.ed-state--readonly i:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { background: var(--ed-muted);
+}
+@keyframes ed-blink-ui-ed-site-code-editor {
+50% { opacity: 0.3;
+}
+}
+
+/* ------------------------------------------------------------- écrans étroits -- */
+@media (max-width: 1100px) {
+.ed-bar .ed-btn:not(.ed-btn--icon) span:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: none;
+}
+.ed-bar .ed-btn:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):not(.ed-btn--icon) { width: 30px; justify-content: center; padding: 0;
+}
+.ed-bar .ed-btn .ed-count:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: none;
+}
+}
+
+/* L'arbre passe par-dessus le code : un écran de téléphone ne tient pas deux colonnes. */
+.ed.is-narrow .ed-tree:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  width: min(84vw, 320px);
+  box-shadow: var(--adion-shadow-card);
+}
+@media (max-width: 760px) {
+  /* Douze boutons de 26 pixels tiennent sur la largeur d'un téléphone. */
+.ed-bar:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { flex-wrap: wrap; row-gap: 2px; gap: 0; padding: 4px;
+}
+.ed-bar .ed-btn:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+  .ed-bar .ed-btn:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *):not(.ed-btn--icon) { width: 26px;
+}
+.ed-sep:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: none;
+}
+.ed-font:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: none;
+}
+.ed-status:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { gap: 10px;
+}
+.ed-status__path:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *),
+  .ed-status__opt:is(.ui-ed-site-code-editor, .ui-ed-site-code-editor *) { display: none;
+}
+}
+
+/* components/hosting/FileManager.vue -> .ui-ed-file-manager */
+/*
+ * MANQUE DU KIT : l'explorateur de fichiers (UiFileExplorer). Style minimal
+ * du widget, jetons seulement ; tout le reste vient du kit.
+ */
+.fm:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  border: 1px solid var(--adion-border);
+  border-radius: var(--adion-radius-card);
+  overflow: hidden;
+}
+
+/* Le focus sert aux raccourcis, pas a encadrer tout l'explorateur. */
+.fm:is(.ui-ed-file-manager, .ui-ed-file-manager *):focus { outline: none;
+}
+
+/* La barre d'adresse : retour et parent, le chemin dans son cadre, la recherche a droite. */
+.fm-nav:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  display: flex;
+  align-items: center;
+  gap: var(--adion-space-2);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--adion-border);
+  background: var(--adion-surface);
+}
+.fm-nav__buttons:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: flex; gap: 2px;
+}
+.fm-nav__title:is(.ui-ed-file-manager, .ui-ed-file-manager *) { font-size: var(--adion-text-sm); color: var(--adion-text-1);
+}
+.fm-address:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  height: var(--adion-control-h);
+  padding-left: 6px;
+  border: 1px solid var(--adion-border);
+  border-radius: var(--adion-radius-control);
+  cursor: text;
+}
+.fm-address.is-typing:is(.ui-ed-file-manager, .ui-ed-file-manager *) { border-color: var(--adion-accent-text);
+}
+.fm-address .fm-crumbs:is(.ui-ed-file-manager, .ui-ed-file-manager *) { flex: 1; flex-wrap: nowrap; overflow: hidden;
+}
+.fm-address__form:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: flex; align-items: center; flex: 1; min-width: 0;
+}
+.fm-address__slash:is(.ui-ed-file-manager, .ui-ed-file-manager *) { padding: 0 2px 0 6px; color: var(--adion-text-2); font-family: var(--adion-font-mono); font-size: var(--adion-text-base);
+}
+.fm-address__input:is(.ui-ed-file-manager, .ui-ed-file-manager *) { flex: 1; min-width: 0; border: 0; outline: none; background: none; color: var(--adion-text-1); font-family: var(--adion-font-mono); font-size: var(--adion-text-base);
+}
+.fm-search:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 1 260px;
+  min-width: 160px;
+  height: var(--adion-control-h);
+  padding: 0 10px;
+  border: 1px solid var(--adion-border);
+  border-radius: var(--adion-radius-control);
+  color: var(--adion-text-2);
+}
+.fm-search:is(.ui-ed-file-manager, .ui-ed-file-manager *):focus-within { border-color: var(--adion-accent-text);
+}
+.fm-search input:is(.ui-ed-file-manager, .ui-ed-file-manager *) { flex: 1; min-width: 0; border: 0; outline: none; background: none; color: var(--adion-text-1); font-size: var(--adion-text-sm);
+}
+.fm-crumbs:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; min-width: 0; font-size: var(--adion-text-sm);
+}
+.fm-crumbs__sep:is(.ui-ed-file-manager, .ui-ed-file-manager *) { opacity: 0.35;
+}
+.fm-crumbs__item:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 6px;
+  border-radius: var(--adion-radius-control);
+  color: var(--adion-text-2);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.fm-crumbs__item:is(.ui-ed-file-manager, .ui-ed-file-manager *):hover { color: var(--adion-text-1); background: var(--adion-row-hover);
+}
+.fm-crumbs__item.is-current:is(.ui-ed-file-manager, .ui-ed-file-manager *) { color: var(--adion-text-1); cursor: default;
+}
+.fm-crumbs__item.is-current:is(.ui-ed-file-manager, .ui-ed-file-manager *):hover { background: none;
+}
+.fm-crumbs__home:is(.ui-ed-file-manager, .ui-ed-file-manager *) { margin-right: 6px; opacity: 0.7;
+}
+
+/* Les bandes de l'explorateur : gestes du dossier, selection, envoi, encadres, pied. */
+.fm-tools:is(.ui-ed-file-manager, .ui-ed-file-manager *),
+.fm-picked:is(.ui-ed-file-manager, .ui-ed-file-manager *) { padding: var(--adion-space-2) 12px; border-bottom: 1px solid var(--adion-border);
+}
+.fm-picked:is(.ui-ed-file-manager, .ui-ed-file-manager *) { background: var(--adion-row-hover);
+}
+.fm-sep:is(.ui-ed-file-manager, .ui-ed-file-manager *) { width: 1px; height: 16px; margin: 0 2px; background: var(--adion-border);
+}
+.fm-hidden:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: none;
+}
+.fm-notices:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: grid; gap: var(--adion-space-2); padding: var(--adion-space-3) 12px; border-bottom: 1px solid var(--adion-border);
+}
+.fm-notices--foot:is(.ui-ed-file-manager, .ui-ed-file-manager *) { border-top: 1px solid var(--adion-border); border-bottom: 0;
+}
+.fm-upload:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: grid; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--adion-border);
+}
+.fm-upload__bar:is(.ui-ed-file-manager, .ui-ed-file-manager *) { height: 3px; border-radius: var(--adion-radius-control); background: var(--adion-border); overflow: hidden;
+}
+.fm-upload__bar span:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: block; height: 100%; background: var(--adion-accent-text); transition: width 0.2s ease;
+}
+/* La machine range le fichier : la barre est pleine et respire, on ne sait pas combien il reste. */
+.fm-upload__bar.is-deposit span:is(.ui-ed-file-manager, .ui-ed-file-manager *) { animation: fm-deposit-ui-ed-file-manager 1.4s ease-in-out infinite;
+}
+@keyframes fm-deposit-ui-ed-file-manager {
+0%, 100% { opacity: 1;
+}
+50% { opacity: 0.45;
+}
+}
+
+/* La liste : des rangees serrees, comme un explorateur. */
+.fm-table-wrap:is(.ui-ed-file-manager, .ui-ed-file-manager *) { position: relative; overflow-x: auto;
+}
+.fm-table-wrap.is-dropping:is(.ui-ed-file-manager, .ui-ed-file-manager *) { outline: 1px solid var(--adion-accent-text); outline-offset: -1px;
+}
+.fm-table:is(.ui-ed-file-manager, .ui-ed-file-manager *) { width: 100%; border-collapse: collapse; font-size: var(--adion-text-sm);
+}
+.fm-table th:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  padding: 7px 12px 7px 0;
+  font-size: var(--adion-text-xs);
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--adion-text-2);
+}
+.fm-table td:is(.ui-ed-file-manager, .ui-ed-file-manager *) { padding: 3px 12px 3px 0; border-top: 1px solid var(--adion-border); vertical-align: middle;
+}
+.fm-table th:is(.ui-ed-file-manager, .ui-ed-file-manager *):first-child,
+.fm-table td:is(.ui-ed-file-manager, .ui-ed-file-manager *):first-child { padding-left: 14px;
+}
+.fm-table th:is(.ui-ed-file-manager, .ui-ed-file-manager *):last-child,
+.fm-table td:is(.ui-ed-file-manager, .ui-ed-file-manager *):last-child { padding-right: 14px;
+}
+.fm-table tbody tr:hover > td:is(.ui-ed-file-manager, .ui-ed-file-manager *) { background: var(--adion-row-hover);
+}
+.fm-table tbody tr.is-clickable:is(.ui-ed-file-manager, .ui-ed-file-manager *) { cursor: pointer;
+}
+.fm-num:is(.ui-ed-file-manager, .ui-ed-file-manager *) { min-width: 84px; padding-right: 22px; text-align: right; font-variant-numeric: tabular-nums;
+}
+.fm-right:is(.ui-ed-file-manager, .ui-ed-file-manager *) { text-align: right;
+}
+.fm-mode:is(.ui-ed-file-manager, .ui-ed-file-manager *) { width: 72px;
+}
+.fm-date:is(.ui-ed-file-manager, .ui-ed-file-manager *) { min-width: 128px;
+}
+.fm-pick:is(.ui-ed-file-manager, .ui-ed-file-manager *) { width: 32px;
+}
+
+/* Les colonnes se trient d'un clic sur leur titre. */
+.fm-sort:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-transform: inherit; letter-spacing: inherit; cursor: pointer;
+}
+.fm-sort.is-on:is(.ui-ed-file-manager, .ui-ed-file-manager *) { color: var(--adion-text-1);
+}
+.fm-line:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: inline-flex; align-items: center; gap: 9px; min-width: 0;
+}
+.fm-line > .v-icon:is(.ui-ed-file-manager, .ui-ed-file-manager *) { flex: none; opacity: 0.6;
+}
+.fm-row:is(.ui-ed-file-manager, .ui-ed-file-manager *) { cursor: default;
+}
+.fm-row.is-picked > td:is(.ui-ed-file-manager, .ui-ed-file-manager *) { background: var(--adion-accent-soft);
+}
+/* Ce qui est coupe s'efface a moitie, jusqu'a ce qu'on le colle ailleurs. */
+.fm-row.is-cut:is(.ui-ed-file-manager, .ui-ed-file-manager *) { opacity: 0.5;
+}
+.fm-entry:is(.ui-ed-file-manager, .ui-ed-file-manager *) { max-width: 72ch; white-space: nowrap; text-align: left; color: var(--adion-text-1); cursor: pointer;
+}
+.fm-entry:is(.ui-ed-file-manager, .ui-ed-file-manager *):hover { color: var(--adion-accent-text);
+}
+/* Un fichier qu'on ne peut pas ouvrir ne fait pas semblant d'etre cliquable. */
+.fm-entry.is-flat:is(.ui-ed-file-manager, .ui-ed-file-manager *) { cursor: default;
+}
+.fm-entry.is-flat:is(.ui-ed-file-manager, .ui-ed-file-manager *):hover { color: var(--adion-text-1);
+}
+.fm-entry__name:is(.ui-ed-file-manager, .ui-ed-file-manager *) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.fm-entry__sub:is(.ui-ed-file-manager, .ui-ed-file-manager *) { overflow: hidden; text-overflow: ellipsis; font-size: var(--adion-text-xs); color: var(--adion-text-2); white-space: nowrap;
+}
+.fm-folder:is(.ui-ed-file-manager, .ui-ed-file-manager *) { color: var(--adion-warn); opacity: 1;
+}
+
+/*
+ * LES GESTES D'UNE LIGNE APPARAISSENT AU SURVOL. Sur mobile, ou il n'y a
+ * pas de survol, ils restent visibles. Une cellule, pas une grille.
+ */
+.fm-actions:is(.ui-ed-file-manager, .ui-ed-file-manager *) { white-space: nowrap; opacity: 0; transition: opacity 0.12s ease;
+}
+.fm-row:hover .fm-actions:is(.ui-ed-file-manager, .ui-ed-file-manager *),
+.fm-row:focus-within .fm-actions:is(.ui-ed-file-manager, .ui-ed-file-manager *) { opacity: 1;
+}
+@media (hover: none) {
+.fm-actions:is(.ui-ed-file-manager, .ui-ed-file-manager *) { opacity: 1;
+}
+}
+
+/* Pendant le glisser : une ligne posee par-dessus l'en-tete, rien ne se decale. */
+.fm-drop:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--adion-accent-text);
+  background: var(--adion-surface-solid);
+  color: var(--adion-accent-text);
+  font-size: var(--adion-text-sm);
+  pointer-events: none;
+}
+
+/* Le pied de liste : les totaux, et la suite quand le dossier est long. */
+.fm-status:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 36px;
+  padding: 4px 12px;
+  border-top: 1px solid var(--adion-border);
+  font-size: var(--adion-text-xs);
+  color: var(--adion-text-2);
+}
+
+/* Le menu d'une ligne, au pointeur. */
+.fm-menu:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  position: fixed;
+  z-index: 3000;
+  display: grid;
+  min-width: 230px;
+  padding: 4px;
+  border: 1px solid var(--adion-border);
+  border-radius: var(--adion-radius-card);
+  background: var(--adion-surface-solid);
+  box-shadow: var(--adion-shadow-card);
+}
+.fm-menu__item:is(.ui-ed-file-manager, .ui-ed-file-manager *) {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--adion-radius-control);
+  background: none;
+  font-size: var(--adion-text-sm);
+  text-align: left;
+  color: var(--adion-text-1);
+  cursor: pointer;
+}
+.fm-menu__item:is(.ui-ed-file-manager, .ui-ed-file-manager *):hover { background: var(--adion-row-hover);
+}
+.fm-menu__item .v-icon:is(.ui-ed-file-manager, .ui-ed-file-manager *) { opacity: 0.7;
+}
+.fm-menu__item small:is(.ui-ed-file-manager, .ui-ed-file-manager *) { font-size: var(--adion-text-xs); color: var(--adion-text-2);
+}
+.fm-menu__item.is-danger:is(.ui-ed-file-manager, .ui-ed-file-manager *) { color: var(--adion-bad);
+}
+.fm-menu__sep:is(.ui-ed-file-manager, .ui-ed-file-manager *) { height: 1px; margin: 4px 6px; background: var(--adion-border);
+}
+
+/* La grille des droits : trois personnes, trois droits. */
+.fm-perms:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: grid; grid-template-columns: minmax(0, 130px) repeat(3, minmax(56px, 72px)); align-items: center; gap: 6px 0; font-size: var(--adion-text-sm); color: var(--adion-text-1);
+}
+.fm-perms__head:is(.ui-ed-file-manager, .ui-ed-file-manager *) { font-size: var(--adion-text-xs); text-align: center; color: var(--adion-text-2);
+}
+.fm-perms__cell:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: flex; justify-content: center; cursor: pointer;
+}
+
+/* Sur un telephone : le nom et la taille d'abord, la barre d'adresse sur sa ligne. */
+@media (max-width: 720px) {
+.fm-entry__sub:is(.ui-ed-file-manager, .ui-ed-file-manager *) { display: none;
+}
+.fm-nav:is(.ui-ed-file-manager, .ui-ed-file-manager *) { flex-wrap: wrap;
+}
+.fm-address:is(.ui-ed-file-manager, .ui-ed-file-manager *) { order: 1; flex-basis: calc(100% - 80px);
+}
+.fm-search:is(.ui-ed-file-manager, .ui-ed-file-manager *) { order: 2; flex-basis: 100%;
+}
+.fm-entry:is(.ui-ed-file-manager, .ui-ed-file-manager *) { max-width: 24ch;
+}
+.fm-table th:is(.ui-ed-file-manager, .ui-ed-file-manager *):nth-child(4),
+  .fm-table td:is(.ui-ed-file-manager, .ui-ed-file-manager *):nth-child(4),
+  .fm-table th:is(.ui-ed-file-manager, .ui-ed-file-manager *):nth-child(5),
+  .fm-table td:is(.ui-ed-file-manager, .ui-ed-file-manager *):nth-child(5) { display: none;
+}
+}
+
+/* components/hosting/SiteEnvEditor.vue -> .ui-ed-site-env-editor */
+/* Widget propre a l'ecran (manque du kit : UiKeyValueEditor) : jetons seulement. */
+.env-table:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) { display: grid; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-control);
+}
+.env-row:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) { display: grid; grid-template-columns: minmax(120px, 32%) minmax(0, 1fr) auto auto; align-items: start; gap: var(--adion-space-1); padding: 3px 4px;
+}
+.env-row + .env-row:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) { border-top: 1px solid var(--adion-border);
+}
+.env-row:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *):hover { background: var(--adion-row-hover);
+}
+.env-cell:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) {
+  width: 100%;
+  min-width: 0;
+  padding: 3px 6px;
+  border: 1px solid transparent;
+  border-radius: var(--adion-radius-sm);
+  background: transparent;
+  color: var(--adion-text-1);
+  font-family: var(--adion-font-mono);
+  font-size: var(--adion-text-xs);
+  line-height: 1.5;
+  outline: none;
+}
+.env-cell:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *):hover { border-color: var(--adion-border);
+}
+.env-cell:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *):focus { border-color: var(--adion-border-strong); background: var(--adion-field-bg);
+}
+.env-cell--key:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) { text-transform: uppercase;
+}
+.env-cell--key:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *)::placeholder { text-transform: none;
+}
+textarea.env-cell:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) { resize: vertical; white-space: pre;
+}
+.env-cell:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *)::placeholder { color: var(--adion-text-3);
+}
+@media (max-width: 600px) {
+.env-row:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) { grid-template-columns: minmax(0, 1fr) auto auto;
+}
+.env-cell--key:is(.ui-ed-site-env-editor, .ui-ed-site-env-editor *) { grid-column: 1 / -1;
+}
+}

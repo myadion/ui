@@ -2872,6 +2872,11 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-flag.is-unknown { box-shadow: none; color: var(--adion-text-2); }
 /* Le logo d'une application (UiAppMark). */
 .ui-app-mark { display: grid; place-items: center; flex: none; font-weight: 600; color: white; box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 8%, transparent); }
+.ui-app-mark.has-ring { box-shadow: inset 0 0 0 1px var(--adion-border-strong); }
+/* La forme d'onde d'un son, dans une barre d'outils. */
+.ui-wave { flex: 1 1 60px; min-width: 0; height: 24px; fill: var(--adion-accent-text); }
+/* Un apercu en retard sur la saisie : estompe le temps qu'il se refasse. */
+.ui-is-stale { opacity: 0.6; }
 /* Une barre collee en haut de page (UiStickyBar). */
 .ui-sticky-bar { position: sticky; top: var(--adion-topnav-height, 0px); z-index: 20; padding: var(--adion-space-2) 0; margin-bottom: var(--adion-space-6); background: var(--adion-surface-solid); border-bottom: 1px solid var(--adion-border); }
 /* Le menu d'export des graphiques Apexcharts, blanc par defaut : il prend les jetons de la page. */
