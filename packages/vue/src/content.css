@@ -410,3 +410,12 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
   .ui-page .ui-table--stack .grid-table td.num .ui-table__cell { justify-content: flex-start; }
   .ui-page .ui-table--stack .grid-table td.num .ui-table__lines { justify-items: start; text-align: left; }
 }
+
+/* ------------------------------------------------------------------ */
+/* Le choix segmente, comme /maquette (.seg) : une piste sombre, l'option */
+/* choisie en plaque claire, sans filets entre les options (2026-10-29).  */
+/* ------------------------------------------------------------------ */
+.ui-segmented { height: auto; padding: 2px; gap: 0; border: 0; border-radius: 6px; background: var(--adion-night); box-shadow: inset 0 0 0 1px var(--adion-line-2); }
+.ui-segmented__item { height: 28px; padding: 0 10px; border: 0 !important; border-radius: 4px; background: none; font-size: 13px; font-weight: 500; color: var(--adion-ink-3); }
+.ui-segmented__item:hover { background: none; color: var(--adion-ink-1); }
+.ui-segmented__item.is-active { color: var(--adion-ink-1); background: var(--adion-card-2); box-shadow: inset 0 0 0 1px var(--adion-line-2); font-weight: 500; }
