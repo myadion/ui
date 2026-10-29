@@ -7,6 +7,7 @@ import UiEmpty from './UiEmpty.vue'
 import UiLoading from './UiLoading.vue'
 import UiPage from './UiPage.vue'
 import UiPageHeader from './UiPageHeader.vue'
+import UiProductHero from './UiProductHero.vue'
 import UiProductPitch from './UiProductPitch.vue'
 import UiSection from './UiSection.vue'
 
@@ -103,8 +104,18 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
 
     <slot name="before" />
 
+    <!-- L'ecran commercial (Kevin, 2026-10-29) : un fond, un titre, trois etapes, Commander. -->
+    <UiProductHero
+      v-if="empty && pitch?.hero && !loading"
+      :hero="pitch.hero"
+      :price="pitch.price"
+      :order-label="orderLabel"
+      :orderable="Boolean(OrderButton && order.length && orderable)"
+      @order="orderer?.start()"
+    />
+
     <UiProductPitch
-      v-if="empty && pitch && !loading"
+      v-else-if="empty && pitch && !loading"
       :pitch="pitch"
       :order-label="orderLabel"
       :orderable="Boolean(OrderButton && order.length && orderable)"

@@ -3144,3 +3144,90 @@ html.ui-read-only .ui-edit-only { display: none !important; }
 @media (max-width: 600px) {
   .ui-pitch__media { display: none; }
 }
+
+/*
+ * L'ECRAN COMMERCIAL D'UN PRODUIT (UiProductHero) : un decor par theme, et une
+ * mise en page qui change avec lui - centree (bulles, grille, anneaux), texte
+ * a gauche et decor a droite (faisceaux, ondes, spheres, cartes).
+ */
+.ui-phero { --h1: var(--adion-primary); --h2: var(--adion-family-web); --h3: var(--adion-family-telecom); position: relative; display: grid; min-height: max(520px, calc(100dvh - 260px)); padding: 56px 48px; border-radius: 18px; overflow: hidden; isolation: isolate; background: radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--h1) 22%, transparent), transparent 60%), var(--adion-bg-1); border: 1px solid var(--adion-border); }
+.ui-phero__art { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.ui-phero__bit { position: absolute; display: block; }
+.ui-phero__body { position: relative; display: grid; align-content: center; gap: 22px; max-width: 620px; }
+.ui-phero__headline { margin: 0; font-size: clamp(30px, 4.2vw, 50px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--adion-text-1); text-wrap: balance; }
+.ui-phero__text { margin: 0; max-width: 46ch; font-size: 17px; line-height: 1.55; color: var(--adion-text-2); }
+.ui-phero__steps { display: flex; flex-wrap: wrap; gap: 12px; margin: 6px 0 0; padding: 0; list-style: none; }
+.ui-phero__step { position: relative; display: flex; align-items: center; gap: 10px; padding: 8px 16px 8px 8px; border-radius: 999px; background: color-mix(in srgb, var(--adion-bg-0) 55%, transparent); border: 1px solid color-mix(in srgb, var(--h1) 30%, transparent); backdrop-filter: blur(6px); }
+.ui-phero__step:not(:last-child)::after { content: ''; position: absolute; right: -12px; top: 50%; width: 12px; height: 2px; background: color-mix(in srgb, var(--h1) 45%, transparent); }
+.ui-phero__icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: color-mix(in srgb, var(--h1) 22%, transparent); color: var(--h1); }
+.ui-phero__word { display: grid; font-size: 15px; font-weight: 700; line-height: 1.1; color: var(--adion-text-1); }
+.ui-phero__word small { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--adion-text-3); }
+.ui-phero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 10px; }
+.ui-phero__order.v-btn { height: 52px !important; padding: 0 28px !important; font-size: 16px !important; }
+.ui-phero__price { font-size: 15px; font-weight: 600; color: var(--adion-text-1); }
+
+/* Centrees : le texte au milieu, le decor tout autour. */
+.ui-phero:is(.is-bubbles, .is-grid, .is-rings) .ui-phero__body { justify-self: center; justify-items: center; text-align: center; max-width: 760px; }
+.ui-phero:is(.is-bubbles, .is-grid, .is-rings) .ui-phero__cta,
+.ui-phero:is(.is-bubbles, .is-grid, .is-rings) .ui-phero__steps { justify-content: center; }
+
+/* Bulles (SMS, campagnes) : des messages qui flottent. */
+.ui-phero.is-bubbles { --h1: var(--adion-primary); --h2: var(--adion-family-web); }
+.is-bubbles .ui-phero__bit { width: calc(70px + var(--i) * 14px); height: 34px; border-radius: 18px 18px 18px 4px; background: color-mix(in srgb, var(--h1) 16%, transparent); border: 1px solid color-mix(in srgb, var(--h1) 30%, transparent); animation: ui-phero-float 9s ease-in-out infinite; animation-delay: calc(var(--i) * -1.3s); }
+.is-bubbles .ui-phero__bit:nth-child(even) { border-radius: 18px 18px 4px 18px; background: color-mix(in srgb, var(--h2) 16%, transparent); border-color: color-mix(in srgb, var(--h2) 30%, transparent); }
+.is-bubbles .ui-phero__bit:nth-child(1) { left: 6%; top: 14%; }
+.is-bubbles .ui-phero__bit:nth-child(2) { right: 8%; top: 10%; }
+.is-bubbles .ui-phero__bit:nth-child(3) { left: 2%; top: 42%; }
+.is-bubbles .ui-phero__bit:nth-child(4) { right: 2%; top: 34%; }
+.is-bubbles .ui-phero__bit:nth-child(5) { left: 3%; bottom: 10%; }
+.is-bubbles .ui-phero__bit:nth-child(6) { right: 4%; bottom: 14%; }
+.is-bubbles .ui-phero__bit:nth-child(7) { right: 30%; top: 3%; width: 60px; }
+
+/* Faisceaux (fibre) : des traits de lumiere qui filent en diagonale. */
+.ui-phero.is-beams { --h1: var(--adion-family-web); background: radial-gradient(80% 120% at 100% 50%, color-mix(in srgb, var(--h1) 26%, transparent), transparent 65%), var(--adion-bg-1); }
+.is-beams .ui-phero__bit { right: calc(-20% + var(--i) * 3%); top: calc(var(--i) * 11% - 12%); width: 75%; height: 3px; border-radius: 3px; transform: rotate(-24deg); transform-origin: right; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--h1) 95%, white) 70%, white); box-shadow: 0 0 12px color-mix(in srgb, var(--h1) 80%, transparent); opacity: 0.9; animation: ui-phero-beam 3.2s linear infinite; animation-delay: calc(var(--i) * -0.36s); }
+
+/* Ondes (telephonie) : des cercles qui partent de la droite. */
+.ui-phero.is-waves { --h1: var(--adion-family-telecom); background: radial-gradient(60% 90% at 92% 50%, color-mix(in srgb, var(--h1) 30%, transparent), transparent 70%), var(--adion-bg-1); }
+.is-waves .ui-phero__bit { right: 8%; top: 50%; width: calc(var(--i) * 120px); height: calc(var(--i) * 120px); translate: 50% -50%; border-radius: 50%; border: 2px solid color-mix(in srgb, var(--h1) calc(85% - var(--i) * 12%), transparent); box-shadow: 0 0 24px color-mix(in srgb, var(--h1) 20%, transparent) inset; animation: ui-phero-pulse 3.2s ease-out infinite; animation-delay: calc(var(--i) * 0.4s); }
+
+/* Grille (web) : un sol en perspective et un horizon qui brille. */
+.ui-phero.is-grid { --h1: var(--adion-primary); background: radial-gradient(70% 40% at 50% 62%, color-mix(in srgb, var(--h1) 32%, transparent), transparent 70%), var(--adion-bg-1); }
+.is-grid .ui-phero__art::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(color-mix(in srgb, var(--h1) 45%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--h1) 45%, transparent) 1px, transparent 1px); background-size: 44px 44px; background-repeat: repeat; animation: ui-phero-grid 6s linear infinite; mask-image: radial-gradient(ellipse 75% 60% at 50% 100%, black 10%, transparent 70%), radial-gradient(ellipse 40% 35% at 50% 0%, rgba(0,0,0,0.5), transparent 70%); }
+
+/* Anneaux (domaines, e-mail) : des orbites autour du titre. */
+.ui-phero.is-rings { --h1: var(--adion-accent-text); --h2: var(--adion-family-web); }
+.is-rings .ui-phero__bit { left: 50%; top: 50%; width: calc(220px + var(--i) * 170px); height: calc(220px + var(--i) * 170px); translate: -50% -50%; border-radius: 50%; border: 2px solid color-mix(in srgb, var(--h1) calc(60% - var(--i) * 11%), transparent); animation: ui-phero-spin calc(30s + var(--i) * 12s) linear infinite; }
+.is-rings .ui-phero__bit::after { content: ''; position: absolute; top: -7px; left: 50%; width: 14px; height: 14px; border-radius: 50%; background: var(--h2); box-shadow: 0 0 20px 4px var(--h2); }
+
+/* Spheres (cloud) : trois lumieres qui derivent. */
+.ui-phero.is-orbs { --h1: var(--adion-family-cloud); --h2: var(--adion-primary); --h3: var(--adion-family-web); }
+.is-orbs .ui-phero__bit { width: 360px; height: 360px; border-radius: 50%; filter: blur(60px); opacity: 0.55; animation: ui-phero-drift 14s ease-in-out infinite alternate; }
+.is-orbs .ui-phero__bit:nth-child(1) { right: -60px; top: -80px; background: var(--h1); }
+.is-orbs .ui-phero__bit:nth-child(2) { right: 18%; bottom: -140px; background: var(--h2); animation-delay: -5s; }
+.is-orbs .ui-phero__bit:nth-child(3) { right: 34%; top: 20%; width: 220px; height: 220px; background: var(--h3); animation-delay: -9s; }
+
+/* Cartes (paiement) : trois cartes de paiement en eventail. */
+.ui-phero.is-cards { --h1: var(--adion-primary); --h2: var(--adion-family-web); --h3: var(--adion-warn); }
+.is-cards .ui-phero__body { max-width: min(620px, 56%); }
+@media (max-width: 1100px) { .is-cards .ui-phero__body { max-width: 620px; } .is-cards .ui-phero__art { opacity: 0.3; } }
+.is-cards .ui-phero__bit { right: 8%; top: 50%; width: 300px; height: 190px; margin-top: -95px; border-radius: 18px; transform: rotate(calc(var(--i) * 9deg - 18deg)) translateX(calc(var(--i) * 26px)); background: linear-gradient(135deg, color-mix(in srgb, var(--h1) 70%, black), color-mix(in srgb, var(--h2) 55%, black)); border: 1px solid color-mix(in srgb, white 18%, transparent); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35); }
+.is-cards .ui-phero__bit:nth-child(2) { background: linear-gradient(135deg, color-mix(in srgb, var(--h2) 70%, black), color-mix(in srgb, var(--h3) 45%, black)); }
+.is-cards .ui-phero__bit::before { content: ''; position: absolute; left: 24px; top: 70px; width: 44px; height: 32px; border-radius: 6px; background: linear-gradient(135deg, #e8d48b, #b8963e); }
+
+@keyframes ui-phero-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+@keyframes ui-phero-beam { from { translate: 40% 0; opacity: 0; } 30% { opacity: 0.6; } to { translate: -60% 0; opacity: 0; } }
+@keyframes ui-phero-pulse { 0% { opacity: 0.9; scale: 0.92; } 100% { opacity: 0.25; scale: 1.06; } }
+@keyframes ui-phero-grid { from { background-position: 0 0; } to { background-position: 0 44px; } }
+@keyframes ui-phero-spin { to { rotate: 360deg; } }
+@keyframes ui-phero-drift { from { translate: 0 0; } to { translate: -40px 30px; } }
+@media (prefers-reduced-motion: reduce) { .ui-phero__bit, .is-grid .ui-phero__art::before { animation: none !important; } }
+@media (max-width: 760px) {
+  .ui-phero { min-height: 0; padding: 36px 22px; }
+  .ui-phero__text { font-size: 15px; }
+  .ui-phero__steps { flex-direction: column; align-items: flex-start; }
+  .ui-phero:is(.is-bubbles, .is-grid, .is-rings) .ui-phero__steps { align-items: center; }
+  .ui-phero__step:not(:last-child)::after { display: none; }
+  .ui-phero:is(.is-waves, .is-cards, .is-orbs, .is-beams) .ui-phero__art { opacity: 0.45; }
+  .ui-phero__order.v-btn { width: 100%; }
+}
