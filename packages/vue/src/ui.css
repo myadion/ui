@@ -2613,5 +2613,12 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-accounts__hint { flex: none; display: inline-grid; place-items: center; color: var(--adion-text-3); }
 .ui-accounts__remove { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); display: inline-grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 6px; background: none; color: var(--adion-text-3); cursor: pointer; }
 .ui-accounts__remove:hover:not(:disabled), .ui-accounts__remove:focus-visible { color: var(--adion-text-1); background: color-mix(in srgb, var(--adion-text-1) 8%, transparent); outline: none; }
+/* Une pile d'elements espaces (un formulaire court) et une attente avec son loader. */
+.ui-stack { display: grid; gap: 16px; margin: 0; }
+.ui-wait { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 14px; color: var(--adion-text-3); }
+/* Une ligne qui montre sans se choisir (UiPasskeyList). */
+.ui-accounts__pick.is-static { cursor: default; }
+.ui-accounts__pick.is-static:hover { border-color: var(--adion-line, var(--adion-border)); background: var(--adion-card-2, transparent); }
+.ui-accounts__empty { padding: 4px 2px 6px; font-size: 13px; line-height: 1.5; color: var(--adion-text-2); }
 /* La croix vit a droite : l'indice se decale devant elle. */
 .ui-accounts__row:has(.ui-accounts__remove) .ui-accounts__hint, .ui-accounts__row:has(.ui-accounts__remove) .v-progress-circular { margin-right: 4px; }
