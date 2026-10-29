@@ -24,6 +24,8 @@ import { usePreference } from './preferences'
  * sortValue(row), main, mono, muted, nowrap, ellipsis, icon, tone, sub }. Une
  * cellule se dessine par le creneau `cell-<key>` ({ row, value }).
  *
+ * Toute colonne titree se trie (Kevin, 2026-10-29), sauf `sortable: false`.
+ *
  * Comme /maquette (2026-10-28) : `icon(row)` pose une tuile devant la valeur,
  * teintee par `tone(row)` (ok, info, warn, bad, muted) ; `sub(row)` ajoute une
  * seconde ligne grise. `quick(row)` donne des gestes en icones au bout de la
@@ -110,8 +112,11 @@ watch(needle, (value) => { page.value = 1; emit('search', value.trim()); if (pro
 watch(active, () => { page.value = 1; emitQuery() }, { deep: true })
 watch(() => props.rows, () => { if (!props.server && page.value > view.value.pages) page.value = 1 })
 
+/* Une colonne se trie des qu'elle a un titre, sauf si la page dit sortable: false. */
+const sortable = (column) => column.sortable !== false && Boolean(column.label)
+
 function toggleSort(column) {
-  if (!column.sortable || props.server) return
+  if (!sortable(column) || props.server) return
   sort.value = nextSort(sort.value, column.key)
 }
 
@@ -209,7 +214,7 @@ defineExpose({ clear })
         <thead>
           <tr>
             <th v-for="column in shown" :key="column.key" :class="alignClass(column)" :aria-sort="sort.key === column.key ? (sort.dir === 'asc' ? 'ascending' : 'descending') : undefined">
-              <button v-if="column.sortable && !server" type="button" class="ui-table__th-sort" :class="{ 'is-sorted': sort.key === column.key }" @click="toggleSort(column)">
+              <button v-if="sortable(column) && !server" type="button" class="ui-table__th-sort" :class="{ 'is-sorted': sort.key === column.key }" @click="toggleSort(column)">
                 {{ column.label }}
                 <v-icon :icon="sort.key !== column.key ? 'mdi-swap-vertical' : sort.dir === 'asc' ? 'mdi-arrow-up' : 'mdi-arrow-down'" size="12" />
               </button>
