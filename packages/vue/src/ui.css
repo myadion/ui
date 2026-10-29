@@ -1985,7 +1985,12 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-shell { display: flex; align-items: flex-start; min-width: 0; }
 .ui-shell__main { flex: 1; min-width: 0; }
 .ui-shell__content { width: 100%; max-width: 1480px; margin: 0 auto; padding: 24px 16px 96px; }
-.ui-shell__content.is-centered { display: grid; align-content: center; min-height: 100vh; max-width: 1200px; padding: 20px; }
+.ui-shell__content.is-centered { display: grid; align-content: center; max-width: 1200px; padding: 20px; }
+/* Centre sous la barre du haut : le contenu prend la hauteur qui reste, pas tout l'ecran. */
+.ui-shell__main:has(> .ui-shell__content.is-centered) { display: flex; flex-direction: column; min-height: calc(100dvh - var(--adion-top-offset, 0px)); }
+.ui-shell__main:has(> .ui-shell__content.is-centered) > .ui-shell__content { flex: 1; }
+/* Une colonne etroite au milieu, posee a 10 % du haut : une porte, un formulaire seul (Kevin, 2026-10-29). */
+.ui-shell__content.is-centered.is-narrow { align-content: start; max-width: 600px; padding-top: 10vh; }
 @media (min-width: 960px) { .ui-shell__content:not(.is-centered) { padding-inline: 32px; } }
 @media (max-width: 900px) { .ui-shell__sidebar { display: none; } }
 

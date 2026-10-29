@@ -12,6 +12,7 @@
  *
  *   bare      sans barre de gauche (un parcours d'accueil, l'onboarding)
  *   centered  la page centree a l'ecran, 1200 px au plus (un choix de depart)
+ *   narrow    avec centered : une colonne de 600 px au milieu, a 10 % du haut (une porte, un formulaire seul)
  *   plain     sans le fond de /maquette (le degrade du haut et ses lignes de
  *             niveau qui derivent lentement, coupees si l'on reduit les animations)
  */
@@ -19,6 +20,7 @@ defineProps({
   bare: { type: Boolean, default: false },
   centered: { type: Boolean, default: false },
   plain: { type: Boolean, default: false },
+  narrow: { type: Boolean, default: false },
 })
 
 // Une ligne de niveau : une sinusoide de 2400 unites, pour deriver sans couture sur 1200.
@@ -42,7 +44,7 @@ const contour = (k) => {
       </svg>
       <slot name="topbar" />
       <slot name="before" />
-      <div class="ui-shell__content" :class="{ 'is-centered': centered }"><slot /></div>
+      <div class="ui-shell__content" :class="{ 'is-centered': centered, 'is-narrow': narrow }"><slot /></div>
     </div>
   </div>
 </template>
