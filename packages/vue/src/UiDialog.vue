@@ -16,6 +16,8 @@ const props = defineProps({
   error: { type: String, default: '' },
   width: { type: [Number, String], default: 520 },
   busy: { type: Boolean, default: false },
+  /* Une question courte : reste une petite fenetre sur telephone, sans plein ecran. */
+  compact: { type: Boolean, default: false },
 })
 const emit = defineEmits(['update:modelValue'])
 const { smAndDown } = useDisplay()
@@ -29,7 +31,7 @@ function close() {
   <v-dialog
     :model-value="modelValue"
     :max-width="width"
-    :fullscreen="smAndDown"
+    :fullscreen="smAndDown && !compact"
     :persistent="busy"
     scrollable
     @update:model-value="(v) => (v ? emit('update:modelValue', true) : close())"
