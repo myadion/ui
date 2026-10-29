@@ -8,7 +8,6 @@ import UiLoading from './UiLoading.vue'
 import UiPage from './UiPage.vue'
 import UiPageHeader from './UiPageHeader.vue'
 import UiSection from './UiSection.vue'
-import { gradientOf } from './layout'
 
 /* Le bouton Commander est celui de l'app (createAdionUi({ components: { OrderButton } })). */
 const OrderButton = useAdion().components?.OrderButton || null
@@ -23,9 +22,8 @@ const OrderButton = useAdion().components?.OrderButton || null
  *      phrase d'explication (Kevin, 2026-10-29) : on sait ou l'on est ;
  *      Un menu « Ressources » (`links`) suit Actualiser : Documentation,
  *      Offres, Conditions du produit (liens de l'API) ;
- *   2. les chiffres (creneau `stats`) : en colonne a droite de la liste (par
- *      defaut, comme sur les fiches), au-dessus d'elle sur telephone ; ou en
- *      bande sous l'en-tete (`stats-layout="band"`) ;
+ *   2. plus de chiffres cles au-dessus du tableau (Kevin, 2026-10-29) : ils
+ *      redisaient ce que la liste montre ; le creneau `stats` n'est plus rendu ;
  *   3. la liste : UiTable, sans titre au-dessus (« Vos acces » ne disait rien
  *      de plus que le titre de la page). Les filtres de la liste (creneau
  *      list-actions) passent dans la barre du tableau, avec la recherche ;
@@ -39,7 +37,7 @@ const OrderButton = useAdion().components?.OrderButton || null
  * sans `order`, il n'y a simplement pas de bouton Commander.
  */
 const props = defineProps({
-  /** Le degrade des chiffres : une famille (web, telecom…) ; par defaut, celui de `family`. */
+  /** Plus employes depuis le retrait des chiffres (2026-10-29) ; gardes pour les pages qui les passent. */
   tint: { type: String, default: '' },
   family: { type: String, required: true },
   title: { type: String, required: true },
@@ -92,11 +90,9 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
       </slot>
     </template>
 
-    <div v-if="$slots.stats && !empty && statsLayout === 'band'" class="ui-stats is-band" :class="`ui-grad--${tint || gradientOf(family)}`"><slot name="stats" /></div>
-
     <slot name="before" />
 
-    <div class="ui-listgrid" :class="{ 'has-aside': $slots.stats && !empty && statsLayout === 'aside' }">
+    <div class="ui-listgrid">
       <UiSection first>
         <UiLoading v-if="loading && empty" />
         <UiEmpty v-else-if="empty" :text="emptyText" icon="mdi-package-variant-closed">
@@ -108,7 +104,6 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
         </UiEmpty>
         <slot v-else />
       </UiSection>
-      <div v-if="$slots.stats && !empty && statsLayout === 'aside'" class="ui-stats is-aside" :class="`ui-grad--${tint || gradientOf(family)}`"><slot name="stats" /></div>
     </div>
 
     <slot name="after" />
