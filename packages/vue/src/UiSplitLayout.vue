@@ -11,6 +11,8 @@
  *   column     le contenu dans une colonne centree de 520 px, qui commence vers
  *              le quart de la hauteur : un formulaire court (une connexion)
  *   slot default   le contenu de droite ; slot caption   un mot pose sur la photo
+ *   slot footer    les boutons, en bas du volet sur toute sa largeur : le premier
+ *                  a gauche, le dernier a droite (Creer un compte, Continuer)
  */
 defineProps({
   image: { type: String, required: true },
@@ -28,6 +30,7 @@ defineProps({
     </figure>
     <div class="ui-panes__content">
       <div class="ui-panes__inner"><slot /></div>
+      <div v-if="$slots.footer" class="ui-panes__footer"><slot name="footer" /></div>
     </div>
   </div>
 </template>

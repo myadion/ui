@@ -2538,8 +2538,9 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-panes__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .ui-panes__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, color-mix(in srgb, var(--adion-bg-0) 55%, transparent)); pointer-events: none; }
 .ui-panes__caption { position: absolute; left: 32px; bottom: 32px; right: 32px; z-index: 1; font-size: 15px; line-height: 1.5; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
-.ui-panes__content { display: flex; min-height: 0; padding: 32px 48px; }
-.ui-panes__inner { display: flex; flex-direction: column; width: 100%; min-height: 0; }
+.ui-panes__content { display: flex; flex-direction: column; min-height: 0; padding: 32px 48px; }
+.ui-panes__inner { display: flex; flex-direction: column; flex: 1 1 auto; width: 100%; min-height: 0; }
+.ui-panes__footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 18px; }
 .ui-panes__inner > .ui-page { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .ui-panes.is-column .ui-panes__content { overflow-y: auto; }
 .ui-panes.is-column .ui-panes__inner { max-width: 520px; margin-inline: auto; padding-top: max(0px, calc(25dvh - 80px)); }
@@ -2548,6 +2549,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
   .ui-panes__media { display: none; }
   .ui-panes__content { padding: 24px 16px 48px; }
   .ui-panes.is-column .ui-panes__inner { padding-top: 8px; }
+  .ui-panes__footer { flex-direction: column-reverse; align-items: stretch; padding-top: 24px; }
 }
 
 /* La date, au clavier ou au calendrier (2026-10-29) */

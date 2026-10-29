@@ -235,19 +235,20 @@ html[data-theme='light'],
 /* ------------------------------------------------------------------ */
 /* Les boutons et les champs du contenu                                */
 /* ------------------------------------------------------------------ */
-:is(.ui-page, .ui-dialog, .ui-actionmenu) .v-btn {
+:is(.ui-page, .ui-dialog, .ui-actionmenu, .ui-panes__footer) .v-btn {
   border-radius: 6px !important;
   font-weight: 600;
   letter-spacing: normal;
+  text-transform: none;
 }
-:is(.ui-page, .ui-dialog) .v-btn.v-btn--size-default { height: 36px !important; padding: 0 14px; }
-:is(.ui-page, .ui-dialog) .ui-btn:not(.ui-btn--primary).v-btn--variant-tonal,
-:is(.ui-page, .ui-dialog) .ui-btn:not(.ui-btn--primary).v-btn--variant-flat {
+:is(.ui-page, .ui-dialog, .ui-panes__footer) .v-btn.v-btn--size-default { height: 36px !important; padding: 0 14px; }
+:is(.ui-page, .ui-dialog, .ui-panes__footer) .ui-btn:not(.ui-btn--primary).v-btn--variant-tonal,
+:is(.ui-page, .ui-dialog, .ui-panes__footer) .ui-btn:not(.ui-btn--primary).v-btn--variant-flat {
   background: var(--adion-card-2) !important;
   box-shadow: inset 0 0 0 1px var(--adion-line-2);
   color: var(--adion-ink-1) !important;
 }
-:is(.ui-page, .ui-dialog) .ui-btn--primary {
+:is(.ui-page, .ui-dialog, .ui-panes__footer) .ui-btn--primary {
   box-shadow: none;
 }
 :is(.ui-page, .ui-dialog) .v-field { border-radius: 6px !important; background: var(--adion-card-2); }
