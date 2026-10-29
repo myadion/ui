@@ -1,5 +1,5 @@
 <script setup>
-import { computed, provide, ref, useSlots } from 'vue'
+import { computed, provide, ref, useSlots, watch } from 'vue'
 import { useAdion } from './adapter.js'
 import UiActionMenu from './UiActionMenu.vue'
 import UiButton from './UiButton.vue'
@@ -7,6 +7,7 @@ import UiEmpty from './UiEmpty.vue'
 import UiLoading from './UiLoading.vue'
 import UiPage from './UiPage.vue'
 import UiPageHeader from './UiPageHeader.vue'
+import UiProductPitch from './UiProductPitch.vue'
 import UiSection from './UiSection.vue'
 
 /* Le bouton Commander est celui de l'app (createAdionUi({ components: { OrderButton } })). */
@@ -27,8 +28,10 @@ const OrderButton = useAdion().components?.OrderButton || null
  *   3. la liste : UiTable, sans titre au-dessus (« Vos acces » ne disait rien
  *      de plus que le titre de la page). Les filtres de la liste (creneau
  *      list-actions) passent dans la barre du tableau, avec la recherche ;
- *   4. sans aucun service (`empty`), un etat vide qui explique le produit et
- *      propose de le commander.
+ *   4. sans aucun service (`empty`), la page commerciale du produit
+ *      (UiProductPitch) : sa presentation et ses offres, lues au catalogue par
+ *      l'app (services.productPitch). Sans presentation, un etat vide qui
+ *      propose de commander.
  *
  * Une page de decouverte (une IA, un produit a faire connaitre) remplace
  * l'en-tete par une accroche : creneau « hero » (UiHero).
@@ -61,6 +64,14 @@ const props = defineProps({
 defineEmits(['refresh'])
 
 const orderer = ref(null)
+
+/* La page commerciale d'une liste vide : l'app la lit au catalogue (createAdionUi, services.productPitch). */
+const pitch = ref(null)
+watch(() => [props.empty, props.order.join()], async ([empty]) => {
+  const read = useAdion().services?.productPitch
+  if (!empty || !props.order.length || !read) { pitch.value = null; return }
+  try { pitch.value = await read(props.order) } catch { pitch.value = null }
+}, { immediate: true })
 const slots = useSlots()
 
 /*
@@ -92,7 +103,15 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
 
     <slot name="before" />
 
-    <div class="ui-listgrid">
+    <UiProductPitch
+      v-if="empty && pitch && !loading"
+      :pitch="pitch"
+      :order-label="orderLabel"
+      :orderable="Boolean(OrderButton && order.length && orderable)"
+      @order="orderer?.start()"
+    />
+
+    <div v-else class="ui-listgrid">
       <UiSection first>
         <UiLoading v-if="loading && empty" />
         <UiEmpty v-else-if="empty" :text="emptyText" icon="mdi-package-variant-closed">
