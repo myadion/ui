@@ -2541,10 +2541,13 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-panes__content { display: flex; min-height: 0; padding: 32px 48px; }
 .ui-panes__inner { display: flex; flex-direction: column; width: 100%; min-height: 0; }
 .ui-panes__inner > .ui-page { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.ui-panes.is-column .ui-panes__content { overflow-y: auto; }
+.ui-panes.is-column .ui-panes__inner { max-width: 520px; margin-inline: auto; padding-top: max(0px, calc(25dvh - 80px)); }
 @media (max-width: 960px) {
   .ui-panes { grid-template-columns: minmax(0, 1fr); height: auto; }
   .ui-panes__media { display: none; }
   .ui-panes__content { padding: 24px 16px 48px; }
+  .ui-panes.is-column .ui-panes__inner { padding-top: 8px; }
 }
 
 /* La date, au clavier ou au calendrier (2026-10-29) */

@@ -1,6 +1,6 @@
 {
   "name": "@myadion/ui",
-  "version": "0.3.19",
+  "version": "0.3.20",
   "description": "Les composants et gabarits d'Adion Cloud pour Vue 3 et Vuetify 3.",
   "type": "module",
   "license": "BSD-3-Clause",

@@ -116,6 +116,8 @@ html[data-theme='light'],
 .ui-page .ui-section .ui-section,
 .ui-page .ui-card .ui-section,
 .ui-dialog .ui-section { padding: 0; border: 0; background: none; box-shadow: none; }
+/* Dans la colonne des deux volets (une connexion), le formulaire est transparent, comme l'inscription. */
+.ui-panes.is-column .ui-section { padding: 0; border: 0; background: none; box-shadow: none; }
 .ui-section__title { font-size: 17px; font-weight: 600; letter-spacing: -0.015em !important; color: var(--adion-ink-1); }
 .ui-section__lead { font-size: 14px; line-height: 1.6; color: var(--adion-ink-2); }
 
