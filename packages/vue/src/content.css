@@ -196,7 +196,7 @@ html[data-theme='light'],
 /* Un tableau qui finit une section en prend toute la largeur : un seul cadre, pas deux. */
 @media (min-width: 721px) {
   .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__body > .ui-table:last-child:not(:has(> .ui-toolbar)) {
-    margin: 0 -24px -24px;
+    margin: 0 -18px -18px;
     border: 0;
     border-top: 1px solid var(--adion-line);
     border-radius: 0 0 8px 8px;
