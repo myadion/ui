@@ -2877,3 +2877,208 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 /* Le menu d'export des graphiques Apexcharts, blanc par defaut : il prend les jetons de la page. */
 .apexcharts-menu { border-color: var(--adion-border) !important; background: var(--adion-surface-solid) !important; color: var(--adion-text-1); }
 .apexcharts-menu-item:hover { background: var(--adion-row-hover) !important; }
+
+/* L'intitule qu'on renomme sur place (UiEditableLabel). */
+.ui-editable { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.ui-editable__btn { display: inline-flex; align-items: center; gap: 4px; min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.ui-editable__text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-editable__icon { opacity: 0.45; transition: opacity 0.15s, color 0.15s; }
+.ui-editable__btn:hover .ui-editable__icon, .ui-editable__btn:focus-visible .ui-editable__icon { opacity: 1; color: var(--adion-accent-text); }
+.ui-editable__btn:hover .ui-editable__text { text-decoration: underline dotted; text-underline-offset: 3px; }
+
+/* Ce qui flotte en bas a droite (UiFloat) et son entree (Transition name="ui-rise"). */
+.ui-float { position: fixed; right: 22px; z-index: 1100; width: min(340px, calc(100vw - 44px)); box-shadow: var(--adion-shadow-card); }
+.ui-float.is-invite { bottom: 84px; background: var(--adion-surface-solid); }
+.ui-float.is-launcher { bottom: 22px; display: grid; justify-items: end; gap: 10px; width: auto; box-shadow: none; }
+.ui-rise-enter-active, .ui-rise-leave-active { transition: opacity 200ms ease, transform 200ms ease; }
+.ui-rise-enter-from, .ui-rise-leave-to { opacity: 0; transform: translateY(10px); }
+@media (max-width: 720px) {
+  .ui-float { right: 14px; }
+  .ui-float.is-invite { bottom: 74px; }
+  .ui-float.is-launcher { bottom: 14px; }
+}
+
+/* Une conversation plein ecran (UiConversation) : le fil, la scene, l'entree des questions. */
+.ui-conv { display: grid; grid-template-rows: auto 1fr; min-height: calc(100dvh - 64px - 96px); }
+.ui-conv__bar { height: 3px; margin: 4px 0 0; border-radius: var(--adion-radius-pill); background: var(--adion-border); overflow: hidden; }
+.ui-conv__fill { height: 100%; background: var(--adion-gradient); transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.ui-conv__stage { display: grid; justify-items: center; align-content: start; padding: clamp(32px, 10vh, 112px) 0 48px; }
+.ui-conv__screen { display: grid; gap: var(--adion-space-5); width: 100%; max-width: 680px; }
+.ui-conv-enter-active, .ui-conv-back-enter-active { transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1); }
+.ui-conv-leave-active, .ui-conv-back-leave-active { transition: opacity 0.16s ease, transform 0.16s ease; }
+.ui-conv-enter-from { opacity: 0; transform: translateY(14px); }
+.ui-conv-leave-to { opacity: 0; transform: translateY(-10px); }
+.ui-conv-back-enter-from { opacity: 0; transform: translateY(-14px); }
+.ui-conv-back-leave-to { opacity: 0; transform: translateY(10px); }
+@media (prefers-reduced-motion: reduce) {
+  .ui-conv-enter-active, .ui-conv-leave-active, .ui-conv-back-enter-active, .ui-conv-back-leave-active { transition: none; }
+}
+
+/* Le bandeau de l'equipe (UiStaffBanner) : fixe en haut, la page descend de sa hauteur. */
+.ui-staff-banner { position: fixed; inset: 0 0 auto 0; z-index: 3000; display: flex; align-items: center; gap: var(--adion-space-2); height: var(--ui-staff-banner-h, 40px); padding: 0 var(--adion-space-4); border-bottom: 1px solid var(--adion-warn-line); background: linear-gradient(var(--adion-warn-soft), var(--adion-warn-soft)), var(--adion-surface-solid); font-size: var(--adion-text-sm); line-height: 1.2; white-space: nowrap; color: var(--adion-text-1); }
+.ui-staff-banner > .v-icon { flex: none; color: var(--adion-warn); }
+.ui-staff-banner.is-tone-bad { border-bottom-color: var(--adion-bad-line); background: linear-gradient(var(--adion-bad-soft), var(--adion-bad-soft)), var(--adion-surface-solid); }
+.ui-staff-banner.is-tone-bad > .v-icon { color: var(--adion-bad); }
+.ui-staff-banner__text { min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+.ui-staff-banner__time { flex-shrink: 0; color: var(--adion-text-2); }
+.ui-staff-banner__actions { display: inline-flex; flex-shrink: 0; gap: var(--adion-space-1); margin-left: auto; }
+@media (max-width: 600px) {
+  .ui-staff-banner { padding: 0 var(--adion-space-2); }
+  .ui-staff-banner__time { display: none; }
+}
+html.ui-staff-banner-on { --ui-staff-banner-h: 40px; --adion-top-offset: var(--ui-staff-banner-h); }
+html.ui-staff-banner-on #app { padding-top: var(--ui-staff-banner-h); }
+/* En lecture seule (consultation de l'equipe), ce qui ne sert qu'a modifier disparait. */
+html.ui-read-only .ui-edit-only { display: none !important; }
+
+/* L'arbre d'un service (UiServiceTree). */
+.ui-tree { display: grid; gap: 16px; }
+.ui-tree__heads, .ui-tree__grid { display: grid; grid-template-columns: minmax(170px, 1fr) minmax(190px, 1.1fr) minmax(220px, 1.3fr); gap: 48px; }
+.ui-tree__heads { font-size: var(--adion-text-base); font-weight: 500; color: var(--adion-text-2); }
+.ui-tree__count { display: inline-grid; place-items: center; min-width: 20px; padding: 0 6px; border-radius: var(--adion-radius-pill); background: var(--adion-accent-soft); color: var(--adion-accent-text); font-size: var(--adion-text-xs); font-weight: 600; }
+.ui-tree__grid { position: relative; align-items: center; }
+.ui-tree__lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.ui-tree__lines path { fill: none; stroke: var(--adion-accent-text); stroke-opacity: 0.45; stroke-width: 1.3; }
+.ui-tree__col { position: relative; display: grid; gap: 10px; }
+.ui-tree__node { position: relative; display: flex; align-items: center; gap: 12px; min-width: 0; padding: 12px 14px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface-solid); color: var(--adion-text-1); text-align: left; font: inherit; }
+.ui-tree__text { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.ui-tree__text strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--adion-text-md); font-weight: 500; }
+.ui-tree__text small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--adion-text-sm); color: var(--adion-text-2); }
+.ui-tree__icon { display: grid; place-items: center; width: 34px; height: 34px; flex: none; border-radius: var(--adion-radius-sm); background: var(--adion-accent-soft); color: var(--adion-accent-text); }
+.ui-tree__node.is-root .v-icon { color: var(--adion-accent-text); }
+.ui-tree__node.is-item { cursor: pointer; }
+.ui-tree__node.is-item:hover { border-color: var(--adion-accent-text); }
+.ui-tree__go { opacity: 0.35; flex: none; }
+.ui-tree__node.is-item:hover .ui-tree__go { opacity: 1; color: var(--adion-accent-text); }
+.ui-tree__node.is-suggestion { border-style: dashed; }
+.ui-tree__state { display: grid; place-items: center; width: 14px; height: 14px; flex: none; border-radius: 50%; }
+.ui-tree__state.is-on { width: 9px; height: 9px; margin: 0 2px; background: var(--adion-ok); box-shadow: 0 0 0 3px var(--adion-ok-soft); }
+.ui-tree__state.is-add { border: 1px solid var(--adion-accent-text); color: var(--adion-accent-text); }
+@media (max-width: 900px) {
+  .ui-tree__heads { display: none; }
+  .ui-tree__grid { grid-template-columns: 1fr; gap: 10px; }
+  .ui-tree__lines { display: none; }
+  .ui-tree__col.is-items { padding-left: 16px; border-left: 1px solid var(--adion-border); }
+}
+
+/* La carte SIM dessinee (UiSimCard). */
+.ui-sim {
+  position: relative;
+  width: 132px;
+  height: 116px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.ui-sim__glow {
+  position: absolute;
+  inset: 20px 10px 6px;
+  border-radius: 50%;
+  background: var(--adion-ok-soft);
+  filter: blur(22px);
+}
+
+.ui-sim__card {
+  position: relative;
+  width: 76px;
+  height: 94px;
+  border: 1px solid var(--adion-border-strong);
+  border-radius: 14px;
+  background: var(--adion-surface-solid);
+  box-shadow: var(--adion-shadow-card);
+  transform: rotate(-5deg);
+  overflow: hidden;
+}
+
+.ui-sim__corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -14px;
+  right: -14px;
+  background: var(--adion-bg-1);
+  transform: rotate(45deg);
+  border-left: 1px solid var(--adion-border-strong);
+}
+
+.ui-sim__chip {
+  position: absolute;
+  top: 28px;
+  left: 19px;
+  width: 39px;
+  height: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, var(--adion-warn-soft), var(--adion-warn));
+}
+
+.ui-sim__chip span {
+  border: 1px solid var(--adion-warn-line);
+  border-radius: 2px;
+}
+
+.ui-sim__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  color: var(--adion-text-2);
+  font-size: var(--adion-text-xs);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.ui-sim__signal {
+  position: absolute;
+  right: 6px;
+  bottom: 18px;
+  height: 28px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.ui-sim__signal span {
+  width: 4px;
+  border-radius: 4px;
+  background: var(--adion-primary);
+}
+
+.ui-sim__signal span:nth-child(1) { height: 7px; }
+.ui-sim__signal span:nth-child(2) { height: 13px; }
+.ui-sim__signal span:nth-child(3) { height: 20px; }
+.ui-sim__signal span:nth-child(4) { height: 28px; }
+
+.ui-sim.is-blocked .ui-sim__glow { background: var(--adion-warn-soft); }
+.ui-sim.is-blocked .ui-sim__signal span { background: var(--adion-warn); }
+
+.ui-sim.is-compact {
+  width: 92px;
+  height: 84px;
+  transform: scale(0.78);
+  transform-origin: center;
+  margin: -8px;
+}
+
+/* Un cadre media (UiMedia) : image, video qui derive lentement, scene 3D ou plaque de repli. */
+.ui-media { position: relative; margin: 0; width: 100%; aspect-ratio: 41 / 16; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-lg); overflow: hidden; background: var(--adion-bg-1); }
+.ui-media__layer, .ui-media .film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.ui-media canvas { display: block; width: 100% !important; height: 100% !important; }
+.ui-media .film { animation: ui-media-drift 46s ease-in-out infinite alternate; }
+@keyframes ui-media-drift { from { transform: scale(1.04) translate3d(-1%, 0, 0); } to { transform: scale(1.12) translate3d(1%, -1.5%, 0); } }
+.ui-media__fade { position: absolute; inset: auto 0 0 0; height: 160px; pointer-events: none; background: linear-gradient(to top, var(--adion-bg-0) 0%, transparent 100%); }
+.ui-media__marks { position: absolute; inset: 0; background-image: linear-gradient(to bottom, var(--adion-border), var(--adion-border)); background-repeat: no-repeat; background-size: 1px 100%; background-position: 25% 0; }
+.ui-media__watermark { position: absolute; left: var(--adion-space-8); bottom: var(--adion-space-6); font-size: clamp(56px, 8vw, 110px); font-weight: 200; line-height: 1; color: var(--adion-text-1); opacity: 0.07; text-transform: lowercase; pointer-events: none; }
+.ui-media.is-scene { background: var(--adion-bg-0); }
+@media (max-width: 900px) {
+  .ui-media { aspect-ratio: 16 / 9; }
+  .ui-media__fade { height: 96px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-media .film { animation: none; transform: none; }
+}
