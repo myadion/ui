@@ -3,7 +3,9 @@
  * DES CARTES A CHOISIR (Adion UI, 2026-10-14) : une IA, une offre, un mode.
  * Chacune porte une icone ou ses initiales (jamais un logo de marque en
  * image), son nom et une ligne d'aide ; la carte choisie se voit (bord,
- * fond, coche). items : [{ value, label, hint, icon, initials }].
+ * fond, coche). items : [{ value, label, hint, icon, initials, featured }].
+ * `featured` met une carte en avant : elle prend le reste de la ligne, sur un
+ * fond a elle (2026-10-29).
  */
 defineProps({
   modelValue: { type: [String, Number], default: null },
@@ -28,7 +30,7 @@ const initials = (item) => {
       type="button"
       role="radio"
       class="ui-choice"
-      :class="{ 'is-selected': modelValue === item.value }"
+      :class="{ 'is-selected': modelValue === item.value, 'is-featured': item.featured }"
       :aria-checked="modelValue === item.value"
       @click="$emit('update:modelValue', item.value)"
     >

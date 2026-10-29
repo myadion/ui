@@ -1053,6 +1053,13 @@
   color: var(--adion-text-1);
 }
 .ui-choice.is-selected .ui-choice__mark { background: var(--ui-fam, var(--adion-accent-text)); color: var(--adion-bg-0); box-shadow: none; }
+/* Une carte mise en avant prend le reste de la ligne, sur un fond degrade du vert. */
+.ui-choices:has(> .ui-choice.is-featured) { display: flex; flex-wrap: wrap; }
+.ui-choices:has(> .ui-choice.is-featured) > .ui-choice { flex: 0 1 200px; }
+.ui-choices:has(> .ui-choice.is-featured) > .ui-choice.is-featured { flex: 1 1 240px; background: linear-gradient(135deg, color-mix(in srgb, var(--adion-primary) 22%, var(--adion-card, var(--adion-surface))) 0%, color-mix(in srgb, var(--adion-info, #06b6d4) 10%, var(--adion-card, var(--adion-surface))) 100%); border-color: color-mix(in srgb, var(--adion-primary) 35%, transparent); }
+.ui-choices > .ui-choice.is-featured.is-selected { box-shadow: 0 0 0 1px var(--adion-accent-text); }
+/* Au telephone, chaque carte prend la ligne. */
+@media (max-width: 480px) { .ui-choices:has(> .ui-choice.is-featured) > .ui-choice { flex-basis: 100%; } }
 .ui-choice__label { font-size: var(--adion-text-md); font-weight: 600; }
 .ui-choice__hint { font-size: var(--adion-text-xs); line-height: 1.45; color: var(--adion-text-3); }
 .ui-choice__check { position: absolute; top: var(--adion-space-3); right: var(--adion-space-3); color: var(--ui-fam, var(--adion-accent-text)); }
