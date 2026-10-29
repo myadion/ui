@@ -57,6 +57,6 @@ const sparkPath = computed(() => {
       <path :d="sparkPath" fill="none" stroke="currentColor" stroke-width="1.4" vector-effect="non-scaling-stroke" />
     </svg>
     <span v-if="meter !== null && meter !== undefined" class="ui-stat__meter" role="meter" aria-valuemin="0" aria-valuemax="100" :aria-valuenow="Math.round(meter)" :class="`is-tone-${meterTone || (meter >= 90 ? 'bad' : meter >= 75 ? 'warn' : 'ok')}`"><span :style="{ width: `${Math.min(100, Math.max(0, meter))}%` }" /></span>
-    <small v-if="hint || $slots.hint" class="ui-stat__hint"><slot name="hint">{{ hint }}</slot></small>
+    <small v-if="hint || $slots.hint" class="ui-stat__hint" :title="hint || undefined"><slot name="hint">{{ hint }}</slot></small>
   </article>
 </template>

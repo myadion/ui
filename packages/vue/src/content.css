@@ -432,3 +432,24 @@ html[data-theme='light'] .ui-segmented, .v-theme--adionLight .ui-segmented { bor
 .ui-segmented__item { height: 100%; padding: 0 10px; border: 0 !important; border-radius: 4px; background: none; font-size: 13px; font-weight: 500; color: var(--adion-ink-3); }
 .ui-segmented__item:hover { background: none; color: var(--adion-ink-1); }
 .ui-segmented__item.is-active { color: var(--adion-ink-1); background: color-mix(in srgb, var(--adion-ink-1) 12%, var(--adion-card-2)); box-shadow: inset 0 0 0 1px var(--adion-line-2); font-weight: 500; }
+
+/*
+ * DES CHIFFRES CLES COMPACTS (Kevin, 2026-10-29 : « trop hauts », une icone a
+ * chaque fois, des textes moins gros). Deux lignes : l'icone et le libelle,
+ * puis le chiffre avec son aide a cote. Toujours une icone (les pages en
+ * donnent une a chaque UiStat).
+ */
+.ui-page .ui-stat { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 8px; align-items: baseline; }
+.ui-page .ui-stat > :not(.ui-stat__row, .ui-stat__hint) { grid-column: 1 / -1; }
+.ui-page .ui-stat__label { gap: 7px; font-size: 12px; }
+.ui-page .ui-stat__label .v-icon { width: 22px !important; height: 22px !important; font-size: 14px !important; border-radius: 5px; }
+.ui-page .ui-stat__row { margin-top: 6px; }
+.ui-page .ui-stat__value { margin-top: 0; font-size: 18px; line-height: 1.2; }
+.ui-page .ui-stat__hint { margin-top: 0; font-size: 12px; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) > .ui-stat,
+.ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 10px 14px; }
+@media (max-width: 640px) {
+  .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) > .ui-stat,
+  .ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 10px 12px; }
+  .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) .ui-stat__value { font-size: 17px; }
+}
