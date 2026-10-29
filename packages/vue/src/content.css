@@ -322,6 +322,14 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
 .ui-page .ui-stats > .ui-stat:nth-child(3n + 2) { --ui-hue: var(--adion-family-web); }
 .ui-page .ui-stats > .ui-stat:nth-child(3n + 3) { --ui-hue: var(--adion-family-telecom); }
 .ui-page .ui-stat__value { margin-top: 6px; }
+/* Au telephone, deux chiffres par rangee : la bande ne pousse pas le contenu deux ecrans plus bas. */
+@media (max-width: 640px) {
+  .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside),
+  .ui-page .ui-listgrid.has-aside > .ui-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) > .ui-stat,
+  .ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 14px 14px; }
+  .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) .ui-stat__value { font-size: 22px; }
+}
 
 /* Les sections : la tete separee du contenu par un filet, un titre de 15 px. */
 .ui-section__title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em !important; }

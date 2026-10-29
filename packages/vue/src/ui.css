@@ -1884,7 +1884,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 /* L'accueil : de l'air, une colonne de lecture, des cartes en degrade. */
 .ui-home__welcome .ui-header__title { font-size: 30px; font-weight: 650; letter-spacing: -0.025em; }
 .ui-home__welcome .ui-header__lead { font-size: var(--adion-text-md); max-width: 60ch; }
-.ui-home__body { display: grid; gap: var(--adion-space-10); max-width: 1040px; }
+.ui-home__body { display: grid; gap: var(--adion-space-10); }
 .ui-home__body > .ui-section { margin: 0; }
 .ui-home .ui-cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--adion-space-5); }
 .ui-home .ui-card { padding: var(--adion-space-5) var(--adion-space-6); gap: var(--adion-space-3); }
