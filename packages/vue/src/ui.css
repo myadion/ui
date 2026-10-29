@@ -1882,7 +1882,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-notif__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--adion-space-2); }
 
 /* L'accueil : de l'air, une colonne de lecture, des cartes en degrade. */
-.ui-home__welcome .ui-header__title { font-size: 30px; font-weight: 300; letter-spacing: -0.02em; }
+.ui-home__welcome .ui-header__title { font-size: 30px; font-weight: 650; letter-spacing: -0.025em; }
 .ui-home__welcome .ui-header__lead { font-size: var(--adion-text-md); max-width: 60ch; }
 .ui-home__body { display: grid; gap: var(--adion-space-10); max-width: 1040px; }
 .ui-home__body > .ui-section { margin: 0; }
@@ -2372,3 +2372,28 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 @keyframes ui-promo-a { from { transform: translateX(0); } to { transform: translateX(-300px); } }
 @keyframes ui-promo-b { from { transform: translateX(-360px); } to { transform: translateX(0); } }
 @media (prefers-reduced-motion: reduce) { .ui-promo__wave { animation: none; } }
+
+/* ---------------------------------------------------------------- */
+/* Des raccourcis : UiLinkList (2026-10-29, d'apres /maquette)        */
+/* ---------------------------------------------------------------- */
+.ui-links { list-style: none; margin: 0; padding: 0; display: grid; border-radius: 8px; background: var(--adion-card, var(--adion-surface)); box-shadow: 0 0 0 1px var(--adion-line, var(--adion-border)); overflow: hidden; }
+.ui-links li + li { border-top: 1px solid var(--adion-line, var(--adion-border)); }
+.ui-links__row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 16px; border: 0; background: none; color: var(--adion-text-1); text-align: left; text-decoration: none; cursor: pointer; transition: background 0.15s; }
+.ui-links__row:hover { background: var(--adion-row-hover); }
+.ui-links__row:focus-visible { outline: 2px solid var(--adion-focus); outline-offset: -2px; }
+.ui-links__icon { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; color: var(--adion-primary); background: color-mix(in srgb, var(--adion-primary) 12%, transparent); }
+.ui-links__icon.is-tone-info { color: var(--adion-family-web); background: color-mix(in srgb, var(--adion-family-web) 12%, transparent); }
+.ui-links__icon.is-tone-accent { color: var(--adion-family-telecom); background: color-mix(in srgb, var(--adion-family-telecom) 13%, transparent); }
+.ui-links__icon.is-tone-ok { color: var(--adion-ok); background: color-mix(in srgb, var(--adion-ok) 12%, transparent); }
+.ui-links__icon.is-tone-warn { color: var(--adion-warn); background: color-mix(in srgb, var(--adion-warn) 12%, transparent); }
+.ui-links__icon.is-tone-bad { color: var(--adion-bad); background: color-mix(in srgb, var(--adion-bad) 12%, transparent); }
+.ui-links__icon.is-tone-muted { color: var(--adion-text-2); background: color-mix(in srgb, var(--adion-text-2) 10%, transparent); }
+.ui-links__text { display: grid; flex: 1; min-width: 0; }
+.ui-links__text strong { font-size: 14px; font-weight: 600; }
+.ui-links__text small { font-size: 12.5px; color: var(--adion-text-3); }
+.ui-links__go { flex: none; color: var(--adion-text-3); }
+
+/* Le squelette de chargement prend les tons de la page (bleu nuit), pas le gris de Vuetify. */
+.ui-loading .v-skeleton-loader { background: transparent !important; }
+.ui-loading .v-skeleton-loader__bone { background: color-mix(in srgb, var(--adion-text-1) 6%, transparent) !important; }
+.ui-loading .v-skeleton-loader__bone::after { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--adion-text-1) 5%, transparent), transparent) !important; }

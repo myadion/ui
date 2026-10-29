@@ -7,6 +7,9 @@ import UiPageHeader from './UiPageHeader.vue'
  * confortablement a nos clients. Un mot de bienvenue, puis des sections espacees :
  * l'attention du client, ses services en un coup d'oeil, quelques raccourcis.
  * Pas de tableau, rien de technique ; beaucoup d'air (`ui-home`).
+ *
+ *   slot notices   au-dessus du mot de bienvenue (un bandeau qu'on ferme)
+ *   slot stats     des UiStat, en bande soudee sous le mot de bienvenue (/maquette)
  */
 defineProps({
   context: { type: String, default: '' },
@@ -21,8 +24,10 @@ defineEmits(['retry'])
 <template>
   <UiPage :loading="loading" :error="error" class="ui-home" @retry="$emit('retry')">
     <template #header>
+      <slot name="notices" />
       <UiPageHeader :eyebrow="context" :title="title" :lead="lead" class="ui-home__welcome" />
     </template>
+    <div v-if="$slots.stats" class="ui-stats is-band"><slot name="stats" /></div>
     <div class="ui-home__body"><slot /></div>
   </UiPage>
 </template>

@@ -368,3 +368,6 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
 .grid-table tr:hover .ui-table__quick, .ui-table__quick:focus-within { opacity: 1; }
 .grid-table td.num .ui-table__cell, .grid-table td.right .ui-table__cell { justify-content: flex-end; }
 .grid-table td.num .ui-table__lines, .grid-table td.right .ui-table__lines { justify-items: end; text-align: right; }
+
+/* L'accueil : la bande de chiffres de la maquette, sous le mot de bienvenue. */
+.ui-page.ui-home > .ui-stats.is-band { margin-top: 4px; }

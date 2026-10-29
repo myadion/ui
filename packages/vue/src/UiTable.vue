@@ -3,6 +3,7 @@ import { computed, onMounted, ref, useSlots, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { rowActivates } from './rows'
 import { cellValue, filterRows, nextSort, paginate, searchRows, sortRows } from './table'
+import { tone as toTone } from './tone'
 import UiEmpty from './UiEmpty.vue'
 import UiLoading from './UiLoading.vue'
 import UiNotice from './UiNotice.vue'
@@ -212,7 +213,7 @@ defineExpose({ clear })
               <td v-for="column in shown" :key="column.key" :class="cellClass(column)" :data-label="column.label || undefined">
                 <slot :name="`cell-${column.key}`" :row="row" :value="cellValue(row, column)">
                   <span v-if="column.icon || column.sub" class="ui-table__cell">
-                    <span v-if="column.icon" class="ui-table__tile" :class="column.tone && `is-tone-${call(column.tone, row)}`"><v-icon :icon="call(column.icon, row)" size="17" /></span>
+                    <span v-if="column.icon" class="ui-table__tile" :class="column.tone && `is-tone-${toTone(call(column.tone, row))}`"><v-icon :icon="call(column.icon, row)" size="17" /></span>
                     <span class="ui-table__lines"><span class="ui-table__main">{{ cellValue(row, column) ?? '—' }}</span><small v-if="column.sub && call(column.sub, row)" class="ui-table__sub">{{ call(column.sub, row) }}</small></span>
                   </span>
                   <template v-else>{{ cellValue(row, column) ?? '—' }}</template>
