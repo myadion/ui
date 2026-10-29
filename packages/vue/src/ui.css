@@ -2554,3 +2554,8 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-date__picker .v-date-picker-years__content .v-btn--active { background: var(--adion-primary) !important; color: var(--adion-on-primary, #06140f) !important; }
 /* Des jours ronds : les reglages par defaut des boutons d'une app (hauteur, arrondi) ne s'y appliquent pas. */
 .ui-date__picker .v-date-picker-month__day .v-btn { width: 36px !important; height: 36px !important; min-width: 0 !important; padding: 0 !important; border-radius: 50% !important; }
+
+/* Un pays, avec son drapeau (2026-10-29) */
+.ui-country .v-field__prepend-inner { align-items: center; padding-top: 0; padding-right: 8px; }
+.ui-country__flag { width: 20px; height: 15px; flex: none; margin-right: 10px; border-radius: 2px; background-size: cover; box-shadow: 0 0 0 1px var(--adion-line, var(--adion-border)); }
+.ui-country .v-field__prepend-inner .ui-country__flag { margin-right: 0; }
