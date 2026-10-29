@@ -43,6 +43,15 @@ export function moveColumn(columns, pref, key, step) {
   return { order: arranged, hidden: normalizePref(pref).hidden }
 }
 
+/* Poser une colonne au rang `to` (glisser-deposer). */
+export function placeColumn(columns, pref, key, to) {
+  const arranged = arrangeColumns(columns, pref).map(keyOf)
+  const from = arranged.indexOf(key)
+  if (from < 0 || to < 0 || to >= arranged.length || from === to) return normalizePref(pref)
+  arranged.splice(to, 0, arranged.splice(from, 1)[0])
+  return { order: arranged, hidden: normalizePref(pref).hidden }
+}
+
 /* La preference vaut-elle les colonnes par defaut ? (le bouton « Par defaut » s'eteint alors). */
 export function isDefault(columns, pref) {
   const { order, hidden } = normalizePref(pref)

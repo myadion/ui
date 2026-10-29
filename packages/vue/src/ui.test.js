@@ -51,7 +51,7 @@ test('le personnel d’Adion se reconnait a un role autre que ceux de tout le mo
   assert.equal(isAdionStaff(null), false)
 })
 
-import { arrangeColumns, isDefault, moveColumn, toggleColumn, visibleColumns } from './columns.js'
+import { arrangeColumns, isDefault, moveColumn, placeColumn, toggleColumn, visibleColumns } from './columns.js'
 import { accountOf, applyRouteContext, contextChanges, contextFromRoute, contextOf, contextPath, contextRoutes, inContext, stripContext } from './context.js'
 
 const COLS = [{ key: 'name', main: true }, { key: 'a' }, { key: 'b' }, { key: 'c' }]
@@ -163,4 +163,11 @@ test('etat des services : textes, frise et regroupement', () => {
   const groups = groupDisruptions([{ date: '2026-10-14', service: 'a' }, { date: '2026-10-15', service: 'b' }, { date: '2026-10-15', service: 'c' }])
   assert.equal(groups[0].date, '2026-10-15')
   assert.equal(groups[0].items.length, 2)
+})
+
+test('placeColumn pose une colonne au rang voulu', () => {
+  const columns = [{ key: 'a' }, { key: 'b' }, { key: 'c' }]
+  assert.deepEqual(placeColumn(columns, null, 'c', 0).order, ['c', 'a', 'b'])
+  assert.deepEqual(placeColumn(columns, null, 'a', 2).order, ['b', 'c', 'a'])
+  assert.deepEqual(placeColumn(columns, { hidden: ['b'] }, 'a', 1), { order: ['b', 'a', 'c'], hidden: ['b'] })
 })

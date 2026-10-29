@@ -453,3 +453,9 @@ html[data-theme='light'] .ui-segmented, .v-theme--adionLight .ui-segmented { bor
   .ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 10px 12px; }
   .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) .ui-stat__value { font-size: 17px; }
 }
+
+/* Le tableau compact (bascule de densite) : des lignes serrees, la tuile et le texte un peu plus petits. */
+.ui-page .ui-table.is-compact .grid-table td { padding-top: 5px; padding-bottom: 5px; }
+.ui-page .ui-table.is-compact .ui-table__tile { width: 24px; height: 24px; }
+.ui-page .ui-table.is-compact .ui-table__tile .v-icon { font-size: 14px !important; }
+.ui-page .ui-table.is-compact .ui-table__sub { font-size: 12px; }

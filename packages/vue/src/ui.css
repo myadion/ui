@@ -491,12 +491,30 @@
 .ui-table__more { padding: 0; border: 0; background: none; justify-self: start; }
 
 /* Le menu « Colonnes ». */
-.ui-colmenu { display: grid; gap: 2px; min-width: 260px; padding: var(--adion-space-2); border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface-solid); }
-.ui-colmenu__title { padding: var(--adion-space-1) var(--adion-space-2) var(--adion-space-2); font-size: var(--adion-text-xs); letter-spacing: 1px; text-transform: uppercase; color: var(--adion-text-3); }
-.ui-colmenu__row { display: flex; align-items: center; gap: var(--adion-space-1); padding: 2px var(--adion-space-1); border-radius: var(--adion-radius-control); }
-.ui-colmenu__row:hover { background: var(--adion-row-hover); }
-.ui-colmenu__row .ui-check { flex: 1; border: 0; padding: 4px; background: none; }
-.ui-colmenu__foot { display: flex; justify-content: space-between; gap: var(--adion-space-2); margin-top: var(--adion-space-2); padding-top: var(--adion-space-2); border-top: 1px solid var(--adion-border); }
+/* Le menu des colonnes du tableau : cocher l'oeil, glisser pour ranger. */
+.ui-colmenu { display: grid; gap: 6px; width: 280px; padding: 8px; border: 1px solid var(--adion-border-strong); border-radius: var(--adion-radius-card); background: var(--adion-surface-solid); box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42); }
+.ui-colmenu__head { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px 2px; }
+.ui-colmenu__title { font-size: 12px; font-weight: 600; color: var(--adion-text-2); }
+.ui-colmenu__reset { padding: 2px 6px; border: 0; border-radius: 6px; background: none; font: inherit; font-size: 12px; color: var(--adion-accent-text); cursor: pointer; }
+.ui-colmenu__reset:disabled { color: var(--adion-text-3); cursor: default; }
+.ui-colmenu__reset:not(:disabled):hover { background: var(--adion-row-hover); }
+.ui-colmenu__list { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; max-height: 360px; overflow: auto; }
+.ui-colmenu__row { position: relative; display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 4px 0 2px; border-radius: 6px; font-size: 13px; color: var(--adion-text-1); cursor: grab; user-select: none; }
+.ui-colmenu__row:hover, .ui-colmenu__row:focus-visible { background: var(--adion-row-hover); outline: none; }
+.ui-colmenu__row.is-off .ui-colmenu__label { color: var(--adion-text-3); }
+.ui-colmenu__row.is-dragging { opacity: 0.4; }
+.ui-colmenu__row.is-drop::before { content: ''; position: absolute; left: 6px; right: 6px; top: -2px; height: 2px; border-radius: 1px; background: var(--adion-accent-text); }
+.ui-colmenu__grip { flex: none; color: var(--adion-text-3); }
+.ui-colmenu__label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-colmenu__lock { flex: none; margin: 0 7px; color: var(--adion-text-3); }
+.ui-colmenu__eye { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border: 0; border-radius: 6px; background: none; color: var(--adion-text-2); cursor: pointer; }
+.ui-colmenu__eye:hover { color: var(--adion-text-1); background: color-mix(in srgb, var(--adion-text-1) 8%, transparent); }
+.ui-colmenu__row.is-off .ui-colmenu__eye { color: var(--adion-text-3); }
+/* La densite du tableau : deux boutons colles, celui qui est choisi en accent. */
+.ui-density { display: inline-flex; flex: none; padding: 2px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-control); }
+.ui-density__btn { display: grid; place-items: center; width: 28px; height: 26px; border: 0; border-radius: 5px; background: none; color: var(--adion-text-3); cursor: pointer; }
+.ui-density__btn:hover { color: var(--adion-text-1); }
+.ui-density__btn.is-on { color: var(--adion-accent-text); background: var(--adion-accent-soft); }
 
 /* Sur telephone, chaque ligne devient une fiche : plus de tableau a faire defiler de cote. */
 @media (max-width: 720px) {

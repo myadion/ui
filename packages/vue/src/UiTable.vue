@@ -9,8 +9,8 @@ import UiLoading from './UiLoading.vue'
 import UiNotice from './UiNotice.vue'
 import UiToolbar from './UiToolbar.vue'
 import UiButton from './UiButton.vue'
-import UiCheckbox from './UiCheckbox.vue'
-import { arrangeColumns, isDefault, moveColumn, toggleColumn, visibleColumns } from './columns'
+import { arrangeColumns, isDefault, moveColumn, placeColumn, toggleColumn, visibleColumns } from './columns'
+import { useTableDensity } from './density'
 import { usePreference } from './preferences'
 
 /*
@@ -89,6 +89,25 @@ const arranged = computed(() => arrangeColumns(props.columns, columnPref.value.v
 const columnsDefault = computed(() => isDefault(props.columns, columnPref.value.value))
 const toggle = (key) => columnPref.save(toggleColumn(props.columns, columnPref.value.value, key))
 const move = (key, step) => columnPref.save(moveColumn(props.columns, columnPref.value.value, key, step))
+
+/* Glisser une colonne dans le menu : la ligne survolee indique ou elle tombera. */
+const dragKey = ref('')
+const dropAt = ref(-1)
+const onDragStart = (event, key) => { dragKey.value = key; event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', key) }
+const onDragOver = (event, index) => { if (!dragKey.value) return; event.preventDefault(); dropAt.value = index }
+const onDrop = () => {
+  if (dragKey.value && dropAt.value >= 0) columnPref.save(placeColumn(props.columns, columnPref.value.value, dragKey.value, dropAt.value))
+  dragKey.value = ''
+  dropAt.value = -1
+}
+/* Au clavier : Alt + fleche monte ou descend la colonne qui a le focus. */
+const onRowKey = (event, key) => {
+  if (!event.altKey || !['ArrowUp', 'ArrowDown'].includes(event.key)) return
+  event.preventDefault()
+  move(key, event.key === 'ArrowUp' ? -1 : 1)
+}
+
+const { density, set: setDensity } = useTableDensity()
 const page = ref(1)
 const opened = ref(null)
 
@@ -160,7 +179,7 @@ defineExpose({ clear })
 </script>
 
 <template>
-  <div class="ui-table" :class="{ 'ui-table--stack': stack }">
+  <div class="ui-table" :class="{ 'ui-table--stack': stack, 'is-compact': density === 'compact' }">
     <UiToolbar
       v-if="search || filters.length || $slots.toolbar || prefKey || hasListFilters"
       :search="search ? needle : null"
@@ -186,20 +205,51 @@ defineExpose({ clear })
         <ListFilters v-if="hasListFilters" />
       </template>
       <slot name="toolbar" />
+      <!-- La densite : normale ou compacte, pour tous les tableaux (density.js). -->
+      <div class="ui-density" role="group" aria-label="Densité du tableau">
+        <button type="button" class="ui-density__btn" :class="{ 'is-on': density === 'normal' }" title="Lignes normales" aria-label="Lignes normales" :aria-pressed="density === 'normal'" @click="setDensity('normal')"><v-icon icon="mdi-view-agenda-outline" size="16" /></button>
+        <button type="button" class="ui-density__btn" :class="{ 'is-on': density === 'compact' }" title="Lignes compactes" aria-label="Lignes compactes" :aria-pressed="density === 'compact'" @click="setDensity('compact')"><v-icon icon="mdi-view-headline" size="16" /></button>
+      </div>
       <v-menu v-if="prefKey" location="bottom end" :close-on-content-click="false">
         <template #activator="{ props: on }">
           <UiButton v-bind="on" kind="quiet" icon="mdi-view-column-outline">Colonnes</UiButton>
         </template>
+        <!-- Les colonnes : on coche ce qu'on voit, on glisse pour ranger (Alt + fleches au clavier). -->
         <div class="ui-colmenu" role="dialog" aria-label="Colonnes du tableau">
-          <span class="ui-colmenu__title">Colonnes affichées</span>
-          <div v-for="(column, index) in arranged" :key="column.key" class="ui-colmenu__row">
-            <UiCheckbox :model-value="column.visible" :label="column.label || column.key" :disabled="Boolean(column.main || column.required)" @update:model-value="toggle(column.key)" />
-            <UiButton kind="quiet" icon="mdi-chevron-up" icon-only :title="`Monter « ${column.label} »`" :disabled="index === 0" @click="move(column.key, -1)" />
-            <UiButton kind="quiet" icon="mdi-chevron-down" icon-only :title="`Descendre « ${column.label} »`" :disabled="index === arranged.length - 1" @click="move(column.key, 1)" />
+          <div class="ui-colmenu__head">
+            <span class="ui-colmenu__title">Colonnes</span>
+            <button type="button" class="ui-colmenu__reset" :disabled="columnsDefault" @click="columnPref.reset()">Par défaut</button>
           </div>
-          <div class="ui-colmenu__foot">
-            <UiButton kind="quiet" icon="mdi-restore" :disabled="columnsDefault" @click="columnPref.reset()">Colonnes par défaut</UiButton>
-          </div>
+          <ul class="ui-colmenu__list" @dragleave.self="dropAt = -1">
+            <li
+              v-for="(column, index) in arranged"
+              :key="column.key"
+              class="ui-colmenu__row"
+              :class="{ 'is-dragging': dragKey === column.key, 'is-drop': dropAt === index && dragKey && dragKey !== column.key, 'is-off': !column.visible }"
+              draggable="true"
+              tabindex="0"
+              :aria-label="`${column.label || column.key}, ${column.visible ? 'affichée' : 'masquée'}. Alt et flèches pour déplacer.`"
+              @dragstart="onDragStart($event, column.key)"
+              @dragover="onDragOver($event, index)"
+              @drop.prevent="onDrop"
+              @dragend="dragKey = ''; dropAt = -1"
+              @keydown="onRowKey($event, column.key)"
+            >
+              <v-icon icon="mdi-drag-vertical" size="16" class="ui-colmenu__grip" aria-hidden="true" />
+              <span class="ui-colmenu__label">{{ column.label || column.key }}</span>
+              <v-icon v-if="column.main || column.required" icon="mdi-lock-outline" size="14" class="ui-colmenu__lock" title="Toujours affichée" />
+              <button
+                v-else
+                type="button"
+                class="ui-colmenu__eye"
+                :title="column.visible ? 'Masquer' : 'Afficher'"
+                :aria-label="`${column.visible ? 'Masquer' : 'Afficher'} « ${column.label || column.key} »`"
+                @click="toggle(column.key)"
+              >
+                <v-icon :icon="column.visible ? 'mdi-eye-outline' : 'mdi-eye-off-outline'" size="16" />
+              </button>
+            </li>
+          </ul>
         </div>
       </v-menu>
     </UiToolbar>
