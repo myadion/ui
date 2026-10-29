@@ -108,7 +108,7 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
       :pitch="pitch"
       :order-label="orderLabel"
       :orderable="Boolean(OrderButton && order.length && orderable)"
-      @order="orderer?.start()"
+      @order="(key) => (key && orderer?.choose ? orderer.choose(key) : orderer?.start())"
     />
 
     <div v-else class="ui-listgrid">

@@ -3106,32 +3106,41 @@ html.ui-read-only .ui-edit-only { display: none !important; }
   .ui-media .film { animation: none; transform: none; }
 }
 
-/* La page commerciale d'un produit (UiProductPitch). */
-.ui-pitch { display: grid; gap: 28px; }
-.ui-pitch__hero { display: grid; gap: 24px; align-items: center; padding: 28px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--ui-grad, var(--adion-grad-brand)), var(--adion-surface); }
-.ui-pitch__hero.has-media { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+/* La page commerciale d'un produit (UiProductPitch) : une phrase, les offres, trois etapes ; le reste se deplie. */
+.ui-pitch { display: grid; gap: 24px; }
+.ui-pitch__hero { display: grid; gap: 28px; align-items: center; padding: 32px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface); }
+.ui-pitch__hero.has-media { grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); }
 .ui-pitch__intro { display: grid; gap: 14px; justify-items: start; }
-.ui-pitch__lead { margin: 0; max-width: 62ch; font-size: 17px; line-height: 1.6; color: var(--adion-text-1); }
-.ui-pitch__price { margin: 0; font-size: 14px; font-weight: 600; color: var(--adion-accent-text); }
-.ui-pitch__cta { padding-top: 4px; }
-.ui-pitch__media { display: grid; gap: 8px; margin: 0; }
-.ui-pitch__media figcaption { font-size: 12px; line-height: 1.5; color: var(--adion-text-3); }
-.ui-pitch__offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-.ui-pitch__offer { display: grid; align-content: start; gap: 6px; padding: 16px 18px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface); }
-.ui-pitch__offer.is-recommended { border-color: color-mix(in srgb, var(--adion-accent-text) 55%, transparent); }
-.ui-pitch__offer-name { font-size: 14px; font-weight: 600; color: var(--adion-text-1); }
-.ui-pitch__offer-price { font-size: 13px; font-weight: 600; color: var(--adion-accent-text); }
-.ui-pitch__offer-text { margin: 0; font-size: 13px; line-height: 1.55; color: var(--adion-text-2); }
-.ui-pitch__block { display: grid; gap: 14px; }
-.ui-pitch__title { margin: 0; font-size: 16px; font-weight: 600; color: var(--adion-text-1); }
-.ui-pitch__steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
-.ui-pitch__step { display: grid; align-content: start; gap: 6px; padding: 16px 18px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface); }
-.ui-pitch__step strong { font-size: 14px; font-weight: 600; color: var(--adion-text-1); }
-.ui-pitch__step p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--adion-text-2); }
-.ui-pitch__num { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--adion-accent-soft); color: var(--adion-accent-text); font-size: 12px; font-weight: 700; }
-.ui-pitch__prose { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px 28px; }
-.ui-pitch__prose p { margin: 0; font-size: 13.5px; line-height: 1.65; color: var(--adion-text-2); }
+.ui-pitch__tagline { margin: 0; max-width: 34ch; font-size: 24px; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; color: var(--adion-text-1); }
+.ui-pitch__price { margin: 0; font-size: 14px; color: var(--adion-text-2); }
+.ui-pitch__cta { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; }
+.ui-pitch__media { border-radius: 10px; }
+.ui-pitch__offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.ui-pitch__offer { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 20px; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface); }
+.ui-pitch__offer.is-recommended { border-color: var(--adion-accent-text); box-shadow: 0 0 0 1px var(--adion-accent-text) inset; }
+.ui-pitch__badge { position: absolute; top: -10px; left: 16px; padding: 2px 8px; border-radius: 999px; background: var(--adion-accent-text); color: var(--adion-bg-0); font-size: 11px; font-weight: 700; }
+.ui-pitch__offer-name { font-size: 14px; font-weight: 600; color: var(--adion-text-2); }
+.ui-pitch__amount { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 6px; }
+.ui-pitch__amount small { font-size: 12px; color: var(--adion-text-3); }
+.ui-pitch__value { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--adion-text-1); }
+.ui-pitch__includes { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--adion-text-2); }
+.ui-pitch__includes li { display: flex; align-items: flex-start; gap: 6px; }
+.ui-pitch__includes .v-icon { flex: none; margin-top: 1px; color: var(--adion-ok); }
+.ui-pitch__choose { margin-top: auto; align-self: stretch; }
+.ui-pitch__steps { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--adion-text-2); }
+.ui-pitch__steps li { display: flex; align-items: center; gap: 8px; cursor: help; }
+.ui-pitch__num { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--adion-accent-soft); color: var(--adion-accent-text); font-size: 12px; font-weight: 700; }
+.ui-pitch__more { display: grid; gap: 12px; justify-items: start; }
+.ui-pitch__toggle { display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; font: inherit; font-size: 13px; color: var(--adion-accent-text); cursor: pointer; }
+.ui-pitch__detail { display: grid; gap: 10px; max-width: 72ch; font-size: 13.5px; line-height: 1.65; color: var(--adion-text-2); }
+.ui-pitch__detail p { margin: 0; }
+.ui-pitch__steplist { display: grid; gap: 6px; margin: 0; padding-left: 18px; }
 @media (max-width: 900px) {
   .ui-pitch__hero.has-media { grid-template-columns: minmax(0, 1fr); }
   .ui-pitch__hero { padding: 20px; }
+  .ui-pitch__tagline { font-size: 20px; }
+}
+/* Sur telephone, l image cederait la place aux offres : on la retire. */
+@media (max-width: 600px) {
+  .ui-pitch__media { display: none; }
 }
