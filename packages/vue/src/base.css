@@ -313,3 +313,151 @@ h3 {
   .grid-table th:last-child,
   .grid-table td:last-child { padding-right: 10px; }
 }
+
+/*
+ * CE QUE L'ESPACE CLIENT POSAIT ENCORE DANS SON style.css (2026-10-29) : le fond
+ * qui passe sous la coque en sombre, les cartes et les champs de Vuetify
+ * (classes posees par ses valeurs par defaut : adion-card, field-unified), les
+ * rangees d'action des fiches (.action) et les entrees de la directive v-reveal.
+ */
+/*
+ * Le fond anime du site est pose derriere tout : la coque doit le laisser
+ * passer, sinon un aplat opaque le recouvre et l'application redevient un
+ * rectangle gris.
+ */
+html[data-theme='dark'] .v-application,
+html[data-theme='dark'] .v-main,
+html[data-theme='dark'] body {
+  background: transparent !important;
+}
+
+html[data-theme='dark'] .fx { display: block; }
+html[data-theme='light'] .fx { display: none; }
+
+/*
+ * Un fond en `position: fixed` forme un plan, et un element positionne se peint
+ * au-dessus de ce qui ne l'est pas : sans plan sur le contenu, le fond
+ * recouvrait titres et cellules.
+ */
+.v-main {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+ * Le contour d'un champ Vuetify est decoupe en deux morceaux, et celui de
+ * gauche ne fait que douze pixels de large. Un rayon de vingt-quatre y est donc
+ * ecrete par le navigateur : le champ ressortait arrondi a droite et presque
+ * carre a gauche. On donne au morceau de gauche la largeur du rayon.
+ */
+.field-unified .v-field { border-radius: var(--adion-radius-pill); }
+
+.field-unified .v-field__outline__start {
+  flex: 0 0 var(--adion-radius-pill);
+}
+
+/*
+ * Le site pose peu de cartes : il separe par des filets. Celles qu'il pose sont
+ * unies - jamais floutees - et se soulevent quand elles menent quelque part.
+ */
+.v-card,
+.adion-card {
+  background: var(--adion-surface) !important;
+  background-image: none !important;
+  border: 1px solid var(--adion-border);
+  border-radius: var(--adion-radius-card);
+  box-shadow: none !important;
+  color: var(--adion-text-1);
+}
+
+.v-card.is-clickable,
+.adion-card.is-clickable { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+
+.v-card.is-clickable:hover,
+.adion-card.is-clickable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Les actions : une rangee par demande, comme une liste du site. */
+.actions { display: grid; gap: 0; }
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 4px;
+  border-top: 1px solid var(--adion-border);
+  text-align: left;
+  color: var(--adion-text-1);
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.action:last-child { border-bottom: 1px solid var(--adion-border); }
+.action:hover { background: var(--adion-row-hover); }
+
+.action__text { flex: 1; min-width: 0; }
+.action__text strong { display: block; font-size: var(--adion-text-md); font-weight: 500; }
+.action__text small { display: block; margin-top: 3px; font-size: var(--adion-text-sm); color: var(--adion-text-2); }
+
+.action__go { flex: none; color: var(--adion-text-2); }
+.action:hover .action__go { color: var(--adion-accent-text); }
+
+@media (max-width: 720px) {
+  .action { padding: 13px 2px; gap: 12px; }
+  .action__text strong { font-size: var(--adion-text-base); }
+  .action__text small { font-size: var(--adion-text-xs); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Les entrees a l'ecran (directive v-reveal)                           */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Le mouvement est court et bas : quinze pixels et un demi-seconde. Au-dela on
+ * ne lit plus une page, on regarde une demonstration - et l'attente d'un
+ * contenu deja charge est une faute.
+ *
+ * La courbe est la meme partout : elle demarre franc et finit doucement, comme
+ * un objet qu'on pose.
+ */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.62s cubic-bezier(0.22, 0.68, 0.26, 1) var(--reveal-delay, 0ms),
+    transform 0.62s cubic-bezier(0.22, 0.68, 0.26, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal--up { transform: translate3d(0, 18px, 0); }
+.reveal--left { transform: translate3d(-24px, 0, 0); }
+.reveal--right { transform: translate3d(24px, 0, 0); }
+.reveal--scale { transform: scale(0.97); }
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  /* Une fois pose, l'element redevient un element ordinaire. */
+  will-change: auto;
+}
+
+/* Les enfants d'un bloc « stagger » : ils suivent, l'un apres l'autre. */
+.reveal .reveal-child {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.68, 0.26, 1) var(--reveal-delay, 0ms),
+    transform 0.55s cubic-bezier(0.22, 0.68, 0.26, 1) var(--reveal-delay, 0ms);
+}
+.reveal.is-revealed .reveal-child { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal .reveal-child {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
