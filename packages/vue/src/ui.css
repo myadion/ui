@@ -2397,3 +2397,44 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-loading .v-skeleton-loader { background: transparent !important; }
 .ui-loading .v-skeleton-loader__bone { background: color-mix(in srgb, var(--adion-text-1) 6%, transparent) !important; }
 .ui-loading .v-skeleton-loader__bone::after { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--adion-text-1) 5%, transparent), transparent) !important; }
+
+/* ---------------------------------------------------------------- */
+/* Le tiroir et le curseur (2026-10-29, d'apres /maquette)            */
+/* ---------------------------------------------------------------- */
+.ui-drawer { position: fixed; inset: 0; z-index: 2100; display: flex; justify-content: flex-end; background: rgba(5, 8, 13, 0.55); backdrop-filter: blur(2px); }
+.ui-drawer__panel { display: flex; flex-direction: column; width: min(var(--ui-drawer-w, 420px), 100%); height: 100%; background: var(--adion-card, var(--adion-surface-solid)); box-shadow: -1px 0 0 var(--adion-line-2, var(--adion-border)), -24px 0 48px rgba(0, 0, 0, 0.4); }
+.ui-drawer__head { display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--adion-line, var(--adion-border)); }
+.ui-drawer__icon { display: grid; place-items: center; width: 36px; height: 36px; flex: none; border-radius: 8px; color: var(--adion-primary); background: color-mix(in srgb, var(--adion-primary) 10%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--adion-primary) 26%, transparent); }
+.ui-drawer__titles { flex: 1; min-width: 0; display: grid; }
+.ui-drawer__titles h2 { margin: 0; font-size: 17px; font-weight: 650; color: var(--adion-text-1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-drawer__titles small { font-size: 12.5px; color: var(--adion-text-3); }
+.ui-drawer__close { display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 6px; background: none; color: var(--adion-text-2); cursor: pointer; }
+.ui-drawer__close:hover { color: var(--adion-text-1); background: var(--adion-row-hover); }
+.ui-drawer__body.ui-page { flex: 1; display: grid; align-content: start; gap: 20px; max-width: none; padding: 20px; overflow-y: auto; }
+.ui-drawer__foot { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; padding: 14px 20px; border-top: 1px solid var(--adion-line, var(--adion-border)); }
+.ui-drawer-enter-active, .ui-drawer-leave-active { transition: opacity 0.2s; }
+.ui-drawer-enter-active .ui-drawer__panel, .ui-drawer-leave-active .ui-drawer__panel { transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.ui-drawer-enter-from, .ui-drawer-leave-to { opacity: 0; }
+.ui-drawer-enter-from .ui-drawer__panel, .ui-drawer-leave-to .ui-drawer__panel { transform: translateX(40px); }
+@media (prefers-reduced-motion: reduce) { .ui-drawer-enter-active, .ui-drawer-leave-active, .ui-drawer-enter-active .ui-drawer__panel, .ui-drawer-leave-active .ui-drawer__panel { transition: none; } }
+
+.ui-slider { display: flex; align-items: center; gap: 14px; min-height: 32px; }
+.ui-slider__input { -webkit-appearance: none; appearance: none; flex: 1; min-width: 0; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--adion-primary) var(--p), var(--adion-card-2, var(--adion-bg-2)) var(--p)); outline: 0; cursor: pointer; }
+.ui-slider__input:disabled { opacity: 0.5; cursor: not-allowed; }
+.ui-slider__input:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--adion-focus) 40%, transparent); }
+.ui-slider__input::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--adion-text-1); border: 4px solid var(--adion-primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--adion-primary) 15%, transparent); }
+.ui-slider__input::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--adion-text-1); border: 4px solid var(--adion-primary); }
+.ui-slider__value { flex: none; min-width: 64px; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--adion-text-1); }
+
+/* Un champ en chasse fixe, une valeur teintee dans un tableau (2026-10-29). */
+.ui-control.is-mono input, .ui-control.is-mono textarea { font-family: var(--adion-font-mono); }
+.ui-table__value.is-tone-ok { color: var(--adion-ok); font-weight: 600; }
+.ui-table__value.is-tone-warn { color: var(--adion-warn); font-weight: 600; }
+.ui-table__value.is-tone-bad { color: var(--adion-bad); font-weight: 600; }
+.ui-table__value.is-tone-info { color: var(--adion-info); }
+
+/* La jauge d un chiffre (UiStat meter), comme les quotas de /maquette. */
+.ui-stat__meter { display: block; height: 6px; margin-top: 10px; border-radius: 3px; background: var(--adion-card-2, var(--adion-bg-2)); overflow: hidden; }
+.ui-stat__meter > span { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, color-mix(in srgb, var(--adion-primary) 75%, #000), var(--adion-primary)); }
+.ui-stat__meter.is-tone-warn > span { background: var(--adion-warn); }
+.ui-stat__meter.is-tone-bad > span { background: var(--adion-bad); }

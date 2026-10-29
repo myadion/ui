@@ -12,6 +12,8 @@ const props = defineProps({
   items: { type: Array, default: () => [] },
   title: { type: String, default: '' },
   unit: { type: String, default: '' },
+  /** La valeur dite en clair (un montant : (v) => '12,40 €') ; remplace l'unite. */
+  format: { type: Function, default: null },
   max: { type: Number, default: 0 },
   empty: { type: String, default: 'Rien à comparer pour le moment.' },
 })
@@ -31,7 +33,7 @@ const fmt = (v) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 1 }).
         <span class="ui-bars__track" role="meter" :aria-label="item.label" :aria-valuenow="Number(item.value) || 0" aria-valuemin="0" :aria-valuemax="top">
           <span class="ui-bars__fill" :style="{ width: `${pct(item)}%` }" />
         </span>
-        <strong class="ui-bars__value">{{ fmt(item.value) }}{{ unit ? ` ${unit}` : '' }}</strong>
+        <strong class="ui-bars__value">{{ format ? format(item.value) : `${fmt(item.value)}${unit ? ` ${unit}` : ''}` }}</strong>
       </li>
     </ul>
   </figure>

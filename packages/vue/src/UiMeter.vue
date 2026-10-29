@@ -14,6 +14,8 @@ const props = defineProps({
   unit: { type: String, default: 'caractères' },
   hint: { type: String, default: '' },
   warnAt: { type: Number, default: 0.9 },
+  /** Dire la part en pourcentage (« 45 % utilisés ») plutot que « 45 / 100 ». */
+  percent: { type: Boolean, default: false },
 })
 
 const over = computed(() => props.value > props.max)
@@ -26,7 +28,8 @@ const fmt = (n) => new Intl.NumberFormat('fr-FR').format(n)
   <div class="ui-meter" :class="`is-tone-${tone}`">
     <div class="ui-meter__row">
       <span class="ui-meter__text" role="status">
-        <strong>{{ fmt(value) }}</strong> / {{ fmt(max) }} {{ unit }}
+        <template v-if="percent"><strong>{{ Math.round(pct) }} %</strong> {{ unit }}</template>
+        <template v-else><strong>{{ fmt(value) }}</strong> / {{ fmt(max) }} {{ unit }}</template>
         <span v-if="over" class="ui-meter__over">· {{ fmt(value - max) }} en trop</span>
       </span>
     </div>

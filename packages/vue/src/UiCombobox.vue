@@ -41,6 +41,9 @@ const id = useId()
       hide-details="auto"
       class="ui-control"
       @update:model-value="(v) => $emit('update:modelValue', v)"
-    />
+    >
+      <!-- Les creneaux de Vuetify passent tels quels (item, selection, chip...). -->
+      <template v-for="(_, name) in $slots" #[name]="scope"><slot :name="name" v-bind="scope || {}" /></template>
+    </v-combobox>
   </UiField>
 </template>

@@ -28,6 +28,7 @@ import { usePreference } from './preferences'
  * teintee par `tone(row)` (ok, info, warn, bad, muted) ; `sub(row)` ajoute une
  * seconde ligne grise. `quick(row)` donne des gestes en icones au bout de la
  * ligne ([{ key, icon, label, tone? }]) : `quick` est emis avec { key, row }.
+ * `valueTone(row)` teinte la valeur elle-meme (un credit en vert, un impaye en rouge).
  *
  * Deux modes :
  *   - par defaut, tout se fait ici (recherche, filtres, tri, pages) ;
@@ -64,6 +65,8 @@ const props = defineProps({
 })
 const emit = defineEmits(['query', 'retry', 'row-click', 'search', 'quick'])
 const call = (v, row) => (typeof v === 'function' ? v(row) : v)
+// Une valeur vide se dit « — », jamais par une case blanche.
+const shown_ = (v) => (v === null || v === undefined || v === '' ? '—' : v)
 
 const router = useRouter()
 const needle = ref('')
@@ -214,9 +217,10 @@ defineExpose({ clear })
                 <slot :name="`cell-${column.key}`" :row="row" :value="cellValue(row, column)">
                   <span v-if="column.icon || column.sub" class="ui-table__cell">
                     <span v-if="column.icon" class="ui-table__tile" :class="column.tone && `is-tone-${toTone(call(column.tone, row))}`"><v-icon :icon="call(column.icon, row)" size="17" /></span>
-                    <span class="ui-table__lines"><span class="ui-table__main">{{ cellValue(row, column) ?? '—' }}</span><small v-if="column.sub && call(column.sub, row)" class="ui-table__sub">{{ call(column.sub, row) }}</small></span>
+                    <span class="ui-table__lines"><span class="ui-table__main">{{ shown_(cellValue(row, column)) }}</span><small v-if="column.sub && call(column.sub, row)" class="ui-table__sub">{{ call(column.sub, row) }}</small></span>
                   </span>
-                  <template v-else>{{ cellValue(row, column) ?? '—' }}</template>
+                  <span v-else-if="column.valueTone" class="ui-table__value" :class="`is-tone-${toTone(call(column.valueTone, row))}`">{{ shown_(cellValue(row, column)) }}</span>
+                  <template v-else>{{ shown_(cellValue(row, column)) }}</template>
                 </slot>
               </td>
               <td v-if="rowTo || quick || $slots['row-actions']" class="right is-go">

@@ -371,3 +371,16 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
 
 /* L'accueil : la bande de chiffres de la maquette, sous le mot de bienvenue. */
 .ui-page.ui-home > .ui-stats.is-band { margin-top: 4px; }
+
+/* Le tableau en fiches sur telephone, comme /maquette : de l'air, des intitules en casse normale. */
+@media (max-width: 720px) {
+  .ui-page .ui-table--stack .grid-table tr { padding: 12px 16px; border-bottom: 1px solid var(--adion-line); }
+  .ui-page .ui-table--stack .grid-table tr:last-child { border-bottom: 0; }
+  .ui-page .ui-table--stack .grid-table td,
+  .ui-page .ui-table--stack .grid-table td:first-child { display: flex !important; align-items: center; gap: 12px; min-height: 28px; padding: 3px 0 !important; border: 0; white-space: normal; }
+  .ui-page .ui-table--stack .grid-table td[data-label]:not(.is-main)::before { flex: 0 0 38%; min-width: 0; font-size: 12.5px; letter-spacing: normal; text-transform: none; color: var(--adion-ink-3); }
+  .ui-page .ui-table--stack .grid-table td.is-main { margin-bottom: 6px; }
+  .ui-page .ui-table--stack .grid-table td.is-go { justify-content: flex-end; margin-top: 4px; }
+  .ui-page .ui-table--stack .grid-table td.num .ui-table__cell { justify-content: flex-start; }
+  .ui-page .ui-table--stack .grid-table td.num .ui-table__lines { justify-items: start; text-align: left; }
+}

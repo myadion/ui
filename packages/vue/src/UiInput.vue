@@ -19,6 +19,8 @@ defineProps({
   wide: { type: Boolean, default: false },
   placeholder: { type: String, default: '' },
   multiline: { type: Boolean, default: false },
+  /** Chasse fixe : un IBAN, une cle, un identifiant. */
+  mono: { type: Boolean, default: false },
   rows: { type: [Number, String], default: 3 },
 })
 defineEmits(['update:modelValue'])
@@ -40,7 +42,11 @@ const id = useId()
       density="compact"
       hide-details="auto"
       class="ui-control"
+      :class="{ 'is-mono': mono }"
       @update:model-value="(v) => $emit('update:modelValue', v)"
-    />
+    >
+      <!-- Les creneaux de Vuetify passent tels quels (item, selection, prepend-inner, append-inner...). -->
+      <template v-for="(_, name) in $slots" #[name]="scope"><slot :name="name" v-bind="scope || {}" /></template>
+    </component>
   </UiField>
 </template>
