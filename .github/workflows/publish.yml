@@ -28,10 +28,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Sans registry-url : setup-node poserait un faux jeton (NODE_AUTH_TOKEN) que
+      # npm preferait a la publication de confiance, d'ou un refus en 404.
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
 
       # La publication de confiance demande npm 11.5.1 ou plus.
       - run: npm install -g npm@^11.5.1
