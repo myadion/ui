@@ -2559,3 +2559,30 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-country .v-field__prepend-inner { align-items: center; padding-top: 0; padding-right: 8px; }
 .ui-country__flag { width: 20px; height: 15px; flex: none; margin-right: 10px; border-radius: 2px; background-size: cover; box-shadow: 0 0 0 1px var(--adion-line, var(--adion-border)); }
 .ui-country .v-field__prepend-inner .ui-country__flag { margin-right: 0; }
+
+/* ---- UiWelcome : l'accueil apres une reussite (2026-10-29) ---- */
+.ui-welcome { display: grid; gap: 30px; justify-items: center; text-align: center; }
+.ui-welcome__title { margin: 0; font-size: clamp(24px, 3.2vw, 32px); font-weight: 700; letter-spacing: -0.01em; color: var(--adion-text-1); outline: none; animation: ui-welcome-rise 0.6s 0.7s ease-out both; }
+.ui-welcome__mark { position: relative; width: 112px; height: 112px; display: grid; place-items: center; }
+.ui-welcome__mark svg { position: relative; width: 96px; height: 96px; filter: drop-shadow(0 10px 28px color-mix(in srgb, var(--adion-primary) 45%, transparent)); }
+.ui-welcome__halo { position: absolute; inset: -60px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--adion-primary) 28%, transparent), transparent); animation: ui-welcome-halo 0.9s 0.1s ease-out both; }
+.ui-welcome__wave { position: absolute; inset: 8px; border-radius: 50%; border: 2px solid var(--adion-primary); opacity: 0; animation: ui-welcome-wave 1.2s 0.45s ease-out both; }
+.ui-welcome__wave.is-late { animation-delay: 0.7s; }
+.ui-welcome__spark { position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; margin: -3.5px; border-radius: 50%; opacity: 0; transform: rotate(var(--ui-spark-angle)) translateY(0); animation: ui-welcome-spark 0.8s 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+.ui-welcome__spark.is-a { background: var(--adion-primary); }
+.ui-welcome__spark.is-b { background: var(--adion-accent-text, var(--adion-primary)); width: 5px; height: 5px; margin: -2.5px; }
+.ui-welcome__disc { fill: var(--adion-primary); transform-origin: 48px 48px; animation: ui-welcome-pop 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.35) both; }
+.ui-welcome__tick { fill: none; stroke: var(--adion-bg-0, #0b0f14); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 60; stroke-dashoffset: 60; animation: ui-welcome-draw 0.45s 0.4s ease-out forwards; }
+.ui-welcome__lead { margin: 0; max-width: 42ch; color: var(--adion-text-2); font-size: 15px; animation: ui-welcome-rise 0.6s 0.85s ease-out both; }
+.ui-welcome__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; animation: ui-welcome-rise 0.6s 1s ease-out both; }
+@keyframes ui-welcome-pop { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes ui-welcome-draw { to { stroke-dashoffset: 0; } }
+@keyframes ui-welcome-halo { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes ui-welcome-wave { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.9); opacity: 0; } }
+@keyframes ui-welcome-spark { 0% { opacity: 0; transform: rotate(var(--ui-spark-angle)) translateY(0) scale(0.4); } 25% { opacity: 1; } 100% { opacity: 0; transform: rotate(var(--ui-spark-angle)) translateY(-82px) scale(1); } }
+@keyframes ui-welcome-rise { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .ui-welcome *, .ui-welcome__disc, .ui-welcome__tick { animation: none !important; }
+  .ui-welcome__tick { stroke-dashoffset: 0; }
+  .ui-welcome__wave, .ui-welcome__spark { display: none; }
+}
