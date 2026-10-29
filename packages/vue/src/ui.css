@@ -2539,3 +2539,11 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
   .ui-panes__media { display: none; }
   .ui-panes__content { padding: 24px 16px 48px; }
 }
+
+/* La date, au clavier ou au calendrier (2026-10-29) */
+.ui-date .v-field__append-inner { align-items: center; padding-top: 0; color: var(--adion-text-3); cursor: pointer; }
+.ui-date__picker.v-picker { border-radius: 8px; background: var(--adion-card, var(--adion-surface-solid)) !important; color: var(--adion-text-1); box-shadow: 0 0 0 1px var(--adion-line-2, var(--adion-border-strong)), 0 18px 40px rgba(0, 0, 0, 0.45) !important; font-family: var(--adion-font-ui); }
+.ui-date__picker .v-date-picker-month__day--selected .v-btn,
+.ui-date__picker .v-date-picker-years__content .v-btn--active { background: var(--adion-primary) !important; color: var(--adion-on-primary, #06140f) !important; }
+/* Des jours ronds : les reglages par defaut des boutons d'une app (hauteur, arrondi) ne s'y appliquent pas. */
+.ui-date__picker .v-date-picker-month__day .v-btn { width: 36px !important; height: 36px !important; min-width: 0 !important; padding: 0 !important; border-radius: 50% !important; }
