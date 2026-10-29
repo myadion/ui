@@ -2513,3 +2513,8 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-help__a p { margin: 0; }
 .ui-help__links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px !important; }
 .ui-help__links a { color: var(--adion-accent-text); }
+
+/* Le champ « e-mail ou telephone » (2026-10-29) : le drapeau du pays, ou l'icone de la nature. */
+.ui-identifier .v-field__prepend-inner { align-items: center; padding-top: 0; padding-right: 8px; }
+.ui-identifier__flag { width: 20px; height: 15px; flex: none; border-radius: 2px; background-size: cover; box-shadow: 0 0 0 1px var(--adion-line, var(--adion-border)); }
+.ui-identifier__icon { color: var(--adion-text-3); }
