@@ -1,5 +1,5 @@
 <script setup>
-import { computed, useSlots } from 'vue'
+import { computed, onBeforeUnmount, useSlots, watch } from 'vue'
 import { useDisplay } from 'vuetify'
 import UiBadge from './UiBadge.vue'
 import UiButton from './UiButton.vue'
@@ -32,6 +32,14 @@ const hasAssistant = computed(() => Boolean(slots.assistant))
 const current = computed(() => (hasAssistant.value ? props.tab : 'notifications'))
 const items = computed(() => sortNotifications(props.notifications))
 const unread = computed(() => unreadCount(items.value))
+
+// Echap ferme le volet, comme un dialogue.
+const onKey = (event) => { if (event.key === 'Escape') emit('update:modelValue', false) }
+watch(() => props.modelValue, (open) => {
+  if (open) window.addEventListener('keydown', onKey)
+  else window.removeEventListener('keydown', onKey)
+}, { immediate: true })
+onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 </script>
 
 <template>
