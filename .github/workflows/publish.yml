@@ -51,6 +51,6 @@ jobs:
               echo "$name@$version est deja sur npm."
             else
               echo "Publication de $name@$version."
-              npm publish -w "$ws" --access public
+              npm publish -w "$ws" --access public --loglevel verbose
             fi
           done
