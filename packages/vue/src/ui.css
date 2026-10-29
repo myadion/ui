@@ -2632,3 +2632,237 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-accounts__empty { padding: 4px 2px 6px; font-size: 13px; line-height: 1.5; color: var(--adion-text-2); }
 /* La croix vit a droite : l'indice se decale devant elle. */
 .ui-accounts__row:has(.ui-accounts__remove) .ui-accounts__hint, .ui-accounts__row:has(.ui-accounts__remove) .v-progress-circular { margin-right: 4px; }
+
+/*
+ * LES PAGES D'UNE PORTE (Adion UI, 2026-10-29) : ce que les ecrans d'auth
+ * posaient chacun dans leur coin, rassemble ici.
+ */
+.ui-stack.is-loose { gap: 24px; width: 100%; }
+.ui-note { margin: 0; max-width: 60ch; font-size: var(--adion-text-sm, 13px); line-height: 1.6; color: var(--adion-text-2); }
+.ui-note__ref { display: block; margin-top: 6px; font-size: var(--adion-text-xs, 12px); color: var(--adion-text-2); }
+.ui-link { color: var(--adion-accent-text); }
+.ui-textlink { padding: 0; border: 0; background: none; font: inherit; color: var(--adion-accent-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.ui-textlink:disabled { color: var(--adion-text-2); cursor: default; }
+.ui-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ui-actions.is-end { justify-content: flex-end; margin-top: -8px; }
+.ui-mark { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--adion-ok-line); border-radius: var(--adion-radius-control); color: var(--adion-ok); }
+/* Un lien discret colle en haut a droite de la page (la porte des relecteurs). */
+.ui-corner-link { position: fixed; right: 48px; top: calc(var(--adion-top-offset, 0px) + 80px); font-size: 12px; color: var(--adion-text-3); opacity: 0.6; text-decoration: none; }
+.ui-corner-link:hover, .ui-corner-link:focus-visible { opacity: 1; color: var(--adion-text-2); text-decoration: underline; text-underline-offset: 3px; }
+/* Des lignes : un texte (nom, aide) a gauche, un geste a droite. */
+.ui-rows { margin: 0; padding: 0; list-style: none; }
+.ui-rows > li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 0; border-top: 1px solid var(--adion-border); }
+.ui-rows > li:first-child { border-top: 0; }
+.ui-rows__text { display: grid; gap: 3px; min-width: 0; }
+.ui-rows__text strong { font-weight: 400; font-size: var(--adion-text-sm, 13px); color: var(--adion-text-1); }
+.ui-rows__text small { font-size: var(--adion-text-xs, 12px); line-height: 1.5; color: var(--adion-text-2); }
+@media (max-width: 960px) { .ui-corner-link { right: 16px; top: calc(var(--adion-top-offset, 0px) + 56px); } }
+@media (max-width: 599px) {
+  .ui-actions { flex-direction: column; align-items: stretch; }
+  .ui-rows > li { align-items: flex-start; flex-direction: column; gap: 8px; }
+}
+
+/*
+ * UN PARCOURS EN VOLET (ui-flow, 2026-10-29) : l'inscription d'auth, ses etapes
+ * sur toute la hauteur du volet droit, ses champs en grille, ses lignes
+ * « verifie, changer », la societe trouvee, les resultats d'une recherche, le
+ * consentement et les boutons en bas.
+ */
+/*
+ * Toute la hauteur du volet, sans faire defiler la page (Kevin, 2026-10-29) :
+ * la carte du formulaire s'etire jusqu'en bas, et defile en elle-meme si une
+ * etape est longue. La photo occupe l'autre volet (UiSplitLayout, dans AuthLayout).
+ */
+/* Le bouton de retour colle au bord gauche : un bouton discret a sa marge interieure. */
+.ui-flow__back { margin: -8px 0 -12px -12px; }
+
+.ui-flow { display: flex; flex-direction: column; flex: 1; gap: 24px; width: 100%; min-height: 0; }
+.ui-flow__layout { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+/* Le titre de l'etape commence vers le quart de l'ecran (Kevin, 2026-10-29) : 116 px, c'est ce qui le precede deja (barre, marge, bouton de retour). */
+@media (min-width: 961px) { .ui-flow__layout { padding-top: max(0px, calc(25dvh - 116px)); } }
+.ui-flow__main { display: flex; flex-direction: column; flex: 1; min-height: 0; min-width: 0; overflow-y: auto; }
+
+/* Le formulaire occupe tout le volet, sans carte ; ses boutons se posent en bas (Kevin, 2026-10-29). */
+/* Le contenu de l'etape en colonne resserree, au milieu du volet ; le retour et Continuer gardent leurs bords (Kevin, 2026-10-29). */
+.ui-flow__body > :not(.ui-flow__nav) { width: 100%; max-width: 520px; margin-inline: auto; }
+
+.ui-flow__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* La fin : au milieu du volet, l'accueil du kit (UiWelcome). */
+.ui-flow__body:has(> .ui-flow__welcome) { justify-content: center; }
+.ui-flow__welcome { margin-top: -10vh; outline: none; }
+
+.ui-flow__title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.ui-flow__title:focus { outline: none; }
+
+.ui-flow__hint {
+  margin: 0;
+  max-width: 60ch;
+  font-size: var(--adion-text-md);
+  line-height: 1.6;
+  color: var(--adion-text-3);
+}
+
+.ui-flow__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.ui-flow__grid > :last-child:nth-child(odd):not(.ui-flow__wide) { grid-column: 1 / 2; }
+.ui-flow__wide { grid-column: 1 / -1; }
+
+/* Une ligne : le champ, puis son bouton ou ses liens, cales sur le bas du champ. */
+.ui-flow__row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.ui-flow__row:has(.ui-field__error) { align-items: center; }
+.ui-flow__inline { flex: none; height: 32px !important; white-space: nowrap; }
+.ui-flow__textbtn.ui-flow__inline { display: inline-flex; align-items: center; }
+
+/* Ce qui est verifie ou choisi tient sur une ligne, avec de quoi le changer. */
+.ui-flow__done {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  font-size: var(--adion-text-md);
+  color: var(--adion-text-1);
+}
+.ui-flow__done .v-icon { color: var(--adion-ok, var(--adion-accent-text)); }
+.ui-flow__done span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* L'adresse a la main : numero et rue, le complement sur toute la ligne, code postal et ville. */
+/* Le code : son intitule, comme celui d'un champ du kit, porte le crayon qui ramene a l'adresse ou au numero. */
+.ui-flow__coded { display: grid; gap: 5px; }
+.ui-flow__codelabel { display: flex; align-items: center; gap: 4px; margin: 0; font-size: 13px; font-weight: 600; color: var(--adion-ink-2, var(--adion-text-2)); }
+.ui-flow__pencil { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 6px; background: none; color: var(--adion-text-3); cursor: pointer; }
+.ui-flow__pencil:hover { color: var(--adion-accent-text); background: var(--adion-row-hover); }
+.ui-flow__pencil:focus-visible { outline: 2px solid var(--adion-focus); outline-offset: 1px; }
+
+/* « Votre adresse n'apparait pas ? » contre le champ, pas a l'ecart de toute la grille. */
+.ui-flow__under { justify-self: start; margin-top: -12px; }
+
+/* La societe trouvee au registre, sur une ligne. */
+.ui-flow__company { display: grid; gap: 10px; padding: 14px 16px; border-radius: 8px; background: var(--adion-accent-soft); color: var(--adion-text-1); }
+.ui-flow__company-head { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.ui-flow__company-head > .v-icon { color: var(--adion-accent-text); }
+.ui-flow__company-head strong { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.ui-flow__pencil { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; color: var(--adion-text-2); }
+.ui-flow__pencil:hover, .ui-flow__pencil:focus-visible { color: var(--adion-text-1); background: color-mix(in srgb, var(--adion-text-1) 8%, transparent); }
+.ui-flow__under-free { justify-self: start; }
+
+.ui-flow__manual { display: grid; gap: 14px; }
+.ui-flow__manual > .ui-flow__textbtn { justify-self: start; }
+.ui-flow__pair { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 14px 16px; }
+.ui-flow__pair--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Le champ prend la ligne, le bouton garde sa taille : la classe passe au champ interieur, pas a son bloc. */
+.ui-flow__row > .ui-field { flex: 1 1 auto; min-width: 0; }
+
+.ui-flow__textbtn {
+  justify-self: start;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--adion-text-sm);
+  text-align: left;
+  color: var(--adion-accent-text);
+  cursor: pointer;
+}
+
+.ui-flow__textbtn:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 3px; }
+.ui-flow__textbtn:disabled { cursor: default; color: var(--adion-text-2); }
+
+.ui-flow__search { position: relative; }
+
+.ui-flow__results {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid var(--adion-border-strong);
+  border-radius: var(--adion-radius-control);
+  background: var(--adion-surface-solid);
+}
+
+.ui-flow__results > li {
+  display: grid;
+  gap: 2px;
+  padding: 9px 14px;
+  cursor: pointer;
+}
+
+.ui-flow__results > li:hover,
+.ui-flow__results > li:focus {
+  background: var(--adion-accent-soft);
+  outline: none;
+}
+
+.ui-flow__results strong { font-weight: 400; font-size: var(--adion-text-md); color: var(--adion-text-1); }
+.ui-flow__results small { font-size: var(--adion-text-xs); color: var(--adion-text-2); }
+
+.ui-flow__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--adion-border);
+  border-radius: var(--adion-radius-control);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--adion-text-2);
+  cursor: pointer;
+}
+
+.ui-flow__consent.is-error { border-color: var(--adion-bad-line); background: var(--adion-bad-soft); }
+
+.ui-flow__check {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin: 2px 0 0;
+  accent-color: var(--adion-primary);
+}
+
+.ui-flow__link { color: var(--adion-accent-text); }
+
+.ui-flow__nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.ui-flow__spacer { flex: 1; }
+
+@media (max-width: 599px) {
+  .ui-flow__grid { grid-template-columns: minmax(0, 1fr); }
+  .ui-flow__grid > :last-child:nth-child(odd):not(.ui-flow__wide) { grid-column: auto; }
+  .ui-flow__row { flex-direction: column; align-items: stretch; }
+  .ui-flow__nav { flex-direction: column-reverse; align-items: stretch; }
+  .ui-flow__spacer { display: none; }
+}
