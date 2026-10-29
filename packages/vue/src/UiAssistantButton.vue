@@ -10,6 +10,6 @@ const label = 'Assistant Adion (Ctrl+K)'
 
 <template>
   <button type="button" class="ui-bell ui-bell--assistant" :aria-label="label" :title="label" aria-haspopup="dialog" :aria-expanded="open" aria-keyshortcuts="Control+K Meta+K" @click="$emit('click')">
-    <v-icon icon="mdi-creation-outline" size="20" />
+    <v-icon icon="mdi-creation-outline" size="18" />
   </button>
 </template>

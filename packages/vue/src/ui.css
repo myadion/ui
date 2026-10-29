@@ -1902,7 +1902,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-notif__head .ui-notif__tabs { min-width: 0; overflow-x: auto; }
 
 /* L'accueil : de l'air, une colonne de lecture, des cartes en degrade. */
-.ui-home__welcome .ui-header__title { font-size: 30px; font-weight: 650; letter-spacing: -0.025em; }
+.ui-home__welcome .ui-header__title { font-size: 24px; font-weight: 650; letter-spacing: -0.025em; }
 .ui-home__welcome .ui-header__lead { font-size: var(--adion-text-md); max-width: 60ch; }
 .ui-home__body { display: grid; gap: var(--adion-space-10); }
 .ui-home__body > .ui-section { margin: 0; }
@@ -1991,6 +1991,8 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 :root { --adion-topnav-height: 48px; }
 .ui-shell { display: flex; align-items: flex-start; min-width: 0; }
 .ui-shell__main { flex: 1; min-width: 0; }
+/* La colonne de gauche colle en haut pendant que la page defile (2026-10-29) : le collage doit porter sur elle, pas sur la barre, sinon la barre part avec la page. */
+.ui-shell__sidebar { position: sticky; top: var(--adion-top-offset, 0px); z-index: 1210; flex: none; align-self: flex-start; }
 .ui-shell__content { width: 100%; max-width: 1480px; margin: 0 auto; padding: 24px 16px 96px; }
 .ui-shell__content.is-centered { display: grid; align-content: center; max-width: 1200px; padding: 20px; }
 /* Centre sous la barre du haut : le contenu prend la hauteur qui reste, pas tout l'ecran. */
@@ -2017,6 +2019,11 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
 .ui-topbar__actions .v-btn--icon .v-icon { font-size: 19px; }
 .ui-topbar__actions .ui-iconactions { gap: 4px; }
 .ui-topbar__actions .ui-iconactions__btn { width: 32px; height: 32px; border-radius: 50%; }
+/* L'IA et la cloche comme la loupe et la maison (2026-10-29) : pas de pastille, le meme survol ; la cloche dit ses non-lus par un point. */
+.ui-topbar__actions .ui-bell { width: 32px; height: 32px; border: 0; background: none; color: var(--adion-text-2); }
+.ui-topbar__actions .ui-bell:hover { background: var(--adion-row-hover); color: var(--adion-text-1); }
+.ui-topbar__actions .ui-bell.has-unread { color: var(--adion-text-2); }
+.ui-topbar__actions .ui-bell .ui-bell__count { top: 5px; right: 5px; min-width: 0; width: 8px; height: 8px; padding: 0; overflow: hidden; font-size: 0; line-height: 0; box-shadow: 0 0 0 2px var(--adion-nav-bg); }
 .ui-topbar__burger,
 .ui-topbar__close { display: none; place-items: center; width: 40px; height: 40px; margin-left: 4px; border: 0; border-radius: 10px; background: none; color: var(--adion-text-1); cursor: pointer; }
 .ui-topbar__close { display: grid; }
@@ -2070,7 +2077,7 @@ html:has(.ui-public.is-embed), html:has(.ui-public.is-embed) body, .v-applicatio
   display: flex;
   flex-direction: column;
   width: 288px;
-  height: 100vh;
+  height: calc(100dvh - var(--adion-top-offset, 0px));
   
   overflow: clip;
   flex: none;

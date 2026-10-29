@@ -72,12 +72,12 @@ html[data-theme='light'],
   text-transform: none !important;
 }
 .ui-page,
-.ui-dialog { font-size: 14px; line-height: 1.6; color: var(--adion-ink-1); -webkit-font-smoothing: antialiased; }
+.ui-dialog { font-size: 13px; line-height: 1.6; color: var(--adion-ink-1); -webkit-font-smoothing: antialiased; }
 .ui-page :is(code, pre, kbd, .ui-mono, .mono),
 .ui-dialog :is(code, pre, kbd, .ui-mono, .mono) { font-family: var(--adion-font-mono); }
 
 /* La page respire : de grands ecarts entre les blocs. */
-.ui-page { gap: 20px; }
+.ui-page { gap: 16px; }
 .ui-page :is(.ui-stats, .ui-tabs) { margin-top: 4px; padding-top: 0; }
 .ui-page .ui-layout__body,
 .ui-page .ui-detail__content { gap: 24px; }
@@ -87,7 +87,7 @@ html[data-theme='light'],
 /* ------------------------------------------------------------------ */
 .ui-header { row-gap: 6px; padding-bottom: 4px; }
 .ui-header__family { flex-basis: 100%; font-size: 13px; font-weight: 600; color: var(--ui-hue, var(--adion-accent-text)); }
-.ui-header__title { font-size: 26px; font-weight: 650; letter-spacing: -0.025em !important; line-height: 1.15; color: var(--adion-ink-1); }
+.ui-header__title { font-size: 22px; font-weight: 650; letter-spacing: -0.025em !important; line-height: 1.15; color: var(--adion-ink-1); }
 .ui-header__lead { max-width: 72ch; font-size: 15px; line-height: 1.6; color: var(--adion-ink-2); }
 .ui-header__meta { font-size: 13.5px; color: var(--adion-ink-3); }
 .ui-crumbs { font-size: 13px; color: var(--adion-ink-3); }
@@ -105,12 +105,12 @@ html[data-theme='light'],
 /* Les sections : des cartes                                           */
 /* ------------------------------------------------------------------ */
 .ui-page .ui-section {
-  padding: 24px;
+  padding: 18px;
   border: 1px solid var(--adion-line);
   border-radius: 8px;
   background: var(--adion-card);
   box-shadow: var(--adion-lift);
-  gap: 18px;
+  gap: 14px;
 }
 /* Une section dans une section, une fenetre ou une carte : sans second cadre. */
 .ui-page .ui-section .ui-section,
@@ -119,7 +119,7 @@ html[data-theme='light'],
 /* Dans la colonne des deux volets (une connexion), le formulaire est transparent, comme l'inscription. */
 .ui-panes.is-column .ui-section { padding: 0; border: 0; background: none; box-shadow: none; }
 .ui-section__title { font-size: 17px; font-weight: 600; letter-spacing: -0.015em !important; color: var(--adion-ink-1); }
-.ui-section__lead { font-size: 14px; line-height: 1.6; color: var(--adion-ink-2); }
+.ui-section__lead { font-size: 13px; line-height: 1.6; color: var(--adion-ink-2); }
 
 .ui-page .ui-card {
   padding: 22px;
@@ -145,7 +145,7 @@ html[data-theme='light'],
 .ui-page .ui-stats.is-band { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
 .ui-page .ui-stat {
   position: relative;
-  padding: 18px 20px;
+  padding: 14px 16px;
   border: 1px solid var(--adion-line);
   border-radius: 8px;
   background: var(--adion-card);
@@ -164,7 +164,7 @@ html[data-theme='light'],
   color: var(--ui-hue);
   background: color-mix(in srgb, var(--ui-hue) 16%, transparent);
 }
-.ui-stat__value { font-size: 30px; font-weight: 650; letter-spacing: -0.03em !important; color: var(--adion-ink-1); }
+.ui-stat__value { font-size: 22px; font-weight: 650; letter-spacing: -0.03em !important; color: var(--adion-ink-1); }
 .ui-stat__hint { font-size: 13px; color: var(--adion-ink-3); }
 .ui-stat__spark { color: var(--ui-hue); opacity: 0.9; }
 
@@ -185,7 +185,7 @@ html[data-theme='light'],
 .ui-dialog .grid-table td {
   padding-top: 15px;
   padding-bottom: 15px;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--adion-ink-2);
   border-bottom: 1px solid var(--adion-line);
 }
@@ -334,10 +334,10 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
 }
 .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside) > .ui-stat,
-.ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 20px 22px; border: 0; border-radius: 0; box-shadow: none; }
+.ui-page .ui-listgrid.has-aside > .ui-stats > .ui-stat { padding: 14px 16px; border: 0; border-radius: 0; box-shadow: none; }
 .ui-page .ui-stats > .ui-stat:nth-child(3n + 2) { --ui-hue: var(--adion-family-web); }
 .ui-page .ui-stats > .ui-stat:nth-child(3n + 3) { --ui-hue: var(--adion-family-telecom); }
-.ui-page .ui-stat__value { margin-top: 6px; }
+.ui-page .ui-stat__value { margin-top: 4px; }
 /* Au telephone, deux chiffres par rangee : la bande ne pousse pas le contenu deux ecrans plus bas. */
 @media (max-width: 640px) {
   .ui-page :is(.ui-stats.is-band, .ui-stats.is-aside),
@@ -352,7 +352,7 @@ html[data-theme='light'] .ui-shell__main.is-decor { background: linear-gradient(
 
 /* Les sections : la tete separee du contenu par un filet, un titre de 15 px. */
 .ui-section__title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em !important; }
-.ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__head:not(:last-child) { margin: -24px -24px 0; padding: 14px 24px; border-bottom: 1px solid var(--adion-line); }
+.ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__head:not(:last-child) { margin: -18px -18px 0; padding: 12px 18px; border-bottom: 1px solid var(--adion-line); }
 .ui-page .ui-section:not(.ui-section .ui-section, .ui-card .ui-section) > .ui-section__head:not(:last-child) + .ui-section__lead { margin-top: 4px; }
 @media (max-width: 640px) {
   .ui-page .ui-section { padding: 18px 16px; }

@@ -23,13 +23,13 @@ defineEmits(['action'])
   <div class="ui-iconactions" role="group" :aria-label="label">
     <template v-for="item in items" :key="item.key">
       <router-link v-if="item.to" :to="item.to" class="ui-iconactions__btn" :class="item.tone && `is-${item.tone}`" :title="item.label" :aria-label="item.label">
-        <v-icon :icon="item.icon" size="17" />
+        <v-icon :icon="item.icon" size="18" />
       </router-link>
       <a v-else-if="item.href" :href="item.href" class="ui-iconactions__btn" :class="item.tone && `is-${item.tone}`" :title="item.label" :aria-label="item.label" :target="item.external ? '_blank' : undefined" :rel="item.external ? 'noopener' : undefined">
-        <v-icon :icon="item.icon" size="16" />
+        <v-icon :icon="item.icon" size="18" />
       </a>
       <button v-else type="button" class="ui-iconactions__btn" :class="item.tone && `is-${item.tone}`" :title="item.label" :aria-label="item.label" @click="$emit('action', item.key)">
-        <v-icon :icon="item.icon" size="16" />
+        <v-icon :icon="item.icon" size="18" />
       </button>
     </template>
   </div>

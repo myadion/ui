@@ -16,7 +16,7 @@ const label = computed(() => (props.count ? `Notifications, ${props.count} non l
 
 <template>
   <button type="button" class="ui-bell" :class="{ 'has-unread': count > 0 }" :aria-label="label" :title="label" aria-haspopup="dialog" :aria-expanded="open" @click="$emit('click')">
-    <v-icon :icon="count ? 'mdi-bell-ring-outline' : 'mdi-bell-outline'" size="20" />
+    <v-icon icon="mdi-bell-outline" size="18" />
     <span v-if="count" class="ui-bell__count" aria-hidden="true">{{ count > 9 ? '9+' : count }}</span>
   </button>
 </template>
