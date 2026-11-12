@@ -489,6 +489,18 @@
 .ui-table__ellipsis { max-width: 420px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ui-table__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--adion-space-3); flex-wrap: wrap; font-size: var(--adion-text-sm); color: var(--adion-text-2); }
 .ui-table__more { padding: 0; border: 0; background: none; justify-self: start; }
+/* Le nom reste lisible : sous cette largeur, le tableau defile de cote plutot que d'ecraser la colonne principale. */
+.ui-table .grid-table td.is-main { min-width: 170px; }
+/* Les lignes cochees : une case devant chaque ligne, la barre du geste groupe au-dessus. */
+.ui-table .grid-table .ui-table__check-cell { width: 36px; padding-right: 0; }
+.ui-table__check { width: 16px; height: 16px; margin: 0; vertical-align: middle; accent-color: var(--adion-accent-text); cursor: pointer; }
+.ui-table__check:disabled { cursor: default; }
+.ui-table .grid-table tbody tr.is-checked > td { background: var(--adion-accent-soft); }
+.ui-table__selection { display: flex; align-items: center; flex-wrap: wrap; gap: var(--adion-space-2) var(--adion-space-3); padding: var(--adion-space-2) var(--adion-space-3); border: 1px solid var(--adion-border); border-radius: var(--adion-radius-control); background: var(--adion-accent-soft); font-size: var(--adion-text-sm); }
+.ui-table__selection-count { font-weight: 600; color: var(--adion-text-1); }
+.ui-table__selection-clear { padding: 0; border: 0; background: none; font: inherit; color: var(--adion-accent-text); cursor: pointer; }
+.ui-table__selection-clear:hover { text-decoration: underline; }
+.ui-table__selection-actions { display: flex; flex-wrap: wrap; gap: var(--adion-space-2); margin-left: auto; }
 
 /* Le menu « Colonnes ». */
 /* Le menu des colonnes du tableau : cocher l'oeil, glisser pour ranger. */
@@ -535,8 +547,11 @@
     text-transform: uppercase;
     color: var(--adion-text-3);
   }
-  .ui-table--stack .grid-table td.is-main { font-size: var(--adion-text-md); }
+  .ui-table--stack .grid-table td.is-main { min-width: 0; font-size: var(--adion-text-md); }
   .ui-table--stack .grid-table td.is-go { text-align: right; }
+  .ui-table--stack .grid-table tr { position: relative; }
+  .ui-table--stack .grid-table td.ui-table__check-cell { position: absolute; top: calc(var(--adion-space-3) + 8px); right: 0; width: auto; }
+  .ui-table--stack .grid-table tr:has(.ui-table__check-cell) td.is-main { padding-right: 32px !important; }
   .ui-table--stack .ui-table__ellipsis { max-width: none; white-space: normal; }
 }
 

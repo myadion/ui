@@ -2,7 +2,7 @@
 import { computed, getCurrentInstance, inject, onMounted, ref, useSlots, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { rowActivates } from './rows'
-import { cellValue, filterRows, nextSort, paginate, searchRows, sortRows } from './table'
+import { allState, cellValue, filterRows, keepSelectable, nextSort, paginate, searchRows, sortRows, toggleAll, toggleKey } from './table'
 import { tone as toTone } from './tone'
 import UiEmpty from './UiEmpty.vue'
 import UiLoading from './UiLoading.vue'
@@ -31,6 +31,13 @@ import { usePreference } from './preferences'
  * seconde ligne grise. `quick(row)` donne des gestes en icones au bout de la
  * ligne ([{ key, icon, label, tone? }]) : `quick` est emis avec { key, row }.
  * `valueTone(row)` teinte la valeur elle-meme (un credit en vert, un impaye en rouge).
+ *
+ * Cocher des lignes (Kevin, 2026-11-12 : supprimer plusieurs volumes) :
+ * `selectable` (true, ou `(row) => bool` pour ne laisser cocher que les lignes
+ * qui permettent le geste) et `v-model:selected` (les cles cochees). Une case
+ * en tete coche toutes les lignes cochables visibles. Des qu'une ligne est
+ * cochee, une barre dit combien et porte le creneau `selection`
+ * ({ rows, keys, clear }) : le geste groupe, que la page fait.
  *
  * Deux modes :
  *   - par defaut, tout se fait ici (recherche, filtres, tri, pages) ;
@@ -71,8 +78,12 @@ const props = defineProps({
    * (/me/preference/table.<cle>, stockage local en repli).
    */
   prefKey: { type: String, default: '' },
+  selectable: { type: [Boolean, Function], default: false },
+  selected: { type: Array, default: () => [] },
+  /** La barre de selection, accordee : ['volume coché', 'volumes cochés'] donne « 2 volumes cochés ». */
+  selectNoun: { type: Array, default: () => ['ligne cochée', 'lignes cochées'] },
 })
-const emit = defineEmits(['query', 'retry', 'row-click', 'search', 'quick'])
+const emit = defineEmits(['query', 'retry', 'row-click', 'search', 'quick', 'update:selected'])
 const call = (v, row) => (typeof v === 'function' ? v(row) : v)
 // Une valeur vide se dit « — », jamais par une case blanche.
 const shown_ = (v) => (v === null || v === undefined || v === '' ? '—' : v)
@@ -152,7 +163,7 @@ function onRow(event, row, index) {
 
 const clickable = computed(() => Boolean(props.rowTo) || props.expandable)
 const goText = (row) => (typeof props.goLabel === 'function' ? props.goLabel(row) : props.goLabel)
-const colCount = computed(() => shown.value.length + (props.rowTo || hasRowActions.value || props.quick ? 1 : 0))
+const colCount = computed(() => shown.value.length + (props.rowTo || hasRowActions.value || props.quick ? 1 : 0) + (props.selectable ? 1 : 0))
 const slots = useSlots()
 const hasRowActions = computed(() => Boolean(slots['row-actions']))
 const alignClass = (column) => ({ num: 'num', right: 'right' }[column.align] || '')
@@ -164,6 +175,20 @@ const cellClass = (column) => [
   column.nowrap ? 'ui-nowrap' : '',
   column.ellipsis ? 'ui-table__ellipsis' : '',
 ]
+
+/* Les lignes cochees : seulement celles que la page laisse cocher. */
+const canSelect = (row) => (typeof props.selectable === 'function' ? Boolean(props.selectable(row)) : Boolean(props.selectable))
+const selecting = computed(() => Boolean(props.selectable))
+const selectableKeys = computed(() => (selecting.value ? props.rows.filter(canSelect).map((row, i) => keyOf(row, i)) : []))
+const visibleKeys = computed(() => (selecting.value ? prepared.value.filter(canSelect).map((row, i) => keyOf(row, i)) : []))
+const checked = computed(() => keepSelectable(props.selected, selectableKeys.value))
+const head = computed(() => allState(checked.value, visibleKeys.value))
+const checkedRows = computed(() => props.rows.filter((row, i) => checked.value.includes(keyOf(row, i))))
+const isChecked = (row, index) => checked.value.includes(keyOf(row, index))
+const setSelected = (keys) => emit('update:selected', keys)
+const clearSelection = () => setSelected([])
+watch(selectableKeys, () => { if (checked.value.length !== props.selected.length) setSelected(checked.value) })
+const selectionText = computed(() => `${checked.value.length} ${props.selectNoun[checked.value.length > 1 ? 1 : 0]}`)
 
 function setPage(value) {
   page.value = value
@@ -259,10 +284,27 @@ defineExpose({ clear })
       <template #actions><v-btn variant="text" size="small" class="btn-sentence-case" prepend-icon="mdi-refresh" @click="$emit('retry')">Réessayer</v-btn></template>
     </UiNotice>
 
+    <div v-if="selecting && checked.length" class="ui-table__selection" role="region" aria-label="Lignes cochées">
+      <span class="ui-table__selection-count">{{ selectionText }}</span>
+      <button type="button" class="ui-table__selection-clear" @click="clearSelection">Tout décocher</button>
+      <span class="ui-table__selection-actions"><slot name="selection" :rows="checkedRows" :keys="checked" :clear="clearSelection" /></span>
+    </div>
+
     <div v-if="view.rows.length" class="table-wrap">
       <table class="grid-table" :class="{ 'grid-table--dense': dense }">
         <thead>
           <tr>
+            <th v-if="selecting" class="ui-table__check-cell">
+              <input
+                type="checkbox"
+                class="ui-table__check"
+                :checked="head.all"
+                :indeterminate.prop="head.some"
+                :disabled="!visibleKeys.length"
+                aria-label="Cocher toutes les lignes"
+                @change="setSelected(toggleAll(checked, visibleKeys))"
+              >
+            </th>
             <th v-for="column in shown" :key="column.key" :class="alignClass(column)" :aria-sort="sort.key === column.key ? (sort.dir === 'asc' ? 'ascending' : 'descending') : undefined">
               <button v-if="sortable(column) && !server" type="button" class="ui-table__th-sort" :class="{ 'is-sorted': sort.key === column.key }" @click="toggleSort(column)">
                 {{ column.label }}
@@ -275,7 +317,17 @@ defineExpose({ clear })
         </thead>
         <tbody>
           <template v-for="(row, index) in view.rows" :key="keyOf(row, index)">
-            <tr :class="{ 'is-clickable': clickable }" @click="onRow($event, row, index)">
+            <tr :class="{ 'is-clickable': clickable, 'is-checked': selecting && isChecked(row, index) }" @click="onRow($event, row, index)">
+              <td v-if="selecting" class="ui-table__check-cell" @click.stop>
+                <input
+                  v-if="canSelect(row)"
+                  type="checkbox"
+                  class="ui-table__check"
+                  :checked="isChecked(row, index)"
+                  :aria-label="`Cocher ${cellValue(row, shown.find((c) => c.main) || shown[0]) || 'la ligne'}`"
+                  @change="setSelected(toggleKey(checked, keyOf(row, index)))"
+                >
+              </td>
               <td v-for="column in shown" :key="column.key" :class="cellClass(column)" :data-label="column.label || undefined">
                 <slot :name="`cell-${column.key}`" :row="row" :value="cellValue(row, column)">
                   <span v-if="column.icon || column.sub" class="ui-table__cell">

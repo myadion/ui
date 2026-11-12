@@ -73,3 +73,26 @@ export function paginate(rows, page = 1, size = 0) {
   const current = Math.min(Math.max(1, page), pages)
   return { rows: rows.slice((current - 1) * size, current * size), page: current, pages }
 }
+
+/*
+ * LES LIGNES COCHEES. `selected` est la liste des cles cochees ; `keys` celles
+ * des lignes cochables visibles (apres recherche et filtres). Une cle qui n'est
+ * plus cochable (la ligne a disparu, son etat a change) sort de la selection.
+ */
+export function toggleKey(selected, key) {
+  const list = Array.isArray(selected) ? selected : []
+  return list.includes(key) ? list.filter((k) => k !== key) : [...list, key]
+}
+
+export function allState(selected, keys) {
+  const list = Array.isArray(selected) ? selected : []
+  const on = keys.filter((k) => list.includes(k)).length
+  return { all: keys.length > 0 && on === keys.length, some: on > 0 && on < keys.length }
+}
+
+export function toggleAll(selected, keys) {
+  const list = Array.isArray(selected) ? selected : []
+  return allState(list, keys).all ? list.filter((k) => !keys.includes(k)) : [...new Set([...list, ...keys])]
+}
+
+export const keepSelectable = (selected, selectableKeys) => (Array.isArray(selected) ? selected : []).filter((k) => selectableKeys.includes(k))

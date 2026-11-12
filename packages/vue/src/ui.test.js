@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { tone, toneOf } from './tone.js'
-import { filterRows, nextSort, paginate, searchRows, sortRows } from './table.js'
+import { allState, filterRows, keepSelectable, nextSort, paginate, searchRows, sortRows, toggleAll, toggleKey } from './table.js'
 import { orderTabs, wizardProgress } from './layout.js'
 import { isAdionStaff } from './staff.js'
 
@@ -170,4 +170,15 @@ test('placeColumn pose une colonne au rang voulu', () => {
   assert.deepEqual(placeColumn(columns, null, 'c', 0).order, ['c', 'a', 'b'])
   assert.deepEqual(placeColumn(columns, null, 'a', 2).order, ['b', 'c', 'a'])
   assert.deepEqual(placeColumn(columns, { hidden: ['b'] }, 'a', 1), { order: ['b', 'a', 'c'], hidden: ['b'] })
+})
+
+test('cocher des lignes : une, toutes, et ce qui n’est plus cochable sort', () => {
+  assert.deepEqual(toggleKey([], 'a'), ['a'])
+  assert.deepEqual(toggleKey(['a', 'b'], 'a'), ['b'])
+  assert.deepEqual(allState(['a'], ['a', 'b']), { all: false, some: true })
+  assert.deepEqual(allState(['a', 'b'], ['a', 'b']), { all: true, some: false })
+  assert.deepEqual(allState([], []), { all: false, some: false })
+  assert.deepEqual(toggleAll(['a'], ['a', 'b']), ['a', 'b'])
+  assert.deepEqual(toggleAll(['a', 'b', 'z'], ['a', 'b']), ['z'])
+  assert.deepEqual(keepSelectable(['a', 'gone'], ['a', 'b']), ['a'])
 })
