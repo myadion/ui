@@ -27,6 +27,7 @@ export { default as UiStat } from './UiStat.vue'
 
 // Listes
 export { default as UiTable } from './UiTable.vue'
+export { default as UiNetworkTopology } from './UiNetworkTopology.vue'
 export { default as UiServiceTable } from './UiServiceTable.vue'
 export { SERVICE_COLUMNS, serviceRow } from './serviceTable'
 export { default as UiToolbar } from './UiToolbar.vue'
