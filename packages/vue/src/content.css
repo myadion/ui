@@ -462,7 +462,7 @@ html[data-theme='light'] .ui-segmented, .v-theme--adionLight .ui-segmented { bor
 
 /* La topologie reseau (UiNetworkTopology) : un rail de couleur par reseau, une ligne par appareil, un point par port. */
 .ui-topo { overflow-x: auto; border: 1px solid var(--adion-border); border-radius: var(--adion-radius-card); background: var(--adion-surface); }
-.ui-topo__grid { display: grid; grid-template-columns: minmax(168px, 220px) repeat(var(--topo-networks, 1), minmax(128px, 1fr)); width: max-content; min-width: 100%; }
+.ui-topo__grid { display: grid; grid-template-columns: minmax(168px, 220px) repeat(var(--topo-networks, 1), minmax(132px, 220px)); width: max-content; min-width: 100%; }
 @media (max-width: 720px) {
   .ui-topo__grid { grid-template-columns: 124px repeat(var(--topo-networks, 1), minmax(108px, 1fr)); }
   .ui-topo__device { gap: 8px; padding: 8px; }
@@ -475,7 +475,7 @@ html[data-theme='light'] .ui-segmented, .v-theme--adionLight .ui-segmented { bor
 .ui-topo .is-rail-5 { --rail: var(--adion-chart-5); }
 .ui-topo__corner, .ui-topo__device { position: sticky; left: 0; z-index: 2; background: var(--adion-surface-solid); border-right: 1px solid var(--adion-border); }
 .ui-topo__corner { border-bottom: 1px solid var(--adion-border); }
-.ui-topo__net { display: grid; align-content: start; gap: 2px; padding: 10px 10px 8px; border-top: 4px solid var(--rail); border-bottom: 1px solid var(--adion-border); text-align: center; }
+.ui-topo__net { display: grid; align-content: start; gap: 2px; padding: 10px 10px 8px; border-top: 6px solid var(--rail); border-bottom: 1px solid var(--adion-border); text-align: center; }
 .ui-topo__net-name { overflow-wrap: anywhere; font-size: var(--adion-text-sm); color: var(--adion-text-1); }
 .ui-topo__net-kind, .ui-topo__net-meta { font-size: 12px; color: var(--adion-text-3); }
 .ui-topo__net-meta { font-family: var(--adion-font-mono); }
@@ -486,10 +486,10 @@ html[data-theme='light'] .ui-segmented, .v-theme--adionLight .ui-segmented { bor
 .ui-topo__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: var(--adion-text-1); }
 .ui-topo__sub { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12.5px; color: var(--adion-text-3); }
 .ui-topo__cell { position: relative; display: flex; flex-direction: column; align-items: center; min-height: 68px; padding: 42px 6px 8px; border-bottom: 1px solid var(--adion-border); }
-.ui-topo__cell::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; transform: translateX(-50%); border-radius: 2px; background: var(--rail); opacity: 0.45; }
+.ui-topo__cell::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 8px; transform: translateX(-50%); border-radius: 3px; background: var(--rail); }
 .ui-topo__cell::after { content: ''; position: absolute; top: 33px; left: 0; height: 2px; background: var(--adion-text-3); }
 .ui-topo__cell.is-line-through::after { right: 0; }
 .ui-topo__cell.is-line-end::after { right: 50%; }
 .ui-topo__cell.is-line-none::after { display: none; }
-.ui-topo__port { position: absolute; top: 34px; left: 50%; z-index: 1; width: 14px; height: 14px; transform: translate(-50%, -50%); border: 2px solid var(--adion-surface-solid); border-radius: 50%; background: var(--rail); box-shadow: 0 0 0 1px var(--rail); }
-.ui-topo__ips { position: relative; z-index: 1; display: grid; gap: 1px; padding: 1px 5px; border-radius: 4px; background: var(--adion-surface-solid); font-family: var(--adion-font-mono); font-size: 11.5px; line-height: 1.35; color: var(--adion-text-2); text-align: center; white-space: nowrap; }
+.ui-topo__port { position: absolute; top: 34px; left: 50%; z-index: 1; width: 16px; height: 16px; transform: translate(-50%, -50%); border: 2px solid var(--adion-surface-solid); border-radius: 50%; background: var(--rail); box-shadow: 0 0 0 1px var(--rail); }
+.ui-topo__ips { position: relative; z-index: 1; display: grid; gap: 1px; padding: 1px 5px; border-radius: 4px; background: var(--adion-surface-solid); font-family: var(--adion-font-mono); font-size: 11.5px; line-height: 1.35; color: var(--adion-text-2); text-align: center; max-width: 100%; overflow-wrap: anywhere; }
