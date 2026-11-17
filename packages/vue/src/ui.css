@@ -3471,10 +3471,11 @@ button.ui-feed__line:hover { background: var(--adion-row-hover); }
 .ui-props__group.is-closed .ui-props__chevron { transform: rotate(-90deg); }
 .ui-props__count { margin-left: auto; }
 .ui-props__rows { margin: 0; padding: 0 14px 0 30px; }
-.ui-props__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 10px; align-items: center; min-height: 26px; }
+.ui-props__row { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.35fr); gap: 10px; align-items: center; min-height: 26px; padding: 1px 0; }
 .ui-props__row dt { overflow: hidden; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; color: var(--adion-text-2); }
 .ui-props__row dd { display: flex; align-items: center; gap: 6px; min-width: 0; margin: 0; font-size: 13px; color: var(--adion-text-1); }
-.ui-props__value { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Une valeur longue (une adresse, un courriel) tient sur deux lignes avant de se couper. */
+.ui-props__value { display: -webkit-box; min-width: 0; overflow: hidden; overflow-wrap: anywhere; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; line-height: 1.35; text-align: left; }
 .ui-props__state { display: inline-grid; place-items: center; flex: none; width: 14px; }
 .ui-props__copy .v-icon { opacity: 0; }
 .ui-props__copy:hover .v-icon, .ui-props__copy:focus-visible .v-icon { opacity: 1; }
@@ -3505,3 +3506,5 @@ button.ui-feed__line:hover { background: var(--adion-row-hover); }
 .ui-tool { align-content: start; max-width: none; padding: 14px 20px 40px; font-family: var(--adion-font-text); font-size: 13px; color: var(--adion-text-1); background: var(--adion-bg-0); }
 .ui-tool.is-flush { padding: 0; }
 @media (max-width: 720px) { .ui-tool { padding: 12px 16px 32px; } .ui-tool.is-flush { padding: 0; } }
+.ui-record__link { display: inline-flex; align-items: center; min-height: 24px; color: var(--adion-accent-text); text-decoration: none; }
+.ui-record__link:hover { text-decoration: underline; }

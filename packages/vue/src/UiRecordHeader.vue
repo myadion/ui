@@ -9,8 +9,9 @@ import { tone } from './tone'
  * la seconde donne les faits dont on a besoin pour agir, sans chercher.
  *
  *   icon, title, status { label, tone }
- *   facts  [{ key, label, value, tone, copy }]
- *          tone : le fait est une alerte (bad, warn) ; copy : un clic le copie
+ *   facts  [{ key, label, value, tone, copy, to }]
+ *          tone : le fait est une alerte (bad, warn) ; copy : un clic le copie ;
+ *          to : le fait mene a une autre fiche (le responsable d'une organisation)
  *   #actions  le geste principal, puis le menu
  */
 defineProps({
@@ -47,6 +48,7 @@ async function copy(fact) {
             {{ fact.value }}<v-icon :icon="copied === (fact.key || fact.label) ? 'mdi-check' : 'mdi-content-copy'" size="13" />
           </button>
         </dd>
+        <dd v-else-if="fact.to"><router-link :to="fact.to" class="ui-record__link">{{ fact.value }}</router-link></dd>
         <dd v-else>{{ fact.value }}</dd>
       </div>
     </dl>
