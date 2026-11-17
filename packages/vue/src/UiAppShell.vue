@@ -23,6 +23,8 @@ defineProps({
   plain: { type: Boolean, default: false },
   narrow: { type: Boolean, default: false },
   flush: { type: Boolean, default: false },
+  /** Le mode outil (Orbit, 2026-11-17) : dense, sans decor, pour traiter beaucoup de lignes. */
+  tool: { type: Boolean, default: false },
 })
 
 // Une ligne de niveau : une sinusoide de 2400 unites, pour deriver sans couture sur 1200.
@@ -37,10 +39,10 @@ const contour = (k) => {
 
 <template>
   <slot name="banner" />
-  <div class="ui-shell" :class="{ 'is-bare': bare }">
+  <div class="ui-shell" :class="{ 'is-bare': bare, 'is-tool': tool }">
     <div v-if="$slots.sidebar && !bare" class="ui-shell__sidebar"><slot name="sidebar" /></div>
-    <div class="ui-shell__main" :class="{ 'is-decor': !plain }">
-      <svg v-if="!plain" class="ui-shell__decor" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+    <div class="ui-shell__main" :class="{ 'is-decor': !plain && !tool }">
+      <svg v-if="!plain && !tool" class="ui-shell__decor" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
         <g class="ui-shell__drift is-a"><path v-for="k in [0, 2, 4]" :key="k" :d="contour(k)" /></g>
         <g class="ui-shell__drift is-b"><path v-for="k in [1, 3, 5]" :key="k" :d="contour(k)" /></g>
       </svg>

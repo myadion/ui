@@ -174,3 +174,12 @@ export { default as UiAssistantPanel } from './UiAssistantPanel.vue'
 export { default as UiAssistantMessage } from './UiAssistantMessage.vue'
 export { default as UiAssistantConfirmCard } from './UiAssistantConfirmCard.vue'
 export { default as UiAssistantLimit } from './UiAssistantLimit.vue'
+
+// Le poste de travail (mode outil, 2026-11-17)
+export { default as UiWorkbench } from './UiWorkbench.vue'
+export { default as UiQueue } from './UiQueue.vue'
+export { default as UiRecordHeader } from './UiRecordHeader.vue'
+export { default as UiComposer } from './UiComposer.vue'
+export { default as UiActivityFeed } from './UiActivityFeed.vue'
+export { default as UiPropertyGrid } from './UiPropertyGrid.vue'
+export { default as UiEntityLink } from './UiEntityLink.vue'

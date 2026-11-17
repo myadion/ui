@@ -10,9 +10,22 @@ export const guides = [
   { id: 'jetons', title: 'Jetons', path: '/jetons' },
   { id: 'contrastes', title: 'Contrastes', path: '/contrastes' },
   { id: 'maquette', title: 'Maquette Public Cloud', path: '/maquette', external: true },
+  { id: 'mode-outil', title: 'Mode outil : les règles', path: '/mode-outil' },
+  { id: 'exemple-orbit', title: 'Exemple : poste de travail', path: '/exemple-orbit-poste', external: true },
 ]
 
 export const groups = [
+  {
+    title: 'Mode outil',
+    pages: [
+      { id: 'workbench', title: 'Poste de travail', components: ['UiWorkbench', 'UiQueue'], lead: 'L’écran d’un opérateur : la file à gauche, le dossier au centre, ses propriétés à droite. J et K passent d’un dossier à l’autre. À poser dans <UiAppShell tool>.', examples: [{ file: 'queue.base', title: 'La file de travail' }] },
+      { id: 'record-header', title: 'En-tête de dossier', components: ['UiRecordHeader'], lead: 'Deux lignes : qui c’est, son état et ses gestes ; puis les faits dont on a besoin pour agir. Un fait copiable se copie d’un clic.', examples: [{ file: 'record-header.base', title: 'L’en-tête d’un client' }] },
+      { id: 'activity-feed', title: 'Fil d’un dossier', components: ['UiActivityFeed'], lead: 'Tout ce qui est arrivé, sur une seule ligne de temps. Ce qui attend l’équipe est épinglé en tête, avec ses gestes ; l’historique tient sur une ligne par événement, le détail au clic.', examples: [{ file: 'activity-feed.base', title: 'Le fil d’un client' }] },
+      { id: 'composer', title: 'Écrire dans le fil', components: ['UiComposer'], lead: 'Une note pour l’équipe ou une réponse au client. Le mode dit toujours à qui le texte ira.', examples: [{ file: 'composer.base', title: 'Note ou réponse' }] },
+      { id: 'property-grid', title: 'Grille de propriétés', components: ['UiPropertyGrid'], lead: 'Toutes les données d’un dossier en lignes serrées, par groupe repliable. Une valeur se copie d’un clic ou mène à une autre fiche.', examples: [{ file: 'property-grid.base', title: 'Les propriétés d’un client' }] },
+      { id: 'entity-link', title: 'Lien vers une fiche', components: ['UiEntityLink'], lead: 'Tout nom affiché mène à sa fiche : on rebondit d’un utilisateur à son organisation, à un service, à sa facture, sans chercher.', examples: [{ file: 'entity-link.base', title: 'Des noms qui mènent quelque part' }] },
+    ],
+  },
   {
     title: 'Gabarits de page',
     pages: [

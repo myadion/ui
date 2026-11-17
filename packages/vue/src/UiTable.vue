@@ -21,8 +21,11 @@ import { usePreference } from './preferences'
  * fiche (`stack`).
  *
  * Colonnes : { key, label, align: 'num'|'right', sortable, value(row),
- * sortValue(row), main, mono, muted, nowrap, ellipsis, icon, tone, sub }. Une
+ * sortValue(row), main, mono, muted, nowrap, ellipsis, icon, tone, sub, to }. Une
  * cellule se dessine par le creneau `cell-<key>` ({ row, value }).
+ *
+ * `to(row)` fait de la valeur un lien vers une autre fiche (le client d'une
+ * commande, le projet d'un service) : on rebondit sans ouvrir la ligne.
  *
  * Toute colonne titree se trie (Kevin, 2026-10-29), sauf `sortable: false`.
  *
@@ -82,6 +85,8 @@ const props = defineProps({
   selected: { type: Array, default: () => [] },
   /** La barre de selection, accordee : ['volume coché', 'volumes cochés'] donne « 2 volumes cochés ». */
   selectNoun: { type: Array, default: () => ['ligne cochée', 'lignes cochées'] },
+  /** La cle de la ligne ouverte a cote (UiListDetail) : surlignee. */
+  current: { type: [String, Number], default: null },
 })
 const emit = defineEmits(['query', 'retry', 'row-click', 'search', 'quick', 'update:selected'])
 const call = (v, row) => (typeof v === 'function' ? v(row) : v)
@@ -159,11 +164,14 @@ function onRow(event, row, index) {
     opened.value = opened.value === key ? null : key
     return
   }
-  if (props.rowTo) router.push(props.rowTo(row))
+  if (props.rowTo) { const to = props.rowTo(row); if (to) router.push(to) }
   else emit('row-click', row)
 }
 
-const clickable = computed(() => Boolean(props.rowTo) || props.expandable)
+// Une page qui ecoute row-click (la fiche a cote de la liste, mode outil) rend aussi la ligne cliquable.
+const listensRow = Boolean(getCurrentInstance()?.vnode.props?.onRowClick)
+const clickable = computed(() => Boolean(props.rowTo) || props.expandable || listensRow)
+const isCurrent = (row, index) => props.current !== null && keyOf(row, index) === props.current
 const goText = (row) => (typeof props.goLabel === 'function' ? props.goLabel(row) : props.goLabel)
 const colCount = computed(() => shown.value.length + (props.rowTo || hasRowActions.value || props.quick ? 1 : 0) + (props.selectable ? 1 : 0))
 const slots = useSlots()
@@ -328,7 +336,7 @@ defineExpose({ clear })
         </thead>
         <tbody>
           <template v-for="(row, index) in view.rows" :key="keyOf(row, index)">
-            <tr :class="{ 'is-clickable': clickable, 'is-checked': selecting && isChecked(row, index) }" @click="onRow($event, row, index)">
+            <tr :class="{ 'is-clickable': clickable && (!rowTo || Boolean(rowTo(row))), 'is-current': isCurrent(row, index), 'is-checked': selecting && isChecked(row, index) }" @click="onRow($event, row, index)">
               <td v-if="selecting" class="ui-table__check-cell" @click.stop>
                 <input
                   v-if="canSelect(row)"
@@ -346,6 +354,7 @@ defineExpose({ clear })
                     <span class="ui-table__lines"><span class="ui-table__main">{{ shown_(cellValue(row, column)) }}</span><small v-if="column.sub && call(column.sub, row)" class="ui-table__sub">{{ call(column.sub, row) }}</small></span>
                   </span>
                   <span v-else-if="column.valueTone" class="ui-table__value" :class="`is-tone-${toTone(call(column.valueTone, row))}`">{{ shown_(cellValue(row, column)) }}</span>
+                  <router-link v-else-if="column.to && call(column.to, row)" :to="call(column.to, row)" class="ui-table__link" @click.stop>{{ shown_(cellValue(row, column)) }}</router-link>
                   <template v-else>{{ shown_(cellValue(row, column)) }}</template>
                 </slot>
               </td>
@@ -354,7 +363,7 @@ defineExpose({ clear })
                   <button v-for="q in quick(row)" :key="q.key" type="button" class="ui-iconactions__btn" :class="q.tone && `is-${q.tone}`" :title="q.label" :aria-label="q.label" @click="emit('quick', { key: q.key, row })"><v-icon :icon="q.icon" size="16" /></button>
                 </span>
                 <slot name="row-actions" :row="row">
-                  <router-link v-if="rowTo" :to="rowTo(row)" class="row-link">{{ goText(row) }} <v-icon icon="mdi-arrow-right" size="14" /></router-link>
+                  <router-link v-if="rowTo && rowTo(row)" :to="rowTo(row)" class="row-link">{{ goText(row) }} <v-icon icon="mdi-arrow-right" size="14" /></router-link>
                 </slot>
               </td>
             </tr>

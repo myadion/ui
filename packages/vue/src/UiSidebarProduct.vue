@@ -11,6 +11,8 @@ defineProps({
   active: { type: Boolean, default: false },
   open: { type: Boolean, default: false },
   expandable: { type: Boolean, default: false },
+  /** Ce que fait l'entree, en infobulle (Orbit : une aide sur chaque entree). */
+  hint: { type: String, default: '' },
 })
 defineEmits(['select', 'toggle'])
 </script>
@@ -18,7 +20,7 @@ defineEmits(['select', 'toggle'])
 <template>
   <div class="ui-sidebar__product">
     <div class="ui-sidebar__item is-product" :class="{ 'is-active': active }">
-      <button type="button" class="ui-sidebar__productname" @click="$emit('select')">
+      <button type="button" class="ui-sidebar__productname" :title="hint || undefined" @click="$emit('select')">
         <v-icon v-if="icon" :icon="icon" size="17" />
         <span class="ui-sidebar__label">{{ label }}</span>
       </button>
