@@ -1,4 +1,5 @@
 <script setup>
+import UiSkeleton from './UiSkeleton.vue'
 /*
  * UNE SECTION DE PAGE (Adion UI) : un titre, une phrase, le contenu - au meme
  * pas vertical partout (16 px entre les blocs, 32 px entre les sections).
@@ -9,6 +10,9 @@
  * `collapsible` la replie sous son titre (des regles, un detail qu'on relit
  * rarement) ; `open` l'ouvre d'emblee. Le titre reste lisible, le contenu
  * attend un clic.
+ *
+ * `loading` : le titre et la phrase restent, le corps attend Nexus sous des
+ * traits (`lines`, trois par defaut) ; le contenu prend leur place a l'arrivee.
  */
 defineProps({
   title: { type: String, default: '' },
@@ -17,6 +21,8 @@ defineProps({
   ruled: { type: Boolean, default: false },
   collapsible: { type: Boolean, default: false },
   open: { type: Boolean, default: false },
+  loading: { type: Boolean, default: false },
+  lines: { type: Number, default: 3 },
 })
 </script>
 
@@ -27,7 +33,8 @@ defineProps({
       <v-icon icon="mdi-chevron-down" size="18" class="ui-section__chevron" aria-hidden="true" />
     </summary>
     <p v-if="lead || $slots.lead" class="ui-section__lead"><slot name="lead">{{ lead }}</slot></p>
-    <div v-if="$slots.default" class="ui-section__body"><slot /></div>
+    <div v-if="loading" class="ui-section__body"><UiSkeleton :lines="lines" size="line" /></div>
+    <div v-else-if="$slots.default" class="ui-section__body"><slot /></div>
   </details>
   <section v-else class="ui-section" :class="{ 'is-first': first, 'is-ruled': ruled }">
     <div v-if="title || $slots.actions || $slots.title" class="ui-section__head">
@@ -35,6 +42,7 @@ defineProps({
       <div v-if="$slots.actions" class="ui-section__actions"><slot name="actions" /></div>
     </div>
     <p v-if="lead || $slots.lead" class="ui-section__lead"><slot name="lead">{{ lead }}</slot></p>
-    <div v-if="$slots.default" class="ui-section__body"><slot /></div>
+    <div v-if="loading" class="ui-section__body"><UiSkeleton :lines="lines" size="line" /></div>
+    <div v-else-if="$slots.default" class="ui-section__body"><slot /></div>
   </section>
 </template>

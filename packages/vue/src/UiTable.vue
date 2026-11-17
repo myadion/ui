@@ -5,7 +5,7 @@ import { rowActivates } from './rows'
 import { allState, cellValue, filterRows, keepSelectable, nextSort, paginate, searchRows, sortRows, toggleAll, toggleKey } from './table'
 import { tone as toTone } from './tone'
 import UiEmpty from './UiEmpty.vue'
-import UiLoading from './UiLoading.vue'
+import UiSkeleton from './UiSkeleton.vue'
 import UiNotice from './UiNotice.vue'
 import UiToolbar from './UiToolbar.vue'
 import UiButton from './UiButton.vue'
@@ -96,6 +96,8 @@ const sort = ref(props.initialSort || { key: '', dir: 'asc' })
 const columnPref = usePreference(props.prefKey ? `table.${props.prefKey}` : '')
 onMounted(() => { if (props.prefKey) columnPref.load() })
 const shown = computed(() => (props.prefKey ? visibleColumns(props.columns, columnPref.value.value) : props.columns))
+/* Les lignes en traits du premier chargement : quatre colonnes au plus, comme a l'arrivee. */
+const skeletonColumns = computed(() => (shown.value.length ? shown.value : [{ key: "a" }, { key: "b" }, { key: "c" }]).slice(0, 4))
 const arranged = computed(() => arrangeColumns(props.columns, columnPref.value.value))
 const columnsDefault = computed(() => isDefault(props.columns, columnPref.value.value))
 const toggle = (key) => columnPref.save(toggleColumn(props.columns, columnPref.value.value, key))
@@ -279,7 +281,16 @@ defineExpose({ clear })
       </v-menu>
     </UiToolbar>
 
-    <UiLoading v-if="loading" />
+    <!-- Un tableau deja rempli qui se relit garde ses lignes, sans signal. Vide : des lignes en traits, a la place des vraies. -->
+    <div v-if="loading && !view.rows.length && !error" class="table-wrap">
+      <table class="grid-table" :class="{ 'grid-table--dense': dense }">
+        <tbody>
+          <tr v-for="line in 4" :key="line" class="ui-table__skeleton">
+            <td v-for="(column, index) in skeletonColumns" :key="column.key || index"><UiSkeleton :width="index === 0 ? '70%' : '55%'" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <UiNotice v-if="error" tone="bad" :text="error">
       <template #actions><v-btn variant="text" size="small" class="btn-sentence-case" prepend-icon="mdi-refresh" @click="$emit('retry')">Réessayer</v-btn></template>
     </UiNotice>

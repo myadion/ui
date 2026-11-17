@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import UiPage from './UiPage.vue'
 import UiPageHeader from './UiPageHeader.vue'
+import UiSection from './UiSection.vue'
 import UiTabs from './UiTabs.vue'
 import UiServiceActions from './UiServiceActions.vue'
 import UiServiceNotice from './UiServiceNotice.vue'
@@ -26,6 +27,12 @@ import { crumbTrail, gradientOf, orderTabs } from './layout'
  *   5. le contenu de l'onglet ouvert (creneau par defaut, { tab }), en
  *      sections UiSection ; sur grand ecran, une colonne de resume a droite
  *      (creneau « aside »).
+ *
+ * LE PREMIER CHARGEMENT (Kevin, le 2026-11-17 : chaque champ en chargement,
+ * pas un squelette de page) : la fiche se dessine tout de suite - fil
+ * d'Ariane, icone, onglets -, le nom et le contenu tiennent leur place par des
+ * traits. Les creneaux de l'ecran (faits, gestes, chiffres, contenu) attendent
+ * la reponse : ils lisent des donnees qui ne sont pas encore la.
  */
 const props = defineProps({
   title: { type: String, default: '' },
@@ -69,17 +76,16 @@ const trail = computed(() => crumbTrail(props.crumbs))
 
 <template>
   <UiPage
-    :loading="loading"
     :denied="denied"
     :missing="missing"
     :missing-to="missingTo"
     :error="error"
     @retry="$emit('retry')"
   >
-    <UiPageHeader resource :class="grad" :icon="icon" :title="shownTitle" :crumbs="trail" :status="status" :href="href">
-      <template v-if="$slots.title" #title><slot name="title" /></template>
-      <template v-if="$slots.meta" #meta><slot name="meta" /></template>
-      <template v-if="$slots.actions || menu" #actions>
+    <UiPageHeader resource :class="grad" :icon="icon" :title="loading ? '' : shownTitle" :loading="loading" :crumbs="trail" :status="loading ? null : status" :href="loading ? '' : href">
+      <template v-if="$slots.title && !loading" #title><slot name="title" /></template>
+      <template v-if="$slots.meta && !loading" #meta><slot name="meta" /></template>
+      <template v-if="($slots.actions || menu) && !loading" #actions>
         <slot name="actions" />
         <UiServiceActions v-if="menu" :service-id="serviceId" :service-name="shownTitle" :subscription="subscription" :handles="handles" :actions="actions" :refreshable="refreshable" @refresh="emit('refresh')" @renamed="renamed" @action="(key) => emit('action', key)" @start="(v) => emit('start', v)" @changed="emit('changed')" />
       </template>
@@ -88,16 +94,20 @@ const trail = computed(() => crumbTrail(props.crumbs))
     <!-- Sous le cartouche, tout s'aligne sur son texte : la gouttiere de la fiche. -->
     <div class="ui-detail__content">
       <UiServiceNotice v-if="serviceId" :service-id="serviceId" />
-      <slot name="notices" />
+      <slot v-if="!loading" name="notices" />
 
       <!--
         Comme /maquette (2026-10-28) : les chiffres en bande sous l'en-tete, les
         onglets sur toute la largeur, puis le contenu et, s'il y en a, une
         colonne a droite (l'activite, un encart).
       -->
-      <div v-if="$slots.stats" class="ui-stats is-band" :class="grad"><slot name="stats" /></div>
+      <div v-if="$slots.stats && !loading" class="ui-stats is-band" :class="grad"><slot name="stats" /></div>
       <UiTabs v-if="ordered.length > 1" :tabs="ordered" :model-value="tab" query="onglet" @update:model-value="(v) => emit('update:tab', v)" />
-      <div v-if="$slots.aside" class="ui-split ui-split--detail">
+      <div v-if="loading" class="ui-layout__body">
+        <UiSection first loading :lines="4" />
+        <UiSection loading :lines="3" />
+      </div>
+      <div v-else-if="$slots.aside" class="ui-split ui-split--detail">
         <div class="ui-layout__body"><slot :tab="tab" /></div>
         <aside class="ui-split__aside"><slot name="aside" :tab="tab" /></aside>
       </div>

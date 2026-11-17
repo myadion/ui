@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import UiSkeleton from './UiSkeleton.vue'
 
 /*
  * UN CHIFFRE QUI COMPTE (Adion UI), repris de StatCard : l'intitule en
@@ -11,7 +12,9 @@ import { computed } from 'vue'
  */
 const props = defineProps({
   label: { type: String, required: true },
-  value: { type: [String, Number], required: true },
+  value: { type: [String, Number], default: '' },
+  /** Le chiffre n'est pas encore arrive : un trait a sa place, pas « — ». */
+  loading: { type: Boolean, default: false },
   hint: { type: String, default: '' },
   icon: { type: String, default: '' },
   trend: { type: Number, default: null },
@@ -50,13 +53,13 @@ const sparkPath = computed(() => {
   <article class="ui-stat">
     <span class="ui-stat__label"><v-icon v-if="icon" :icon="icon" size="14" />{{ label }}</span>
     <div class="ui-stat__row">
-      <strong class="ui-stat__value">{{ value }}</strong>
-      <span v-if="hasTrend" class="ui-stat__trend" :class="`is-tone-${trendTone}`">{{ trendLabel }}</span>
+      <strong class="ui-stat__value"><UiSkeleton v-if="loading" size="stat" /><template v-else>{{ value }}</template></strong>
+      <span v-if="hasTrend && !loading" class="ui-stat__trend" :class="`is-tone-${trendTone}`">{{ trendLabel }}</span>
     </div>
-    <svg v-if="sparkPath" class="ui-stat__spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
+    <svg v-if="sparkPath && !loading" class="ui-stat__spark" viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true">
       <path :d="sparkPath" fill="none" stroke="currentColor" stroke-width="1.4" vector-effect="non-scaling-stroke" />
     </svg>
-    <span v-if="meter !== null && meter !== undefined" class="ui-stat__meter" role="meter" aria-valuemin="0" aria-valuemax="100" :aria-valuenow="Math.round(meter)" :class="`is-tone-${meterTone || (meter >= 90 ? 'bad' : meter >= 75 ? 'warn' : 'ok')}`"><span :style="{ width: `${Math.min(100, Math.max(0, meter))}%` }" /></span>
+    <span v-if="meter !== null && meter !== undefined && !loading" class="ui-stat__meter" role="meter" aria-valuemin="0" aria-valuemax="100" :aria-valuenow="Math.round(meter)" :class="`is-tone-${meterTone || (meter >= 90 ? 'bad' : meter >= 75 ? 'warn' : 'ok')}`"><span :style="{ width: `${Math.min(100, Math.max(0, meter))}%` }" /></span>
     <small v-if="hint || $slots.hint" class="ui-stat__hint" :title="hint || undefined"><slot name="hint">{{ hint }}</slot></small>
   </article>
 </template>

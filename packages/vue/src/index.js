@@ -70,6 +70,7 @@ export { default as UiNotice } from './UiNotice.vue'
 export { default as UiSandboxBanner } from './UiSandboxBanner.vue'
 export { default as UiEmpty } from './UiEmpty.vue'
 export { default as UiLoading } from './UiLoading.vue'
+export { default as UiSkeleton } from './UiSkeleton.vue'
 export { default as UiError } from './UiError.vue'
 export { default as UiDenied } from './UiDenied.vue'
 

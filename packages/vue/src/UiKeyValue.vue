@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import UiSkeleton from './UiSkeleton.vue'
 
 /*
  * DES FAITS (Adion UI). Une seule forme (2026-10-13) : l'intitule dans une colonne fixe, la valeur a cote, une
@@ -14,6 +15,9 @@ import { computed } from 'vue'
  * le creneau `value-<key>`. Une valeur vide s'affiche « — ». L'ancien
  * `layout` (grid, list, inline) reste compris : grid vaut deux colonnes,
  * inline vaut dense.
+ *
+ * UNE VALEUR PAS ENCORE ARRIVEE n'est pas une valeur vide : `loading` (toute
+ * la liste) ou `item.loading` (un fait) met un trait a la place de « — ».
  */
 const props = defineProps({
   items: { type: Array, default: () => [] },
@@ -21,6 +25,7 @@ const props = defineProps({
   dense: { type: Boolean, default: false },
   tiles: { type: Boolean, default: false },
   layout: { type: String, default: '' },
+  loading: { type: Boolean, default: false },
 })
 
 const twoColumns = computed(() => props.columns === 2 || props.layout === 'grid')
@@ -38,7 +43,8 @@ const isDense = computed(() => props.dense || props.layout === 'inline')
         </v-tooltip>
       </dt>
       <dd :class="{ 'ui-mono': item.mono }">
-        <slot :name="`value-${item.key}`" :item="item">{{ item.value === null || item.value === undefined || item.value === '' ? '—' : item.value }}</slot>
+        <UiSkeleton v-if="loading || item.loading" :width="item.skeleton || undefined" />
+        <slot v-else :name="`value-${item.key}`" :item="item">{{ item.value === null || item.value === undefined || item.value === '' ? '—' : item.value }}</slot>
       </dd>
     </div>
   </dl>

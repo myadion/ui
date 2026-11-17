@@ -4,7 +4,7 @@ import { useAdion } from './adapter.js'
 import UiActionMenu from './UiActionMenu.vue'
 import UiButton from './UiButton.vue'
 import UiEmpty from './UiEmpty.vue'
-import UiLoading from './UiLoading.vue'
+import UiSkeleton from './UiSkeleton.vue'
 import UiPage from './UiPage.vue'
 import UiPageHeader from './UiPageHeader.vue'
 import UiProductHero from './UiProductHero.vue'
@@ -124,7 +124,7 @@ const menu = computed(() => (props.links || []).filter((l) => l?.href && l?.labe
 
     <div v-else class="ui-listgrid">
       <UiSection first>
-        <UiLoading v-if="loading && empty" />
+        <UiSkeleton v-if="loading && empty" :lines="4" size="line" />
         <UiEmpty v-else-if="empty" :text="emptyText" icon="mdi-package-variant-closed">
           <template v-if="(OrderButton && order.length && orderable) || $slots['empty-actions']" #actions>
             <slot name="empty-actions">

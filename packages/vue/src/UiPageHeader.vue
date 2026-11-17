@@ -1,5 +1,6 @@
 <script setup>
 import UiStatus from './UiStatus.vue'
+import UiSkeleton from './UiSkeleton.vue'
 
 /*
  * L'EN-TETE D'UNE PAGE (Adion UI), compact (2026-10-13) :
@@ -24,6 +25,8 @@ defineProps({
   icon: { type: String, default: '' },
   /** @type {Array<{label:string,to?:string|object}>} */
   crumbs: { type: Array, default: () => [] },
+  /** Le nom n'est pas encore arrive : un trait a sa place (le fil d'Ariane et l'icone, eux, sont deja la). */
+  loading: { type: Boolean, default: false },
 })
 </script>
 
@@ -42,7 +45,8 @@ defineProps({
     <div class="ui-header__line">
       <span v-if="eyebrow && !crumbs.length" class="ui-header__family">{{ eyebrow }}</span>
       <h1 class="ui-header__title">
-        <slot name="title">
+        <UiSkeleton v-if="loading && !title" size="title" />
+        <slot v-else name="title">
           <a v-if="href" :href="href" target="_blank" rel="noopener">{{ title }}</a>
           <template v-else>{{ title }}</template>
         </slot>
