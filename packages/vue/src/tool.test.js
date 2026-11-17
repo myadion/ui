@@ -27,7 +27,7 @@ test('mode outil : aucun texte sous 11 px', () => {
 
 test('mode outil : aucune cible sous 24 px', () => {
   // Les controles du mode outil : chacun declare sa hauteur, 24 px au moins.
-  const targets = ['.ui-queue__step', '.ui-feed__filter', '.ui-feed__more', '.ui-composer__mode', '.ui-props__toggle', '.ui-record__copy, .ui-props__copy', '.ui-record__back', '.ui-props__link', '.ui-entity', '.ui-table__link', '.ui-shell.is-tool .ui-table__th-sort', '.ui-shell.is-tool .row-link']
+  const targets = ['.ui-queue__step', '.ui-feed__filter', '.ui-feed__more', '.ui-composer__mode', '.ui-props__toggle', '.ui-record__copy, .ui-props__copy', '.ui-record__back', '.ui-props__link', '.ui-entity', '.ui-table__link', ':is(.ui-shell.is-tool, .ui-tool) .ui-table__th-sort', ':is(.ui-shell.is-tool, .ui-tool) .row-link']
   for (const target of targets) {
     const rule = rules.find((entry) => entry.selector === target)
     assert.ok(rule, `${target} : la regle manque`)
@@ -37,13 +37,13 @@ test('mode outil : aucune cible sous 24 px', () => {
 })
 
 test('mode outil : la teinte d’un etat se pose sur la surface pleine', () => {
-  const badge = rules.find((rule) => rule.selector === '.ui-shell.is-tool :is(.ui-badge, .ui-status)')
+  const badge = rules.find((rule) => rule.selector === ':is(.ui-shell.is-tool, .ui-tool) :is(.ui-badge, .ui-status)')
   assert.ok(badge && badge.body.includes('--adion-surface-solid'), 'le badge du mode outil doit se poser sur --adion-surface-solid')
 })
 
 test('les composants du poste de travail sont exportes', () => {
   const index = readFileSync(new URL('./index.js', import.meta.url), 'utf8')
-  for (const name of ['UiWorkbench', 'UiQueue', 'UiRecordHeader', 'UiComposer', 'UiActivityFeed', 'UiPropertyGrid', 'UiEntityLink']) {
+  for (const name of ['UiWorkbench', 'UiQueue', 'UiRecordHeader', 'UiComposer', 'UiActivityFeed', 'UiPropertyGrid', 'UiEntityLink', 'UiToolPage']) {
     assert.ok(index.includes(`as ${name} }`), `${name} n’est pas exporte`)
   }
 })

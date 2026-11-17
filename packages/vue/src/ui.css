@@ -3265,59 +3265,59 @@ html.ui-read-only .ui-edit-only { display: none !important; }
 /* tableau de 32 px, la fiche a cote de la liste.                       */
 /* ---------------------------------------------------------------- */
 
-.ui-shell.is-tool .ui-shell__content { max-width: none; padding: 14px 20px 40px; }
-.ui-shell.is-tool .ui-sidebar { width: 236px; }
-.ui-shell.is-tool .ui-sidebar__item { min-height: 28px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-shell__content { max-width: none; padding: 14px 20px 40px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-sidebar { width: 236px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-sidebar__item { min-height: 28px; }
 
-.ui-shell.is-tool .ui-header { padding: 0 0 2px; }
-.ui-shell.is-tool .ui-header__title { font-size: 19px; font-weight: 500; }
-.ui-shell.is-tool .ui-header__family { font-size: 11px; letter-spacing: 0.4px; text-transform: none; color: var(--adion-text-3); }
-.ui-shell.is-tool .ui-header__lead { font-size: 13px; line-height: 1.45; color: var(--adion-text-3); }
+:is(.ui-shell.is-tool, .ui-tool) .ui-header { padding: 0 0 2px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-header__title { font-size: 19px; font-weight: 500; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-header__family { font-size: 11px; letter-spacing: 0.4px; text-transform: none; color: var(--adion-text-3); }
+:is(.ui-shell.is-tool, .ui-tool) .ui-header__lead { font-size: 13px; line-height: 1.45; color: var(--adion-text-3); }
 
-.ui-shell.is-tool .ui-stats { display: flex; flex-wrap: wrap; gap: 6px 28px; margin-top: 10px; padding: 8px 14px; border: 1px solid var(--adion-border); border-radius: 8px; background: var(--adion-surface); box-shadow: none; }
-.ui-shell.is-tool .ui-stat { display: flex; flex: 1 1 auto; align-items: baseline; gap: 8px; }
-.ui-shell.is-tool .ui-stat__label { font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--adion-text-2); }
-.ui-shell.is-tool .ui-stat__label .v-icon { display: none; }
-.ui-shell.is-tool .ui-stat__row { margin: 0; gap: 6px; }
-.ui-shell.is-tool .ui-stat__value { font-size: 15px; font-weight: 600; letter-spacing: 0; }
-.ui-shell.is-tool .ui-stat__trend { font-size: 11px; }
-.ui-shell.is-tool .ui-stat__hint { margin: 0; font-size: 12px; color: var(--adion-text-3); }
-.ui-shell.is-tool .ui-stat__spark { display: none; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stats { display: flex; flex-wrap: wrap; gap: 6px 28px; margin-top: 10px; padding: 8px 14px; border: 1px solid var(--adion-border); border-radius: 8px; background: var(--adion-surface); box-shadow: none; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat { display: flex; flex: 1 1 auto; align-items: baseline; gap: 8px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat__label { font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--adion-text-2); }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat__label .v-icon { display: none; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat__row { margin: 0; gap: 6px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat__value { font-size: 15px; font-weight: 600; letter-spacing: 0; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat__trend { font-size: 11px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat__hint { margin: 0; font-size: 12px; color: var(--adion-text-3); }
+:is(.ui-shell.is-tool, .ui-tool) .ui-stat__spark { display: none; }
 
-.ui-shell.is-tool .ui-notice { margin-top: 10px; padding-top: 8px; padding-bottom: 8px; font-size: 13px; }
-.ui-shell.is-tool .ui-tabs { margin-top: 12px; }
-.ui-shell.is-tool .ui-tabs__item { min-height: 36px; font-size: 12px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-notice { margin-top: 10px; padding-top: 8px; padding-bottom: 8px; font-size: 13px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-tabs { margin-top: 12px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-tabs__item { min-height: 36px; font-size: 12px; }
 
-.ui-shell.is-tool .ui-table { gap: 8px; }
-.ui-shell.is-tool .ui-table .table-wrap { max-height: calc(100dvh - 260px); }
-.ui-shell.is-tool .ui-table .grid-table { font-size: 13px; }
-.ui-shell.is-tool .ui-table .grid-table thead th { position: sticky; top: 0; z-index: 1; padding-top: 7px; padding-bottom: 7px; font-size: 11px; letter-spacing: 0.4px; text-transform: none; background: var(--adion-surface-solid, var(--adion-bg)); }
-.ui-shell.is-tool .ui-table .grid-table td { padding-top: 6px; padding-bottom: 6px; white-space: nowrap; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table { gap: 8px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table .table-wrap { max-height: calc(100dvh - 260px); }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table { font-size: 13px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table thead th { position: sticky; top: 0; z-index: 1; padding-top: 7px; padding-bottom: 7px; font-size: 11px; letter-spacing: 0.4px; text-transform: none; background: var(--adion-surface-solid, var(--adion-bg)); }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table td { padding-top: 6px; padding-bottom: 6px; white-space: nowrap; }
 /* Une colonne grise trop longue se coupe : la ligne garde sa hauteur, le tableau sa largeur. */
-.ui-shell.is-tool .ui-table .grid-table td.ui-muted { max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
-.ui-shell.is-tool .ui-table .grid-table td.is-main { min-width: 0; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table td.ui-muted { max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table td.is-main { min-width: 0; }
 /* Le nom de la ligne ne se coupe pas : c est lui que l on cherche. */
-.ui-shell.is-tool .ui-table .grid-table td.is-main .ui-table__main { overflow: visible; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table td.is-main .ui-table__main { overflow: visible; }
 /* Ergonomie (WCAG 2.5.8) : dense, mais aucune cible sous 24 px de haut, aucun texte sous 11 px. */
-.ui-shell.is-tool .ui-table__th-sort { min-height: 24px; }
-.ui-shell.is-tool .row-link { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; }
-.ui-shell.is-tool .ui-sidebar__sectionhead, .ui-shell.is-tool .ui-sidebar__count, .ui-shell.is-tool .ui-tabs__count, .ui-shell.is-tool .ui-timeline__at { font-size: 11px; }
-.ui-shell.is-tool .ui-badge { font-size: 11px; letter-spacing: 0; text-transform: none; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-table__th-sort { min-height: 24px; }
+:is(.ui-shell.is-tool, .ui-tool) .row-link { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-sidebar__sectionhead, :is(.ui-shell.is-tool, .ui-tool) .ui-sidebar__count, :is(.ui-shell.is-tool, .ui-tool) .ui-tabs__count, :is(.ui-shell.is-tool, .ui-tool) .ui-timeline__at { font-size: 11px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-badge { font-size: 11px; letter-spacing: 0; text-transform: none; }
 
 /* Dans la colonne de contexte, etroite : l'intitule au-dessus de sa valeur, qui ne se coupe plus. */
-.ui-shell.is-tool .ui-split__aside .ui-kv.is-dense .ui-kv__row { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 4px 0; }
-.ui-shell.is-tool .ui-split__aside .ui-kv.is-dense :is(dt, dd) { padding-block: 0; }
-.ui-shell.is-tool .ui-split__aside .ui-kv.is-dense dt { font-size: 12px; font-weight: 400; }
-.ui-shell.is-tool .ui-split__aside .ui-kv.is-dense dd { font-size: 13px; word-break: normal; overflow-wrap: anywhere; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-split__aside .ui-kv.is-dense .ui-kv__row { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 4px 0; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-split__aside .ui-kv.is-dense :is(dt, dd) { padding-block: 0; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-split__aside .ui-kv.is-dense dt { font-size: 12px; font-weight: 400; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-split__aside .ui-kv.is-dense dd { font-size: 13px; word-break: normal; overflow-wrap: anywhere; }
 
 /* La ligne ouverte a cote : surlignee, d'une barre a gauche. */
 .ui-table .grid-table tbody tr.is-current > td { background: var(--adion-accent-soft); }
 .ui-table .grid-table tbody tr.is-current > td:first-child { box-shadow: inset 3px 0 0 var(--adion-accent-text); }
 
 @media (max-width: 720px) {
-  .ui-shell.is-tool .ui-shell__content { padding: 12px 16px 32px; }
-  .ui-shell.is-tool .ui-table .grid-table td { white-space: normal; }
-  .ui-shell.is-tool .ui-table .grid-table td.is-main { min-width: 0; }
+  :is(.ui-shell.is-tool, .ui-tool) .ui-shell__content { padding: 12px 16px 32px; }
+  :is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table td { white-space: normal; }
+  :is(.ui-shell.is-tool, .ui-tool) .ui-table .grid-table td.is-main { min-width: 0; }
 }
 
 /* ---------------------------------------------------------------- */
@@ -3327,9 +3327,9 @@ html.ui-read-only .ui-edit-only { display: none !important; }
 /* mais aucune cible sous 24 px, aucun texte sous 11 px.              */
 /* ---------------------------------------------------------------- */
 
-.ui-shell.is-tool .ui-shell__content:has(> .ui-workbench) { padding: 0; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-shell__content:has(> .ui-workbench) { padding: 0; }
 .ui-workbench {
-  --ui-wb-top: calc(var(--adion-topnav-height, 56px) + var(--adion-top-offset, 0px));
+  --ui-wb-top: var(--ui-tool-top, calc(var(--adion-topnav-height, 56px) + var(--adion-top-offset, 0px)));
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   min-width: 0;
@@ -3488,7 +3488,7 @@ button.ui-feed__line:hover { background: var(--adion-row-hover); }
 .ui-workbench__main > .ui-table, .ui-workbench__main > .ui-section { margin-top: 12px; }
 /* Contraste (WCAG 1.4.3) : en mode outil, la teinte d'un etat se pose sur la surface pleine, pas sur le
    fond de page. Sur le fond gris du theme clair, le mot du badge tombait sous 4,5:1. */
-.ui-shell.is-tool :is(.ui-badge, .ui-status) { background-color: color-mix(in srgb, currentColor 13%, var(--adion-surface-solid)); }
+:is(.ui-shell.is-tool, .ui-tool) :is(.ui-badge, .ui-status) { background-color: color-mix(in srgb, currentColor 13%, var(--adion-surface-solid)); }
 
 /* Le lien vers une fiche : un nom, son icone, et l'on rebondit. */
 .ui-entity { display: inline-flex; align-items: center; gap: 5px; min-width: 0; max-width: 100%; min-height: 24px; color: var(--adion-text-1); text-decoration: none; vertical-align: middle; }
@@ -3500,3 +3500,8 @@ button.ui-feed__line:hover { background: var(--adion-row-hover); }
 .ui-entity__sub { flex: none; font-size: 12px; color: var(--adion-text-2); }
 .ui-table__link { display: inline-flex; align-items: center; min-height: 24px; color: var(--adion-accent-text); text-decoration: none; }
 .ui-table__link:hover { text-decoration: underline; }
+
+/* La page en mode outil sans la coque du kit (UiToolPage) : la police et les couleurs du kit, une marge de page. */
+.ui-tool { max-width: none; padding: 14px 20px 40px; font-family: var(--adion-font-text); font-size: 13px; color: var(--adion-text-1); background: var(--adion-bg-0); }
+.ui-tool.is-flush { padding: 0; }
+@media (max-width: 720px) { .ui-tool { padding: 12px 16px 32px; } .ui-tool.is-flush { padding: 0; } }
