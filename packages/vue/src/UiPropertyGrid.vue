@@ -12,6 +12,7 @@ import { tone } from './tone'
  *           to : la valeur mene a une autre fiche ;
  *           open : false replie le groupe au depart (le rare) ;
  *           tone : la pastille d'etat devant la valeur ; icon : son icone.
+ *   #group-<key>  un reglage sous les lignes du groupe (un niveau de support a choisir)
  */
 const props = defineProps({
   groups: { type: Array, default: () => [] },
@@ -47,6 +48,7 @@ async function copy(id, value) {
           </dd>
         </div>
       </dl>
+      <div v-if="$slots[`group-${group.key}`]" v-show="!closed[group.key]" class="ui-props__custom"><slot :name="`group-${group.key}`" :group="group" /></div>
     </section>
   </div>
 </template>

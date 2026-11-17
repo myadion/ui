@@ -35,14 +35,14 @@ html[data-theme='dark'],
 html[data-theme='light'],
 .v-theme--adionLight {
   --adion-card: #ffffff;
-  --adion-card-2: #f2f6f4;
-  --adion-card-hover: #edf3f0;
-  --adion-line: #dce4e0;
-  --adion-line-2: #c2cec8;
+  --adion-card-2: #f3f5f8;
+  --adion-card-hover: #eef1f5;
+  --adion-line: #dde1e7;
+  --adion-line-2: #c4cad3;
   --adion-ink-1: #0f161b;
-  --adion-ink-2: #36443f;
-  --adion-ink-3: #52615b;
-  --adion-lift: 0 1px 2px rgba(16, 40, 30, 0.05);
+  --adion-ink-2: #384150;
+  --adion-ink-3: #535c6a;
+  --adion-lift: 0 1px 2px rgba(22, 30, 44, 0.05);
   --adion-night: #eef2f5;
 }
 
@@ -193,6 +193,11 @@ html[data-theme='light'],
 .ui-page .grid-table tbody tr:hover > td { background: var(--adion-card-hover); }
 .ui-page .ui-table { border: 1px solid var(--adion-line); border-radius: 8px; overflow: hidden; background: var(--adion-card); }
 .ui-page .ui-section .ui-table { background: transparent; }
+/* La regle des marges : rien ne colle au bord de son cadre. La barre et le pied du tableau ont la marge de ses cellules. */
+.ui-page .ui-table > .ui-toolbar { padding: 12px 14px 0; }
+.ui-page .ui-table > :is(.ui-table__foot, .ui-table__more, .ui-table__selection) { margin: 0 14px 12px; }
+.ui-page .ui-section .ui-table > .ui-toolbar { padding: 0; }
+.ui-page .ui-section .ui-table > :is(.ui-table__foot, .ui-table__more, .ui-table__selection) { margin: 0; }
 /*
  * Un tableau qui finit une section en prend toute la largeur : un seul cadre,
  * pas deux (Kevin, 2026-10-29 : la meme base pour toutes les listes). Sa barre

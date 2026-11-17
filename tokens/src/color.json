@@ -6,18 +6,18 @@
       "title": "Les surfaces",
       "description": "Trois niveaux : la navigation (la plus sombre), la page, la carte ; plus le champ et le survol.",
       "tokens": {
-        "bg-0": { "dark": "#0c1018", "light": "#e6ece9", "description": "Le fond de la page." },
-        "bg-1": { "dark": "#121823", "light": "#f4f7f6", "description": "Un fond un cran au-dessus de la page." },
-        "bg-2": { "dark": "#182131", "light": "#d9e2de", "description": "Un fond deux crans au-dessus." },
-        "surface": { "dark": "rgba(255, 255, 255, 0.055)", "light": "#fbfdfc", "description": "Carte, section, encadré." },
-        "surface-solid": { "dark": "#182131", "light": "#fbfdfc", "description": "Ce qui flotte au-dessus de la page (menu, fenêtre) : jamais translucide." },
+        "bg-0": { "dark": "#0c1018", "light": "#eef0f3", "description": "Le fond de la page." },
+        "bg-1": { "dark": "#121823", "light": "#f6f7f9", "description": "Un fond un cran au-dessus de la page." },
+        "bg-2": { "dark": "#182131", "light": "#e1e4e9", "description": "Un fond deux crans au-dessus." },
+        "surface": { "dark": "rgba(255, 255, 255, 0.055)", "light": "#ffffff", "description": "Carte, section, encadré." },
+        "surface-solid": { "dark": "#182131", "light": "#ffffff", "description": "Ce qui flotte au-dessus de la page (menu, fenêtre) : jamais translucide." },
         "field-bg": { "dark": "rgba(255, 255, 255, 0.035)", "light": "#ffffff", "description": "Ce que l'on remplit." },
-        "border": { "dark": "rgba(255, 255, 255, 0.11)", "light": "#c5d1cc", "description": "Le filet ordinaire." },
-        "border-strong": { "dark": "rgba(255, 255, 255, 0.26)", "light": "#7f918a", "description": "Le filet qui doit se voir." },
-        "row-hover": { "dark": "rgba(255, 255, 255, 0.065)", "light": "rgba(19, 40, 32, 0.06)", "description": "Le survol d'une ligne." },
-        "nav-bg": { "dark": "#0a0a0c", "light": "#f4f7f6", "description": "La barre du haut et la barre de gauche." },
-        "nav-sub-bg": { "dark": "#0f0f12", "light": "#edf2f0", "description": "Un sous-menu de la navigation." },
-        "nav-hover": { "dark": "rgba(255, 255, 255, 0.08)", "light": "rgba(19, 40, 32, 0.07)", "description": "Le survol dans la navigation." },
+        "border": { "dark": "rgba(255, 255, 255, 0.11)", "light": "#d2d7de", "description": "Le filet ordinaire." },
+        "border-strong": { "dark": "rgba(255, 255, 255, 0.26)", "light": "#7d8591", "description": "Le filet qui doit se voir." },
+        "row-hover": { "dark": "rgba(255, 255, 255, 0.065)", "light": "rgba(22, 30, 44, 0.06)", "description": "Le survol d'une ligne." },
+        "nav-bg": { "dark": "#0a0a0c", "light": "#f6f7f9", "description": "La barre du haut et la barre de gauche." },
+        "nav-sub-bg": { "dark": "#0f0f12", "light": "#eff1f4", "description": "Un sous-menu de la navigation." },
+        "nav-hover": { "dark": "rgba(255, 255, 255, 0.08)", "light": "rgba(22, 30, 44, 0.07)", "description": "Le survol dans la navigation." },
         "nav-item": { "dark": "#ffffff", "light": "#12171c", "description": "Le texte d'une entrée de menu." },
         "scrim": { "dark": "#05070a", "light": "#05070a", "description": "Le voile derrière une fenêtre." }
       }
@@ -28,8 +28,8 @@
       "description": "Trois textes, chacun à 4,5:1 au moins sur chaque surface (vérifié par le test de contraste). Le blanc d'Adion est légèrement verdi, son gris bleuté.",
       "tokens": {
         "text-1": { "dark": "#eafcf6", "light": "#12171c", "description": "Le texte principal." },
-        "text-2": { "dark": "#b6c0c8", "light": "#3b4a44", "description": "Le texte secondaire." },
-        "text-3": { "dark": "#a2adb6", "light": "#43514b", "description": "Les méta-informations." }
+        "text-2": { "dark": "#b6c0c8", "light": "#3d4551", "description": "Le texte secondaire." },
+        "text-3": { "dark": "#a2adb6", "light": "#454d59", "description": "Les méta-informations." }
       }
     },
     {
@@ -120,7 +120,7 @@
   "shadows": {
     "shadow-card": {
       "dark": "0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 24px rgba(0, 0, 0, 0.28)",
-      "light": "0 1px 2px rgba(20, 40, 32, 0.08), 0 6px 18px rgba(20, 40, 32, 0.08)"
+      "light": "0 1px 2px rgba(22, 30, 44, 0.07), 0 6px 18px rgba(22, 30, 44, 0.07)"
     }
   },
   "brand": {

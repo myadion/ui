@@ -7,6 +7,8 @@
  *
  * `--ui-tool-top` (sur la page ou plus haut) dit a quelle hauteur colle ce qui
  * reste en haut d'un poste de travail ; 0 quand la page defile dans son cadre.
+ * `--ui-tool-height` dit la hauteur de ce cadre (100dvh par defaut) : les
+ * volets du poste de travail y defilent, sans second ascenseur.
  */
 defineProps({
   flush: { type: Boolean, default: false },

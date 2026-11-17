@@ -3343,14 +3343,14 @@ html.ui-read-only .ui-edit-only { display: none !important; }
 .ui-workbench__aside { border-top: 1px solid var(--adion-border); }
 @media (min-width: 900px) {
   .ui-workbench.has-queue { grid-template-columns: 264px minmax(0, 1fr); }
-  .ui-workbench__queue { position: sticky; top: var(--ui-wb-top); grid-row: 1 / span 2; align-self: start; height: calc(100dvh - var(--ui-wb-top)); overflow: auto; border-right: 1px solid var(--adion-border); border-bottom: 0; }
+  .ui-workbench__queue { position: sticky; top: var(--ui-wb-top); grid-row: 1 / span 2; align-self: start; height: calc(var(--ui-tool-height, 100dvh) - var(--ui-wb-top)); overflow: auto; border-right: 1px solid var(--adion-border); border-bottom: 0; }
   .ui-workbench__main { padding: 0 20px 48px; }
   .ui-workbench.has-queue .ui-workbench__aside { grid-column: 2; }
 }
 @media (min-width: 1240px) {
   .ui-workbench.has-aside { grid-template-columns: minmax(0, 1fr) 312px; }
   .ui-workbench.has-queue.has-aside { grid-template-columns: 264px minmax(0, 1fr) 312px; }
-  .ui-workbench.has-queue .ui-workbench__aside, .ui-workbench__aside { grid-column: auto; position: sticky; top: var(--ui-wb-top); align-self: start; height: calc(100dvh - var(--ui-wb-top)); overflow: auto; border-top: 0; border-left: 1px solid var(--adion-border); }
+  .ui-workbench.has-queue .ui-workbench__aside, .ui-workbench__aside { grid-column: auto; position: sticky; top: var(--ui-wb-top); align-self: start; height: calc(var(--ui-tool-height, 100dvh) - var(--ui-wb-top)); overflow: auto; border-top: 0; border-left: 1px solid var(--adion-border); }
   .ui-workbench__queue { grid-row: auto; }
 }
 
@@ -3503,8 +3503,16 @@ button.ui-feed__line:hover { background: var(--adion-row-hover); }
 .ui-table__link:hover { text-decoration: underline; }
 
 /* La page en mode outil sans la coque du kit (UiToolPage) : la police et les couleurs du kit, une marge de page. */
-.ui-tool { align-content: start; max-width: none; padding: 14px 20px 40px; font-family: var(--adion-font-text); font-size: 13px; color: var(--adion-text-1); background: var(--adion-bg-0); }
+.ui-tool { align-content: start; max-width: none; padding: 14px 20px 40px; font-family: var(--adion-font-ui, 'Inter', system-ui, sans-serif); font-size: 13px; color: var(--adion-text-1); background: var(--adion-bg-0); }
 .ui-tool.is-flush { padding: 0; }
 @media (max-width: 720px) { .ui-tool { padding: 12px 16px 32px; } .ui-tool.is-flush { padding: 0; } }
 .ui-record__link { display: inline-flex; align-items: center; min-height: 24px; color: var(--adion-accent-text); text-decoration: none; }
 .ui-record__link:hover { text-decoration: underline; }
+.ui-props__custom { padding: 4px 14px 4px 30px; }
+/* Un code a presenter : le carre, puis les signes espaces pour se dicter. */
+.ui-pairing { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--adion-space-5); }
+.ui-pairing__image { flex: none; padding: 8px; border-radius: var(--adion-radius-card); background: #ffffff; }
+.ui-pairing__text { display: grid; justify-items: start; gap: var(--adion-space-2); min-width: 0; }
+.ui-pairing__label { font-size: var(--adion-text-sm); color: var(--adion-text-2); }
+.ui-pairing__code { font-family: var(--adion-font-mono); font-size: 30px; font-weight: 600; letter-spacing: 0.14em; line-height: 1.2; color: var(--adion-text-1); overflow-wrap: anywhere; }
+.ui-pairing__caption { margin: 0; font-size: var(--adion-text-sm); color: var(--adion-text-2); }
