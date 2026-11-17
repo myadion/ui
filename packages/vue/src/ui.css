@@ -3269,7 +3269,7 @@ html.ui-read-only .ui-edit-only { display: none !important; }
 :is(.ui-shell.is-tool, .ui-tool) .ui-sidebar { width: 236px; }
 :is(.ui-shell.is-tool, .ui-tool) .ui-sidebar__item { min-height: 28px; }
 
-:is(.ui-shell.is-tool, .ui-tool) .ui-header { padding: 0 0 2px; }
+:is(.ui-shell.is-tool, .ui-tool) .ui-header { margin-bottom: 0; padding: 0 0 2px; }
 :is(.ui-shell.is-tool, .ui-tool) .ui-header__title { font-size: 19px; font-weight: 500; }
 :is(.ui-shell.is-tool, .ui-tool) .ui-header__family { font-size: 11px; letter-spacing: 0.4px; text-transform: none; color: var(--adion-text-3); }
 :is(.ui-shell.is-tool, .ui-tool) .ui-header__lead { font-size: 13px; line-height: 1.45; color: var(--adion-text-3); }
@@ -3502,6 +3502,6 @@ button.ui-feed__line:hover { background: var(--adion-row-hover); }
 .ui-table__link:hover { text-decoration: underline; }
 
 /* La page en mode outil sans la coque du kit (UiToolPage) : la police et les couleurs du kit, une marge de page. */
-.ui-tool { max-width: none; padding: 14px 20px 40px; font-family: var(--adion-font-text); font-size: 13px; color: var(--adion-text-1); background: var(--adion-bg-0); }
+.ui-tool { align-content: start; max-width: none; padding: 14px 20px 40px; font-family: var(--adion-font-text); font-size: 13px; color: var(--adion-text-1); background: var(--adion-bg-0); }
 .ui-tool.is-flush { padding: 0; }
 @media (max-width: 720px) { .ui-tool { padding: 12px 16px 32px; } .ui-tool.is-flush { padding: 0; } }
